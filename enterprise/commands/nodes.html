@@ -1,0 +1,373 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Nodes - redisctl Documentation</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><li class="part-title">Introduction</li><li class="chapter-item "><a href="../../introduction.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="chapter-item "><a href="../../presentation/index.html"><strong aria-hidden="true">2.</strong> Presentation</a></li><li class="chapter-item "><a href="../../getting-started/quickstart.html"><strong aria-hidden="true">3.</strong> Quick Start</a></li><li class="chapter-item "><a href="../../getting-started/installation.html"><strong aria-hidden="true">4.</strong> Installation</a></li><li class="chapter-item affix "><li class="part-title">Common Features</li><li class="chapter-item "><a href="../../common-features/profiles.html"><strong aria-hidden="true">5.</strong> Profiles & Authentication</a></li><li class="chapter-item "><a href="../../common-features/output-formats.html"><strong aria-hidden="true">6.</strong> Output Formats</a></li><li class="chapter-item "><a href="../../common-features/jmespath-queries.html"><strong aria-hidden="true">7.</strong> JMESPath Queries</a></li><li class="chapter-item "><a href="../../common-features/async-operations.html"><strong aria-hidden="true">8.</strong> Async Operations</a></li><li class="chapter-item affix "><li class="part-title">Redis Cloud</li><li class="chapter-item "><a href="../../cloud/overview.html"><strong aria-hidden="true">9.</strong> Overview</a></li><li class="chapter-item "><a href="../../cloud/api.html"><strong aria-hidden="true">10.</strong> API Layer</a></li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> Commands</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../cloud/commands/databases.html"><strong aria-hidden="true">11.1.</strong> Databases</a></li><li class="chapter-item "><a href="../../cloud/commands/subscriptions.html"><strong aria-hidden="true">11.2.</strong> Subscriptions</a></li><li class="chapter-item "><a href="../../cloud/commands/access-control.html"><strong aria-hidden="true">11.3.</strong> Access Control</a></li><li class="chapter-item "><a href="../../cloud/commands/networking.html"><strong aria-hidden="true">11.4.</strong> Networking</a></li><li class="chapter-item "><a href="../../cloud/commands/tasks.html"><strong aria-hidden="true">11.5.</strong> Tasks</a></li></ol></li><li class="chapter-item "><a href="../../cloud/workflows.html"><strong aria-hidden="true">12.</strong> Workflows</a></li><li class="chapter-item affix "><li class="part-title">Redis Enterprise</li><li class="chapter-item "><a href="../../enterprise/overview.html"><strong aria-hidden="true">13.</strong> Overview</a></li><li class="chapter-item "><a href="../../enterprise/api.html"><strong aria-hidden="true">14.</strong> API Layer</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">15.</strong> Commands</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../enterprise/commands/cluster.html"><strong aria-hidden="true">15.1.</strong> Cluster</a></li><li class="chapter-item "><a href="../../enterprise/commands/databases.html"><strong aria-hidden="true">15.2.</strong> Databases</a></li><li class="chapter-item expanded "><a href="../../enterprise/commands/nodes.html" class="active"><strong aria-hidden="true">15.3.</strong> Nodes</a></li><li class="chapter-item "><a href="../../enterprise/commands/access-control.html"><strong aria-hidden="true">15.4.</strong> Access Control</a></li><li class="chapter-item "><a href="../../enterprise/commands/monitoring.html"><strong aria-hidden="true">15.5.</strong> Monitoring</a></li><li class="chapter-item "><a href="../../enterprise/commands/active-active.html"><strong aria-hidden="true">15.6.</strong> Active-Active</a></li></ol></li><li class="chapter-item "><a href="../../enterprise/workflows.html"><strong aria-hidden="true">16.</strong> Workflows</a></li><li class="chapter-item "><a href="../../enterprise/operations.html"><strong aria-hidden="true">17.</strong> Operations</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../enterprise/operations/support-package.html"><strong aria-hidden="true">17.1.</strong> Support Package</a></li><li class="chapter-item "><a href="../../enterprise/operations/license.html"><strong aria-hidden="true">17.2.</strong> License Management</a></li><li class="chapter-item "><a href="../../enterprise/operations/debuginfo.html"><strong aria-hidden="true">17.3.</strong> Debug Info</a></li><li class="chapter-item "><a href="../../enterprise/operations/diagnostics.html"><strong aria-hidden="true">17.4.</strong> Diagnostics</a></li><li class="chapter-item "><a href="../../enterprise/operations/migration.html"><strong aria-hidden="true">17.5.</strong> Migrations</a></li></ol></li><li class="chapter-item "><li class="part-title">Walkthrough</li><li class="chapter-item "><a href="../../walkthrough/overview.html"><strong aria-hidden="true">18.</strong> Overview & Concepts</a></li><li class="chapter-item "><a href="../../walkthrough/cloud-examples.html"><strong aria-hidden="true">19.</strong> Cloud Quick Examples</a></li><li class="chapter-item "><a href="../../walkthrough/enterprise-examples.html"><strong aria-hidden="true">20.</strong> Enterprise Quick Examples</a></li><li class="chapter-item affix "><li class="part-title">Cookbook</li><li class="chapter-item "><a href="../../cookbook/index.html"><strong aria-hidden="true">21.</strong> Overview</a></li><li class="chapter-item "><div><strong aria-hidden="true">22.</strong> Redis Cloud</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../cookbook/cloud/create-first-database.html"><strong aria-hidden="true">22.1.</strong> Create Your First Database</a></li><li class="chapter-item "><a href="../../cookbook/cloud/setup-vpc-peering.html"><strong aria-hidden="true">22.2.</strong> Set Up VPC Peering</a></li><li class="chapter-item "><a href="../../cookbook/cloud/configure-acls.html"><strong aria-hidden="true">22.3.</strong> Configure ACL Security</a></li><li class="chapter-item "><a href="../../cookbook/cloud/backup-restore.html"><strong aria-hidden="true">22.4.</strong> Backup and Restore</a></li><li class="chapter-item "><a href="../../cookbook/cloud/database-migration.html"><strong aria-hidden="true">22.5.</strong> Database Migration</a></li><li class="chapter-item "><a href="../../cookbook/cloud/active-active-setup.html"><strong aria-hidden="true">22.6.</strong> Active-Active Setup</a></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">23.</strong> Redis Enterprise</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../cookbook/enterprise/create-database.html"><strong aria-hidden="true">23.1.</strong> Create a Database</a></li><li class="chapter-item "><a href="../../cookbook/enterprise/support-package.html"><strong aria-hidden="true">23.2.</strong> Generate Support Package</a></li><li class="chapter-item "><a href="../../cookbook/enterprise/cluster-health.html"><strong aria-hidden="true">23.3.</strong> Cluster Health Monitoring</a></li><li class="chapter-item "><a href="../../cookbook/enterprise/node-management.html"><strong aria-hidden="true">23.4.</strong> Node Management</a></li><li class="chapter-item "><a href="../../cookbook/enterprise/configure-replication.html"><strong aria-hidden="true">23.5.</strong> Configure Replication</a></li><li class="chapter-item "><a href="../../cookbook/enterprise/configure-redis-acls.html"><strong aria-hidden="true">23.6.</strong> Configure Redis ACLs</a></li></ol></li><li class="chapter-item "><li class="part-title">Reference</li><li class="chapter-item "><a href="../../reference/environment-variables.html"><strong aria-hidden="true">24.</strong> Environment Variables</a></li><li class="chapter-item "><a href="../../reference/config-file.html"><strong aria-hidden="true">25.</strong> Configuration File</a></li><li class="chapter-item "><a href="../../reference/shell-completions.html"><strong aria-hidden="true">26.</strong> Shell Completions</a></li><li class="chapter-item "><a href="../../reference/security.html"><strong aria-hidden="true">27.</strong> Security</a></li><li class="chapter-item "><a href="../../reference/troubleshooting.html"><strong aria-hidden="true">28.</strong> Troubleshooting</a></li><li class="chapter-item "><a href="../../reference/rladmin.html"><strong aria-hidden="true">29.</strong> rladmin Comparison</a></li><li class="chapter-item affix "><li class="part-title">Developer</li><li class="chapter-item "><a href="../../developer/architecture.html"><strong aria-hidden="true">30.</strong> Architecture</a></li><li class="chapter-item "><a href="../../developer/libraries.html"><strong aria-hidden="true">31.</strong> Libraries</a></li><li class="chapter-item "><a href="../../developer/contributing.html"><strong aria-hidden="true">32.</strong> Contributing</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">redisctl Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/redis-developer/redisctl" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/redis-developer/redisctl/edit/main/docs/src/enterprise/commands/nodes.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="enterprise-nodes"><a class="header" href="#enterprise-nodes">Enterprise Nodes</a></h1>
+<p>Manage nodes in Redis Enterprise clusters.</p>
+<h2 id="commands"><a class="header" href="#commands">Commands</a></h2>
+<h3 id="list-nodes"><a class="header" href="#list-nodes">List Nodes</a></h3>
+<pre><code class="language-bash">redisctl enterprise node list [OPTIONS]
+</code></pre>
+<p><strong>Examples:</strong></p>
+<pre><code class="language-bash"># List all nodes
+redisctl enterprise node list
+
+# Table format
+redisctl enterprise node list -o table
+
+# Get node IPs and status
+redisctl enterprise node list -q "[].{id:uid,addr:addr,status:status}"
+</code></pre>
+<h3 id="get-node"><a class="header" href="#get-node">Get Node</a></h3>
+<pre><code class="language-bash">redisctl enterprise node get &lt;ID&gt; [OPTIONS]
+</code></pre>
+<p><strong>Examples:</strong></p>
+<pre><code class="language-bash"># Get node details
+redisctl enterprise node get 1
+
+# Get specific fields
+redisctl enterprise node get 1 -q "{addr:addr,cores:cores,memory:total_memory}"
+</code></pre>
+<h3 id="update-node"><a class="header" href="#update-node">Update Node</a></h3>
+<pre><code class="language-bash">redisctl enterprise node update &lt;ID&gt; --data &lt;JSON&gt;
+</code></pre>
+<p><strong>Examples:</strong></p>
+<pre><code class="language-bash"># Update node settings
+redisctl enterprise node update 1 --data '{"addr": "10.0.0.2"}'
+
+# Set rack ID
+redisctl enterprise node update 1 --data '{"rack_id": "rack-1"}'
+</code></pre>
+<h3 id="remove-node"><a class="header" href="#remove-node">Remove Node</a></h3>
+<pre><code class="language-bash">redisctl enterprise node remove &lt;ID&gt; [OPTIONS]
+</code></pre>
+<p>Remove a node from the cluster.</p>
+<p><strong>Examples:</strong></p>
+<pre><code class="language-bash"># Remove node
+redisctl enterprise node remove 3
+
+# Force remove (skip checks)
+redisctl enterprise node remove 3 --force
+</code></pre>
+<h2 id="node-actions"><a class="header" href="#node-actions">Node Actions</a></h2>
+<h3 id="maintenance-mode"><a class="header" href="#maintenance-mode">Maintenance Mode</a></h3>
+<pre><code class="language-bash"># Enter maintenance mode
+redisctl enterprise node action &lt;ID&gt; maintenance-on
+
+# Exit maintenance mode
+redisctl enterprise node action &lt;ID&gt; maintenance-off
+</code></pre>
+<h3 id="check-node-status"><a class="header" href="#check-node-status">Check Node Status</a></h3>
+<pre><code class="language-bash">redisctl enterprise node check &lt;ID&gt;
+</code></pre>
+<h2 id="node-stats"><a class="header" href="#node-stats">Node Stats</a></h2>
+<h3 id="get-node-statistics"><a class="header" href="#get-node-statistics">Get Node Statistics</a></h3>
+<pre><code class="language-bash">redisctl enterprise stats node &lt;ID&gt; [OPTIONS]
+</code></pre>
+<p><strong>Examples:</strong></p>
+<pre><code class="language-bash"># Current stats
+redisctl enterprise stats node 1
+
+# Stream continuously
+redisctl enterprise stats node 1 --follow
+
+# Get CPU and memory
+redisctl enterprise stats node 1 -q "{cpu:cpu_user,memory:free_memory}"
+</code></pre>
+<h2 id="joining-nodes"><a class="header" href="#joining-nodes">Joining Nodes</a></h2>
+<h3 id="join-node-to-cluster"><a class="header" href="#join-node-to-cluster">Join Node to Cluster</a></h3>
+<pre><code class="language-bash">redisctl enterprise cluster join --data &lt;JSON&gt;
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre><code class="language-bash">redisctl enterprise cluster join --data '{
+  "addr": "10.0.0.3",
+  "username": "admin@cluster.local",
+  "password": "password"
+}'
+</code></pre>
+<h2 id="common-patterns"><a class="header" href="#common-patterns">Common Patterns</a></h2>
+<h3 id="check-all-node-health"><a class="header" href="#check-all-node-health">Check All Node Health</a></h3>
+<pre><code class="language-bash">#!/bin/bash
+for node in $(redisctl enterprise node list -q '[].uid' | jq -r '.[]'); do
+  STATUS=$(redisctl enterprise node get $node -q 'status')
+  echo "Node $node: $STATUS"
+done
+</code></pre>
+<h3 id="get-total-cluster-resources"><a class="header" href="#get-total-cluster-resources">Get Total Cluster Resources</a></h3>
+<pre><code class="language-bash">redisctl enterprise node list -q '{
+  total_memory: sum([].total_memory),
+  total_cores: sum([].cores)
+}'
+</code></pre>
+<h3 id="monitor-node-resources"><a class="header" href="#monitor-node-resources">Monitor Node Resources</a></h3>
+<pre><code class="language-bash"># Watch node stats
+watch -n 5 "redisctl enterprise stats node 1 -q '{cpu:cpu_user,mem:free_memory}'"
+</code></pre>
+<h3 id="drain-node-before-removal"><a class="header" href="#drain-node-before-removal">Drain Node Before Removal</a></h3>
+<pre><code class="language-bash"># Put in maintenance mode
+redisctl enterprise node action 3 maintenance-on
+
+# Wait for shards to migrate
+sleep 60
+
+# Remove node
+redisctl enterprise node remove 3
+</code></pre>
+<h2 id="troubleshooting"><a class="header" href="#troubleshooting">Troubleshooting</a></h2>
+<h3 id="node-not-reachable"><a class="header" href="#node-not-reachable">"Node not reachable"</a></h3>
+<ul>
+<li>Check network connectivity</li>
+<li>Verify firewall rules allow cluster ports</li>
+<li>Check node services are running</li>
+</ul>
+<h3 id="cannot-remove-node"><a class="header" href="#cannot-remove-node">"Cannot remove node"</a></h3>
+<ul>
+<li>Ensure no master shards on node</li>
+<li>Put node in maintenance mode first</li>
+<li>Check cluster has enough resources</li>
+</ul>
+<h3 id="node-out-of-memory"><a class="header" href="#node-out-of-memory">"Node out of memory"</a></h3>
+<ul>
+<li>Add more nodes to cluster</li>
+<li>Reduce database memory allocations</li>
+<li>Check for memory leaks in applications</li>
+</ul>
+<h2 id="api-reference"><a class="header" href="#api-reference">API Reference</a></h2>
+<p>REST endpoints:</p>
+<ul>
+<li><code>GET /v1/nodes</code> - List nodes</li>
+<li><code>GET /v1/nodes/{id}</code> - Get node</li>
+<li><code>PUT /v1/nodes/{id}</code> - Update node</li>
+<li><code>DELETE /v1/nodes/{id}</code> - Remove node</li>
+<li><code>POST /v1/nodes/{id}/actions/{action}</code> - Node action</li>
+</ul>
+<p>For direct API access: <code>redisctl api enterprise get /v1/nodes</code></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../enterprise/commands/databases.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../enterprise/commands/access-control.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../enterprise/commands/databases.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../enterprise/commands/access-control.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

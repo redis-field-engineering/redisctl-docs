@@ -1,0 +1,524 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>JMESPath Queries - redisctl Documentation</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "ayu" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><li class="part-title">Introduction</li><li class="chapter-item "><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Overview</a></li><li class="chapter-item "><a href="../presentation/index.html"><strong aria-hidden="true">2.</strong> Presentation</a></li><li class="chapter-item "><a href="../getting-started/quickstart.html"><strong aria-hidden="true">3.</strong> Quick Start</a></li><li class="chapter-item "><a href="../getting-started/installation.html"><strong aria-hidden="true">4.</strong> Installation</a></li><li class="chapter-item affix "><li class="part-title">Common Features</li><li class="chapter-item "><a href="../common-features/profiles.html"><strong aria-hidden="true">5.</strong> Profiles & Authentication</a></li><li class="chapter-item "><a href="../common-features/output-formats.html"><strong aria-hidden="true">6.</strong> Output Formats</a></li><li class="chapter-item expanded "><a href="../common-features/jmespath-queries.html" class="active"><strong aria-hidden="true">7.</strong> JMESPath Queries</a></li><li class="chapter-item "><a href="../common-features/async-operations.html"><strong aria-hidden="true">8.</strong> Async Operations</a></li><li class="chapter-item affix "><li class="part-title">Redis Cloud</li><li class="chapter-item "><a href="../cloud/overview.html"><strong aria-hidden="true">9.</strong> Overview</a></li><li class="chapter-item "><a href="../cloud/api.html"><strong aria-hidden="true">10.</strong> API Layer</a></li><li class="chapter-item "><div><strong aria-hidden="true">11.</strong> Commands</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../cloud/commands/databases.html"><strong aria-hidden="true">11.1.</strong> Databases</a></li><li class="chapter-item "><a href="../cloud/commands/subscriptions.html"><strong aria-hidden="true">11.2.</strong> Subscriptions</a></li><li class="chapter-item "><a href="../cloud/commands/access-control.html"><strong aria-hidden="true">11.3.</strong> Access Control</a></li><li class="chapter-item "><a href="../cloud/commands/networking.html"><strong aria-hidden="true">11.4.</strong> Networking</a></li><li class="chapter-item "><a href="../cloud/commands/tasks.html"><strong aria-hidden="true">11.5.</strong> Tasks</a></li></ol></li><li class="chapter-item "><a href="../cloud/workflows.html"><strong aria-hidden="true">12.</strong> Workflows</a></li><li class="chapter-item affix "><li class="part-title">Redis Enterprise</li><li class="chapter-item "><a href="../enterprise/overview.html"><strong aria-hidden="true">13.</strong> Overview</a></li><li class="chapter-item "><a href="../enterprise/api.html"><strong aria-hidden="true">14.</strong> API Layer</a></li><li class="chapter-item "><div><strong aria-hidden="true">15.</strong> Commands</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../enterprise/commands/cluster.html"><strong aria-hidden="true">15.1.</strong> Cluster</a></li><li class="chapter-item "><a href="../enterprise/commands/databases.html"><strong aria-hidden="true">15.2.</strong> Databases</a></li><li class="chapter-item "><a href="../enterprise/commands/nodes.html"><strong aria-hidden="true">15.3.</strong> Nodes</a></li><li class="chapter-item "><a href="../enterprise/commands/access-control.html"><strong aria-hidden="true">15.4.</strong> Access Control</a></li><li class="chapter-item "><a href="../enterprise/commands/monitoring.html"><strong aria-hidden="true">15.5.</strong> Monitoring</a></li><li class="chapter-item "><a href="../enterprise/commands/active-active.html"><strong aria-hidden="true">15.6.</strong> Active-Active</a></li></ol></li><li class="chapter-item "><a href="../enterprise/workflows.html"><strong aria-hidden="true">16.</strong> Workflows</a></li><li class="chapter-item "><a href="../enterprise/operations.html"><strong aria-hidden="true">17.</strong> Operations</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../enterprise/operations/support-package.html"><strong aria-hidden="true">17.1.</strong> Support Package</a></li><li class="chapter-item "><a href="../enterprise/operations/license.html"><strong aria-hidden="true">17.2.</strong> License Management</a></li><li class="chapter-item "><a href="../enterprise/operations/debuginfo.html"><strong aria-hidden="true">17.3.</strong> Debug Info</a></li><li class="chapter-item "><a href="../enterprise/operations/diagnostics.html"><strong aria-hidden="true">17.4.</strong> Diagnostics</a></li><li class="chapter-item "><a href="../enterprise/operations/migration.html"><strong aria-hidden="true">17.5.</strong> Migrations</a></li></ol></li><li class="chapter-item "><li class="part-title">Walkthrough</li><li class="chapter-item "><a href="../walkthrough/overview.html"><strong aria-hidden="true">18.</strong> Overview & Concepts</a></li><li class="chapter-item "><a href="../walkthrough/cloud-examples.html"><strong aria-hidden="true">19.</strong> Cloud Quick Examples</a></li><li class="chapter-item "><a href="../walkthrough/enterprise-examples.html"><strong aria-hidden="true">20.</strong> Enterprise Quick Examples</a></li><li class="chapter-item affix "><li class="part-title">Cookbook</li><li class="chapter-item "><a href="../cookbook/index.html"><strong aria-hidden="true">21.</strong> Overview</a></li><li class="chapter-item "><div><strong aria-hidden="true">22.</strong> Redis Cloud</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../cookbook/cloud/create-first-database.html"><strong aria-hidden="true">22.1.</strong> Create Your First Database</a></li><li class="chapter-item "><a href="../cookbook/cloud/setup-vpc-peering.html"><strong aria-hidden="true">22.2.</strong> Set Up VPC Peering</a></li><li class="chapter-item "><a href="../cookbook/cloud/configure-acls.html"><strong aria-hidden="true">22.3.</strong> Configure ACL Security</a></li><li class="chapter-item "><a href="../cookbook/cloud/backup-restore.html"><strong aria-hidden="true">22.4.</strong> Backup and Restore</a></li><li class="chapter-item "><a href="../cookbook/cloud/database-migration.html"><strong aria-hidden="true">22.5.</strong> Database Migration</a></li><li class="chapter-item "><a href="../cookbook/cloud/active-active-setup.html"><strong aria-hidden="true">22.6.</strong> Active-Active Setup</a></li></ol></li><li class="chapter-item "><div><strong aria-hidden="true">23.</strong> Redis Enterprise</div><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../cookbook/enterprise/create-database.html"><strong aria-hidden="true">23.1.</strong> Create a Database</a></li><li class="chapter-item "><a href="../cookbook/enterprise/support-package.html"><strong aria-hidden="true">23.2.</strong> Generate Support Package</a></li><li class="chapter-item "><a href="../cookbook/enterprise/cluster-health.html"><strong aria-hidden="true">23.3.</strong> Cluster Health Monitoring</a></li><li class="chapter-item "><a href="../cookbook/enterprise/node-management.html"><strong aria-hidden="true">23.4.</strong> Node Management</a></li><li class="chapter-item "><a href="../cookbook/enterprise/configure-replication.html"><strong aria-hidden="true">23.5.</strong> Configure Replication</a></li><li class="chapter-item "><a href="../cookbook/enterprise/configure-redis-acls.html"><strong aria-hidden="true">23.6.</strong> Configure Redis ACLs</a></li></ol></li><li class="chapter-item "><li class="part-title">Reference</li><li class="chapter-item "><a href="../reference/environment-variables.html"><strong aria-hidden="true">24.</strong> Environment Variables</a></li><li class="chapter-item "><a href="../reference/config-file.html"><strong aria-hidden="true">25.</strong> Configuration File</a></li><li class="chapter-item "><a href="../reference/shell-completions.html"><strong aria-hidden="true">26.</strong> Shell Completions</a></li><li class="chapter-item "><a href="../reference/security.html"><strong aria-hidden="true">27.</strong> Security</a></li><li class="chapter-item "><a href="../reference/troubleshooting.html"><strong aria-hidden="true">28.</strong> Troubleshooting</a></li><li class="chapter-item "><a href="../reference/rladmin.html"><strong aria-hidden="true">29.</strong> rladmin Comparison</a></li><li class="chapter-item affix "><li class="part-title">Developer</li><li class="chapter-item "><a href="../developer/architecture.html"><strong aria-hidden="true">30.</strong> Architecture</a></li><li class="chapter-item "><a href="../developer/libraries.html"><strong aria-hidden="true">31.</strong> Libraries</a></li><li class="chapter-item "><a href="../developer/contributing.html"><strong aria-hidden="true">32.</strong> Contributing</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">redisctl Documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/redis-developer/redisctl" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/redis-developer/redisctl/edit/main/docs/src/common-features/jmespath-queries.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="jmespath-queries"><a class="header" href="#jmespath-queries">JMESPath Queries</a></h1>
+<p>Filter and transform output using JMESPath expressions with the <code>-q</code> or <code>--query</code> flag. redisctl includes 300+ extended functions beyond standard JMESPath.</p>
+<h2 id="basic-usage"><a class="header" href="#basic-usage">Basic Usage</a></h2>
+<pre><code class="language-bash"># Get specific field
+redisctl enterprise cluster get -q 'name'
+
+# Get nested field
+redisctl cloud database get 123:456 -q 'security.ssl_client_authentication'
+
+# Get multiple fields
+redisctl enterprise database get 1 -q '{name: name, memory: memory_size, port: port}'
+</code></pre>
+<h2 id="real-world-examples"><a class="header" href="#real-world-examples">Real-World Examples</a></h2>
+<p>These examples work with actual Redis Cloud API responses:</p>
+<h3 id="counting-and-aggregation"><a class="header" href="#counting-and-aggregation">Counting and Aggregation</a></h3>
+<pre><code class="language-bash"># Count all subscriptions
+redisctl cloud subscription list -o json -q 'length(@)'
+# Output: 192
+
+# Aggregate statistics across all subscriptions
+redisctl cloud subscription list -o json \
+  -q '{total_subscriptions: length(@), total_size_gb: sum([*].cloudDetails[0].totalSizeInGb), avg_size_gb: avg([*].cloudDetails[0].totalSizeInGb)}'
+# Output:
+# {
+#   "avg_size_gb": 1.96,
+#   "total_size_gb": 23.56,
+#   "total_subscriptions": 192
+# }
+</code></pre>
+<h3 id="projections---reshaping-data"><a class="header" href="#projections---reshaping-data">Projections - Reshaping Data</a></h3>
+<pre><code class="language-bash"># Extract specific fields from each subscription
+redisctl cloud subscription list -o json \
+  -q '[*].{id: id, name: name, provider: cloudDetails[0].provider, region: cloudDetails[0].regions[0].region} | [:5]'
+# Output:
+# [
+#   {"id": 2983053, "name": "time-series-demo", "provider": "AWS", "region": "ap-southeast-1"},
+#   {"id": 2988697, "name": "workshop-sub", "provider": "AWS", "region": "us-east-1"},
+#   ...
+# ]
+</code></pre>
+<h3 id="unique-values-and-sorting"><a class="header" href="#unique-values-and-sorting">Unique Values and Sorting</a></h3>
+<pre><code class="language-bash"># Get unique cloud providers
+redisctl cloud subscription list -o json -q '[*].cloudDetails[0].provider | unique(@)'
+# Output: ["AWS", "GCP"]
+
+# Get unique regions, sorted
+redisctl cloud subscription list -o json \
+  -q '[*].cloudDetails[0].regions[0].region | unique(@) | sort(@)'
+# Output: ["ap-northeast-1", "ap-south-1", "ap-southeast-1", "europe-west1", ...]
+
+# Sort subscription names alphabetically
+redisctl cloud subscription list -o json -q '[*].name | sort(@) | [:10]'
+</code></pre>
+<h3 id="filtering-with-patterns"><a class="header" href="#filtering-with-patterns">Filtering with Patterns</a></h3>
+<pre><code class="language-bash"># Find subscriptions containing 'demo'
+redisctl cloud subscription list -o json \
+  -q "[*].name | [?contains(@, 'demo')] | [:5]"
+# Output: ["xw-time-series-demo", "gabs-redis-streams-demo", "anton-live-demo", ...]
+
+# Filter by prefix
+redisctl cloud subscription list -o json \
+  -q "[*].name | [?starts_with(@, 'gabs')] | [:5]"
+# Output: ["gabs-aws-workshop-sub", "gabs-santander-rdi", "gabs-redis-streams-demo", ...]
+
+# Filter by suffix
+redisctl cloud subscription list -o json \
+  -q "[*].name | [?ends_with(@, 'demo')] | [:5]"
+</code></pre>
+<h3 id="string-transformations"><a class="header" href="#string-transformations">String Transformations</a></h3>
+<pre><code class="language-bash"># Convert names to uppercase
+redisctl cloud subscription list -o json -q 'map(&amp;upper(name), [*]) | [:3]'
+# Output: ["XW-TIME-SERIES-DEMO", "GABS-AWS-WORKSHOP-SUB", "BAMOS-TEST"]
+
+# Replace substrings
+redisctl cloud subscription list -o json \
+  -q "[*].{name: name, replaced: replace(name, 'demo', 'DEMO')} | [?contains(name, 'demo')] | [:3]"
+# Output:
+# [
+#   {"name": "xw-time-series-demo", "replaced": "xw-time-series-DEMO"},
+#   {"name": "gabs-redis-streams-demo", "replaced": "gabs-redis-streams-DEMO"},
+#   ...
+# ]
+</code></pre>
+<h3 id="fuzzy-matching-with-levenshtein-distance"><a class="header" href="#fuzzy-matching-with-levenshtein-distance">Fuzzy Matching with Levenshtein Distance</a></h3>
+<pre><code class="language-bash"># Find subscriptions with names similar to "production"
+redisctl cloud subscription list -o json \
+  -q "[*].{name: name, distance: levenshtein(name, 'production')} | sort_by(@, &amp;distance) | [:5]"
+# Output:
+# [
+#   {"distance": 8.0, "name": "piyush-db"},
+#   {"distance": 8.0, "name": "erni-rdi-1"},
+#   ...
+# ]
+</code></pre>
+<h3 id="sorting-by-computed-values"><a class="header" href="#sorting-by-computed-values">Sorting by Computed Values</a></h3>
+<pre><code class="language-bash"># Sort by name length (shortest first)
+redisctl cloud subscription list -o json \
+  -q "[*].{name: name, len: length(name)} | sort_by(@, &amp;len) | [:5]"
+# Output:
+# [
+#   {"len": 5, "name": "bgiri"},
+#   {"len": 6, "name": "abhidb"},
+#   {"len": 6, "name": "CM-rag"},
+#   ...
+# ]
+</code></pre>
+<h2 id="array-operations"><a class="header" href="#array-operations">Array Operations</a></h2>
+<pre><code class="language-bash"># Get all names from a list
+redisctl enterprise database list -q '[].name'
+
+# Get first item
+redisctl cloud subscription list -q '[0]'
+
+# Get specific fields from each item
+redisctl enterprise database list -q '[].{id: uid, name: name, status: status}'
+</code></pre>
+<h2 id="filtering"><a class="header" href="#filtering">Filtering</a></h2>
+<pre><code class="language-bash"># Filter by condition
+redisctl enterprise database list -q "[?status=='active']"
+
+# Filter and select fields
+redisctl cloud database list -q "[?memoryLimitInGb &gt; `1`].{name: name, memory: memoryLimitInGb}"
+
+# Multiple conditions
+redisctl enterprise database list -q "[?status=='active' &amp;&amp; memory_size &gt; `1073741824`]"
+</code></pre>
+<h2 id="pipelines"><a class="header" href="#pipelines">Pipelines</a></h2>
+<p>Chain operations together with <code>|</code> for complex transformations:</p>
+<pre><code class="language-bash"># Get unique regions -&gt; sort -&gt; count
+redisctl cloud subscription list -o json \
+  -q '[*].cloudDetails[0].regions[0].region | unique(@) | sort(@) | length(@)'
+# Output: 7
+
+# Filter -&gt; Sort -&gt; Take top 3 -&gt; Reshape
+redisctl enterprise database list -q '
+  [?status==`active`]
+  | sort_by(@, &amp;memory_size)
+  | reverse(@)
+  | [:3]
+  | [*].{name: name, memory_gb: to_string(memory_size / `1073741824`)}'
+</code></pre>
+<h2 id="extended-functions"><a class="header" href="#extended-functions">Extended Functions</a></h2>
+<p>redisctl includes 300+ extended JMESPath functions. Here are the most useful categories:</p>
+<h3 id="string-functions"><a class="header" href="#string-functions">String Functions</a></h3>
+<pre><code class="language-bash"># Case conversion
+redisctl cloud subscription list -o json -q '[*].{name: name, upper_name: upper(name)} | [:3]'
+
+# Trim whitespace
+redisctl enterprise database list -q '[].{name: trim(name)}'
+
+# Replace substrings
+redisctl cloud subscription list -o json \
+  -q "[*].{original: name, modified: replace(name, '-', '_')} | [:3]"
+</code></pre>
+<h3 id="formatting-functions"><a class="header" href="#formatting-functions">Formatting Functions</a></h3>
+<pre><code class="language-bash"># Format bytes (human readable)
+redisctl enterprise database list -q '[].{name: name, memory: format_bytes(memory_size)}'
+# Output: [{"name": "cache", "memory": "1.00 GB"}]
+
+# Format duration
+redisctl enterprise database list -q '[].{name: name, uptime: format_duration(uptime_seconds)}'
+# Output: [{"name": "cache", "uptime": "2d 5h 30m"}]
+</code></pre>
+<h3 id="datetime-functions"><a class="header" href="#datetime-functions">Date/Time Functions</a></h3>
+<pre><code class="language-bash"># Current timestamp
+redisctl cloud subscription list -o json -q '{count: length(@), timestamp: now()}'
+# Output: {"count": 192, "timestamp": 1765661197.0}
+
+# Human-readable relative time
+redisctl cloud task list -q '[].{id: id, created: time_ago(created_time)}'
+# Output: [{"id": "task-123", "created": "2 hours ago"}]
+</code></pre>
+<h3 id="network-functions"><a class="header" href="#network-functions">Network Functions</a></h3>
+<pre><code class="language-bash"># Check if IP is private
+redisctl enterprise node list -q '[?is_private_ip(addr)].addr'
+
+# Check CIDR containment
+redisctl enterprise node list -q '[?cidr_contains(`"10.0.0.0/8"`, addr)]'
+</code></pre>
+<h3 id="math-functions"><a class="header" href="#math-functions">Math Functions</a></h3>
+<pre><code class="language-bash"># Get max value
+redisctl cloud subscription list -o json -q '[*].cloudDetails[0].totalSizeInGb | max(@)'
+# Output: 23.2027
+
+# Statistics
+redisctl enterprise database list -q '{
+  total: sum([].memory_size),
+  avg: avg([].memory_size),
+  count: length(@)
+}'
+</code></pre>
+<h3 id="semver-functions"><a class="header" href="#semver-functions">Semver Functions</a></h3>
+<pre><code class="language-bash"># Compare versions
+redisctl enterprise cluster get -q '{
+  version: version,
+  needs_upgrade: semver_compare(version, `"7.4.0"`) &lt; `0`
+}'
+
+# Check version constraints
+redisctl enterprise node list -q '[?semver_satisfies(redis_version, `"&gt;=7.0.0"`)]'
+</code></pre>
+<h3 id="type-functions"><a class="header" href="#type-functions">Type Functions</a></h3>
+<pre><code class="language-bash"># Type checking
+redisctl cloud subscription list -o json -q '[*].{name: name, type: type_of(id)} | [:3]'
+# Output:
+# [
+#   {"name": "xw-time-series-demo", "type": "number"},
+#   ...
+# ]
+
+# Default values for missing fields
+redisctl cloud database get 123:456 -q '{name: name, region: default(region, `"unknown"`)}'
+
+# Check if empty
+redisctl enterprise database get 1 -q '{name: name, has_endpoints: not(is_empty(endpoints))}'
+</code></pre>
+<h3 id="utility-functions"><a class="header" href="#utility-functions">Utility Functions</a></h3>
+<pre><code class="language-bash"># Unique values
+redisctl cloud subscription list -o json -q 'unique([*].status)'
+# Output: ["active"]
+
+# Coalesce (first non-null)
+redisctl cloud database get 123:456 -q '{region: coalesce(region, cloud_region, `"default"`)}'
+</code></pre>
+<h3 id="fuzzy-matching"><a class="header" href="#fuzzy-matching">Fuzzy Matching</a></h3>
+<pre><code class="language-bash"># Levenshtein distance for fuzzy search
+redisctl cloud subscription list -o json \
+  -q "[*].{name: name, distance: levenshtein(name, 'cache')} | sort_by(@, &amp;distance) | [:5]"
+
+# Find similar names (distance &lt; 3)
+redisctl enterprise database list -q '[?levenshtein(name, `"cache"`) &lt; `3`]'
+</code></pre>
+<h3 id="encoding-functions"><a class="header" href="#encoding-functions">Encoding Functions</a></h3>
+<pre><code class="language-bash"># Base64 encode/decode
+redisctl enterprise cluster get -q '{encoded: base64_encode(name)}'
+
+# URL encode/decode
+redisctl api cloud get /subscriptions -q '[].{safe_name: url_encode(name)}'
+</code></pre>
+<h3 id="hash-functions"><a class="header" href="#hash-functions">Hash Functions</a></h3>
+<pre><code class="language-bash"># Generate hashes
+redisctl enterprise database list -q '[].{name: name, hash: sha256(name)}'
+</code></pre>
+<h3 id="json-patch-functions"><a class="header" href="#json-patch-functions">JSON Patch Functions</a></h3>
+<pre><code class="language-bash"># Compare two configs
+redisctl enterprise database get 1 -q 'json_diff(current_config, desired_config)'
+</code></pre>
+<h2 id="function-categories-reference"><a class="header" href="#function-categories-reference">Function Categories Reference</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Category</th><th>Example Functions</th></tr></thead><tbody>
+<tr><td>String</td><td><code>upper</code>, <code>lower</code>, <code>trim</code>, <code>replace</code>, <code>split</code>, <code>snake_case</code>, <code>camel_case</code></td></tr>
+<tr><td>Array</td><td><code>unique</code>, <code>flatten</code>, <code>chunk</code>, <code>zip</code>, <code>intersection</code></td></tr>
+<tr><td>Object</td><td><code>keys</code>, <code>values</code>, <code>pick</code>, <code>omit</code>, <code>deep_merge</code></td></tr>
+<tr><td>Math</td><td><code>round</code>, <code>floor</code>, <code>ceil</code>, <code>sum</code>, <code>avg</code>, <code>max</code>, <code>min</code>, <code>stddev</code></td></tr>
+<tr><td>Type</td><td><code>type_of</code>, <code>is_array</code>, <code>is_string</code>, <code>to_boolean</code></td></tr>
+<tr><td>Utility</td><td><code>if</code>, <code>coalesce</code>, <code>default</code>, <code>now</code></td></tr>
+<tr><td>DateTime</td><td><code>format_date</code>, <code>time_ago</code>, <code>relative_time</code>, <code>is_weekend</code></td></tr>
+<tr><td>Duration</td><td><code>format_duration</code>, <code>parse_duration</code></td></tr>
+<tr><td>Network</td><td><code>is_private_ip</code>, <code>cidr_contains</code>, <code>ip_to_int</code></td></tr>
+<tr><td>Computing</td><td><code>format_bytes</code>, <code>parse_bytes</code>, <code>bit_and</code>, <code>bit_or</code></td></tr>
+<tr><td>Validation</td><td><code>is_email</code>, <code>is_uuid</code>, <code>is_ipv4</code>, <code>is_url</code></td></tr>
+<tr><td>Encoding</td><td><code>base64_encode</code>, <code>base64_decode</code>, <code>url_encode</code></td></tr>
+<tr><td>Hash</td><td><code>md5</code>, <code>sha256</code>, <code>hmac_sha256</code></td></tr>
+<tr><td>Regex</td><td><code>regex_match</code>, <code>regex_replace</code>, <code>regex_extract</code></td></tr>
+<tr><td>Semver</td><td><code>semver_compare</code>, <code>semver_satisfies</code>, <code>semver_parse</code></td></tr>
+<tr><td>Fuzzy</td><td><code>levenshtein</code>, <code>soundex</code>, <code>jaro_winkler</code></td></tr>
+<tr><td>JSON Patch</td><td><code>json_diff</code>, <code>json_patch</code>, <code>json_merge_patch</code></td></tr>
+</tbody></table>
+</div>
+<p>For the complete list, see the <a href="https://docs.rs/jmespath_extensions">jmespath-extensions documentation</a>.</p>
+<h2 id="jmespath-syntax-reference"><a class="header" href="#jmespath-syntax-reference">JMESPath Syntax Reference</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Syntax</th><th>Description</th><th>Example</th></tr></thead><tbody>
+<tr><td><code>'value'</code></td><td>String literal</td><td><code>[?name=='cache']</code></td></tr>
+<tr><td><code>`123`</code></td><td>Number literal</td><td><code>[?size &gt; </code>1024<code>]</code></td></tr>
+<tr><td><code>`true`</code></td><td>Boolean literal</td><td><code>[?active == </code>true<code>]</code></td></tr>
+<tr><td><code>@</code></td><td>Current element</td><td><code>sort_by(@, &amp;name)</code></td></tr>
+<tr><td><code>.field</code></td><td>Child access</td><td><code>cluster.name</code></td></tr>
+<tr><td><code>[0]</code></td><td>Index access</td><td><code>nodes[0]</code></td></tr>
+<tr><td><code>[0:5]</code></td><td>Slice</td><td><code>databases[:5]</code></td></tr>
+<tr><td><code>[?expr]</code></td><td>Filter</td><td><code>[?status=='active']</code></td></tr>
+<tr><td><code>{k: v}</code></td><td>Multi-select</td><td><code>{id: uid, n: name}</code></td></tr>
+<tr><td><code>|</code></td><td>Pipe</td><td><code>[].name | sort(@)</code></td></tr>
+<tr><td><code>&amp;field</code></td><td>Expression reference</td><td><code>sort_by(@, &amp;name)</code></td></tr>
+</tbody></table>
+</div>
+<p>For full syntax, see <a href="https://jmespath.org/">jmespath.org</a>.</p>
+<h2 id="combining-with-output-formats"><a class="header" href="#combining-with-output-formats">Combining with Output Formats</a></h2>
+<pre><code class="language-bash"># Query then format as table
+redisctl enterprise database list \
+  -q "[?status=='active'].{name:name,memory:memory_size}" \
+  -o table
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../common-features/output-formats.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../common-features/async-operations.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../common-features/output-formats.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../common-features/async-operations.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
