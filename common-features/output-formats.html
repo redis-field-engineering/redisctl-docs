@@ -221,21 +221,31 @@ redisctl cloud subscription list -o table -q "[].{id:id,name:name,status:status}
 </code></pre>
 <h2 id="use-cases"><a class="header" href="#use-cases">Use Cases</a></h2>
 <div class="table-wrapper"><table><thead><tr><th>Format</th><th>Best For</th></tr></thead><tbody>
-<tr><td>JSON</td><td>Scripting, piping to <code>jq</code>, CI/CD</td></tr>
+<tr><td>JSON</td><td>Scripting, CI/CD pipelines</td></tr>
 <tr><td>Table</td><td>Interactive use, quick overview</td></tr>
 <tr><td>YAML</td><td>Config files, readable structured data</td></tr>
 </tbody></table>
 </div>
-<h2 id="piping-to-other-tools"><a class="header" href="#piping-to-other-tools">Piping to Other Tools</a></h2>
-<pre><code class="language-bash"># Parse with jq
-redisctl cloud database list | jq '.[0].name'
+<h2 id="using-jmespath-queries"><a class="header" href="#using-jmespath-queries">Using JMESPath Queries</a></h2>
+<p>Use the built-in <code>-q/--query</code> flag for filtering and transforming output without external tools:</p>
+<pre><code class="language-bash"># Get first database name
+redisctl cloud database list -q '[0].name'
 
 # Count items
-redisctl enterprise database list | jq 'length'
+redisctl enterprise database list -q 'length(@)'
 
-# Convert to CSV
-redisctl cloud subscription list -o json | jq -r '.[] | [.id, .name] | @csv'
+# Get specific fields from all items
+redisctl cloud subscription list -q '[].{id: id, name: name}'
+
+# Filter by condition
+redisctl enterprise database list -q "[?status=='active'].name"
+
+# Get raw values for shell scripts (no JSON quotes)
+redisctl cloud database list -q '[0].name' --raw
 </code></pre>
+<blockquote>
+<p><strong>Note</strong>: JMESPath is built into redisctl, so you don't need external tools like <code>jq</code> for most operations.</p>
+</blockquote>
 
                     </main>
 

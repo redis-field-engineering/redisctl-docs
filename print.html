@@ -618,21 +618,31 @@ redisctl cloud subscription list -o table -q "[].{id:id,name:name,status:status}
 </code></pre>
 <h2 id="use-cases"><a class="header" href="#use-cases">Use Cases</a></h2>
 <div class="table-wrapper"><table><thead><tr><th>Format</th><th>Best For</th></tr></thead><tbody>
-<tr><td>JSON</td><td>Scripting, piping to <code>jq</code>, CI/CD</td></tr>
+<tr><td>JSON</td><td>Scripting, CI/CD pipelines</td></tr>
 <tr><td>Table</td><td>Interactive use, quick overview</td></tr>
 <tr><td>YAML</td><td>Config files, readable structured data</td></tr>
 </tbody></table>
 </div>
-<h2 id="piping-to-other-tools"><a class="header" href="#piping-to-other-tools">Piping to Other Tools</a></h2>
-<pre><code class="language-bash"># Parse with jq
-redisctl cloud database list | jq '.[0].name'
+<h2 id="using-jmespath-queries"><a class="header" href="#using-jmespath-queries">Using JMESPath Queries</a></h2>
+<p>Use the built-in <code>-q/--query</code> flag for filtering and transforming output without external tools:</p>
+<pre><code class="language-bash"># Get first database name
+redisctl cloud database list -q '[0].name'
 
 # Count items
-redisctl enterprise database list | jq 'length'
+redisctl enterprise database list -q 'length(@)'
 
-# Convert to CSV
-redisctl cloud subscription list -o json | jq -r '.[] | [.id, .name] | @csv'
+# Get specific fields from all items
+redisctl cloud subscription list -q '[].{id: id, name: name}'
+
+# Filter by condition
+redisctl enterprise database list -q "[?status=='active'].name"
+
+# Get raw values for shell scripts (no JSON quotes)
+redisctl cloud database list -q '[0].name' --raw
 </code></pre>
+<blockquote>
+<p><strong>Note</strong>: JMESPath is built into redisctl, so you don't need external tools like <code>jq</code> for most operations.</p>
+</blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="jmespath-queries"><a class="header" href="#jmespath-queries">JMESPath Queries</a></h1>
 <p>Filter and transform output using JMESPath expressions with the <code>-q</code> or <code>--query</code> flag. redisctl includes 300+ extended functions beyond standard JMESPath.</p>
 <h2 id="basic-usage"><a class="header" href="#basic-usage">Basic Usage</a></h2>
@@ -1225,11 +1235,8 @@ done
 redisctl api cloud get /tasks/$TASK_ID -q 'response.resourceId'
 </code></pre>
 <h3 id="bulk-operations"><a class="header" href="#bulk-operations">Bulk Operations</a></h3>
-<pre><code class="language-bash"># Get all database IDs
-DBS=$(redisctl api cloud get /subscriptions/123/databases -q '[].databaseId')
-
-# Process each
-for db in $(echo $DBS | jq -r '.[]'); do
+<pre><code class="language-bash"># Get all database IDs and process each
+for db in $(redisctl api cloud get /subscriptions/123/databases -q '[].databaseId' --raw); do
   redisctl api cloud get /subscriptions/123/databases/$db
 done
 </code></pre>
@@ -1411,9 +1418,8 @@ redisctl cloud database backup 123456:789 --wait
 </code></pre>
 <h2 id="common-patterns"><a class="header" href="#common-patterns">Common Patterns</a></h2>
 <h3 id="get-connection-string"><a class="header" href="#get-connection-string">Get Connection String</a></h3>
-<pre><code class="language-bash">DB=$(redisctl cloud database get 123456:789)
-ENDPOINT=$(echo $DB | jq -r '.publicEndpoint')
-PASSWORD=$(echo $DB | jq -r '.password')
+<pre><code class="language-bash">ENDPOINT=$(redisctl cloud database get 123456:789 -q 'publicEndpoint')
+PASSWORD=$(redisctl cloud database get 123456:789 -q 'password')
 echo "redis://:$PASSWORD@$ENDPOINT"
 </code></pre>
 <h3 id="monitor-databases"><a class="header" href="#monitor-databases">Monitor Databases</a></h3>
@@ -1423,8 +1429,8 @@ redisctl cloud database list \
   -o table
 </code></pre>
 <h3 id="bulk-operations-1"><a class="header" href="#bulk-operations-1">Bulk Operations</a></h3>
-<pre><code class="language-bash"># List all database IDs
-for db in $(redisctl cloud database list -q "[].databaseId" | jq -r '.[]'); do
+<pre><code class="language-bash"># Process all database IDs
+for db in $(redisctl cloud database list -q '[].databaseId' --raw); do
   echo "Processing $db"
 done
 </code></pre>
@@ -1620,19 +1626,16 @@ redisctl cloud subscription delete 123456 --wait
 </ul>
 <h2 id="common-patterns-1"><a class="header" href="#common-patterns-1">Common Patterns</a></h2>
 <h3 id="list-all-databases-across-subscriptions"><a class="header" href="#list-all-databases-across-subscriptions">List All Databases Across Subscriptions</a></h3>
-<pre><code class="language-bash"># Get all subscription IDs
-SUBS=$(redisctl cloud subscription list -q "[].id" | jq -r '.[]')
-
-# List databases for each subscription
-for sub in $SUBS; do
+<pre><code class="language-bash"># List databases for each subscription
+for sub in $(redisctl cloud subscription list -q '[].id' --raw); do
   echo "Subscription $sub:"
   redisctl cloud database list --subscription $sub
 done
 </code></pre>
 <h3 id="monitor-subscription-usage"><a class="header" href="#monitor-subscription-usage">Monitor Subscription Usage</a></h3>
 <pre><code class="language-bash"># Get memory usage across all databases
-redisctl cloud subscription get 123456 -q "databases[].{name: name, memory: memoryLimitInGb}" | \
-  jq -r '.[] | "\(.name): \(.memory)GB"'
+redisctl cloud subscription get 123456 \
+  -q "databases[].{name: name, memory: memoryLimitInGb}" -o table
 </code></pre>
 <h2 id="troubleshooting-2"><a class="header" href="#troubleshooting-2">Troubleshooting</a></h2>
 <h3 id="common-issues"><a class="header" href="#common-issues">Common Issues</a></h3>
@@ -1843,7 +1846,7 @@ PEERING=$(redisctl cloud vpc-peering create \
   }' --wait)
 
 echo "Accept peering request in AWS Console"
-echo "Peering ID: $(echo $PEERING | jq -r '.vpcPeeringId')"
+echo "Peering ID: $(redisctl cloud vpc-peering list --subscription 123456 -q '[0].vpcPeeringId')"
 </code></pre>
 <h3 id="list-all-network-connections"><a class="header" href="#list-all-network-connections">List All Network Connections</a></h3>
 <pre><code class="language-bash"># VPC peerings
@@ -2108,9 +2111,8 @@ redisctl cloud vpc-peering list --subscription &lt;ID&gt;
   --memory-limit-in-gb 10 --create-database --database-name cache
 </code></pre>
 <p><strong>Manual equivalent:</strong></p>
-<pre><code class="language-bash"># 1. Create subscription
-SUB=$(redisctl cloud subscription create --data '{...}' --wait)
-SUB_ID=$(echo $SUB | jq -r '.id')
+<pre><code class="language-bash"># 1. Create subscription and get ID
+SUB_ID=$(redisctl cloud subscription create --data '{...}' --wait -q 'id')
 
 # 2. Wait for active status
 while [ "$(redisctl cloud subscription get $SUB_ID -q 'status')" != "active" ]; do
@@ -2355,8 +2357,7 @@ done
 <pre><code class="language-bash">#!/bin/bash
 # Check cluster health via API
 
-CLUSTER=$(redisctl api enterprise get /v1/cluster)
-STATUS=$(echo $CLUSTER | jq -r '.status')
+STATUS=$(redisctl api enterprise get /v1/cluster -q 'status')
 
 if [ "$STATUS" != "active" ]; then
   echo "Cluster unhealthy: $STATUS"
@@ -2364,8 +2365,7 @@ if [ "$STATUS" != "active" ]; then
 fi
 
 # Check nodes
-NODES=$(redisctl api enterprise get /v1/nodes -q '[].{id:uid,status:status}')
-echo "Nodes: $NODES"
+redisctl api enterprise get /v1/nodes -q '[].{id: uid, status: status}' -o table
 </code></pre>
 <h3 id="watch-stats"><a class="header" href="#watch-stats">Watch Stats</a></h3>
 <pre><code class="language-bash"># Poll stats every 5 seconds
@@ -2597,7 +2597,7 @@ redisctl enterprise cluster stats -q "{
   cpu: cpu_usage_percent,
   memory: memory_usage_percent,
   disk: persistent_storage_usage_percent
-}" | jq
+}"
 </code></pre>
 <h3 id="backup-cluster-configuration"><a class="header" href="#backup-cluster-configuration">Backup Cluster Configuration</a></h3>
 <pre><code class="language-bash"># Export cluster config
@@ -2768,9 +2768,8 @@ redisctl enterprise database backup 1
 </code></pre>
 <h2 id="common-patterns-3"><a class="header" href="#common-patterns-3">Common Patterns</a></h2>
 <h3 id="get-connection-string-1"><a class="header" href="#get-connection-string-1">Get Connection String</a></h3>
-<pre><code class="language-bash">DB=$(redisctl enterprise database get 1)
-ENDPOINT=$(echo $DB | jq -r '.endpoints[0].addr[0]')
-PORT=$(echo $DB | jq -r '.port')
+<pre><code class="language-bash">ENDPOINT=$(redisctl enterprise database get 1 -q 'endpoints[0].addr[0]')
+PORT=$(redisctl enterprise database get 1 -q 'port')
 echo "redis://$ENDPOINT:$PORT"
 </code></pre>
 <h3 id="monitor-memory-usage"><a class="header" href="#monitor-memory-usage">Monitor Memory Usage</a></h3>
@@ -2780,7 +2779,7 @@ echo "redis://$ENDPOINT:$PORT"
 </code></pre>
 <h3 id="bulk-update-databases"><a class="header" href="#bulk-update-databases">Bulk Update Databases</a></h3>
 <pre><code class="language-bash"># Update all databases
-for id in $(redisctl enterprise database list -q '[].uid' | jq -r '.[]'); do
+for id in $(redisctl enterprise database list -q '[].uid' --raw); do
   echo "Updating database $id"
   redisctl enterprise database update $id --data '{"eviction_policy": "volatile-lru"}'
 done
@@ -2905,7 +2904,7 @@ redisctl enterprise stats node 1 -q "{cpu:cpu_user,memory:free_memory}"
 <h2 id="common-patterns-4"><a class="header" href="#common-patterns-4">Common Patterns</a></h2>
 <h3 id="check-all-node-health"><a class="header" href="#check-all-node-health">Check All Node Health</a></h3>
 <pre><code class="language-bash">#!/bin/bash
-for node in $(redisctl enterprise node list -q '[].uid' | jq -r '.[]'); do
+for node in $(redisctl enterprise node list -q '[].uid' --raw); do
   STATUS=$(redisctl enterprise node get $node -q 'status')
   echo "Node $node: $STATUS"
 done
@@ -3117,7 +3116,7 @@ redisctl enterprise user list \
   -o table
 </code></pre>
 <h3 id="rotate-all-passwords"><a class="header" href="#rotate-all-passwords">Rotate All Passwords</a></h3>
-<pre><code class="language-bash">for user in $(redisctl enterprise user list -q '[].uid' | jq -r '.[]'); do
+<pre><code class="language-bash">for user in $(redisctl enterprise user list -q '[].uid' --raw); do
   NEW_PASS=$(openssl rand -base64 16)
   redisctl enterprise user update $user --data "{\"password\": \"$NEW_PASS\"}"
   echo "User $user: $NEW_PASS"
@@ -3286,15 +3285,15 @@ echo "=== Cluster Health ==="
 
 # Cluster stats
 echo "Cluster:"
-redisctl enterprise stats cluster -q "{cpu:cpu_user,memory:free_memory}" | jq
+redisctl enterprise stats cluster -q "{cpu: cpu_user, memory: free_memory}"
 
 # Node status
 echo "Nodes:"
-redisctl enterprise node list -q "[].{id:uid,status:status}" -o table
+redisctl enterprise node list -q "[].{id: uid, status: status}" -o table
 
 # Active alerts
 echo "Alerts:"
-redisctl enterprise alerts list -q "[?state=='active'].{type:type,severity:severity}" -o table
+redisctl enterprise alerts list -q "[?state=='active'].{type: type, severity: severity}" -o table
 </code></pre>
 <h3 id="monitor-database-performance"><a class="header" href="#monitor-database-performance">Monitor Database Performance</a></h3>
 <pre><code class="language-bash"># Watch database ops/sec
@@ -3648,7 +3647,7 @@ echo "Node joined, waiting for sync..."
 sleep 30
 
 # Verify node is active
-STATUS=$(redisctl enterprise node list -q "[?addr[0]=='$NEW_NODE'].status" | jq -r '.[0]')
+STATUS=$(redisctl enterprise node list -q "[?addr[0]=='$NEW_NODE'].status | [0]")
 if [ "$STATUS" != "active" ]; then
   echo "Node not active: $STATUS"
   exit 1
@@ -3690,9 +3689,7 @@ echo "Migration complete: $SOURCE_DB -&gt; $NEW_DB"
 set -e
 
 # Get all nodes
-NODES=$(redisctl enterprise node list -q '[].uid' | jq -r '.[]')
-
-for node in $NODES; do
+for node in $(redisctl enterprise node list -q '[].uid' --raw); do
   echo "Restarting node $node..."
   
   # Put in maintenance
@@ -4646,15 +4643,14 @@ fi
 <pre><code class="language-bash">#!/bin/bash
 # Email alert for expiring licenses
 
-AUDIT=$(redisctl enterprise workflow license audit --expiring -o json)
-COUNT=$(echo "$AUDIT" | jq 'length')
+COUNT=$(redisctl enterprise workflow license audit --expiring -q 'length(@)')
 
 if [ "$COUNT" -gt 0 ]; then
     echo "Warning: $COUNT licenses expiring soon!" | \
         mail -s "Redis Enterprise License Alert" admin@company.com
     
-    echo "$AUDIT" | jq -r '.[] | 
-        "Profile: \(.profile) - Expires: \(.expiration_date) (\(.days_remaining) days)"'
+    redisctl enterprise workflow license audit --expiring \
+      -q "[].{profile: profile, expires: expiration_date, days: days_remaining}" -o table
 fi
 </code></pre>
 <h3 id="monthly-compliance-report"><a class="header" href="#monthly-compliance-report">Monthly Compliance Report</a></h3>
@@ -5160,7 +5156,7 @@ redisctl enterprise diagnostics run
 REPORT=$(redisctl enterprise diagnostics last-report)
 
 # Check for critical issues
-CRITICAL=$(echo "$REPORT" | jq '.issues | map(select(.severity == "critical")) | length')
+CRITICAL=$(redisctl enterprise diagnostics last-report -q "issues[?severity=='critical'] | length(@)")
 
 if [ "$CRITICAL" -gt 0 ]; then
   # Send alert for critical issues
@@ -5177,8 +5173,10 @@ redisctl enterprise diagnostics list-reports \
   --data '{"start_date": "2024-01-01", "end_date": "2024-01-31"}' \
   -o json &gt; monthly-diagnostics.json
 
-# Extract key metrics
-jq '.[] | {date: .timestamp, health_score: .summary.health_score}' monthly-diagnostics.json
+# Extract key metrics using JMESPath
+redisctl enterprise diagnostics list-reports \
+  --data '{"start_date": "2024-01-01", "end_date": "2024-01-31"}' \
+  -q "[].{date: timestamp, health_score: summary.health_score}"
 </code></pre>
 <h3 id="pre-maintenance-check"><a class="header" href="#pre-maintenance-check">Pre-Maintenance Check</a></h3>
 <pre><code class="language-bash"># Run comprehensive diagnostics before maintenance
@@ -5419,7 +5417,7 @@ EOF
 <pre><code class="language-bash">#!/bin/bash
 # backup.sh - Daily backup script
 
-DBS=$(redisctl enterprise database list -q '[].uid' -o json | jq -r '.[]')
+DBS=$(redisctl enterprise database list -q '[].uid' --raw)
 
 for DB in $DBS; do
   echo "Backing up database $DB"
@@ -5516,7 +5514,7 @@ redisctl enterprise database get &lt;bdb_uid&gt; -q 'backup_configuration'
 <p>Before redisctl, managing Redis deployments meant:</p>
 <ul>
 <li><strong>Manual UI clicking</strong> - No way to script operations</li>
-<li><strong>Fragile bash scripts</strong> - curl + jq with hardcoded endpoints</li>
+<li><strong>Fragile bash scripts</strong> - curl with hardcoded endpoints and manual JSON parsing</li>
 <li><strong>Polling loops</strong> - Writing custom logic to wait for async operations</li>
 <li><strong>Credential exposure</strong> - Passwords on command lines or in plaintext</li>
 <li><strong>Reinventing the wheel</strong> - Every team writing the same scripts</li>
@@ -5683,13 +5681,12 @@ redisctl cloud workflow subscription-setup \
 </ol>
 <h2 id="common-patterns-7"><a class="header" href="#common-patterns-7">Common Patterns</a></h2>
 <h3 id="get-database-connection-string"><a class="header" href="#get-database-connection-string">Get Database Connection String</a></h3>
-<pre><code class="language-bash">DB=$(redisctl cloud database get 123456:789)
-ENDPOINT=$(echo $DB | jq -r '.publicEndpoint')
-PASSWORD=$(echo $DB | jq -r '.password')
+<pre><code class="language-bash">ENDPOINT=$(redisctl cloud database get 123456:789 -q 'publicEndpoint')
+PASSWORD=$(redisctl cloud database get 123456:789 -q 'password')
 echo "redis://:$PASSWORD@$ENDPOINT"
 </code></pre>
 <h3 id="list-all-databases-across-subscriptions-1"><a class="header" href="#list-all-databases-across-subscriptions-1">List All Databases Across Subscriptions</a></h3>
-<pre><code class="language-bash">for sub in $(redisctl cloud subscription list -q '[].id' | jq -r '.[]'); do
+<pre><code class="language-bash">for sub in $(redisctl cloud subscription list -q '[].id' --raw); do
   echo "=== Subscription $sub ==="
   redisctl cloud database list --subscription $sub -o table
 done
@@ -5844,7 +5841,7 @@ watch -n 5 "redisctl enterprise stats cluster \
 </code></pre>
 <h3 id="bulk-database-operations"><a class="header" href="#bulk-database-operations">Bulk Database Operations</a></h3>
 <pre><code class="language-bash"># Update eviction policy on all databases
-for db in $(redisctl enterprise database list -q '[].uid' | jq -r '.[]'); do
+for db in $(redisctl enterprise database list -q '[].uid' --raw); do
   echo "Updating database $db"
   redisctl enterprise database update $db \
     --data '{"eviction_policy": "volatile-lru"}'
@@ -5860,7 +5857,7 @@ redisctl enterprise user list &gt; users-$DATE.json
 </code></pre>
 <h3 id="rolling-node-maintenance"><a class="header" href="#rolling-node-maintenance">Rolling Node Maintenance</a></h3>
 <pre><code class="language-bash">#!/bin/bash
-for node in $(redisctl enterprise node list -q '[].uid' | jq -r '.[]'); do
+for node in $(redisctl enterprise node list -q '[].uid' --raw); do
   echo "Maintaining node $node..."
   
   # Enter maintenance mode
@@ -6095,7 +6092,7 @@ redisctl cloud database create \
   --wait \
   -o json)
 
-DB_ID=$(echo "$DB_INFO" | jq -r '.database_id')
+DB_ID=$(redisctl cloud database list --subscription $SUB_ID -q '[0].databaseId')
 echo "Created database: $DB_ID"
 </code></pre>
 <h2 id="common-issues-3"><a class="header" href="#common-issues-3">Common Issues</a></h2>
@@ -6660,8 +6657,8 @@ redisctl cloud acl create-acl-user --subscription 42 \
 }
 EOF
 
-# Create rules
-jq -r '.rules[] | @json' acl-setup.json | while read rule; do
+# Create rules - using jq to extract JSON objects from array
+for rule in $(jq -c '.rules[]' acl-setup.json); do
   redisctl cloud acl create-redis-rule \
     --subscription 42 \
     --data "$rule" \
@@ -6669,7 +6666,7 @@ jq -r '.rules[] | @json' acl-setup.json | while read rule; do
 done
 
 # Create roles
-jq -r '.roles[] | @json' acl-setup.json | while read role; do
+for role in $(jq -c '.roles[]' acl-setup.json); do
   redisctl cloud acl create-role \
     --subscription 42 \
     --data "$role" \
@@ -6677,7 +6674,7 @@ jq -r '.roles[] | @json' acl-setup.json | while read role; do
 done
 
 # Create users
-jq -r '.users[] | @json' acl-setup.json | while read user; do
+for user in $(jq -c '.users[]' acl-setup.json); do
   redisctl cloud acl create-acl-user \
     --subscription 42 \
     --data "$user" \
@@ -6958,12 +6955,11 @@ redisctl cloud database create \
 </code></pre>
 <h3 id="scenario-3-clone-production-to-staging"><a class="header" href="#scenario-3-clone-production-to-staging">Scenario 3: Clone Production to Staging</a></h3>
 <p>Use backups to create staging environments:</p>
-<pre><code class="language-bash"># Get latest production backup
+<pre><code class="language-bash"># Get latest production backup using JMESPath
 BACKUP_ID=$(redisctl cloud database backup-status \
   --database-id 42:12345 \
-  -o json \
   -q 'last_backup.backup_id' \
-  | jq -r '.')
+  --raw)
 
 # Create staging database from production backup
 redisctl cloud database create \
@@ -7059,6 +7055,7 @@ BACKUP_RESULT=$(redisctl cloud database backup \
   --wait \
   -o json)
 
+# Extract backup_id using jq (result is JSON from redisctl)
 BACKUP_ID=$(echo "$BACKUP_RESULT" | jq -r '.backup_id')
 
 echo "Backup created: $BACKUP_ID"
@@ -7115,17 +7112,18 @@ BACKUP_STATUS=$(redisctl cloud database backup-status \
   --database-id ${SUBSCRIPTION_ID}:${DATABASE_ID} \
   -o json)
 
+# Parse JSON output with jq
 LAST_BACKUP_TIME=$(echo "$BACKUP_STATUS" | jq -r '.last_backup.timestamp')
-BACKUP_STATUS=$(echo "$BACKUP_STATUS" | jq -r '.last_backup.status')
+LAST_BACKUP_STATUS=$(echo "$BACKUP_STATUS" | jq -r '.last_backup.status')
 
 # Calculate age in hours
 CURRENT_TIME=$(date +%s)
 BACKUP_TIME=$(date -d "$LAST_BACKUP_TIME" +%s)
 AGE_HOURS=$(( ($CURRENT_TIME - $BACKUP_TIME) / 3600 ))
 
-if [ "$BACKUP_STATUS" != "completed" ] || [ $AGE_HOURS -gt $MAX_AGE_HOURS ]; then
+if [ "$LAST_BACKUP_STATUS" != "completed" ] || [ $AGE_HOURS -gt $MAX_AGE_HOURS ]; then
     echo "ALERT: Backup health check failed!"
-    echo "Status: $BACKUP_STATUS"
+    echo "Status: $LAST_BACKUP_STATUS"
     echo "Age: $AGE_HOURS hours"
     # Send alert (email, Slack, PagerDuty, etc.)
     exit 1
@@ -8232,7 +8230,7 @@ redisctl enterprise support-package database \
   --no-save \
   -o json)
 
-URL=$(echo "$RESULT" | jq -r '.upload_url')
+URL=$(redisctl enterprise support-package cluster -q 'upload_url')
 echo "Share this URL with Redis Support:"
 echo "$URL"
 </code></pre>
@@ -8550,12 +8548,17 @@ echo "Node $NODE_ID drained"
 echo "Node Health Report"
 echo "==================" 
 
-redisctl enterprise node list -o json | jq -r '
-  .[] | 
-  "Node \(.uid): \(.status) - CPU: \(.cpu_idle)% idle, " +
-  "Memory: \((.used_memory / .total_memory * 100 | floor))% used, " +
-  "Shards: \(.shard_count)"
-'
+# Using JMESPath sprintf() for formatted string output
+redisctl enterprise node list -q '
+  [].sprintf(
+    `"Node %s: %s - CPU: %.0f%% idle, Memory: %.0f%% used, Shards: %d"`,
+    uid, status, cpu_idle,
+    multiply(divide(used_memory, total_memory), `100`),
+    shard_count
+  )' --raw
+
+# Alternative: Use JMESPath for structured table output
+redisctl enterprise node list -q '[].{node: uid, status: status, cpu_idle: cpu_idle, shards: shard_count}' -o table
 </code></pre>
 <h3 id="resource-alerts"><a class="header" href="#resource-alerts">Resource Alerts</a></h3>
 <pre><code class="language-bash"># Check for nodes with high resource usage
@@ -10209,7 +10212,7 @@ export REDIS_SUBSCRIPTION_ID=123456
 <p><strong>Problem:</strong> JMESPath query errors or unexpected output</p>
 <p><strong>Solutions:</strong></p>
 <pre><code class="language-bash"># Test query separately
-redisctl cloud subscription list -o json | jq .
+redisctl cloud subscription list
 redisctl cloud subscription list -q "[].name"
 
 # Escape special characters
@@ -10327,8 +10330,8 @@ done
 redisctl cloud database list --subscription 123 &gt; databases.json
 
 # Process with streaming tools
-redisctl cloud database list --subscription 123 | jq -c '.[]' | while read db; do
-  echo "Processing: $(echo $db | jq -r .name)"
+for db_name in $(redisctl cloud database list --subscription 123 -q '[].name' --raw); do
+  echo "Processing: $db_name"
 done
 </code></pre>
 <h2 id="debug-techniques"><a class="header" href="#debug-techniques">Debug Techniques</a></h2>

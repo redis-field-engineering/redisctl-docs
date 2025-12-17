@@ -300,12 +300,17 @@ echo "Node $NODE_ID drained"
 echo "Node Health Report"
 echo "==================" 
 
-redisctl enterprise node list -o json | jq -r '
-  .[] | 
-  "Node \(.uid): \(.status) - CPU: \(.cpu_idle)% idle, " +
-  "Memory: \((.used_memory / .total_memory * 100 | floor))% used, " +
-  "Shards: \(.shard_count)"
-'
+# Using JMESPath sprintf() for formatted string output
+redisctl enterprise node list -q '
+  [].sprintf(
+    `"Node %s: %s - CPU: %.0f%% idle, Memory: %.0f%% used, Shards: %d"`,
+    uid, status, cpu_idle,
+    multiply(divide(used_memory, total_memory), `100`),
+    shard_count
+  )' --raw
+
+# Alternative: Use JMESPath for structured table output
+redisctl enterprise node list -q '[].{node: uid, status: status, cpu_idle: cpu_idle, shards: shard_count}' -o table
 </code></pre>
 <h3 id="resource-alerts"><a class="header" href="#resource-alerts">Resource Alerts</a></h3>
 <pre><code class="language-bash"># Check for nodes with high resource usage

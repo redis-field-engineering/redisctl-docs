@@ -300,9 +300,8 @@ redisctl enterprise database backup 1
 </code></pre>
 <h2 id="common-patterns"><a class="header" href="#common-patterns">Common Patterns</a></h2>
 <h3 id="get-connection-string"><a class="header" href="#get-connection-string">Get Connection String</a></h3>
-<pre><code class="language-bash">DB=$(redisctl enterprise database get 1)
-ENDPOINT=$(echo $DB | jq -r '.endpoints[0].addr[0]')
-PORT=$(echo $DB | jq -r '.port')
+<pre><code class="language-bash">ENDPOINT=$(redisctl enterprise database get 1 -q 'endpoints[0].addr[0]')
+PORT=$(redisctl enterprise database get 1 -q 'port')
 echo "redis://$ENDPOINT:$PORT"
 </code></pre>
 <h3 id="monitor-memory-usage"><a class="header" href="#monitor-memory-usage">Monitor Memory Usage</a></h3>
@@ -312,7 +311,7 @@ echo "redis://$ENDPOINT:$PORT"
 </code></pre>
 <h3 id="bulk-update-databases"><a class="header" href="#bulk-update-databases">Bulk Update Databases</a></h3>
 <pre><code class="language-bash"># Update all databases
-for id in $(redisctl enterprise database list -q '[].uid' | jq -r '.[]'); do
+for id in $(redisctl enterprise database list -q '[].uid' --raw); do
   echo "Updating database $id"
   redisctl enterprise database update $id --data '{"eviction_policy": "volatile-lru"}'
 done

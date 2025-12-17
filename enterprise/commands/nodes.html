@@ -265,7 +265,7 @@ redisctl enterprise stats node 1 -q "{cpu:cpu_user,memory:free_memory}"
 <h2 id="common-patterns"><a class="header" href="#common-patterns">Common Patterns</a></h2>
 <h3 id="check-all-node-health"><a class="header" href="#check-all-node-health">Check All Node Health</a></h3>
 <pre><code class="language-bash">#!/bin/bash
-for node in $(redisctl enterprise node list -q '[].uid' | jq -r '.[]'); do
+for node in $(redisctl enterprise node list -q '[].uid' --raw); do
   STATUS=$(redisctl enterprise node get $node -q 'status')
   echo "Node $node: $STATUS"
 done

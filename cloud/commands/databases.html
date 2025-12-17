@@ -334,9 +334,8 @@ redisctl cloud database backup 123456:789 --wait
 </code></pre>
 <h2 id="common-patterns"><a class="header" href="#common-patterns">Common Patterns</a></h2>
 <h3 id="get-connection-string"><a class="header" href="#get-connection-string">Get Connection String</a></h3>
-<pre><code class="language-bash">DB=$(redisctl cloud database get 123456:789)
-ENDPOINT=$(echo $DB | jq -r '.publicEndpoint')
-PASSWORD=$(echo $DB | jq -r '.password')
+<pre><code class="language-bash">ENDPOINT=$(redisctl cloud database get 123456:789 -q 'publicEndpoint')
+PASSWORD=$(redisctl cloud database get 123456:789 -q 'password')
 echo "redis://:$PASSWORD@$ENDPOINT"
 </code></pre>
 <h3 id="monitor-databases"><a class="header" href="#monitor-databases">Monitor Databases</a></h3>
@@ -346,8 +345,8 @@ redisctl cloud database list \
   -o table
 </code></pre>
 <h3 id="bulk-operations"><a class="header" href="#bulk-operations">Bulk Operations</a></h3>
-<pre><code class="language-bash"># List all database IDs
-for db in $(redisctl cloud database list -q "[].databaseId" | jq -r '.[]'); do
+<pre><code class="language-bash"># Process all database IDs
+for db in $(redisctl cloud database list -q '[].databaseId' --raw); do
   echo "Processing $db"
 done
 </code></pre>

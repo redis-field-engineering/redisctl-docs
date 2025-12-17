@@ -261,7 +261,7 @@ PEERING=$(redisctl cloud vpc-peering create \
   }' --wait)
 
 echo "Accept peering request in AWS Console"
-echo "Peering ID: $(echo $PEERING | jq -r '.vpcPeeringId')"
+echo "Peering ID: $(redisctl cloud vpc-peering list --subscription 123456 -q '[0].vpcPeeringId')"
 </code></pre>
 <h3 id="list-all-network-connections"><a class="header" href="#list-all-network-connections">List All Network Connections</a></h3>
 <pre><code class="language-bash"># VPC peerings

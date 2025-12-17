@@ -292,7 +292,7 @@ watch -n 5 "redisctl enterprise stats cluster \
 </code></pre>
 <h3 id="bulk-database-operations"><a class="header" href="#bulk-database-operations">Bulk Database Operations</a></h3>
 <pre><code class="language-bash"># Update eviction policy on all databases
-for db in $(redisctl enterprise database list -q '[].uid' | jq -r '.[]'); do
+for db in $(redisctl enterprise database list -q '[].uid' --raw); do
   echo "Updating database $db"
   redisctl enterprise database update $db \
     --data '{"eviction_policy": "volatile-lru"}'
@@ -308,7 +308,7 @@ redisctl enterprise user list &gt; users-$DATE.json
 </code></pre>
 <h3 id="rolling-node-maintenance"><a class="header" href="#rolling-node-maintenance">Rolling Node Maintenance</a></h3>
 <pre><code class="language-bash">#!/bin/bash
-for node in $(redisctl enterprise node list -q '[].uid' | jq -r '.[]'); do
+for node in $(redisctl enterprise node list -q '[].uid' --raw); do
   echo "Maintaining node $node..."
   
   # Enter maintenance mode

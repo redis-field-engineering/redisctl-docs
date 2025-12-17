@@ -271,13 +271,12 @@ redisctl cloud workflow subscription-setup \
 </ol>
 <h2 id="common-patterns"><a class="header" href="#common-patterns">Common Patterns</a></h2>
 <h3 id="get-database-connection-string"><a class="header" href="#get-database-connection-string">Get Database Connection String</a></h3>
-<pre><code class="language-bash">DB=$(redisctl cloud database get 123456:789)
-ENDPOINT=$(echo $DB | jq -r '.publicEndpoint')
-PASSWORD=$(echo $DB | jq -r '.password')
+<pre><code class="language-bash">ENDPOINT=$(redisctl cloud database get 123456:789 -q 'publicEndpoint')
+PASSWORD=$(redisctl cloud database get 123456:789 -q 'password')
 echo "redis://:$PASSWORD@$ENDPOINT"
 </code></pre>
 <h3 id="list-all-databases-across-subscriptions"><a class="header" href="#list-all-databases-across-subscriptions">List All Databases Across Subscriptions</a></h3>
-<pre><code class="language-bash">for sub in $(redisctl cloud subscription list -q '[].id' | jq -r '.[]'); do
+<pre><code class="language-bash">for sub in $(redisctl cloud subscription list -q '[].id' --raw); do
   echo "=== Subscription $sub ==="
   redisctl cloud database list --subscription $sub -o table
 done
