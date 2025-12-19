@@ -897,7 +897,7 @@ redisctl enterprise database get 1 -q 'json_diff(current_config, desired_config)
 <tr><td>Object</td><td><code>keys</code>, <code>values</code>, <code>pick</code>, <code>omit</code>, <code>deep_merge</code></td></tr>
 <tr><td>Math</td><td><code>round</code>, <code>floor</code>, <code>ceil</code>, <code>sum</code>, <code>avg</code>, <code>max</code>, <code>min</code>, <code>stddev</code></td></tr>
 <tr><td>Type</td><td><code>type_of</code>, <code>is_array</code>, <code>is_string</code>, <code>to_boolean</code></td></tr>
-<tr><td>Utility</td><td><code>if</code>, <code>coalesce</code>, <code>default</code>, <code>now</code></td></tr>
+<tr><td>Utility</td><td><code>if</code>, <code>coalesce</code>, <code>default</code>, <code>now</code>, <code>env</code></td></tr>
 <tr><td>DateTime</td><td><code>format_date</code>, <code>time_ago</code>, <code>relative_time</code>, <code>is_weekend</code></td></tr>
 <tr><td>Duration</td><td><code>format_duration</code>, <code>parse_duration</code></td></tr>
 <tr><td>Network</td><td><code>is_private_ip</code>, <code>cidr_contains</code>, <code>ip_to_int</code></td></tr>
@@ -909,6 +909,7 @@ redisctl enterprise database get 1 -q 'json_diff(current_config, desired_config)
 <tr><td>Semver</td><td><code>semver_compare</code>, <code>semver_satisfies</code>, <code>semver_parse</code></td></tr>
 <tr><td>Fuzzy</td><td><code>levenshtein</code>, <code>soundex</code>, <code>jaro_winkler</code></td></tr>
 <tr><td>JSON Patch</td><td><code>json_diff</code>, <code>json_patch</code>, <code>json_merge_patch</code></td></tr>
+<tr><td>Format</td><td><code>to_csv</code>, <code>to_tsv</code>, <code>to_csv_table</code>, <code>pretty</code>, <code>html_escape</code></td></tr>
 </tbody></table>
 </div>
 <p>For the complete list, see the <a href="https://docs.rs/jmespath_extensions">jmespath-extensions documentation</a>.</p>
