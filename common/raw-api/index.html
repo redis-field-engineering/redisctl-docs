@@ -10,29 +10,31 @@
       
       
       
-        <link rel="canonical" href="https://redis-field-engineering.github.io/redisctl-docs/presentation/">
+        <link rel="canonical" href="https://redis-field-engineering.github.io/redisctl-docs/common/raw-api/">
       
       
-        <link rel="prev" href="../developer/contributing/">
+        <link rel="prev" href="../async-operations/">
       
+      
+        <link rel="next" href="../../cloud/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
-        <title>Presentation - redisctl</title>
+        <title>Raw API Access - redisctl</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,9 +53,9 @@
       
     
     
-      <link rel="stylesheet" href="../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#presentation" class="md-skip">
+        <a href="#raw-api-access" class="md-skip">
           Skip to content
         </a>
       
@@ -94,9 +96,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="redisctl" class="md-header__button md-logo" aria-label="redisctl" data-md-component="logo">
+    <a href="../.." title="redisctl" class="md-header__button md-logo" aria-label="redisctl" data-md-component="logo">
       
-  <img src="../assets/redis-logo.svg" alt="logo">
+  <img src="../../assets/redis-logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -113,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Presentation
+              Raw API Access
             
           </span>
         </div>
@@ -225,7 +227,7 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -246,7 +248,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../getting-started/" class="md-tabs__link">
+        <a href="../../getting-started/" class="md-tabs__link">
           
   
   
@@ -264,11 +266,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../common/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -290,7 +294,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../cloud/" class="md-tabs__link">
+        <a href="../../cloud/" class="md-tabs__link">
           
   
   
@@ -312,7 +316,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../enterprise/" class="md-tabs__link">
+        <a href="../../enterprise/" class="md-tabs__link">
           
   
   
@@ -334,7 +338,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../cookbook/" class="md-tabs__link">
+        <a href="../../cookbook/" class="md-tabs__link">
           
   
   
@@ -356,7 +360,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../reference/" class="md-tabs__link">
+        <a href="../../reference/" class="md-tabs__link">
           
   
   
@@ -378,7 +382,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../developer/" class="md-tabs__link">
+        <a href="../../developer/" class="md-tabs__link">
           
   
   
@@ -396,11 +400,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../../presentation/" class="md-tabs__link">
         
   
   
@@ -441,9 +443,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="redisctl" class="md-nav__button md-logo" aria-label="redisctl" data-md-component="logo">
+    <a href="../.." title="redisctl" class="md-nav__button md-logo" aria-label="redisctl" data-md-component="logo">
       
-  <img src="../assets/redis-logo.svg" alt="logo">
+  <img src="../../assets/redis-logo.svg" alt="logo">
 
     </a>
     redisctl
@@ -470,7 +472,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -530,7 +532,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../getting-started/" class="md-nav__link ">
+            <a href="../../getting-started/" class="md-nav__link ">
               
   
   
@@ -574,7 +576,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting-started/installation/" class="md-nav__link">
+      <a href="../../getting-started/installation/" class="md-nav__link">
         
   
   
@@ -602,7 +604,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting-started/quickstart/" class="md-nav__link">
+      <a href="../../getting-started/quickstart/" class="md-nav__link">
         
   
   
@@ -630,7 +632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting-started/authentication/" class="md-nav__link">
+      <a href="../../getting-started/authentication/" class="md-nav__link">
         
   
   
@@ -658,7 +660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting-started/docker/" class="md-nav__link">
+      <a href="../../getting-started/docker/" class="md-nav__link">
         
   
   
@@ -690,6 +692,8 @@
       
   
   
+    
+  
   
   
     
@@ -713,22 +717,23 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../common/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -746,13 +751,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -772,7 +777,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../common/profiles/" class="md-nav__link">
+      <a href="../profiles/" class="md-nav__link">
         
   
   
@@ -800,7 +805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../common/output-formats/" class="md-nav__link">
+      <a href="../output-formats/" class="md-nav__link">
         
   
   
@@ -828,7 +833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../common/jmespath/" class="md-nav__link">
+      <a href="../jmespath/" class="md-nav__link">
         
   
   
@@ -856,7 +861,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../common/async-operations/" class="md-nav__link">
+      <a href="../async-operations/" class="md-nav__link">
         
   
   
@@ -881,10 +886,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../common/raw-api/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Raw API Access
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -900,6 +932,287 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-raw-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Raw API?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Usage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basic Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redis-cloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redis Cloud
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redis-enterprise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redis Enterprise
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP Methods
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query Parameters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-body" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request Body
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Request Body">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inline-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inline JSON
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From File
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-and-filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output and Filtering
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Output and Filtering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#raw-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Raw JSON
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-jmespath" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With JMESPath
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison-raw-vs-human-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparison: Raw vs Human Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discovering-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Discovering Endpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Discovering Endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list-whats-available" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        List What's Available
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explore-interactively" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explore Interactively
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Real Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cloud-get-account-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud: Get Account Info
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-list-all-database-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud: List All Database Endpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enterprise-node-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enterprise: Node Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enterprise-cluster-alerts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enterprise: Cluster Alerts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -948,7 +1261,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../cloud/" class="md-nav__link ">
+            <a href="../../cloud/" class="md-nav__link ">
               
   
   
@@ -1027,7 +1340,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../cloud/commands/" class="md-nav__link ">
+            <a href="../../cloud/commands/" class="md-nav__link ">
               
   
   
@@ -1071,7 +1384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cloud/commands/subscriptions/" class="md-nav__link">
+      <a href="../../cloud/commands/subscriptions/" class="md-nav__link">
         
   
   
@@ -1099,7 +1412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cloud/commands/databases/" class="md-nav__link">
+      <a href="../../cloud/commands/databases/" class="md-nav__link">
         
   
   
@@ -1127,7 +1440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cloud/commands/access-control/" class="md-nav__link">
+      <a href="../../cloud/commands/access-control/" class="md-nav__link">
         
   
   
@@ -1155,7 +1468,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cloud/commands/networking/" class="md-nav__link">
+      <a href="../../cloud/commands/networking/" class="md-nav__link">
         
   
   
@@ -1183,7 +1496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cloud/commands/tasks/" class="md-nav__link">
+      <a href="../../cloud/commands/tasks/" class="md-nav__link">
         
   
   
@@ -1219,7 +1532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cloud/workflows/" class="md-nav__link">
+      <a href="../../cloud/workflows/" class="md-nav__link">
         
   
   
@@ -1285,7 +1598,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../enterprise/" class="md-nav__link ">
+            <a href="../../enterprise/" class="md-nav__link ">
               
   
   
@@ -1366,7 +1679,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../enterprise/commands/" class="md-nav__link ">
+            <a href="../../enterprise/commands/" class="md-nav__link ">
               
   
   
@@ -1410,7 +1723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../enterprise/commands/cluster/" class="md-nav__link">
+      <a href="../../enterprise/commands/cluster/" class="md-nav__link">
         
   
   
@@ -1438,7 +1751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../enterprise/commands/databases/" class="md-nav__link">
+      <a href="../../enterprise/commands/databases/" class="md-nav__link">
         
   
   
@@ -1466,7 +1779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../enterprise/commands/nodes/" class="md-nav__link">
+      <a href="../../enterprise/commands/nodes/" class="md-nav__link">
         
   
   
@@ -1494,7 +1807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../enterprise/commands/access-control/" class="md-nav__link">
+      <a href="../../enterprise/commands/access-control/" class="md-nav__link">
         
   
   
@@ -1522,7 +1835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../enterprise/commands/monitoring/" class="md-nav__link">
+      <a href="../../enterprise/commands/monitoring/" class="md-nav__link">
         
   
   
@@ -1550,7 +1863,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../enterprise/commands/active-active/" class="md-nav__link">
+      <a href="../../enterprise/commands/active-active/" class="md-nav__link">
         
   
   
@@ -1615,7 +1928,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../enterprise/operations/" class="md-nav__link ">
+            <a href="../../enterprise/operations/" class="md-nav__link ">
               
   
   
@@ -1659,7 +1972,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../enterprise/operations/support-package/" class="md-nav__link">
+      <a href="../../enterprise/operations/support-package/" class="md-nav__link">
         
   
   
@@ -1687,7 +2000,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../enterprise/operations/debuginfo/" class="md-nav__link">
+      <a href="../../enterprise/operations/debuginfo/" class="md-nav__link">
         
   
   
@@ -1723,7 +2036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../enterprise/workflows/" class="md-nav__link">
+      <a href="../../enterprise/workflows/" class="md-nav__link">
         
   
   
@@ -1787,7 +2100,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../cookbook/" class="md-nav__link ">
+            <a href="../../cookbook/" class="md-nav__link ">
               
   
   
@@ -1895,7 +2208,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cookbook/cloud/first-database/" class="md-nav__link">
+      <a href="../../cookbook/cloud/first-database/" class="md-nav__link">
         
   
   
@@ -1923,7 +2236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cookbook/cloud/vpc-peering/" class="md-nav__link">
+      <a href="../../cookbook/cloud/vpc-peering/" class="md-nav__link">
         
   
   
@@ -1951,7 +2264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cookbook/cloud/acls/" class="md-nav__link">
+      <a href="../../cookbook/cloud/acls/" class="md-nav__link">
         
   
   
@@ -1979,7 +2292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cookbook/cloud/backup-restore/" class="md-nav__link">
+      <a href="../../cookbook/cloud/backup-restore/" class="md-nav__link">
         
   
   
@@ -2079,7 +2392,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cookbook/enterprise/create-database/" class="md-nav__link">
+      <a href="../../cookbook/enterprise/create-database/" class="md-nav__link">
         
   
   
@@ -2107,7 +2420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cookbook/enterprise/support-package/" class="md-nav__link">
+      <a href="../../cookbook/enterprise/support-package/" class="md-nav__link">
         
   
   
@@ -2135,7 +2448,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cookbook/enterprise/cluster-health/" class="md-nav__link">
+      <a href="../../cookbook/enterprise/cluster-health/" class="md-nav__link">
         
   
   
@@ -2163,7 +2476,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cookbook/enterprise/node-management/" class="md-nav__link">
+      <a href="../../cookbook/enterprise/node-management/" class="md-nav__link">
         
   
   
@@ -2241,7 +2554,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../reference/" class="md-nav__link ">
+            <a href="../../reference/" class="md-nav__link ">
               
   
   
@@ -2285,7 +2598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/environment-variables/" class="md-nav__link">
+      <a href="../../reference/environment-variables/" class="md-nav__link">
         
   
   
@@ -2313,7 +2626,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/config-file/" class="md-nav__link">
+      <a href="../../reference/config-file/" class="md-nav__link">
         
   
   
@@ -2341,7 +2654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/shell-completions/" class="md-nav__link">
+      <a href="../../reference/shell-completions/" class="md-nav__link">
         
   
   
@@ -2369,7 +2682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/security/" class="md-nav__link">
+      <a href="../../reference/security/" class="md-nav__link">
         
   
   
@@ -2397,7 +2710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reference/rladmin/" class="md-nav__link">
+      <a href="../../reference/rladmin/" class="md-nav__link">
         
   
   
@@ -2463,7 +2776,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../developer/" class="md-nav__link ">
+            <a href="../../developer/" class="md-nav__link ">
               
   
   
@@ -2507,7 +2820,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../developer/architecture/" class="md-nav__link">
+      <a href="../../developer/architecture/" class="md-nav__link">
         
   
   
@@ -2535,7 +2848,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../developer/libraries/" class="md-nav__link">
+      <a href="../../developer/libraries/" class="md-nav__link">
         
   
   
@@ -2563,7 +2876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../developer/contributing/" class="md-nav__link">
+      <a href="../../developer/contributing/" class="md-nav__link">
         
   
   
@@ -2595,37 +2908,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Presentation
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../presentation/" class="md-nav__link">
         
   
   
@@ -2641,142 +2927,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#slide-deck" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Slide Deck
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-the-slides" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Using the Slides
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sharing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Sharing
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#customizing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Customizing
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-pitch" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quick Pitch
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#demo-script" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Demo Script
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Demo Script">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-setup-30-seconds" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Setup (30 seconds)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-basic-commands-1-minute" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Basic Commands (1 minute)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-support-package-30-seconds" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Support Package (30 seconds)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-raw-api-access-30-seconds" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Raw API Access (30 seconds)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2808,10 +2958,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#slide-deck" class="md-nav__link">
+  <a href="#why-raw-api" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Slide Deck
+        Why Raw API?
       
     </span>
   </a>
@@ -2819,66 +2969,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-the-slides" class="md-nav__link">
+  <a href="#basic-usage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Using the Slides
+        Basic Usage
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sharing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Sharing
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#customizing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Customizing
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-pitch" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quick Pitch
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#demo-script" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Demo Script
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Demo Script">
+    <nav class="md-nav" aria-label="Basic Usage">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-setup-30-seconds" class="md-nav__link">
+  <a href="#redis-cloud" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Setup (30 seconds)
+        Redis Cloud
       
     </span>
   </a>
@@ -2886,10 +2992,60 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-basic-commands-1-minute" class="md-nav__link">
+  <a href="#redis-enterprise" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Basic Commands (1 minute)
+        Redis Enterprise
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#http-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP Methods
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Query Parameters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-body" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request Body
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Request Body">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inline-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inline JSON
       
     </span>
   </a>
@@ -2897,10 +3053,38 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-support-package-30-seconds" class="md-nav__link">
+  <a href="#from-file" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Support Package (30 seconds)
+        From File
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-and-filtering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output and Filtering
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Output and Filtering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#raw-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Raw JSON
       
     </span>
   </a>
@@ -2908,10 +3092,121 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-raw-api-access-30-seconds" class="md-nav__link">
+  <a href="#with-jmespath" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Raw API Access (30 seconds)
+        With JMESPath
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison-raw-vs-human-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparison: Raw vs Human Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#discovering-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Discovering Endpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Discovering Endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list-whats-available" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        List What's Available
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explore-interactively" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explore Interactively
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#real-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Real Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cloud-get-account-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud: Get Account Info
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-list-all-database-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud: List All Database Endpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enterprise-node-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enterprise: Node Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enterprise-cluster-alerts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enterprise: Cluster Alerts
       
     </span>
   </a>
@@ -2943,106 +3238,176 @@
   
 
 
-<h1 id="presentation">Presentation<a class="headerlink" href="#presentation" title="Permanent link">&para;</a></h1>
-<p>Presentation materials for introducing redisctl to your team.</p>
-<h2 id="slide-deck">Slide Deck<a class="headerlink" href="#slide-deck" title="Permanent link">&para;</a></h2>
-<p><a href="slides.html" target="_blank" class="md-button md-button--primary">
-  <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 3h8a2 2 0 0 1 2-2 2 2 0 0 1 2 2h8v2h-1v11h-5.75L17 22h-2l-1.75-6h-2.5L9 22H7l1.75-6H3V5H2zm3 2v9h14V5zm6.85 6.85a.5.5 0 0 1-.35.15.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5c.14 0 .26.06.35.15l1.4 1.39c.32.32.64.64.64.96s-.32.64-.64.96z"/></svg></span> View Slides
-</a></p>
-<p>The presentation covers:</p>
+<h1 id="raw-api-access">Raw API Access<a class="headerlink" href="#raw-api-access" title="Permanent link">&para;</a></h1>
+<p>Direct REST access to any endpoint.</p>
+<h2 id="why-raw-api">Why Raw API?<a class="headerlink" href="#why-raw-api" title="Permanent link">&para;</a></h2>
+<p>The <code>api</code> command gives you direct access to Redis REST APIs:</p>
 <ul>
-<li>The problem: No CLI tooling for Redis Cloud/Enterprise</li>
-<li>The solution: redisctl's four-layer architecture</li>
-<li>Demo: Profile setup, Cloud operations, Enterprise operations</li>
-<li>Raw API access for any endpoint</li>
-<li>Support package automation</li>
-<li>Output formats and JMESPath queries</li>
-<li>Async operation handling</li>
-<li>Use cases by persona</li>
-<li>Installation and getting started</li>
+<li><strong>Exploration</strong> - Discover what endpoints return</li>
+<li><strong>Debugging</strong> - See exact API responses</li>
+<li><strong>Undocumented endpoints</strong> - Access features before they have CLI commands</li>
+<li><strong>Scripting</strong> - When you need specific fields or behaviors</li>
 </ul>
-<h2 id="using-the-slides">Using the Slides<a class="headerlink" href="#using-the-slides" title="Permanent link">&para;</a></h2>
+<h2 id="basic-usage">Basic Usage<a class="headerlink" href="#basic-usage" title="Permanent link">&para;</a></h2>
+<h3 id="redis-cloud">Redis Cloud<a class="headerlink" href="#redis-cloud" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># GET request</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>redisctl<span class="w"> </span>api<span class="w"> </span>cloud<span class="w"> </span>get<span class="w"> </span>/subscriptions
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># With path parameters</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>redisctl<span class="w"> </span>api<span class="w"> </span>cloud<span class="w"> </span>get<span class="w"> </span>/subscriptions/123456/databases
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># POST with body</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>redisctl<span class="w"> </span>api<span class="w"> </span>cloud<span class="w"> </span>post<span class="w"> </span>/subscriptions/123/databases<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span>--body<span class="w"> </span><span class="s1">&#39;{&quot;name&quot;: &quot;test&quot;, &quot;memoryLimitInGb&quot;: 1}&#39;</span>
+</span></code></pre></div>
+<h3 id="redis-enterprise">Redis Enterprise<a class="headerlink" href="#redis-enterprise" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># GET cluster info</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>redisctl<span class="w"> </span>api<span class="w"> </span>enterprise<span class="w"> </span>get<span class="w"> </span>/v1/cluster
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># GET all databases</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>redisctl<span class="w"> </span>api<span class="w"> </span>enterprise<span class="w"> </span>get<span class="w"> </span>/v1/bdbs
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># POST to create database</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>redisctl<span class="w"> </span>api<span class="w"> </span>enterprise<span class="w"> </span>post<span class="w"> </span>/v1/bdbs<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span>--body<span class="w"> </span><span class="s1">&#39;{&quot;name&quot;: &quot;test&quot;, &quot;memory_size&quot;: 1073741824}&#39;</span>
+</span></code></pre></div>
+<h2 id="http-methods">HTTP Methods<a class="headerlink" href="#http-methods" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Key</th>
-<th>Action</th>
+<th>Method</th>
+<th>Usage</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Arrow keys</td>
-<td>Navigate slides</td>
+<td><code>get</code></td>
+<td>Retrieve resources</td>
 </tr>
 <tr>
-<td><code>Space</code></td>
-<td>Next slide</td>
+<td><code>post</code></td>
+<td>Create resources</td>
 </tr>
 <tr>
-<td><code>Esc</code></td>
-<td>Overview mode</td>
+<td><code>put</code></td>
+<td>Update resources (full replace)</td>
 </tr>
 <tr>
-<td><code>S</code></td>
-<td>Speaker notes</td>
+<td><code>patch</code></td>
+<td>Update resources (partial)</td>
 </tr>
 <tr>
-<td><code>F</code></td>
-<td>Fullscreen</td>
-</tr>
-<tr>
-<td><code>?</code></td>
-<td>Help</td>
+<td><code>delete</code></td>
+<td>Remove resources</td>
 </tr>
 </tbody>
 </table>
-<h2 id="sharing">Sharing<a class="headerlink" href="#sharing" title="Permanent link">&para;</a></h2>
-<p>Direct link to slides: <code>https://redis-field-engineering.github.io/redisctl-docs/presentation/slides.html</code></p>
-<h2 id="customizing">Customizing<a class="headerlink" href="#customizing" title="Permanent link">&para;</a></h2>
-<p>The slides use <a href="https://revealjs.com/">reveal.js</a>. To customize:</p>
-<ol>
-<li>Edit <code>docs/presentation/slides.html</code></li>
-<li>Slides are in <code>&lt;section&gt;</code> tags</li>
-<li>Use standard HTML and reveal.js features</li>
-</ol>
-<h2 id="quick-pitch">Quick Pitch<a class="headerlink" href="#quick-pitch" title="Permanent link">&para;</a></h2>
-<p>Need a one-liner?</p>
-<blockquote>
-<p><strong>redisctl</strong> is the first CLI for Redis Cloud and Enterprise. Type-safe API clients, async operation handling, support package automation, and structured output for scripting.</p>
-</blockquote>
-<h2 id="demo-script">Demo Script<a class="headerlink" href="#demo-script" title="Permanent link">&para;</a></h2>
-<h3 id="1-setup-30-seconds">1. Setup (30 seconds)<a class="headerlink" href="#1-setup-30-seconds" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Show installation</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>brew<span class="w"> </span>install<span class="w"> </span>redis-developer/homebrew-tap/redisctl
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Configure profile</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>redisctl<span class="w"> </span>profile<span class="w"> </span><span class="nb">set</span><span class="w"> </span>demo<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span>--enterprise-url<span class="w"> </span><span class="s2">&quot;https://cluster:9443&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span>--enterprise-user<span class="w"> </span><span class="s2">&quot;admin@cluster.local&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span>--enterprise-password<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PASSWORD</span><span class="s2">&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>redisctl<span class="w"> </span>api<span class="w"> </span>cloud<span class="w"> </span>get<span class="w"> </span>/subscriptions
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>redisctl<span class="w"> </span>api<span class="w"> </span>cloud<span class="w"> </span>post<span class="w"> </span>/subscriptions<span class="w"> </span>--body<span class="w"> </span><span class="s1">&#39;{...}&#39;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>redisctl<span class="w"> </span>api<span class="w"> </span>cloud<span class="w"> </span>put<span class="w"> </span>/subscriptions/123<span class="w"> </span>--body<span class="w"> </span><span class="s1">&#39;{...}&#39;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>redisctl<span class="w"> </span>api<span class="w"> </span>cloud<span class="w"> </span>delete<span class="w"> </span>/subscriptions/123
 </span></code></pre></div>
-<h3 id="2-basic-commands-1-minute">2. Basic Commands (1 minute)<a class="headerlink" href="#2-basic-commands-1-minute" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Cluster info</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>cluster<span class="w"> </span>get
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># List databases</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>database<span class="w"> </span>list
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># JSON output with filtering</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>database<span class="w"> </span>list<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;[].{name: name, memory: memory_size}&#39;</span>
+<h2 id="query-parameters">Query Parameters<a class="headerlink" href="#query-parameters" title="Permanent link">&para;</a></h2>
+<p>Some endpoints accept query parameters:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Cloud API with query params (append to path)</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>redisctl<span class="w"> </span>api<span class="w"> </span>cloud<span class="w"> </span>get<span class="w"> </span><span class="s2">&quot;/subscriptions?limit=10&amp;offset=0&quot;</span>
 </span></code></pre></div>
-<h3 id="3-support-package-30-seconds">3. Support Package (30 seconds)<a class="headerlink" href="#3-support-package-30-seconds" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># The killer feature</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>support-package<span class="w"> </span>cluster<span class="w"> </span>--optimize<span class="w"> </span>--upload
+<h2 id="request-body">Request Body<a class="headerlink" href="#request-body" title="Permanent link">&para;</a></h2>
+<h3 id="inline-json">Inline JSON<a class="headerlink" href="#inline-json" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>redisctl<span class="w"> </span>api<span class="w"> </span>cloud<span class="w"> </span>post<span class="w"> </span>/subscriptions/123/databases<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span>--body<span class="w"> </span><span class="s1">&#39;{&quot;name&quot;: &quot;mydb&quot;, &quot;memoryLimitInGb&quot;: 1}&#39;</span>
 </span></code></pre></div>
-<h3 id="4-raw-api-access-30-seconds">4. Raw API Access (30 seconds)<a class="headerlink" href="#4-raw-api-access-30-seconds" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Any endpoint</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>redisctl<span class="w"> </span>api<span class="w"> </span>enterprise<span class="w"> </span>get<span class="w"> </span>/v1/nodes
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Compare to curl</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>curl<span class="w"> </span>-k<span class="w"> </span>-u<span class="w"> </span><span class="s2">&quot;user:pass&quot;</span><span class="w"> </span>https://cluster:9443/v1/nodes<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq
+<h3 id="from-file">From File<a class="headerlink" href="#from-file" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Create a JSON file</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>database.json<span class="w"> </span><span class="s">&lt;&lt; &#39;EOF&#39;</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="s">{</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="s">  &quot;name&quot;: &quot;mydb&quot;,</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="s">  &quot;memoryLimitInGb&quot;: 1,</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="s">  &quot;dataEvictionPolicy&quot;: &quot;volatile-lru&quot;</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="s">}</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="s">EOF</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="c1"># Use it</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>redisctl<span class="w"> </span>api<span class="w"> </span>cloud<span class="w"> </span>post<span class="w"> </span>/subscriptions/123/databases<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">  </span>--body<span class="w"> </span>@database.json
 </span></code></pre></div>
-<p>Total demo time: ~3 minutes</p>
+<h2 id="output-and-filtering">Output and Filtering<a class="headerlink" href="#output-and-filtering" title="Permanent link">&para;</a></h2>
+<h3 id="raw-json">Raw JSON<a class="headerlink" href="#raw-json" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>redisctl<span class="w"> </span>api<span class="w"> </span>cloud<span class="w"> </span>get<span class="w"> </span>/subscriptions<span class="w"> </span>-o<span class="w"> </span>json
+</span></code></pre></div>
+<h3 id="with-jmespath">With JMESPath<a class="headerlink" href="#with-jmespath" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Get specific fields</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>redisctl<span class="w"> </span>api<span class="w"> </span>cloud<span class="w"> </span>get<span class="w"> </span>/subscriptions<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;[].{id: id, name: name}&#39;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># Filter results</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>redisctl<span class="w"> </span>api<span class="w"> </span>cloud<span class="w"> </span>get<span class="w"> </span>/subscriptions<span class="w"> </span>-q<span class="w"> </span><span class="s2">&quot;[?status == &#39;active&#39;]&quot;</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># Aggregate</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>redisctl<span class="w"> </span>api<span class="w"> </span>cloud<span class="w"> </span>get<span class="w"> </span>/subscriptions<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;length(@)&#39;</span>
+</span></code></pre></div>
+<h2 id="comparison-raw-vs-human-commands">Comparison: Raw vs Human Commands<a class="headerlink" href="#comparison-raw-vs-human-commands" title="Permanent link">&para;</a></h2>
+<div class="grid">
+<p><strong>Raw API</strong>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>redisctl<span class="w"> </span>api<span class="w"> </span>cloud<span class="w"> </span>get<span class="w"> </span>/subscriptions/123456/databases<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span>-q<span class="w"> </span><span class="s1">&#39;[].{id: databaseId, name: name}&#39;</span>
+</span></code></pre></div></p>
+<p><strong>Human Command</strong>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>database<span class="w"> </span>list<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span>--subscription-id<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;[].{id: databaseId, name: name}&#39;</span>
+</span></code></pre></div></p>
+</div>
+<p>Both work. Human commands add:</p>
+<ul>
+<li>Input validation</li>
+<li>Helpful error messages</li>
+<li>Default formatting</li>
+<li>Tab completion</li>
+</ul>
+<p>Use raw API when you need:</p>
+<ul>
+<li>Access to endpoints without CLI commands</li>
+<li>Exact API response format</li>
+<li>Debugging API behavior</li>
+</ul>
+<h2 id="discovering-endpoints">Discovering Endpoints<a class="headerlink" href="#discovering-endpoints" title="Permanent link">&para;</a></h2>
+<h3 id="list-whats-available">List What's Available<a class="headerlink" href="#list-whats-available" title="Permanent link">&para;</a></h3>
+<p>Check the official API documentation:</p>
+<ul>
+<li><a href="https://api.redislabs.com/v1/swagger-ui.html">Redis Cloud API</a></li>
+<li><a href="https://redis.io/docs/latest/operate/rs/references/rest-api/">Redis Enterprise API</a></li>
+</ul>
+<h3 id="explore-interactively">Explore Interactively<a class="headerlink" href="#explore-interactively" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Start broad</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>redisctl<span class="w"> </span>api<span class="w"> </span>cloud<span class="w"> </span>get<span class="w"> </span>/subscriptions<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-50
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># Drill down</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>redisctl<span class="w"> </span>api<span class="w"> </span>cloud<span class="w"> </span>get<span class="w"> </span>/subscriptions/123456<span class="w"> </span>-o<span class="w"> </span>json
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1"># Find nested resources</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>redisctl<span class="w"> </span>api<span class="w"> </span>cloud<span class="w"> </span>get<span class="w"> </span>/subscriptions/123456/databases<span class="w"> </span>-o<span class="w"> </span>json
+</span></code></pre></div>
+<h2 id="real-examples">Real Examples<a class="headerlink" href="#real-examples" title="Permanent link">&para;</a></h2>
+<h3 id="cloud-get-account-info">Cloud: Get Account Info<a class="headerlink" href="#cloud-get-account-info" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>redisctl<span class="w"> </span>api<span class="w"> </span>cloud<span class="w"> </span>get<span class="w"> </span>/accounts<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;[0]&#39;</span>
+</span></code></pre></div>
+<h3 id="cloud-list-all-database-endpoints">Cloud: List All Database Endpoints<a class="headerlink" href="#cloud-list-all-database-endpoints" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>redisctl<span class="w"> </span>api<span class="w"> </span>cloud<span class="w"> </span>get<span class="w"> </span>/subscriptions<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;[].{</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="s1">  sub: name,</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="s1">  databases: databases[].{name: name, endpoint: publicEndpoint}</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="s1">}&#39;</span>
+</span></code></pre></div>
+<h3 id="enterprise-node-status">Enterprise: Node Status<a class="headerlink" href="#enterprise-node-status" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>redisctl<span class="w"> </span>api<span class="w"> </span>enterprise<span class="w"> </span>get<span class="w"> </span>/v1/nodes<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;[].{</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="s1">  id: uid,</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="s1">  addr: addr,</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="s1">  status: status,</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="s1">  shards: shard_count</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="s1">}&#39;</span>
+</span></code></pre></div>
+<h3 id="enterprise-cluster-alerts">Enterprise: Cluster Alerts<a class="headerlink" href="#enterprise-cluster-alerts" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>redisctl<span class="w"> </span>api<span class="w"> </span>enterprise<span class="w"> </span>get<span class="w"> </span>/v1/cluster/alerts<span class="w"> </span>-o<span class="w"> </span>json
+</span></code></pre></div>
 
 
 
@@ -3122,10 +3487,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
