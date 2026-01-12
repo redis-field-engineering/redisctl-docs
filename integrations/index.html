@@ -10,31 +10,31 @@
       
       
       
-        <link rel="canonical" href="https://redis-field-engineering.github.io/redisctl-docs/reference/shell-completions/">
+        <link rel="canonical" href="https://redis-field-engineering.github.io/redisctl-docs/integrations/">
       
       
-        <link rel="prev" href="../config-file/">
+        <link rel="prev" href="../reference/rladmin/">
       
       
-        <link rel="next" href="../security/">
+        <link rel="next" href="mcp/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
-        <title>Shell Completions - redisctl</title>
+        <title>Integrations - redisctl</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,9 +53,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#shell-completions" class="md-skip">
+        <a href="#integrations" class="md-skip">
           Skip to content
         </a>
       
@@ -96,9 +96,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="redisctl" class="md-header__button md-logo" aria-label="redisctl" data-md-component="logo">
+    <a href=".." title="redisctl" class="md-header__button md-logo" aria-label="redisctl" data-md-component="logo">
       
-  <img src="../../assets/redis-logo.svg" alt="logo">
+  <img src="../assets/redis-logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Shell Completions
+              Integrations
             
           </span>
         </div>
@@ -227,7 +227,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href=".." class="md-tabs__link">
         
   
   
@@ -248,7 +248,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../getting-started/" class="md-tabs__link">
+        <a href="../getting-started/" class="md-tabs__link">
           
   
   
@@ -270,7 +270,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../common/" class="md-tabs__link">
+        <a href="../common/" class="md-tabs__link">
           
   
   
@@ -292,7 +292,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../cloud/" class="md-tabs__link">
+        <a href="../cloud/" class="md-tabs__link">
           
   
   
@@ -314,7 +314,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../enterprise/" class="md-tabs__link">
+        <a href="../enterprise/" class="md-tabs__link">
           
   
   
@@ -336,7 +336,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../cookbook/" class="md-tabs__link">
+        <a href="../cookbook/" class="md-tabs__link">
           
   
   
@@ -354,13 +354,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../reference/" class="md-tabs__link">
           
   
   
@@ -378,11 +376,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../integrations/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -404,7 +404,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../developer/" class="md-tabs__link">
+        <a href="../developer/" class="md-tabs__link">
           
   
   
@@ -424,7 +424,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../presentation/" class="md-tabs__link">
+      <a href="../presentation/" class="md-tabs__link">
         
   
   
@@ -465,9 +465,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="redisctl" class="md-nav__button md-logo" aria-label="redisctl" data-md-component="logo">
+    <a href=".." title="redisctl" class="md-nav__button md-logo" aria-label="redisctl" data-md-component="logo">
       
-  <img src="../../assets/redis-logo.svg" alt="logo">
+  <img src="../assets/redis-logo.svg" alt="logo">
 
     </a>
     redisctl
@@ -494,7 +494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -554,7 +554,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../getting-started/" class="md-nav__link ">
+            <a href="../getting-started/" class="md-nav__link ">
               
   
   
@@ -598,7 +598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/installation/" class="md-nav__link">
+      <a href="../getting-started/installation/" class="md-nav__link">
         
   
   
@@ -626,7 +626,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/quickstart/" class="md-nav__link">
+      <a href="../getting-started/quickstart/" class="md-nav__link">
         
   
   
@@ -654,7 +654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/authentication/" class="md-nav__link">
+      <a href="../getting-started/authentication/" class="md-nav__link">
         
   
   
@@ -682,7 +682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/docker/" class="md-nav__link">
+      <a href="../getting-started/docker/" class="md-nav__link">
         
   
   
@@ -752,7 +752,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../common/" class="md-nav__link ">
+            <a href="../common/" class="md-nav__link ">
               
   
   
@@ -796,7 +796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../common/profiles/" class="md-nav__link">
+      <a href="../common/profiles/" class="md-nav__link">
         
   
   
@@ -824,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../common/output-formats/" class="md-nav__link">
+      <a href="../common/output-formats/" class="md-nav__link">
         
   
   
@@ -852,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../common/jmespath/" class="md-nav__link">
+      <a href="../common/jmespath/" class="md-nav__link">
         
   
   
@@ -880,7 +880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../common/async-operations/" class="md-nav__link">
+      <a href="../common/async-operations/" class="md-nav__link">
         
   
   
@@ -908,7 +908,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../common/raw-api/" class="md-nav__link">
+      <a href="../common/raw-api/" class="md-nav__link">
         
   
   
@@ -972,7 +972,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../cloud/" class="md-nav__link ">
+            <a href="../cloud/" class="md-nav__link ">
               
   
   
@@ -1051,7 +1051,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../cloud/commands/" class="md-nav__link ">
+            <a href="../cloud/commands/" class="md-nav__link ">
               
   
   
@@ -1095,7 +1095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cloud/commands/subscriptions/" class="md-nav__link">
+      <a href="../cloud/commands/subscriptions/" class="md-nav__link">
         
   
   
@@ -1123,7 +1123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cloud/commands/databases/" class="md-nav__link">
+      <a href="../cloud/commands/databases/" class="md-nav__link">
         
   
   
@@ -1151,7 +1151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cloud/commands/access-control/" class="md-nav__link">
+      <a href="../cloud/commands/access-control/" class="md-nav__link">
         
   
   
@@ -1179,7 +1179,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cloud/commands/networking/" class="md-nav__link">
+      <a href="../cloud/commands/networking/" class="md-nav__link">
         
   
   
@@ -1207,7 +1207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cloud/commands/tasks/" class="md-nav__link">
+      <a href="../cloud/commands/tasks/" class="md-nav__link">
         
   
   
@@ -1243,7 +1243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cloud/workflows/" class="md-nav__link">
+      <a href="../cloud/workflows/" class="md-nav__link">
         
   
   
@@ -1309,7 +1309,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../enterprise/" class="md-nav__link ">
+            <a href="../enterprise/" class="md-nav__link ">
               
   
   
@@ -1390,7 +1390,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../enterprise/commands/" class="md-nav__link ">
+            <a href="../enterprise/commands/" class="md-nav__link ">
               
   
   
@@ -1434,7 +1434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../enterprise/commands/cluster/" class="md-nav__link">
+      <a href="../enterprise/commands/cluster/" class="md-nav__link">
         
   
   
@@ -1462,7 +1462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../enterprise/commands/databases/" class="md-nav__link">
+      <a href="../enterprise/commands/databases/" class="md-nav__link">
         
   
   
@@ -1490,7 +1490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../enterprise/commands/nodes/" class="md-nav__link">
+      <a href="../enterprise/commands/nodes/" class="md-nav__link">
         
   
   
@@ -1518,7 +1518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../enterprise/commands/access-control/" class="md-nav__link">
+      <a href="../enterprise/commands/access-control/" class="md-nav__link">
         
   
   
@@ -1546,7 +1546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../enterprise/commands/monitoring/" class="md-nav__link">
+      <a href="../enterprise/commands/monitoring/" class="md-nav__link">
         
   
   
@@ -1574,7 +1574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../enterprise/commands/active-active/" class="md-nav__link">
+      <a href="../enterprise/commands/active-active/" class="md-nav__link">
         
   
   
@@ -1639,7 +1639,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../enterprise/operations/" class="md-nav__link ">
+            <a href="../enterprise/operations/" class="md-nav__link ">
               
   
   
@@ -1683,7 +1683,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../enterprise/operations/support-package/" class="md-nav__link">
+      <a href="../enterprise/operations/support-package/" class="md-nav__link">
         
   
   
@@ -1711,7 +1711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../enterprise/operations/debuginfo/" class="md-nav__link">
+      <a href="../enterprise/operations/debuginfo/" class="md-nav__link">
         
   
   
@@ -1747,7 +1747,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../enterprise/workflows/" class="md-nav__link">
+      <a href="../enterprise/workflows/" class="md-nav__link">
         
   
   
@@ -1811,7 +1811,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../cookbook/" class="md-nav__link ">
+            <a href="../cookbook/" class="md-nav__link ">
               
   
   
@@ -1919,7 +1919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cookbook/cloud/first-database/" class="md-nav__link">
+      <a href="../cookbook/cloud/first-database/" class="md-nav__link">
         
   
   
@@ -1947,7 +1947,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cookbook/cloud/vpc-peering/" class="md-nav__link">
+      <a href="../cookbook/cloud/vpc-peering/" class="md-nav__link">
         
   
   
@@ -1975,7 +1975,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cookbook/cloud/acls/" class="md-nav__link">
+      <a href="../cookbook/cloud/acls/" class="md-nav__link">
         
   
   
@@ -2003,7 +2003,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cookbook/cloud/backup-restore/" class="md-nav__link">
+      <a href="../cookbook/cloud/backup-restore/" class="md-nav__link">
         
   
   
@@ -2103,7 +2103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cookbook/enterprise/create-database/" class="md-nav__link">
+      <a href="../cookbook/enterprise/create-database/" class="md-nav__link">
         
   
   
@@ -2131,7 +2131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cookbook/enterprise/support-package/" class="md-nav__link">
+      <a href="../cookbook/enterprise/support-package/" class="md-nav__link">
         
   
   
@@ -2159,7 +2159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cookbook/enterprise/cluster-health/" class="md-nav__link">
+      <a href="../cookbook/enterprise/cluster-health/" class="md-nav__link">
         
   
   
@@ -2187,7 +2187,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cookbook/enterprise/node-management/" class="md-nav__link">
+      <a href="../cookbook/enterprise/node-management/" class="md-nav__link">
         
   
   
@@ -2227,8 +2227,6 @@
       
   
   
-    
-  
   
   
     
@@ -2252,23 +2250,22 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../reference/" class="md-nav__link ">
               
   
   
@@ -2286,13 +2283,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="">
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2312,7 +2309,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../environment-variables/" class="md-nav__link">
+      <a href="../reference/environment-variables/" class="md-nav__link">
         
   
   
@@ -2340,7 +2337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../config-file/" class="md-nav__link">
+      <a href="../reference/config-file/" class="md-nav__link">
         
   
   
@@ -2365,37 +2362,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Shell Completions
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../reference/shell-completions/" class="md-nav__link">
         
   
   
@@ -2411,109 +2381,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#generate-completions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Generate Completions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Usage
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#homebrew-users" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Homebrew Users
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#completions-not-working" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Completions Not Working
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#zsh-command-not-found-compinit" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Zsh: Command Not Found: compinit
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2526,7 +2393,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../security/" class="md-nav__link">
+      <a href="../reference/security/" class="md-nav__link">
         
   
   
@@ -2554,7 +2421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../rladmin/" class="md-nav__link">
+      <a href="../reference/rladmin/" class="md-nav__link">
         
   
   
@@ -2586,6 +2453,8 @@
       
   
   
+    
+  
   
   
     
@@ -2601,22 +2470,23 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../integrations/" class="md-nav__link ">
+            <a href="./" class="md-nav__link md-nav__link--active">
               
   
   
@@ -2634,13 +2504,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+              <label class="md-nav__link md-nav__link--active" for="__nav_8" id="__nav_8_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2660,7 +2530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../integrations/mcp/" class="md-nav__link">
+      <a href="mcp/" class="md-nav__link">
         
   
   
@@ -2726,7 +2596,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../developer/" class="md-nav__link ">
+            <a href="../developer/" class="md-nav__link ">
               
   
   
@@ -2770,7 +2640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../developer/architecture/" class="md-nav__link">
+      <a href="../developer/architecture/" class="md-nav__link">
         
   
   
@@ -2798,7 +2668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../developer/libraries/" class="md-nav__link">
+      <a href="../developer/libraries/" class="md-nav__link">
         
   
   
@@ -2826,7 +2696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../developer/contributing/" class="md-nav__link">
+      <a href="../developer/contributing/" class="md-nav__link">
         
   
   
@@ -2861,7 +2731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../presentation/" class="md-nav__link">
+      <a href="../presentation/" class="md-nav__link">
         
   
   
@@ -2908,85 +2778,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#generate-completions" class="md-nav__link">
+  <a href="#available-integrations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Generate Completions
+        Available Integrations
       
     </span>
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Usage
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#homebrew-users" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Homebrew Users
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#completions-not-working" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Completions Not Working
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#zsh-command-not-found-compinit" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Zsh: Command Not Found: compinit
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3010,105 +2808,12 @@
   
 
 
-<h1 id="shell-completions">Shell Completions<a class="headerlink" href="#shell-completions" title="Permanent link">&para;</a></h1>
-<p>Enable tab completion for redisctl commands.</p>
-<h2 id="generate-completions">Generate Completions<a class="headerlink" href="#generate-completions" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>redisctl<span class="w"> </span>completions<span class="w"> </span>&lt;shell&gt;
-</span></code></pre></div>
-<p>Supported shells: <code>bash</code>, <code>zsh</code>, <code>fish</code>, <code>powershell</code></p>
-<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Bash</label><label for="__tabbed_1_2">Zsh</label><label for="__tabbed_1_3">Fish</label><label for="__tabbed_1_4">PowerShell</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Create completions directory if needed</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.local/share/bash-completion/completions
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Generate and install</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>redisctl<span class="w"> </span>completions<span class="w"> </span>bash<span class="w"> </span>&gt;<span class="w"> </span>~/.local/share/bash-completion/completions/redisctl
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Reload shell or source the file</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="nb">source</span><span class="w"> </span>~/.local/share/bash-completion/completions/redisctl
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Create completions directory if needed</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.zfunc
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Add to fpath (add this to ~/.zshrc)</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nv">fpath</span><span class="o">=(</span>~/.zfunc<span class="w"> </span><span class="nv">$fpath</span><span class="o">)</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Generate completions</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>redisctl<span class="w"> </span>completions<span class="w"> </span>zsh<span class="w"> </span>&gt;<span class="w"> </span>~/.zfunc/_redisctl
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># Rebuild completion cache</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>rm<span class="w"> </span>-f<span class="w"> </span>~/.zcompdump<span class="p">;</span><span class="w"> </span>compinit
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Generate and install</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>redisctl<span class="w"> </span>completions<span class="w"> </span>fish<span class="w"> </span>&gt;<span class="w"> </span>~/.config/fish/completions/redisctl.fish
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Reload shell</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nb">source</span><span class="w"> </span>~/.config/fish/completions/redisctl.fish
-</span></code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="language-powershell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c"># Add to profile</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">redisctl</span> <span class="n">completions</span> <span class="n">powershell</span> <span class="p">&gt;&gt;</span> <span class="nv">$PROFILE</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c"># Reload profile</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">.</span> <span class="nv">$PROFILE</span>
-</span></code></pre></div>
-</div>
-</div>
-</div>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<p>After installation, press <code>Tab</code> to complete:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Complete commands</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>redisctl<span class="w"> </span>ent&lt;Tab&gt;
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1"># → redisctl enterprise</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1"># Complete subcommands</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>cl&lt;Tab&gt;
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># → redisctl enterprise cluster</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="c1"># Complete options</span>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>cluster<span class="w"> </span>get<span class="w"> </span>--&lt;Tab&gt;
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="c1"># → --output  --query  --profile  ...</span>
-</span></code></pre></div>
-<h2 id="homebrew-users">Homebrew Users<a class="headerlink" href="#homebrew-users" title="Permanent link">&para;</a></h2>
-<p>If you installed via Homebrew, completions may be automatically available. If not:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Bash</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;source $(brew --prefix)/etc/bash_completion.d/redisctl&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Zsh</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;source $(brew --prefix)/share/zsh/site-functions/_redisctl&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.zshrc
-</span></code></pre></div>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
-<h3 id="completions-not-working">Completions Not Working<a class="headerlink" href="#completions-not-working" title="Permanent link">&para;</a></h3>
-<ol>
-<li>
-<p>Verify the file was created:
-   <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ls<span class="w"> </span>-la<span class="w"> </span>~/.local/share/bash-completion/completions/redisctl
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Check your shell's completion system is enabled:
-   <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Bash - add to ~/.bashrc</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-f<span class="w"> </span>/etc/bash_completion<span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span>.<span class="w"> </span>/etc/bash_completion
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="k">fi</span>
-</span></code></pre></div></p>
-</li>
-<li>
-<p>Restart your shell or source the completion file.</p>
-</li>
-</ol>
-<h3 id="zsh-command-not-found-compinit">Zsh: Command Not Found: compinit<a class="headerlink" href="#zsh-command-not-found-compinit" title="Permanent link">&para;</a></h3>
-<p>Add to your <code>~/.zshrc</code>:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>autoload<span class="w"> </span>-Uz<span class="w"> </span>compinit
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>compinit
-</span></code></pre></div></p>
+<h1 id="integrations">Integrations<a class="headerlink" href="#integrations" title="Permanent link">&para;</a></h1>
+<p>redisctl integrates with AI assistants and other tools to enhance your Redis management workflow.</p>
+<h2 id="available-integrations">Available Integrations<a class="headerlink" href="#available-integrations" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="mcp/">MCP Server</a> - Enable AI assistants like Claude to manage Redis deployments through natural language</li>
+</ul>
 
 
 
@@ -3188,10 +2893,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
