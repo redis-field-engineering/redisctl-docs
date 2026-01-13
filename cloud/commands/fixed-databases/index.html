@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://redis-field-engineering.github.io/redisctl-docs/cloud/commands/access-control/">
+        <link rel="canonical" href="https://redis-field-engineering.github.io/redisctl-docs/cloud/commands/fixed-databases/">
       
       
-        <link rel="prev" href="../fixed-databases/">
+        <link rel="prev" href="../fixed-subscriptions/">
       
       
-        <link rel="next" href="../networking/">
+        <link rel="next" href="../access-control/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Access Control - redisctl</title>
+        <title>Essentials Databases - redisctl</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#access-control-commands" class="md-skip">
+        <a href="#essentials-database-commands" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Access Control
+              Essentials Databases
             
           </span>
         </div>
@@ -1186,34 +1186,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../fixed-databases/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Essentials Databases
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -1233,7 +1205,7 @@
   <span class="md-ellipsis">
     
   
-    Access Control
+    Essentials Databases
   
 
     
@@ -1251,7 +1223,7 @@
   <span class="md-ellipsis">
     
   
-    Access Control
+    Essentials Databases
   
 
     
@@ -1277,44 +1249,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#users" class="md-nav__link">
+  <a href="#commands" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Users
+        Commands
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Users">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-databases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        List Databases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="List Databases">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#list-users" class="md-nav__link">
+  <a href="#examples" class="md-nav__link">
     <span class="md-ellipsis">
       
-        List Users
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#get-user" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Get User
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#create-user" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Create User
+        Examples
       
     </span>
   </a>
@@ -1327,33 +1288,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#acls" class="md-nav__link">
+  <a href="#get-database-details" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ACLs
+        Get Database Details
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="ACLs">
+    <nav class="md-nav" aria-label="Get Database Details">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#list-acl-rules" class="md-nav__link">
+  <a href="#examples_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        List ACL Rules
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#create-acl-rule" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Create ACL Rule
+        Examples
       
     </span>
   </a>
@@ -1366,22 +1316,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#database-access" class="md-nav__link">
+  <a href="#create-database" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Database Access
+        Create Database
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Database Access">
+    <nav class="md-nav" aria-label="Create Database">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#assign-acl-to-database" class="md-nav__link">
+  <a href="#options" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Assign ACL to Database
+        Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
       
     </span>
   </a>
@@ -1394,22 +1355,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-patterns" class="md-nav__link">
+  <a href="#update-database" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Common Patterns
+        Update Database
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Common Patterns">
+    <nav class="md-nav" aria-label="Update Database">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#list-all-acls" class="md-nav__link">
+  <a href="#options_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        List All ACLs
+        Options
       
     </span>
   </a>
@@ -1417,10 +1378,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#find-databases-using-acl" class="md-nav__link">
+  <a href="#examples_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Find Databases Using ACL
+        Examples
       
     </span>
   </a>
@@ -1433,10 +1394,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#raw-api-access" class="md-nav__link">
+  <a href="#delete-database" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Raw API Access
+        Delete Database
       
     </span>
   </a>
@@ -1444,10 +1405,127 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#related" class="md-nav__link">
+  <a href="#import-data" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Related
+        Import Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Import Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#options_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tags
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tags">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        List Tags
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update Tags
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Update Tags">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#options_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete Tag
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Commands
       
     </span>
   </a>
@@ -1458,6 +1536,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../access-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -3156,44 +3262,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#users" class="md-nav__link">
+  <a href="#commands" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Users
+        Commands
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Users">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-databases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        List Databases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="List Databases">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#list-users" class="md-nav__link">
+  <a href="#examples" class="md-nav__link">
     <span class="md-ellipsis">
       
-        List Users
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#get-user" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Get User
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#create-user" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Create User
+        Examples
       
     </span>
   </a>
@@ -3206,33 +3301,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#acls" class="md-nav__link">
+  <a href="#get-database-details" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ACLs
+        Get Database Details
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="ACLs">
+    <nav class="md-nav" aria-label="Get Database Details">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#list-acl-rules" class="md-nav__link">
+  <a href="#examples_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        List ACL Rules
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#create-acl-rule" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Create ACL Rule
+        Examples
       
     </span>
   </a>
@@ -3245,22 +3329,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#database-access" class="md-nav__link">
+  <a href="#create-database" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Database Access
+        Create Database
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Database Access">
+    <nav class="md-nav" aria-label="Create Database">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#assign-acl-to-database" class="md-nav__link">
+  <a href="#options" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Assign ACL to Database
+        Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
       
     </span>
   </a>
@@ -3273,22 +3368,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-patterns" class="md-nav__link">
+  <a href="#update-database" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Common Patterns
+        Update Database
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Common Patterns">
+    <nav class="md-nav" aria-label="Update Database">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#list-all-acls" class="md-nav__link">
+  <a href="#options_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        List All ACLs
+        Options
       
     </span>
   </a>
@@ -3296,10 +3391,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#find-databases-using-acl" class="md-nav__link">
+  <a href="#examples_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Find Databases Using ACL
+        Examples
       
     </span>
   </a>
@@ -3312,10 +3407,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#raw-api-access" class="md-nav__link">
+  <a href="#delete-database" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Raw API Access
+        Delete Database
       
     </span>
   </a>
@@ -3323,10 +3418,127 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#related" class="md-nav__link">
+  <a href="#import-data" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Related
+        Import Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Import Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#options_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tags
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tags">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        List Tags
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update Tags
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Update Tags">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#options_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Delete Tag
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related Commands
       
     </span>
   </a>
@@ -3353,63 +3565,355 @@
   
 
 
-<h1 id="access-control-commands">Access Control Commands<a class="headerlink" href="#access-control-commands" title="Permanent link">&para;</a></h1>
-<p>Manage users, roles, and ACLs in Redis Cloud.</p>
-<h2 id="users">Users<a class="headerlink" href="#users" title="Permanent link">&para;</a></h2>
-<h3 id="list-users">List Users<a class="headerlink" href="#list-users" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>user<span class="w"> </span>list
+<h1 id="essentials-database-commands">Essentials Database Commands<a class="headerlink" href="#essentials-database-commands" title="Permanent link">&para;</a></h1>
+<p>Manage databases within Redis Cloud Essentials (fixed) subscriptions.</p>
+<h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>list</code></td>
+<td>List all databases in a subscription</td>
+</tr>
+<tr>
+<td><code>get</code></td>
+<td>Get database details</td>
+</tr>
+<tr>
+<td><code>create</code></td>
+<td>Create a new database</td>
+</tr>
+<tr>
+<td><code>update</code></td>
+<td>Update database configuration</td>
+</tr>
+<tr>
+<td><code>delete</code></td>
+<td>Delete a database</td>
+</tr>
+<tr>
+<td><code>import</code></td>
+<td>Import data into a database</td>
+</tr>
+<tr>
+<td><code>list-tags</code></td>
+<td>List database tags</td>
+</tr>
+<tr>
+<td><code>update-tags</code></td>
+<td>Update database tags</td>
+</tr>
+<tr>
+<td><code>delete-tag</code></td>
+<td>Delete a database tag</td>
+</tr>
+</tbody>
+</table>
+<h2 id="list-databases">List Databases<a class="headerlink" href="#list-databases" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>list<span class="w"> </span>--subscription<span class="w"> </span>&lt;id&gt;
 </span></code></pre></div>
-<h3 id="get-user">Get User<a class="headerlink" href="#get-user" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>user<span class="w"> </span>get<span class="w"> </span>&lt;user-id&gt;
+<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># List all databases in a subscription</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>list<span class="w"> </span>--subscription<span class="w"> </span><span class="m">123456</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># As JSON</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>list<span class="w"> </span>--subscription<span class="w"> </span><span class="m">123456</span><span class="w"> </span>-o<span class="w"> </span>json
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Just names and endpoints</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>list<span class="w"> </span>--subscription<span class="w"> </span><span class="m">123456</span><span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;[].{</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="s1">  name: name,</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="s1">  endpoint: publicEndpoint</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="s1">}&#39;</span>
 </span></code></pre></div>
-<h3 id="create-user">Create User<a class="headerlink" href="#create-user" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>user<span class="w"> </span>create<span class="w"> </span>--data<span class="w"> </span><span class="s1">&#39;{</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="s1">  &quot;name&quot;: &quot;app-user&quot;,</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="s1">  &quot;role&quot;: &quot;member&quot;,</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="s1">  &quot;email&quot;: &quot;user@example.com&quot;</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="s1">}&#39;</span>
+<h2 id="get-database-details">Get Database Details<a class="headerlink" href="#get-database-details" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>get<span class="w"> </span>&lt;subscription-id&gt;:&lt;database-id&gt;
 </span></code></pre></div>
-<h2 id="acls">ACLs<a class="headerlink" href="#acls" title="Permanent link">&para;</a></h2>
-<h3 id="list-acl-rules">List ACL Rules<a class="headerlink" href="#list-acl-rules" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>acl<span class="w"> </span>list<span class="w"> </span>--subscription-id<span class="w"> </span><span class="m">123456</span>
+<h3 id="examples_1">Examples<a class="headerlink" href="#examples_1" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Full details</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>get<span class="w"> </span><span class="m">123456</span>:789
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Connection info</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>get<span class="w"> </span><span class="m">123456</span>:789<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;{</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="s1">  endpoint: publicEndpoint,</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="s1">  password: security.password</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="s1">}&#39;</span>
 </span></code></pre></div>
-<h3 id="create-acl-rule">Create ACL Rule<a class="headerlink" href="#create-acl-rule" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>acl<span class="w"> </span>create<span class="w"> </span>--subscription-id<span class="w"> </span><span class="m">123456</span><span class="w"> </span>--data<span class="w"> </span><span class="s1">&#39;{</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="s1">  &quot;name&quot;: &quot;readonly&quot;,</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="s1">  &quot;redisRules&quot;: [&quot;+@read&quot;, &quot;-@write&quot;]</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="s1">}&#39;</span>
+<h2 id="create-database">Create Database<a class="headerlink" href="#create-database" title="Permanent link">&para;</a></h2>
+<p>Create a database with first-class parameters for common options.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>create<span class="w"> </span>&lt;subscription-id&gt;<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span>--name<span class="w"> </span>mydb<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span>--wait
 </span></code></pre></div>
-<h2 id="database-access">Database Access<a class="headerlink" href="#database-access" title="Permanent link">&para;</a></h2>
-<h3 id="assign-acl-to-database">Assign ACL to Database<a class="headerlink" href="#assign-acl-to-database" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>database<span class="w"> </span>update<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="m">789</span><span class="w"> </span>--data<span class="w"> </span><span class="s1">&#39;{</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="s1">  &quot;security&quot;: {</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="s1">    &quot;defaultUserEnabled&quot;: false,</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="s1">    &quot;aclId&quot;: 12345</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="s1">  }</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="s1">}&#39;</span>
+<h3 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--name</code></td>
+<td>Database name</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--password</code></td>
+<td>Database password</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--enable-tls</code></td>
+<td>Enable TLS encryption</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--eviction-policy</code></td>
+<td>Eviction policy</td>
+<td>volatile-lru</td>
+</tr>
+<tr>
+<td><code>--replication</code></td>
+<td>Enable replication</td>
+<td>false</td>
+</tr>
+<tr>
+<td><code>--data-persistence</code></td>
+<td>Persistence policy</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--data</code></td>
+<td>Full JSON configuration</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="examples_2">Examples<a class="headerlink" href="#examples_2" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Simple database with name</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>create<span class="w"> </span><span class="m">123456</span><span class="w"> </span>--name<span class="w"> </span>mydb<span class="w"> </span>--wait
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Database with password and TLS</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>create<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span>--name<span class="w"> </span>secure-cache<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span>--password<span class="w"> </span>mysecretpass<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span>--enable-tls<span class="w"> </span><span class="nb">true</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="c1"># Database with persistence</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>create<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">  </span>--name<span class="w"> </span>persistent-db<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">  </span>--data-persistence<span class="w"> </span>aof-every-1-second<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">  </span>--replication<span class="w"> </span><span class="nb">true</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="c1"># Advanced: Use JSON for full control</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>create<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">  </span>--data<span class="w"> </span><span class="s1">&#39;{&quot;name&quot;: &quot;mydb&quot;, &quot;memoryLimitInGb&quot;: 1}&#39;</span>
 </span></code></pre></div>
-<h2 id="common-patterns">Common Patterns<a class="headerlink" href="#common-patterns" title="Permanent link">&para;</a></h2>
-<h3 id="list-all-acls">List All ACLs<a class="headerlink" href="#list-all-acls" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>acl<span class="w"> </span>list<span class="w"> </span>--subscription-id<span class="w"> </span><span class="m">123456</span><span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;[].{</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="s1">  id: id,</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="s1">  name: name,</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="s1">  rules: redisRules</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="s1">}&#39;</span>
+<h2 id="update-database">Update Database<a class="headerlink" href="#update-database" title="Permanent link">&para;</a></h2>
+<p>Update database configuration using first-class parameters.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>update<span class="w"> </span>&lt;subscription-id&gt;:&lt;database-id&gt;<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span>--name<span class="w"> </span>new-name<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span>--wait
 </span></code></pre></div>
-<h3 id="find-databases-using-acl">Find Databases Using ACL<a class="headerlink" href="#find-databases-using-acl" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>database<span class="w"> </span>list<span class="w"> </span>--subscription-id<span class="w"> </span><span class="m">123456</span><span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;[?security.aclId==`12345`].name&#39;</span>
+<h3 id="options_1">Options<a class="headerlink" href="#options_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--name</code></td>
+<td>New database name</td>
+</tr>
+<tr>
+<td><code>--password</code></td>
+<td>New database password</td>
+</tr>
+<tr>
+<td><code>--enable-tls</code></td>
+<td>Enable/disable TLS</td>
+</tr>
+<tr>
+<td><code>--eviction-policy</code></td>
+<td>Eviction policy</td>
+</tr>
+<tr>
+<td><code>--replication</code></td>
+<td>Enable/disable replication</td>
+</tr>
+<tr>
+<td><code>--data-persistence</code></td>
+<td>Persistence policy</td>
+</tr>
+<tr>
+<td><code>--data</code></td>
+<td>Full JSON with additional fields</td>
+</tr>
+</tbody>
+</table>
+<h3 id="examples_3">Examples<a class="headerlink" href="#examples_3" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Update database name</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>update<span class="w"> </span><span class="m">123456</span>:789<span class="w"> </span>--name<span class="w"> </span>new-db-name
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># Change password</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>update<span class="w"> </span><span class="m">123456</span>:789<span class="w"> </span>--password<span class="w"> </span>newsecret
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># Enable replication</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>update<span class="w"> </span><span class="m">123456</span>:789<span class="w"> </span>--replication<span class="w"> </span><span class="nb">true</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="c1"># Multiple changes at once</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>update<span class="w"> </span><span class="m">123456</span>:789<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">  </span>--enable-tls<span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">  </span>--data-persistence<span class="w"> </span>aof-every-1-second<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">  </span>--wait
 </span></code></pre></div>
-<h2 id="raw-api-access">Raw API Access<a class="headerlink" href="#raw-api-access" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Users</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>redisctl<span class="w"> </span>api<span class="w"> </span>cloud<span class="w"> </span>get<span class="w"> </span>/users
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># ACLs</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>redisctl<span class="w"> </span>api<span class="w"> </span>cloud<span class="w"> </span>get<span class="w"> </span>/subscriptions/123456/acls
+<h2 id="delete-database">Delete Database<a class="headerlink" href="#delete-database" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>delete<span class="w"> </span>&lt;subscription-id&gt;:&lt;database-id&gt;<span class="w"> </span>--wait
 </span></code></pre></div>
-<h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This permanently deletes the database. Add <code>--force</code> to skip confirmation.</p>
+</div>
+<h2 id="import-data">Import Data<a class="headerlink" href="#import-data" title="Permanent link">&para;</a></h2>
+<p>Import data into a database using first-class parameters.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>import<span class="w"> </span>&lt;subscription-id&gt;:&lt;database-id&gt;<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span>--source-type<span class="w"> </span>http<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span>--import-from-uri<span class="w"> </span>https://example.com/backup.rdb<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span>--wait
+</span></code></pre></div>
+<h3 id="options_2">Options<a class="headerlink" href="#options_2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--source-type</code></td>
+<td>Source type: http, redis, ftp, aws-s3, gcs, azure-blob-storage</td>
+</tr>
+<tr>
+<td><code>--import-from-uri</code></td>
+<td>URI to import from</td>
+</tr>
+<tr>
+<td><code>--aws-access-key</code></td>
+<td>AWS access key ID (for aws-s3)</td>
+</tr>
+<tr>
+<td><code>--aws-secret-key</code></td>
+<td>AWS secret access key (for aws-s3)</td>
+</tr>
+<tr>
+<td><code>--gcs-client-email</code></td>
+<td>GCS client email (for gcs)</td>
+</tr>
+<tr>
+<td><code>--gcs-private-key</code></td>
+<td>GCS private key (for gcs)</td>
+</tr>
+<tr>
+<td><code>--azure-account-name</code></td>
+<td>Azure storage account name</td>
+</tr>
+<tr>
+<td><code>--azure-account-key</code></td>
+<td>Azure storage account key</td>
+</tr>
+<tr>
+<td><code>--data</code></td>
+<td>Full JSON configuration</td>
+</tr>
+</tbody>
+</table>
+<h3 id="examples_4">Examples<a class="headerlink" href="#examples_4" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Import from HTTP URL</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>import<span class="w"> </span><span class="m">123456</span>:789<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span>--source-type<span class="w"> </span>http<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span>--import-from-uri<span class="w"> </span>https://example.com/backup.rdb<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">  </span>--wait
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1"># Import from AWS S3 with credentials</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>import<span class="w"> </span><span class="m">123456</span>:789<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">  </span>--source-type<span class="w"> </span>aws-s3<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">  </span>--import-from-uri<span class="w"> </span>s3://bucket/backup.rdb<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">  </span>--aws-access-key<span class="w"> </span>AKIA...<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">  </span>--aws-secret-key<span class="w"> </span>secret
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="c1"># Import from Google Cloud Storage</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>import<span class="w"> </span><span class="m">123456</span>:789<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">  </span>--source-type<span class="w"> </span>gcs<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="w">  </span>--import-from-uri<span class="w"> </span>gs://bucket/backup.rdb<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="w">  </span>--gcs-client-email<span class="w"> </span>service@project.iam.gserviceaccount.com<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w">  </span>--gcs-private-key<span class="w"> </span>@/path/to/key.pem
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="c1"># Import from Azure Blob Storage</span>
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>import<span class="w"> </span><span class="m">123456</span>:789<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="w">  </span>--source-type<span class="w"> </span>azure-blob-storage<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a><span class="w">  </span>--import-from-uri<span class="w"> </span>https://account.blob.core.windows.net/container/backup.rdb<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a><span class="w">  </span>--azure-account-name<span class="w"> </span>myaccount<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a><span class="w">  </span>--azure-account-key<span class="w"> </span>mykey
+</span></code></pre></div>
+<h2 id="tags">Tags<a class="headerlink" href="#tags" title="Permanent link">&para;</a></h2>
+<h3 id="list-tags">List Tags<a class="headerlink" href="#list-tags" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>list-tags<span class="w"> </span>&lt;subscription-id&gt;:&lt;database-id&gt;
+</span></code></pre></div>
+<h3 id="update-tags">Update Tags<a class="headerlink" href="#update-tags" title="Permanent link">&para;</a></h3>
+<p>Update multiple tags at once using first-class parameters.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>update-tags<span class="w"> </span>&lt;subscription-id&gt;:&lt;database-id&gt;<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span>--tag<span class="w"> </span><span class="nv">env</span><span class="o">=</span>production<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span>--tag<span class="w"> </span><span class="nv">team</span><span class="o">=</span>backend<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span>--tag<span class="w"> </span>cost-center<span class="o">=</span><span class="m">12345</span>
+</span></code></pre></div>
+<h4 id="options_3">Options<a class="headerlink" href="#options_3" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--tag</code></td>
+<td>Tag in key=value format (repeatable)</td>
+</tr>
+<tr>
+<td><code>--data</code></td>
+<td>JSON array of tags</td>
+</tr>
+</tbody>
+</table>
+<h4 id="examples_5">Examples<a class="headerlink" href="#examples_5" title="Permanent link">&para;</a></h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># Set multiple tags</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>update-tags<span class="w"> </span><span class="m">123456</span>:789<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span>--tag<span class="w"> </span><span class="nv">env</span><span class="o">=</span>production<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span>--tag<span class="w"> </span><span class="nv">owner</span><span class="o">=</span>team-a
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="c1"># Use JSON for complex tag values</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>update-tags<span class="w"> </span><span class="m">123456</span>:789<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">  </span>--data<span class="w"> </span><span class="s1">&#39;[{&quot;key&quot;: &quot;env&quot;, &quot;value&quot;: &quot;prod&quot;}, {&quot;key&quot;: &quot;team&quot;, &quot;value&quot;: &quot;backend&quot;}]&#39;</span>
+</span></code></pre></div>
+<h3 id="delete-tag">Delete Tag<a class="headerlink" href="#delete-tag" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>delete-tag<span class="w"> </span>&lt;subscription-id&gt;:&lt;database-id&gt;<span class="w"> </span>--key<span class="w"> </span>env
+</span></code></pre></div>
+<h2 id="related-commands">Related Commands<a class="headerlink" href="#related-commands" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="../databases/">Databases</a> - Database management</li>
-<li><a href="../../../reference/security/">Security Reference</a> - Credential best practices</li>
+<li><a href="../fixed-subscriptions/">Essentials Subscriptions</a> - Manage Essentials subscriptions</li>
+<li><a href="../databases/">Pro Databases</a> - Manage Pro databases</li>
+<li><a href="../tasks/">Tasks</a> - Monitor async operations</li>
 </ul>
 
 

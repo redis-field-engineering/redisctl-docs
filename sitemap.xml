@@ -25,6 +25,14 @@
          <lastmod>2026-01-13</lastmod>
     </url>
     <url>
+         <loc>https://redis-field-engineering.github.io/redisctl-docs/cloud/commands/fixed-databases/</loc>
+         <lastmod>2026-01-13</lastmod>
+    </url>
+    <url>
+         <loc>https://redis-field-engineering.github.io/redisctl-docs/cloud/commands/fixed-subscriptions/</loc>
+         <lastmod>2026-01-13</lastmod>
+    </url>
+    <url>
          <loc>https://redis-field-engineering.github.io/redisctl-docs/cloud/commands/networking/</loc>
          <lastmod>2026-01-13</lastmod>
     </url>
