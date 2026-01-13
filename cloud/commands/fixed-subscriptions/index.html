@@ -1366,6 +1366,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#update-subscription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update Subscription
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Update Subscription">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#options_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#delete-subscription" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3290,6 +3329,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#update-subscription" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update Subscription
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Update Subscription">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#options_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#delete-subscription" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3353,6 +3431,10 @@
 <tr>
 <td><code>create</code></td>
 <td>Create a new subscription</td>
+</tr>
+<tr>
+<td><code>update</code></td>
+<td>Update subscription settings</td>
 </tr>
 <tr>
 <td><code>delete</code></td>
@@ -3422,7 +3504,7 @@
 </span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="s1">}&#39;</span>
 </span></code></pre></div>
 <h2 id="create-subscription">Create Subscription<a class="headerlink" href="#create-subscription" title="Permanent link">&para;</a></h2>
-<p>Create a new Essentials subscription.</p>
+<p>Create a new Essentials subscription with first-class parameters.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-subscription<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span>--name<span class="w"> </span>my-subscription<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span>--plan-id<span class="w"> </span><span class="m">12345</span><span class="w"> </span><span class="se">\</span>
@@ -3446,12 +3528,16 @@
 <td>Plan ID from list-plans (required)</td>
 </tr>
 <tr>
+<td><code>--payment-method</code></td>
+<td>Payment method (credit-card or marketplace)</td>
+</tr>
+<tr>
 <td><code>--payment-method-id</code></td>
-<td>Payment method ID</td>
+<td>Payment method ID (required for credit-card)</td>
 </tr>
 <tr>
 <td><code>--data</code></td>
-<td>Full JSON configuration</td>
+<td>JSON with additional fields</td>
 </tr>
 </tbody>
 </table>
@@ -3466,10 +3552,68 @@
 </span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-subscription<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">  </span>--name<span class="w"> </span>prod-cache<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">  </span>--plan-id<span class="w"> </span><span class="m">12345</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">  </span>--payment-method-id<span class="w"> </span><span class="m">67890</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">  </span>--payment-method<span class="w"> </span>credit-card<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">  </span>--payment-method-id<span class="w"> </span><span class="m">67890</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="c1"># Use JSON for full control</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-subscription<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">  </span>--data<span class="w"> </span><span class="s1">&#39;{&quot;name&quot;: &quot;my-cache&quot;, &quot;planId&quot;: 12345}&#39;</span>
+</span></code></pre></div>
+<h2 id="update-subscription">Update Subscription<a class="headerlink" href="#update-subscription" title="Permanent link">&para;</a></h2>
+<p>Update subscription settings using first-class parameters.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-subscription<span class="w"> </span>update<span class="w"> </span>&lt;subscription-id&gt;<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span>--name<span class="w"> </span>new-name<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span>--wait
+</span></code></pre></div>
+<h3 id="options_2">Options<a class="headerlink" href="#options_2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--name</code></td>
+<td>New subscription name</td>
+</tr>
+<tr>
+<td><code>--plan-id</code></td>
+<td>New plan ID</td>
+</tr>
+<tr>
+<td><code>--payment-method</code></td>
+<td>Payment method (credit-card or marketplace)</td>
+</tr>
+<tr>
+<td><code>--payment-method-id</code></td>
+<td>Payment method ID</td>
+</tr>
+<tr>
+<td><code>--data</code></td>
+<td>JSON with additional fields</td>
+</tr>
+</tbody>
+</table>
+<h3 id="examples_4">Examples<a class="headerlink" href="#examples_4" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Rename subscription</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-subscription<span class="w"> </span>update<span class="w"> </span><span class="m">123456</span><span class="w"> </span>--name<span class="w"> </span>new-name
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># Change plan</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-subscription<span class="w"> </span>update<span class="w"> </span><span class="m">123456</span><span class="w"> </span>--plan-id<span class="w"> </span><span class="m">67890</span><span class="w"> </span>--wait
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c1"># Change payment method</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-subscription<span class="w"> </span>update<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">  </span>--payment-method<span class="w"> </span>credit-card<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">  </span>--payment-method-id<span class="w"> </span><span class="m">11111</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="c1"># Update using JSON</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-subscription<span class="w"> </span>update<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">  </span>--data<span class="w"> </span><span class="s1">&#39;{&quot;name&quot;: &quot;new-name&quot;}&#39;</span>
 </span></code></pre></div>
 <h2 id="delete-subscription">Delete Subscription<a class="headerlink" href="#delete-subscription" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-subscription<span class="w"> </span>delete<span class="w"> </span>&lt;subscription-id&gt;<span class="w"> </span>--wait
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-subscription<span class="w"> </span>delete<span class="w"> </span>&lt;subscription-id&gt;<span class="w"> </span>--wait
 </span></code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
