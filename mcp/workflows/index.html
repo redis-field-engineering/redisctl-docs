@@ -2985,6 +2985,100 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#database-operations-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database Operations Workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Database Operations Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-exploration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Exploration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leaderboard-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Leaderboard Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-text-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full-Text Search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stream-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stream Processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-document-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Document Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-series-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time Series Analytics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bulk-operations-with-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bulk Operations with Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3476,6 +3570,100 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#database-operations-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database Operations Workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Database Operations Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-exploration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Exploration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leaderboard-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Leaderboard Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-text-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full-Text Search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stream-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stream Processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json-document-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        JSON Document Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-series-analytics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time Series Analytics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bulk-operations-with-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bulk Operations with Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3910,6 +4098,201 @@
 <li><strong>High Utilization</strong> → Capacity analysis → Upgrade recommendations</li>
 <li><strong>Trial Expiring</strong> → Conversion reminder → Schedule customer call</li>
 </ol>
+<h2 id="database-operations-workflows">Database Operations Workflows<a class="headerlink" href="#database-operations-workflows" title="Permanent link">&para;</a></h2>
+<p>With the <code>--database-url</code> flag, you can work directly with Redis data through natural language.</p>
+<h3 id="data-exploration">Data Exploration<a class="headerlink" href="#data-exploration" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>You</strong>: What keys are in my database?</p>
+<p><strong>AI</strong>: <em>uses <code>database_scan</code> to list keys</em></p>
+<p>Found 247 keys. Here's a sample:</p>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Count</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>user:*</code></td>
+<td>150</td>
+<td>hash</td>
+</tr>
+<tr>
+<td><code>session:*</code></td>
+<td>45</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>product:*</code></td>
+<td>32</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td><code>leaderboard:*</code></td>
+<td>5</td>
+<td>sorted set</td>
+</tr>
+<tr>
+<td><code>events</code></td>
+<td>1</td>
+<td>stream</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h3 id="leaderboard-management">Leaderboard Management<a class="headerlink" href="#leaderboard-management" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>You</strong>: Show me the top 10 players on the global leaderboard</p>
+<p><strong>AI</strong>: <em>uses <code>database_zrevrange_withscores</code> with key="leaderboard:global"</em></p>
+<table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Player</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>alice</td>
+<td>15,230</td>
+</tr>
+<tr>
+<td>2</td>
+<td>bob</td>
+<td>14,100</td>
+</tr>
+<tr>
+<td>3</td>
+<td>charlie</td>
+<td>12,890</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<p><strong>You</strong>: Add 500 points to alice's score</p>
+<p><strong>AI</strong>: <em>uses <code>database_zincrby</code> with key="leaderboard:global", member="alice", increment=500</em></p>
+<p>Updated alice's score: 15,230 → 15,730</p>
+</blockquote>
+<h3 id="full-text-search">Full-Text Search<a class="headerlink" href="#full-text-search" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>You</strong>: Create a search index for my products</p>
+<p><strong>AI</strong>: <em>uses <code>database_ft_create</code></em></p>
+<p>Created index <code>idx:products</code> with schema:
+- <code>name</code> (TEXT, weight 2.0)
+- <code>description</code> (TEXT)
+- <code>category</code> (TAG)
+- <code>price</code> (NUMERIC, sortable)</p>
+<p><strong>You</strong>: Search for wireless headphones under $100</p>
+<p><strong>AI</strong>: <em>uses <code>database_ft_search</code> with query="<a class="magiclink magiclink-github magiclink-mention" href="https://github.com/name" title="GitHub User: name">@name</a>:wireless headphones <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/price" title="GitHub User: price">@price</a>:[0 100]"</em></p>
+<p>Found 3 products:</p>
+<ol>
+<li><strong>Sony WH-1000XM4</strong> - $89.99 - Premium noise-cancelling headphones</li>
+<li><strong>JBL Tune 500BT</strong> - $49.99 - Wireless on-ear headphones</li>
+<li><strong>Anker Soundcore Life Q20</strong> - $59.99 - Hybrid active noise cancelling</li>
+</ol>
+</blockquote>
+<h3 id="stream-processing">Stream Processing<a class="headerlink" href="#stream-processing" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>You</strong>: Show me the last 10 orders from my orders stream</p>
+<p><strong>AI</strong>: <em>uses <code>database_xrevrange</code> with key="orders", count=10</em></p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Time</th>
+<th>Order</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1705432100000-0</td>
+<td>12:35:00</td>
+<td>ORD-789</td>
+<td>shipped</td>
+</tr>
+<tr>
+<td>1705431900000-0</td>
+<td>12:31:40</td>
+<td>ORD-788</td>
+<td>processing</td>
+</tr>
+<tr>
+<td>1705431700000-0</td>
+<td>12:28:20</td>
+<td>ORD-787</td>
+<td>completed</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<p><strong>You</strong>: What's the status of consumer group "order-processors"?</p>
+<p><strong>AI</strong>: <em>uses <code>database_xinfo_groups</code> and <code>database_xpending</code></em></p>
+<p><strong>Consumer Group: order-processors</strong></p>
+<ul>
+<li>Consumers: 3 active (worker-1, worker-2, worker-3)</li>
+<li>Pending entries: 5</li>
+<li>Last delivered: 1705432100000-0</li>
+</ul>
+<p><strong>Pending Messages:</strong>
+| Consumer | Pending | Idle Time |
+|----------|---------|-----------|
+| worker-1 | 2 | 5s |
+| worker-2 | 3 | 12s |
+| worker-3 | 0 | 1s |</p>
+</blockquote>
+<h3 id="json-document-operations">JSON Document Operations<a class="headerlink" href="#json-document-operations" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>You</strong>: Get the user profile for user:123</p>
+<p><strong>AI</strong>: <em>uses <code>database_json_get</code> with key="user:123"</em></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">{</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Alice Smith&quot;</span><span class="p">,</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;alice@example.com&quot;</span><span class="p">,</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="nt">&quot;preferences&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="nt">&quot;theme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dark&quot;</span><span class="p">,</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="nt">&quot;notifications&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">  </span><span class="nt">&quot;orders&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ORD-100&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ORD-150&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ORD-200&quot;</span><span class="p">]</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>You</strong>: Add order ORD-250 to their orders array</p>
+<p><strong>AI</strong>: <em>uses <code>database_json_arrappend</code> with path="$.orders", value="ORD-250"</em></p>
+<p>Appended "ORD-250" to orders array. New length: 4 orders.</p>
+</blockquote>
+<h3 id="time-series-analytics">Time Series Analytics<a class="headerlink" href="#time-series-analytics" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>You</strong>: What's the average CPU usage over the last hour?</p>
+<p><strong>AI</strong>: <em>uses <code>database_ts_range</code> with aggregation="avg", bucket_duration=3600000</em></p>
+<p><strong>CPU Metrics (Last Hour)</strong></p>
+<ul>
+<li>Average: 42.3%</li>
+<li>Min: 12.1%</li>
+<li>Max: 87.5%</li>
+<li>Samples: 3,600</li>
+</ul>
+</blockquote>
+<h3 id="bulk-operations-with-pipeline">Bulk Operations with Pipeline<a class="headerlink" href="#bulk-operations-with-pipeline" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>You</strong>: Add these 5 users to the active_users set and increment the user_count</p>
+<p><strong>AI</strong>: <em>uses <code>database_pipeline</code> with atomic=true</em></p>
+<p>Executed 6 commands atomically:
+- SADD active_users user:1 user:2 user:3 user:4 user:5 → 5 added
+- INCR user_count → 105</p>
+<p>All commands succeeded in 0.8ms (380x faster than individual calls).</p>
+</blockquote>
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../advanced-usage/">Advanced Usage</a> - More JMESPath patterns and functions</li>
