@@ -2200,15 +2200,26 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#generate-your-first-cost-report" class="md-nav__link">
+  <a href="#quick-start-export-a-cost-report" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Generate Your First Cost Report
+        Quick Start: Export a Cost Report
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Generate Your First Cost Report">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-workflow-generate-download" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual Workflow (Generate + Download)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual Workflow (Generate + Download)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2246,17 +2257,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#one-liner-generate-and-download" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        One-Liner: Generate and Download
-      
-    </span>
-  </a>
   
 </li>
       
@@ -3453,15 +3453,26 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#generate-your-first-cost-report" class="md-nav__link">
+  <a href="#quick-start-export-a-cost-report" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Generate Your First Cost Report
+        Quick Start: Export a Cost Report
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Generate Your First Cost Report">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-workflow-generate-download" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual Workflow (Generate + Download)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual Workflow (Generate + Download)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3499,17 +3510,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#one-liner-generate-and-download" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        One-Liner: Generate and Download
-      
-    </span>
-  </a>
   
 </li>
       
@@ -3842,45 +3842,47 @@
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Verify your setup</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>subscription<span class="w"> </span>list
 </span></code></pre></div>
-<h2 id="generate-your-first-cost-report">Generate Your First Cost Report<a class="headerlink" href="#generate-your-first-cost-report" title="Permanent link">&para;</a></h2>
-<h3 id="step-1-generate-the-report">Step 1: Generate the Report<a class="headerlink" href="#step-1-generate-the-report" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span>generate<span class="w"> </span><span class="se">\</span>
+<h2 id="quick-start-export-a-cost-report">Quick Start: Export a Cost Report<a class="headerlink" href="#quick-start-export-a-cost-report" title="Permanent link">&para;</a></h2>
+<p>The <code>export</code> command is the easiest way to get a cost report - it handles everything in one step:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>--start-date<span class="w"> </span><span class="m">2025</span>-01-01<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span>--end-date<span class="w"> </span><span class="m">2025</span>-01-31<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span>--wait
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span>--file<span class="w"> </span>january-costs.csv
 </span></code></pre></div>
-<p>The <code>--wait</code> flag tells redisctl to poll until the report is ready. You'll see output like:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Task abc123-def456 completed successfully
+<p>That's it! The command will:
+1. Generate the report
+2. Wait for it to complete
+3. Download it to your file</p>
+<p>For JSON format:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span>--start-date<span class="w"> </span><span class="m">2025</span>-01-01<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span>--end-date<span class="w"> </span><span class="m">2025</span>-01-31<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span>--format<span class="w"> </span>json<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span>--file<span class="w"> </span>january-costs.json
 </span></code></pre></div>
-<h3 id="step-2-get-the-cost-report-id">Step 2: Get the Cost Report ID<a class="headerlink" href="#step-2-get-the-cost-report-id" title="Permanent link">&para;</a></h3>
-<p>The task response contains the <code>costReportId</code> needed for download:</p>
+<h2 id="manual-workflow-generate-download">Manual Workflow (Generate + Download)<a class="headerlink" href="#manual-workflow-generate-download" title="Permanent link">&para;</a></h2>
+<p>If you need more control, you can use the separate <code>generate</code> and <code>download</code> commands.</p>
+<h3 id="step-1-generate-the-report">Step 1: Generate the Report<a class="headerlink" href="#step-1-generate-the-report" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span>generate<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span>--start-date<span class="w"> </span><span class="m">2025</span>-01-01<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span>--end-date<span class="w"> </span><span class="m">2025</span>-01-31<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span>--wait<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;response.resource.costReportId&#39;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span>--wait
+</span></code></pre></div>
+<p>The <code>--wait</code> flag tells redisctl to poll until the report is ready.</p>
+<h3 id="step-2-get-the-cost-report-id">Step 2: Get the Cost Report ID<a class="headerlink" href="#step-2-get-the-cost-report-id" title="Permanent link">&para;</a></h3>
+<p>Extract the <code>costReportId</code> from the task response:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span>generate<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span>--start-date<span class="w"> </span><span class="m">2025</span>-01-01<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span>--end-date<span class="w"> </span><span class="m">2025</span>-01-31<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span>--wait<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;response.resource.costReportId&#39;</span>
 </span></code></pre></div>
 <p>This outputs just the ID:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>0f99c2fd-0d8a-4345-8543-8adb4e02f4dd.csv
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>0f99c2fd-0d8a-4345-8543-8adb4e02f4dd.csv
 </span></code></pre></div>
 <h3 id="step-3-download-the-report">Step 3: Download the Report<a class="headerlink" href="#step-3-download-the-report" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Save to file</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span>download<span class="w"> </span>cost-report-xyz789<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span>--file<span class="w"> </span>january-costs.csv
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1"># Or view directly</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span>download<span class="w"> </span>cost-report-xyz789
-</span></code></pre></div>
-<h2 id="one-liner-generate-and-download">One-Liner: Generate and Download<a class="headerlink" href="#one-liner-generate-and-download" title="Permanent link">&para;</a></h2>
-<p>Combine steps using shell substitution:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Generate, wait, extract ID, and download in one command</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span>download<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="k">$(</span>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span>generate<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">      </span>--start-date<span class="w"> </span><span class="m">2025</span>-01-01<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">      </span>--end-date<span class="w"> </span><span class="m">2025</span>-01-31<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">      </span>--wait<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">      </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;response.resource.costReportId&#39;</span><span class="k">)</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">  </span>--file<span class="w"> </span>january-costs.csv
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span>download<span class="w"> </span>0f99c2fd-0d8a-4345-8543-8adb4e02f4dd.csv<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span>--file<span class="w"> </span>january-costs.csv
 </span></code></pre></div>
 <h2 id="analyze-costs-with-jmespath">Analyze Costs with JMESPath<a class="headerlink" href="#analyze-costs-with-jmespath" title="Permanent link">&para;</a></h2>
 <p>Using JSON format with JMESPath queries lets you analyze costs directly without external tools.</p>
@@ -3964,28 +3966,20 @@
 </span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a>
 </span><span id="__span-17-21"><a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Generating cost report for </span><span class="nv">$START_DATE</span><span class="s2"> to </span><span class="nv">$END_DATE</span><span class="s2">...&quot;</span>
 </span><span id="__span-17-22"><a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a>
-</span><span id="__span-17-23"><a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a><span class="c1"># Generate and get report ID</span>
-</span><span id="__span-17-24"><a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a><span class="nv">REPORT_ID</span><span class="o">=</span><span class="k">$(</span>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span>generate<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-23"><a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a><span class="c1"># Export the report (generate + wait + download in one step)</span>
+</span><span id="__span-17-24"><a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-17-25"><a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a><span class="w">  </span>--start-date<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$START_DATE</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-17-26"><a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a><span class="w">  </span>--end-date<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$END_DATE</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-17-27"><a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a><span class="w">  </span>--wait<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-17-28"><a id="__codelineno-17-28" name="__codelineno-17-28" href="#__codelineno-17-28"></a><span class="w">  </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;response.resource.costReportId&#39;</span><span class="k">)</span>
-</span><span id="__span-17-29"><a id="__codelineno-17-29" name="__codelineno-17-29" href="#__codelineno-17-29"></a>
-</span><span id="__span-17-30"><a id="__codelineno-17-30" name="__codelineno-17-30" href="#__codelineno-17-30"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Report ID: </span><span class="nv">$REPORT_ID</span><span class="s2">&quot;</span>
-</span><span id="__span-17-31"><a id="__codelineno-17-31" name="__codelineno-17-31" href="#__codelineno-17-31"></a>
-</span><span id="__span-17-32"><a id="__codelineno-17-32" name="__codelineno-17-32" href="#__codelineno-17-32"></a><span class="c1"># Download</span>
-</span><span id="__span-17-33"><a id="__codelineno-17-33" name="__codelineno-17-33" href="#__codelineno-17-33"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span>download<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$REPORT_ID</span><span class="s2">&quot;</span><span class="w"> </span>--file<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$OUTPUT_FILE</span><span class="s2">&quot;</span>
-</span><span id="__span-17-34"><a id="__codelineno-17-34" name="__codelineno-17-34" href="#__codelineno-17-34"></a>
-</span><span id="__span-17-35"><a id="__codelineno-17-35" name="__codelineno-17-35" href="#__codelineno-17-35"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Saved to </span><span class="nv">$OUTPUT_FILE</span><span class="s2">&quot;</span>
-</span><span id="__span-17-36"><a id="__codelineno-17-36" name="__codelineno-17-36" href="#__codelineno-17-36"></a>
-</span><span id="__span-17-37"><a id="__codelineno-17-37" name="__codelineno-17-37" href="#__codelineno-17-37"></a><span class="c1"># Print summary</span>
-</span><span id="__span-17-38"><a id="__codelineno-17-38" name="__codelineno-17-38" href="#__codelineno-17-38"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
-</span><span id="__span-17-39"><a id="__codelineno-17-39" name="__codelineno-17-39" href="#__codelineno-17-39"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;=== Cost Summary ===&quot;</span>
-</span><span id="__span-17-40"><a id="__codelineno-17-40" name="__codelineno-17-40" href="#__codelineno-17-40"></a><span class="k">if</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>csvstat<span class="w"> </span><span class="p">&amp;</span>&gt;<span class="w"> </span>/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
-</span><span id="__span-17-41"><a id="__codelineno-17-41" name="__codelineno-17-41" href="#__codelineno-17-41"></a><span class="w">  </span>csvstat<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$OUTPUT_FILE</span><span class="s2">&quot;</span><span class="w"> </span>--columns<span class="w"> </span>BilledCost
-</span><span id="__span-17-42"><a id="__codelineno-17-42" name="__codelineno-17-42" href="#__codelineno-17-42"></a><span class="k">else</span>
-</span><span id="__span-17-43"><a id="__codelineno-17-43" name="__codelineno-17-43" href="#__codelineno-17-43"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Install csvkit for automatic summary: pip install csvkit&quot;</span>
-</span><span id="__span-17-44"><a id="__codelineno-17-44" name="__codelineno-17-44" href="#__codelineno-17-44"></a><span class="k">fi</span>
+</span><span id="__span-17-27"><a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a><span class="w">  </span>--file<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$OUTPUT_FILE</span><span class="s2">&quot;</span>
+</span><span id="__span-17-28"><a id="__codelineno-17-28" name="__codelineno-17-28" href="#__codelineno-17-28"></a>
+</span><span id="__span-17-29"><a id="__codelineno-17-29" name="__codelineno-17-29" href="#__codelineno-17-29"></a><span class="c1"># Print summary</span>
+</span><span id="__span-17-30"><a id="__codelineno-17-30" name="__codelineno-17-30" href="#__codelineno-17-30"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-17-31"><a id="__codelineno-17-31" name="__codelineno-17-31" href="#__codelineno-17-31"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;=== Cost Summary ===&quot;</span>
+</span><span id="__span-17-32"><a id="__codelineno-17-32" name="__codelineno-17-32" href="#__codelineno-17-32"></a><span class="k">if</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>csvstat<span class="w"> </span><span class="p">&amp;</span>&gt;<span class="w"> </span>/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-17-33"><a id="__codelineno-17-33" name="__codelineno-17-33" href="#__codelineno-17-33"></a><span class="w">  </span>csvstat<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$OUTPUT_FILE</span><span class="s2">&quot;</span><span class="w"> </span>--columns<span class="w"> </span>BilledCost
+</span><span id="__span-17-34"><a id="__codelineno-17-34" name="__codelineno-17-34" href="#__codelineno-17-34"></a><span class="k">else</span>
+</span><span id="__span-17-35"><a id="__codelineno-17-35" name="__codelineno-17-35" href="#__codelineno-17-35"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Install csvkit for automatic summary: pip install csvkit&quot;</span>
+</span><span id="__span-17-36"><a id="__codelineno-17-36" name="__codelineno-17-36" href="#__codelineno-17-36"></a><span class="k">fi</span>
 </span></code></pre></div>
 <p>Make it executable and run:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>chmod<span class="w"> </span>+x<span class="w"> </span>monthly-cost-report.sh
@@ -4003,23 +3997,14 @@
 </span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="k">for</span><span class="w"> </span>team<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">TEAMS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 </span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Generating report for team: </span><span class="nv">$team</span><span class="s2">&quot;</span>
 </span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>
-</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="w">  </span><span class="nv">REPORT_ID</span><span class="o">=</span><span class="k">$(</span>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span>generate<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="w">    </span>--start-date<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$START_DATE</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="w">    </span>--end-date<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$END_DATE</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="w">    </span>--tag<span class="w"> </span><span class="s2">&quot;team:</span><span class="nv">$team</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="w">    </span>--wait<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a><span class="w">    </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;response.resource.costReportId&#39;</span><span class="k">)</span>
-</span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a>
-</span><span id="__span-19-18"><a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a><span class="w">  </span>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span>download<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$REPORT_ID</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-19-19"><a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a><span class="w">    </span>--file<span class="w"> </span><span class="s2">&quot;costs-</span><span class="si">${</span><span class="nv">team</span><span class="si">}</span><span class="s2">-</span><span class="k">$(</span>date<span class="w"> </span>+%Y-%m<span class="k">)</span><span class="s2">.csv&quot;</span>
-</span><span id="__span-19-20"><a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a>
-</span><span id="__span-19-21"><a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a><span class="w">  </span><span class="c1"># Show total for this team</span>
-</span><span id="__span-19-22"><a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a><span class="w">  </span><span class="nv">TOTAL</span><span class="o">=</span><span class="k">$(</span>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span>download<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$REPORT_ID</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-19-23"><a id="__codelineno-19-23" name="__codelineno-19-23" href="#__codelineno-19-23"></a><span class="w">    </span>--format<span class="w"> </span>json<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-19-24"><a id="__codelineno-19-24" name="__codelineno-19-24" href="#__codelineno-19-24"></a><span class="w">    </span>-q<span class="w"> </span><span class="s1">&#39;sum([].BilledCost)&#39;</span><span class="k">)</span>
-</span><span id="__span-19-25"><a id="__codelineno-19-25" name="__codelineno-19-25" href="#__codelineno-19-25"></a>
-</span><span id="__span-19-26"><a id="__codelineno-19-26" name="__codelineno-19-26" href="#__codelineno-19-26"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;  Team </span><span class="nv">$team</span><span class="s2"> total: \$</span><span class="si">${</span><span class="nv">TOTAL</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="__span-19-27"><a id="__codelineno-19-27" name="__codelineno-19-27" href="#__codelineno-19-27"></a><span class="k">done</span>
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="w">  </span><span class="nv">OUTPUT_FILE</span><span class="o">=</span><span class="s2">&quot;costs-</span><span class="si">${</span><span class="nv">team</span><span class="si">}</span><span class="s2">-</span><span class="k">$(</span>date<span class="w"> </span>+%Y-%m<span class="k">)</span><span class="s2">.csv&quot;</span>
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="w">  </span>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="w">    </span>--start-date<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$START_DATE</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="w">    </span>--end-date<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$END_DATE</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a><span class="w">    </span>--tag<span class="w"> </span><span class="s2">&quot;team:</span><span class="nv">$team</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a><span class="w">    </span>--file<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$OUTPUT_FILE</span><span class="s2">&quot;</span>
+</span><span id="__span-19-18"><a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a><span class="k">done</span>
 </span></code></pre></div>
 <h2 id="export-to-google-sheets">Export to Google Sheets<a class="headerlink" href="#export-to-google-sheets" title="Permanent link">&para;</a></h2>
 <h3 id="option-1-direct-csv-upload">Option 1: Direct CSV Upload<a class="headerlink" href="#option-1-direct-csv-upload" title="Permanent link">&para;</a></h3>
@@ -4030,20 +4015,15 @@
 <li>Choose "Replace spreadsheet" or "Insert new sheet"</li>
 </ol>
 <h3 id="option-2-automated-with-gcloud">Option 2: Automated with gcloud<a class="headerlink" href="#option-2-automated-with-gcloud" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># Generate report</span>
-</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="nv">REPORT_ID</span><span class="o">=</span><span class="k">$(</span>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span>generate<span class="w"> </span><span class="se">\</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># Export report and upload to Cloud Storage</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">  </span>--start-date<span class="w"> </span><span class="m">2025</span>-01-01<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">  </span>--end-date<span class="w"> </span><span class="m">2025</span>-01-31<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">  </span>--wait<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">  </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;response.resource.costReportId&#39;</span><span class="k">)</span>
-</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>
-</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="c1"># Download and upload to Cloud Storage</span>
-</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span>download<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$REPORT_ID</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="w">  </span>--file<span class="w"> </span>/tmp/costs.csv
-</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>
-</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>gsutil<span class="w"> </span>cp<span class="w"> </span>/tmp/costs.csv<span class="w"> </span>gs://your-bucket/cost-reports/
-</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>
-</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a><span class="c1"># Then use Google Sheets IMPORTDATA or Apps Script to pull from GCS</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">  </span>--file<span class="w"> </span>/tmp/costs.csv
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>gsutil<span class="w"> </span>cp<span class="w"> </span>/tmp/costs.csv<span class="w"> </span>gs://your-bucket/cost-reports/
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="c1"># Then use Google Sheets IMPORTDATA or Apps Script to pull from GCS</span>
 </span></code></pre></div>
 <h2 id="cron-based-automation">Cron-Based Automation<a class="headerlink" href="#cron-based-automation" title="Permanent link">&para;</a></h2>
 <p>Add to crontab for automated monthly reports:</p>
