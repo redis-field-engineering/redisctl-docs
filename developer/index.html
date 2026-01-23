@@ -2726,6 +2726,8 @@
       
         
       
+        
+      
     
     
     
@@ -2846,6 +2848,34 @@
   
   
     <li class="md-nav__item">
+      <a href="python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python Bindings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="contributing/" class="md-nav__link">
         
   
@@ -2940,10 +2970,43 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#rust-crates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rust Crates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python Package
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#example-using-redis-cloud" class="md-nav__link">
     <span class="md-ellipsis">
       
         Example: Using redis-cloud
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-using-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Using Python
       
     </span>
   </a>
@@ -3011,7 +3074,8 @@
 <h1 id="developer-guide">Developer Guide<a class="headerlink" href="#developer-guide" title="Permanent link">&para;</a></h1>
 <p>Build with redisctl and contribute to the project.</p>
 <h2 id="using-redisctl-libraries">Using redisctl Libraries<a class="headerlink" href="#using-redisctl-libraries" title="Permanent link">&para;</a></h2>
-<p>redisctl is built as reusable Rust libraries:</p>
+<p>redisctl is built as reusable libraries available for both Rust and Python:</p>
+<h3 id="rust-crates">Rust Crates<a class="headerlink" href="#rust-crates" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -3038,6 +3102,23 @@
 </tr>
 </tbody>
 </table>
+<h3 id="python-package">Python Package<a class="headerlink" href="#python-package" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Description</th>
+<th>PyPI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>redisctl</code></td>
+<td>Python bindings for Redis Cloud &amp; Enterprise</td>
+<td><a href="https://pypi.org/project/redisctl/">pypi</a></td>
+</tr>
+</tbody>
+</table>
 <h3 id="example-using-redis-cloud">Example: Using redis-cloud<a class="headerlink" href="#example-using-redis-cloud" title="Permanent link">&para;</a></h3>
 <div class="language-rust highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">use</span><span class="w"> </span><span class="n">redis_cloud</span><span class="p">::</span><span class="n">RedisCloudClient</span><span class="p">;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
@@ -3056,7 +3137,17 @@
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="nb">Ok</span><span class="p">(())</span>
 </span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="p">}</span>
 </span></code></pre></div>
-<p><a href="libraries/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Libraries Guide</a></p>
+<p><a href="libraries/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Rust Libraries Guide</a></p>
+<h3 id="example-using-python">Example: Using Python<a class="headerlink" href="#example-using-python" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">redisctl</span><span class="w"> </span><span class="kn">import</span> <span class="n">CloudClient</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">client</span> <span class="o">=</span> <span class="n">CloudClient</span><span class="o">.</span><span class="n">from_env</span><span class="p">()</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">subscriptions</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">subscriptions_sync</span><span class="p">()</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="k">for</span> <span class="n">sub</span> <span class="ow">in</span> <span class="n">subscriptions</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;subscriptions&#39;</span><span class="p">,</span> <span class="p">[]):</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">sub</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">sub</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<p><a href="python/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Python Bindings Guide</a></p>
 <h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
 <p>Understand how redisctl is structured:</p>
 <ul>

@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://redis-field-engineering.github.io/redisctl-docs/developer/contributing/">
+        <link rel="canonical" href="https://redis-field-engineering.github.io/redisctl-docs/developer/python/">
       
       
-        <link rel="prev" href="../python/">
+        <link rel="prev" href="../libraries/">
       
       
-        <link rel="next" href="../../presentation/">
+        <link rel="next" href="../contributing/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Contributing - redisctl</title>
+        <title>Python Bindings - redisctl</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#contributing" class="md-skip">
+        <a href="#python-bindings" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Contributing
+              Python Bindings
             
           </span>
         </div>
@@ -2845,34 +2845,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../python/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Python Bindings
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -2892,7 +2864,7 @@
   <span class="md-ellipsis">
     
   
-    Contributing
+    Python Bindings
   
 
     
@@ -2910,7 +2882,7 @@
   <span class="md-ellipsis">
     
   
-    Contributing
+    Python Bindings
   
 
     
@@ -2936,22 +2908,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
+  <a href="#installation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Getting Started
+        Installation
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Getting Started">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#async-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Async Support
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudclient-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudClient API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CloudClient API">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#constructor" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Prerequisites
+        Constructor
       
     </span>
   </a>
@@ -2959,10 +2964,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#clone-and-build" class="md-nav__link">
+  <a href="#factory-methods" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Clone and Build
+        Factory Methods
       
     </span>
   </a>
@@ -2970,10 +2975,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#run-tests" class="md-nav__link">
+  <a href="#subscriptions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Run Tests
+        Subscriptions
       
     </span>
   </a>
@@ -2981,10 +2986,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#run-lints" class="md-nav__link">
+  <a href="#databases" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Run Lints
+        Databases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raw-api-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Raw API Access
       
     </span>
   </a>
@@ -2997,22 +3013,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#development-workflow" class="md-nav__link">
+  <a href="#enterpriseclient-api" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Development Workflow
+        EnterpriseClient API
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Development Workflow">
+    <nav class="md-nav" aria-label="EnterpriseClient API">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-create-a-branch" class="md-nav__link">
+  <a href="#constructor_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Create a Branch
+        Constructor
       
     </span>
   </a>
@@ -3020,10 +3036,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-make-changes" class="md-nav__link">
+  <a href="#factory-methods_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Make Changes
+        Factory Methods
       
     </span>
   </a>
@@ -3031,10 +3047,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-test-locally" class="md-nav__link">
+  <a href="#cluster" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Test Locally
+        Cluster
       
     </span>
   </a>
@@ -3042,10 +3058,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-commit" class="md-nav__link">
+  <a href="#databases_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Commit
+        Databases
       
     </span>
   </a>
@@ -3053,10 +3069,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-push-and-create-pr" class="md-nav__link">
+  <a href="#nodes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Push and Create PR
+        Nodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Users
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raw-api-access_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Raw API Access
       
     </span>
   </a>
@@ -3069,44 +3107,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-structure" class="md-nav__link">
+  <a href="#environment-variables" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Project Structure
+        Environment Variables
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#adding-a-new-command" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Adding a New Command
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Testing
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Testing">
+    <nav class="md-nav" aria-label="Environment Variables">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#unit-tests" class="md-nav__link">
+  <a href="#redis-cloud" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Unit Tests
+        Redis Cloud
       
     </span>
   </a>
@@ -3114,10 +3130,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#integration-tests-with-mocks" class="md-nav__link">
+  <a href="#redis-enterprise" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Integration Tests with Mocks
+        Redis Enterprise
       
     </span>
   </a>
@@ -3130,10 +3146,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
+  <a href="#error-handling" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Documentation
+        Error Handling
       
     </span>
   </a>
@@ -3141,10 +3157,93 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#questions" class="md-nav__link">
+  <a href="#examples" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Questions?
+        Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list-all-databases-across-subscriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        List All Databases Across Subscriptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitor-cluster-health" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitor Cluster Health
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raw-api-for-unsupported-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Raw API for Unsupported Endpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#platform-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Platform Support
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-from-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building from Source
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Links
       
     </span>
   </a>
@@ -3155,6 +3254,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -3221,22 +3348,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
+  <a href="#installation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Getting Started
+        Installation
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Getting Started">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#async-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Async Support
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloudclient-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CloudClient API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CloudClient API">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#constructor" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Prerequisites
+        Constructor
       
     </span>
   </a>
@@ -3244,10 +3404,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#clone-and-build" class="md-nav__link">
+  <a href="#factory-methods" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Clone and Build
+        Factory Methods
       
     </span>
   </a>
@@ -3255,10 +3415,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#run-tests" class="md-nav__link">
+  <a href="#subscriptions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Run Tests
+        Subscriptions
       
     </span>
   </a>
@@ -3266,10 +3426,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#run-lints" class="md-nav__link">
+  <a href="#databases" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Run Lints
+        Databases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raw-api-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Raw API Access
       
     </span>
   </a>
@@ -3282,22 +3453,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#development-workflow" class="md-nav__link">
+  <a href="#enterpriseclient-api" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Development Workflow
+        EnterpriseClient API
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Development Workflow">
+    <nav class="md-nav" aria-label="EnterpriseClient API">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-create-a-branch" class="md-nav__link">
+  <a href="#constructor_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Create a Branch
+        Constructor
       
     </span>
   </a>
@@ -3305,10 +3476,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-make-changes" class="md-nav__link">
+  <a href="#factory-methods_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Make Changes
+        Factory Methods
       
     </span>
   </a>
@@ -3316,10 +3487,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-test-locally" class="md-nav__link">
+  <a href="#cluster" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Test Locally
+        Cluster
       
     </span>
   </a>
@@ -3327,10 +3498,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-commit" class="md-nav__link">
+  <a href="#databases_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Commit
+        Databases
       
     </span>
   </a>
@@ -3338,10 +3509,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-push-and-create-pr" class="md-nav__link">
+  <a href="#nodes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Push and Create PR
+        Nodes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Users
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raw-api-access_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Raw API Access
       
     </span>
   </a>
@@ -3354,44 +3547,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#project-structure" class="md-nav__link">
+  <a href="#environment-variables" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Project Structure
+        Environment Variables
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#adding-a-new-command" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Adding a New Command
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Testing
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Testing">
+    <nav class="md-nav" aria-label="Environment Variables">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#unit-tests" class="md-nav__link">
+  <a href="#redis-cloud" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Unit Tests
+        Redis Cloud
       
     </span>
   </a>
@@ -3399,10 +3570,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#integration-tests-with-mocks" class="md-nav__link">
+  <a href="#redis-enterprise" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Integration Tests with Mocks
+        Redis Enterprise
       
     </span>
   </a>
@@ -3415,10 +3586,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
+  <a href="#error-handling" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Documentation
+        Error Handling
       
     </span>
   </a>
@@ -3426,10 +3597,93 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#questions" class="md-nav__link">
+  <a href="#examples" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Questions?
+        Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list-all-databases-across-subscriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        List All Databases Across Subscriptions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitor-cluster-health" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitor Cluster Health
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raw-api-for-unsupported-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Raw API for Unsupported Endpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#platform-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Platform Support
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-from-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building from Source
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Links
       
     </span>
   </a>
@@ -3456,122 +3710,457 @@
   
 
 
-<h1 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h1>
-<p>How to contribute to redisctl.</p>
-<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
-<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Rust 1.75+ (edition 2024)</li>
-<li>Git</li>
-</ul>
-<h3 id="clone-and-build">Clone and Build<a class="headerlink" href="#clone-and-build" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/redis-developer/redisctl
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>redisctl
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>cargo<span class="w"> </span>build
+<h1 id="python-bindings">Python Bindings<a class="headerlink" href="#python-bindings" title="Permanent link">&para;</a></h1>
+<p>Use the <code>redisctl</code> Rust libraries from Python via PyO3 bindings.</p>
+<div class="admonition info">
+<p class="admonition-title">New in v0.8</p>
+<p>Python bindings are available starting with redisctl v0.8.0.</p>
+</div>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>redisctl
 </span></code></pre></div>
-<h3 id="run-tests">Run Tests<a class="headerlink" href="#run-tests" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cargo<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--workspace<span class="w"> </span>--all-features
+<p>Or with development dependencies:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip<span class="w"> </span>install<span class="w"> </span>redisctl<span class="o">[</span>dev<span class="o">]</span>
 </span></code></pre></div>
-<h3 id="run-lints">Run Lints<a class="headerlink" href="#run-lints" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cargo<span class="w"> </span>fmt<span class="w"> </span>--all<span class="w"> </span>--<span class="w"> </span>--check
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>cargo<span class="w"> </span>clippy<span class="w"> </span>--all-targets<span class="w"> </span>--all-features<span class="w"> </span>--<span class="w"> </span>-D<span class="w"> </span>warnings
+<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Redis Cloud</label><label for="__tabbed_1_2">Redis Enterprise</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">redisctl</span><span class="w"> </span><span class="kn">import</span> <span class="n">CloudClient</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># Create client with API credentials</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">client</span> <span class="o">=</span> <span class="n">CloudClient</span><span class="p">(</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="n">api_key</span><span class="o">=</span><span class="s2">&quot;your-api-key&quot;</span><span class="p">,</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="n">api_secret</span><span class="o">=</span><span class="s2">&quot;your-api-secret&quot;</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># Or use environment variables</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">client</span> <span class="o">=</span> <span class="n">CloudClient</span><span class="o">.</span><span class="n">from_env</span><span class="p">()</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1"># List subscriptions</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">subscriptions_sync</span><span class="p">()</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="k">for</span> <span class="n">sub</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;subscriptions&#39;</span><span class="p">,</span> <span class="p">[]):</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">sub</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">sub</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">sub</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="c1"># List databases in a subscription</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="n">dbs</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">databases_sync</span><span class="p">(</span><span class="n">subscription_id</span><span class="o">=</span><span class="mi">12345</span><span class="p">)</span>
 </span></code></pre></div>
-<h2 id="development-workflow">Development Workflow<a class="headerlink" href="#development-workflow" title="Permanent link">&para;</a></h2>
-<h3 id="1-create-a-branch">1. Create a Branch<a class="headerlink" href="#1-create-a-branch" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feat/my-feature
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># or</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>fix/my-fix
+</div>
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">redisctl</span><span class="w"> </span><span class="kn">import</span> <span class="n">EnterpriseClient</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># Create client</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">client</span> <span class="o">=</span> <span class="n">EnterpriseClient</span><span class="p">(</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://cluster:9443&quot;</span><span class="p">,</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">username</span><span class="o">=</span><span class="s2">&quot;admin@redis.local&quot;</span><span class="p">,</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="n">password</span><span class="o">=</span><span class="s2">&quot;secret&quot;</span><span class="p">,</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">insecure</span><span class="o">=</span><span class="kc">True</span>  <span class="c1"># For self-signed certs</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">)</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="c1"># Or use environment variables</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="n">client</span> <span class="o">=</span> <span class="n">EnterpriseClient</span><span class="o">.</span><span class="n">from_env</span><span class="p">()</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="c1"># Get cluster info</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="n">cluster</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">cluster_info_sync</span><span class="p">()</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cluster: </span><span class="si">{</span><span class="n">cluster</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="c1"># List databases</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="k">for</span> <span class="n">db</span> <span class="ow">in</span> <span class="n">client</span><span class="o">.</span><span class="n">databases_sync</span><span class="p">():</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;uid&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
 </span></code></pre></div>
-<p>Branch prefixes:
-- <code>feat/</code> - New features
-- <code>fix/</code> - Bug fixes
-- <code>docs/</code> - Documentation
-- <code>refactor/</code> - Code refactoring
-- <code>test/</code> - Test improvements</p>
-<h3 id="2-make-changes">2. Make Changes<a class="headerlink" href="#2-make-changes" title="Permanent link">&para;</a></h3>
-<p>Follow the existing code style. Key patterns:</p>
-<ul>
-<li>Use <code>anyhow</code> for CLI errors, <code>thiserror</code> for library errors</li>
-<li>All commands must support <code>-o json</code> output</li>
-<li>Add tests for new functionality</li>
-</ul>
-<h3 id="3-test-locally">3. Test Locally<a class="headerlink" href="#3-test-locally" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Run all tests</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>cargo<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--workspace<span class="w"> </span>--all-features
+</div>
+</div>
+</div>
+<h2 id="async-support">Async Support<a class="headerlink" href="#async-support" title="Permanent link">&para;</a></h2>
+<p>All methods have both sync and async versions. Async methods have no suffix, while sync methods end with <code>_sync</code>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">redisctl</span><span class="w"> </span><span class="kn">import</span> <span class="n">CloudClient</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Run specific test</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>cargo<span class="w"> </span><span class="nb">test</span><span class="w"> </span>test_database_list
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="n">client</span> <span class="o">=</span> <span class="n">CloudClient</span><span class="o">.</span><span class="n">from_env</span><span class="p">()</span>
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># Run with output</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>cargo<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--<span class="w"> </span>--nocapture
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="c1"># Async methods (no _sync suffix)</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">subscriptions</span><span class="p">()</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    <span class="c1"># Get a specific subscription</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    <span class="n">sub</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">subscription</span><span class="p">(</span><span class="n">subscription_id</span><span class="o">=</span><span class="mi">12345</span><span class="p">)</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    <span class="c1"># List databases</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    <span class="n">dbs</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">databases</span><span class="p">(</span><span class="n">subscription_id</span><span class="o">=</span><span class="mi">12345</span><span class="p">)</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
 </span></code></pre></div>
-<h3 id="4-commit">4. Commit<a class="headerlink" href="#4-commit" title="Permanent link">&para;</a></h3>
-<p>Use conventional commits:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: add database backup command&quot;</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;fix: handle empty response in subscription list&quot;</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;docs: add VPC peering guide&quot;</span>
+<h2 id="cloudclient-api">CloudClient API<a class="headerlink" href="#cloudclient-api" title="Permanent link">&para;</a></h2>
+<h3 id="constructor">Constructor<a class="headerlink" href="#constructor" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">CloudClient</span><span class="p">(</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">api_secret</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="n">base_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>      <span class="c1"># Default: https://api.redislabs.com/v1</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="n">timeout_secs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>   <span class="c1"># Default: 30</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="p">)</span>
 </span></code></pre></div>
-<p>Types: <code>feat</code>, <code>fix</code>, <code>docs</code>, <code>refactor</code>, <code>test</code>, <code>chore</code></p>
-<h3 id="5-push-and-create-pr">5. Push and Create PR<a class="headerlink" href="#5-push-and-create-pr" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feat/my-feature
+<h3 id="factory-methods">Factory Methods<a class="headerlink" href="#factory-methods" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Create from environment variables</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">client</span> <span class="o">=</span> <span class="n">CloudClient</span><span class="o">.</span><span class="n">from_env</span><span class="p">()</span>
 </span></code></pre></div>
-<p>Then create a PR on GitHub.</p>
-<h2 id="project-structure">Project Structure<a class="headerlink" href="#project-structure" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>crates/
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>├── redis-cloud/         # Cloud API client
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>│   ├── src/handlers/    # API endpoint handlers
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>│   └── tests/           # Integration tests
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>├── redis-enterprise/    # Enterprise API client
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>│   ├── src/handlers/    # API endpoint handlers
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>│   └── tests/           # Integration tests
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>└── redisctl/           # CLI
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>    ├── src/commands/   # Command implementations
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    ├── src/workflows/  # Multi-step workflows
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>    └── tests/          # CLI tests
+<h3 id="subscriptions">Subscriptions<a class="headerlink" href="#subscriptions" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>subscriptions()</code> / <code>subscriptions_sync()</code></td>
+<td>List all subscriptions</td>
+</tr>
+<tr>
+<td><code>subscription(id)</code> / <code>subscription_sync(id)</code></td>
+<td>Get subscription by ID</td>
+</tr>
+</tbody>
+</table>
+<h3 id="databases">Databases<a class="headerlink" href="#databases" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>databases(subscription_id, offset?, limit?)</code></td>
+<td>List databases in subscription</td>
+</tr>
+<tr>
+<td><code>database(subscription_id, database_id)</code></td>
+<td>Get specific database</td>
+</tr>
+</tbody>
+</table>
+<h3 id="raw-api-access">Raw API Access<a class="headerlink" href="#raw-api-access" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>get(path)</code> / <code>get_sync(path)</code></td>
+<td>Execute GET request</td>
+</tr>
+<tr>
+<td><code>post(path, body)</code> / <code>post_sync(path, body)</code></td>
+<td>Execute POST request</td>
+</tr>
+<tr>
+<td><code>put(path, body)</code> / <code>put_sync(path, body)</code></td>
+<td>Execute PUT request</td>
+</tr>
+<tr>
+<td><code>delete(path)</code> / <code>delete_sync(path)</code></td>
+<td>Execute DELETE request</td>
+</tr>
+</tbody>
+</table>
+<h2 id="enterpriseclient-api">EnterpriseClient API<a class="headerlink" href="#enterpriseclient-api" title="Permanent link">&para;</a></h2>
+<h3 id="constructor_1">Constructor<a class="headerlink" href="#constructor_1" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">EnterpriseClient</span><span class="p">(</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="n">base_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>                     <span class="c1"># e.g., &quot;https://cluster:9443&quot;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="n">insecure</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>            <span class="c1"># Allow self-signed certs</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="n">timeout_secs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>    <span class="c1"># Default: 30</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="p">)</span>
 </span></code></pre></div>
-<h2 id="adding-a-new-command">Adding a New Command<a class="headerlink" href="#adding-a-new-command" title="Permanent link">&para;</a></h2>
-<ol>
-<li>Add command enum in <code>crates/redisctl/src/cli.rs</code></li>
-<li>Implement handler in <code>src/commands/</code></li>
-<li>Add to command routing in <code>src/main.rs</code></li>
-<li>Add tests in <code>tests/</code></li>
-<li>Update documentation</li>
-</ol>
-<h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
-<h3 id="unit-tests">Unit Tests<a class="headerlink" href="#unit-tests" title="Permanent link">&para;</a></h3>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cp">#[test]</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">fn</span><span class="w"> </span><span class="nf">test_parse_database_id</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parse_database_id</span><span class="p">(</span><span class="s">&quot;123:456&quot;</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="n">id</span><span class="p">.</span><span class="n">subscription</span><span class="p">,</span><span class="w"> </span><span class="mi">123</span><span class="p">);</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="n">id</span><span class="p">.</span><span class="n">database</span><span class="p">,</span><span class="w"> </span><span class="mi">456</span><span class="p">);</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="p">}</span>
+<h3 id="factory-methods_1">Factory Methods<a class="headerlink" href="#factory-methods_1" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Create from environment variables</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">client</span> <span class="o">=</span> <span class="n">EnterpriseClient</span><span class="o">.</span><span class="n">from_env</span><span class="p">()</span>
 </span></code></pre></div>
-<h3 id="integration-tests-with-mocks">Integration Tests with Mocks<a class="headerlink" href="#integration-tests-with-mocks" title="Permanent link">&para;</a></h3>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cp">#[tokio::test]</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">async</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="nf">test_database_list</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">mock_server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MockServer</span><span class="p">::</span><span class="n">start</span><span class="p">().</span><span class="k">await</span><span class="p">;</span>
+<h3 id="cluster">Cluster<a class="headerlink" href="#cluster" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cluster_info()</code> / <code>cluster_info_sync()</code></td>
+<td>Get cluster information</td>
+</tr>
+<tr>
+<td><code>cluster_stats()</code> / <code>cluster_stats_sync()</code></td>
+<td>Get cluster statistics</td>
+</tr>
+<tr>
+<td><code>license()</code> / <code>license_sync()</code></td>
+<td>Get license information</td>
+</tr>
+</tbody>
+</table>
+<h3 id="databases_1">Databases<a class="headerlink" href="#databases_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>databases()</code> / <code>databases_sync()</code></td>
+<td>List all databases</td>
+</tr>
+<tr>
+<td><code>database(uid)</code> / <code>database_sync(uid)</code></td>
+<td>Get database by UID</td>
+</tr>
+<tr>
+<td><code>database_stats(uid)</code> / <code>database_stats_sync(uid)</code></td>
+<td>Get database statistics</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nodes">Nodes<a class="headerlink" href="#nodes" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>nodes()</code> / <code>nodes_sync()</code></td>
+<td>List all nodes</td>
+</tr>
+<tr>
+<td><code>node(uid)</code> / <code>node_sync(uid)</code></td>
+<td>Get node by UID</td>
+</tr>
+<tr>
+<td><code>node_stats(uid)</code> / <code>node_stats_sync(uid)</code></td>
+<td>Get node statistics</td>
+</tr>
+</tbody>
+</table>
+<h3 id="users">Users<a class="headerlink" href="#users" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>users()</code> / <code>users_sync()</code></td>
+<td>List all users</td>
+</tr>
+<tr>
+<td><code>user(uid)</code> / <code>user_sync(uid)</code></td>
+<td>Get user by UID</td>
+</tr>
+</tbody>
+</table>
+<h3 id="raw-api-access_1">Raw API Access<a class="headerlink" href="#raw-api-access_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>get(path)</code> / <code>get_sync(path)</code></td>
+<td>Execute GET request</td>
+</tr>
+<tr>
+<td><code>post(path, body)</code> / <code>post_sync(path, body)</code></td>
+<td>Execute POST request</td>
+</tr>
+<tr>
+<td><code>put(path, body)</code> / <code>put_sync(path, body)</code></td>
+<td>Execute PUT request</td>
+</tr>
+<tr>
+<td><code>delete(path)</code> / <code>delete_sync(path)</code></td>
+<td>Execute DELETE request</td>
+</tr>
+</tbody>
+</table>
+<h2 id="environment-variables">Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h2>
+<h3 id="redis-cloud">Redis Cloud<a class="headerlink" href="#redis-cloud" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>REDIS_CLOUD_API_KEY</code></td>
+<td>API key (also: <code>REDIS_CLOUD_ACCOUNT_KEY</code>)</td>
+</tr>
+<tr>
+<td><code>REDIS_CLOUD_API_SECRET</code></td>
+<td>API secret (also: <code>REDIS_CLOUD_SECRET_KEY</code>, <code>REDIS_CLOUD_USER_KEY</code>)</td>
+</tr>
+<tr>
+<td><code>REDIS_CLOUD_BASE_URL</code></td>
+<td>Base URL (optional, also: <code>REDIS_CLOUD_API_URL</code>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="redis-enterprise">Redis Enterprise<a class="headerlink" href="#redis-enterprise" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>REDIS_ENTERPRISE_URL</code></td>
+<td>Cluster URL (e.g., <code>https://cluster:9443</code>)</td>
+</tr>
+<tr>
+<td><code>REDIS_ENTERPRISE_USER</code></td>
+<td>Username</td>
+</tr>
+<tr>
+<td><code>REDIS_ENTERPRISE_PASSWORD</code></td>
+<td>Password</td>
+</tr>
+<tr>
+<td><code>REDIS_ENTERPRISE_INSECURE</code></td>
+<td>Set to <code>true</code> to skip TLS verification</td>
+</tr>
+</tbody>
+</table>
+<h2 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h2>
+<p>All errors are raised as <code>RedisCtlError</code> exceptions:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">redisctl</span><span class="w"> </span><span class="kn">import</span> <span class="n">CloudClient</span><span class="p">,</span> <span class="n">RedisCtlError</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">client</span> <span class="o">=</span> <span class="n">CloudClient</span><span class="o">.</span><span class="n">from_env</span><span class="p">()</span>
 </span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="n">Mock</span><span class="p">::</span><span class="n">given</span><span class="p">(</span><span class="n">method</span><span class="p">(</span><span class="s">&quot;GET&quot;</span><span class="p">))</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">        </span><span class="p">.</span><span class="n">and</span><span class="p">(</span><span class="n">path</span><span class="p">(</span><span class="s">&quot;/v1/subscriptions/123/databases&quot;</span><span class="p">))</span>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">        </span><span class="p">.</span><span class="n">respond_with</span><span class="p">(</span><span class="n">ResponseTemplate</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="mi">200</span><span class="p">).</span><span class="n">set_body_json</span><span class="p">(</span><span class="n">json</span><span class="o">!</span><span class="p">([</span>
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">            </span><span class="p">{</span><span class="s">&quot;databaseId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;test&quot;</span><span class="p">}</span>
-</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">        </span><span class="p">])))</span>
-</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">        </span><span class="p">.</span><span class="n">mount</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mock_server</span><span class="p">)</span>
-</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">        </span><span class="p">.</span><span class="k">await</span><span class="p">;</span>
-</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>
-</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">    </span><span class="c1">// Test against mock</span>
-</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="p">}</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="k">try</span><span class="p">:</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    <span class="n">sub</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">subscription_sync</span><span class="p">(</span><span class="n">subscription_id</span><span class="o">=</span><span class="mi">99999</span><span class="p">)</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="k">except</span> <span class="n">RedisCtlError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;API error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span></code></pre></div>
-<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
+<h3 id="list-all-databases-across-subscriptions">List All Databases Across Subscriptions<a class="headerlink" href="#list-all-databases-across-subscriptions" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">redisctl</span><span class="w"> </span><span class="kn">import</span> <span class="n">CloudClient</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">client</span> <span class="o">=</span> <span class="n">CloudClient</span><span class="o">.</span><span class="n">from_env</span><span class="p">()</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c1"># Get all subscriptions</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="n">subs</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">subscriptions_sync</span><span class="p">()</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="k">for</span> <span class="n">sub</span> <span class="ow">in</span> <span class="n">subs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;subscriptions&#39;</span><span class="p">,</span> <span class="p">[]):</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>    <span class="n">sub_id</span> <span class="o">=</span> <span class="n">sub</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Subscription </span><span class="si">{</span><span class="n">sub_id</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">sub</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>    <span class="c1"># Get databases for this subscription</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>    <span class="n">dbs</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">databases_sync</span><span class="p">(</span><span class="n">subscription_id</span><span class="o">=</span><span class="n">sub_id</span><span class="p">)</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>    <span class="k">for</span> <span class="n">db</span> <span class="ow">in</span> <span class="n">dbs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;subscription&#39;</span><span class="p">,</span> <span class="p">[{}])[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;databases&#39;</span><span class="p">,</span> <span class="p">[]):</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  - </span><span class="si">{</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="monitor-cluster-health">Monitor Cluster Health<a class="headerlink" href="#monitor-cluster-health" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">redisctl</span><span class="w"> </span><span class="kn">import</span> <span class="n">EnterpriseClient</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">client</span> <span class="o">=</span> <span class="n">EnterpriseClient</span><span class="o">.</span><span class="n">from_env</span><span class="p">()</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="c1"># Get cluster info</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="n">cluster</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">cluster_info_sync</span><span class="p">()</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cluster: </span><span class="si">{</span><span class="n">cluster</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Version: </span><span class="si">{</span><span class="n">cluster</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;software_version&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;unknown&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="c1"># Check nodes</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="n">nodes</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">nodes_sync</span><span class="p">()</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">nodes</span><span class="p">:</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>    <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;OK&quot;</span> <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;active&#39;</span> <span class="k">else</span> <span class="s2">&quot;WARN&quot;</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Node </span><span class="si">{</span><span class="n">node</span><span class="p">[</span><span class="s1">&#39;uid&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="c1"># Check databases</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="n">dbs</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">databases_sync</span><span class="p">()</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="k">for</span> <span class="n">db</span> <span class="ow">in</span> <span class="n">dbs</span><span class="p">:</span>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>    <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;OK&quot;</span> <span class="k">if</span> <span class="n">db</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;active&#39;</span> <span class="k">else</span> <span class="s2">&quot;WARN&quot;</span>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Database </span><span class="si">{</span><span class="n">db</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="export-configuration">Export Configuration<a class="headerlink" href="#export-configuration" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">redisctl</span><span class="w"> </span><span class="kn">import</span> <span class="n">EnterpriseClient</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">client</span> <span class="o">=</span> <span class="n">EnterpriseClient</span><span class="o">.</span><span class="n">from_env</span><span class="p">()</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="c1"># Gather cluster configuration</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>    <span class="s2">&quot;cluster&quot;</span><span class="p">:</span> <span class="n">client</span><span class="o">.</span><span class="n">cluster_info_sync</span><span class="p">(),</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>    <span class="s2">&quot;databases&quot;</span><span class="p">:</span> <span class="n">client</span><span class="o">.</span><span class="n">databases_sync</span><span class="p">(),</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>    <span class="s2">&quot;nodes&quot;</span><span class="p">:</span> <span class="n">client</span><span class="o">.</span><span class="n">nodes_sync</span><span class="p">(),</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>    <span class="s2">&quot;users&quot;</span><span class="p">:</span> <span class="n">client</span><span class="o">.</span><span class="n">users_sync</span><span class="p">(),</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="p">}</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="c1"># Save to file</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;cluster-config.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Configuration exported to cluster-config.json&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="raw-api-for-unsupported-endpoints">Raw API for Unsupported Endpoints<a class="headerlink" href="#raw-api-for-unsupported-endpoints" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">redisctl</span><span class="w"> </span><span class="kn">import</span> <span class="n">EnterpriseClient</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">client</span> <span class="o">=</span> <span class="n">EnterpriseClient</span><span class="o">.</span><span class="n">from_env</span><span class="p">()</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="c1"># Get cluster policy (not a typed method)</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="n">policy</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_sync</span><span class="p">(</span><span class="s2">&quot;/v1/cluster/policy&quot;</span><span class="p">)</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Persistent storage: </span><span class="si">{</span><span class="n">policy</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;persistent_node_storage&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="c1"># Update cluster settings</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="n">client</span><span class="o">.</span><span class="n">put_sync</span><span class="p">(</span><span class="s2">&quot;/v1/cluster&quot;</span><span class="p">,</span> <span class="p">{</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;production-cluster&quot;</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="p">})</span>
+</span></code></pre></div>
+<h2 id="platform-support">Platform Support<a class="headerlink" href="#platform-support" title="Permanent link">&para;</a></h2>
+<p>The Python bindings are available as pre-built wheels for:</p>
 <ul>
-<li>User docs: <code>mkdocs-site/docs/</code></li>
-<li>API docs: Inline rustdoc comments</li>
-<li>Build docs: <code>cargo doc --workspace</code></li>
+<li><strong>macOS</strong>: Intel (x86_64) and Apple Silicon (arm64)</li>
+<li><strong>Linux</strong>: x86_64 and aarch64 (glibc)</li>
+<li><strong>Windows</strong>: x86_64</li>
 </ul>
-<h2 id="questions">Questions?<a class="headerlink" href="#questions" title="Permanent link">&para;</a></h2>
+<p>Python versions: 3.9, 3.10, 3.11, 3.12, 3.13</p>
+<h2 id="building-from-source">Building from Source<a class="headerlink" href="#building-from-source" title="Permanent link">&para;</a></h2>
+<p>If pre-built wheels aren't available for your platform:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Install Rust</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>curl<span class="w"> </span>--proto<span class="w"> </span><span class="s1">&#39;=https&#39;</span><span class="w"> </span>--tlsv1.2<span class="w"> </span>-sSf<span class="w"> </span>https://sh.rustup.rs<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1"># Install maturin</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>pip<span class="w"> </span>install<span class="w"> </span>maturin
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="c1"># Clone and build</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/redis-developer/redisctl.git
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="nb">cd</span><span class="w"> </span>redisctl/crates/redisctl-python
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>maturin<span class="w"> </span>build<span class="w"> </span>--release
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>pip<span class="w"> </span>install<span class="w"> </span>target/wheels/redisctl-*.whl
+</span></code></pre></div>
+<h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://github.com/redis-developer/redisctl/issues">GitHub Issues</a></li>
-<li><a href="https://github.com/redis-developer/redisctl/discussions">GitHub Discussions</a></li>
+<li><a href="https://pypi.org/project/redisctl/">PyPI Package</a></li>
+<li><a href="https://github.com/redis-developer/redisctl">GitHub Repository</a></li>
+<li><a href="https://github.com/redis-developer/redisctl/issues">Issue Tracker</a></li>
 </ul>
 
 
