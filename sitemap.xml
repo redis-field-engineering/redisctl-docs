@@ -21,6 +21,10 @@
          <lastmod>2026-01-23</lastmod>
     </url>
     <url>
+         <loc>https://redis-field-engineering.github.io/redisctl-docs/cloud/commands/cost-report/</loc>
+         <lastmod>2026-01-23</lastmod>
+    </url>
+    <url>
          <loc>https://redis-field-engineering.github.io/redisctl-docs/cloud/commands/databases/</loc>
          <lastmod>2026-01-23</lastmod>
     </url>
@@ -78,6 +82,10 @@
     </url>
     <url>
          <loc>https://redis-field-engineering.github.io/redisctl-docs/cookbook/cloud/backup-restore/</loc>
+         <lastmod>2026-01-23</lastmod>
+    </url>
+    <url>
+         <loc>https://redis-field-engineering.github.io/redisctl-docs/cookbook/cloud/cost-reports/</loc>
          <lastmod>2026-01-23</lastmod>
     </url>
     <url>
