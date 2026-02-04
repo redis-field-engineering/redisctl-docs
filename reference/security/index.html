@@ -2737,6 +2737,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#tls-certificate-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TLS Certificate Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TLS Certificate Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes-deployments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Deployments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-each-option" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Use Each Option
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#revoking-credentials" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3426,6 +3465,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#tls-certificate-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TLS Certificate Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="TLS Certificate Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kubernetes-deployments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kubernetes Deployments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-each-option" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Use Each Option
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#revoking-credentials" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3571,6 +3649,47 @@
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Find your config file</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>cat<span class="w"> </span>~/.config/redisctl/config.toml
 </span></code></pre></div>
+<h2 id="tls-certificate-configuration">TLS Certificate Configuration<a class="headerlink" href="#tls-certificate-configuration" title="Permanent link">&para;</a></h2>
+<h3 id="kubernetes-deployments">Kubernetes Deployments<a class="headerlink" href="#kubernetes-deployments" title="Permanent link">&para;</a></h3>
+<p>Redis Enterprise clusters deployed on Kubernetes typically use self-signed certificates. Instead of disabling TLS verification with <code>REDIS_ENTERPRISE_INSECURE=true</code>, you can provide the cluster's CA certificate for secure connections:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Extract CA cert from Kubernetes secret</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>kubectl<span class="w"> </span>get<span class="w"> </span>secret<span class="w"> </span>rec-proxy-cert<span class="w"> </span>-o<span class="w"> </span><span class="nv">jsonpath</span><span class="o">=</span><span class="s1">&#39;{.data.ca\.crt}&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>base64<span class="w"> </span>-d<span class="w"> </span>&gt;<span class="w"> </span>ca.crt
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># Use the CA cert for verification</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">REDIS_ENTERPRISE_CA_CERT</span><span class="o">=</span><span class="s2">&quot;./ca.crt&quot;</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="nb">export</span><span class="w"> </span><span class="nv">REDIS_ENTERPRISE_URL</span><span class="o">=</span><span class="s2">&quot;https://rec-api.redis.svc:9443&quot;</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="nb">export</span><span class="w"> </span><span class="nv">REDIS_ENTERPRISE_USER</span><span class="o">=</span><span class="s2">&quot;admin@cluster.local&quot;</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="nb">export</span><span class="w"> </span><span class="nv">REDIS_ENTERPRISE_PASSWORD</span><span class="o">=</span><span class="s2">&quot;password&quot;</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>cluster<span class="w"> </span>get
+</span></code></pre></div>
+<h3 id="when-to-use-each-option">When to Use Each Option<a class="headerlink" href="#when-to-use-each-option" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>REDIS_ENTERPRISE_CA_CERT</code></td>
+<td>Kubernetes, self-signed certs where you have the CA</td>
+</tr>
+<tr>
+<td><code>REDIS_ENTERPRISE_INSECURE=true</code></td>
+<td>Local development, testing only</td>
+</tr>
+<tr>
+<td>Neither</td>
+<td>Production clusters with trusted certificates</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Avoid Insecure Mode in Production</p>
+<p>Using <code>REDIS_ENTERPRISE_INSECURE=true</code> disables all certificate verification and should only be used for local development. For Kubernetes deployments, always use <code>REDIS_ENTERPRISE_CA_CERT</code> with the cluster's CA certificate.</p>
+</div>
 <h2 id="revoking-credentials">Revoking Credentials<a class="headerlink" href="#revoking-credentials" title="Permanent link">&para;</a></h2>
 <h3 id="redis-cloud">Redis Cloud<a class="headerlink" href="#redis-cloud" title="Permanent link">&para;</a></h3>
 <ol>
@@ -3585,7 +3704,7 @@
 <li>Change the password in the cluster admin console</li>
 <li>Update all profiles using that password</li>
 </ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>redisctl<span class="w"> </span>profile<span class="w"> </span><span class="nb">set</span><span class="w"> </span>prod<span class="w"> </span>--enterprise-password<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$NEW_PASSWORD</span><span class="s2">&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>redisctl<span class="w"> </span>profile<span class="w"> </span><span class="nb">set</span><span class="w"> </span>prod<span class="w"> </span>--enterprise-password<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$NEW_PASSWORD</span><span class="s2">&quot;</span>
 </span></code></pre></div>
 
 
