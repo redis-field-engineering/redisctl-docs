@@ -2938,10 +2938,43 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#license-modules" class="md-nav__link">
+  <a href="#license-management" class="md-nav__link">
     <span class="md-ellipsis">
       
-        License &amp; Modules
+        License Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cluster-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cluster Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#certificate-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Certificate Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modules
       
     </span>
   </a>
@@ -3789,10 +3822,43 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#license-modules" class="md-nav__link">
+  <a href="#license-management" class="md-nav__link">
     <span class="md-ellipsis">
       
-        License &amp; Modules
+        License Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cluster-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cluster Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#certificate-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Certificate Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modules
       
     </span>
   </a>
@@ -4145,8 +4211,12 @@
 
 
 <h1 id="tools-reference">Tools Reference<a class="headerlink" href="#tools-reference" title="Permanent link">&para;</a></h1>
-<p>The redisctl MCP server exposes <strong>237 tools</strong> for managing Redis Cloud, Redis Enterprise, and direct database operations.</p>
-<p>Tools marked with <em>(write)</em> require <code>--allow-writes</code> flag. Database tools require a <code>--database-url</code> connection.</p>
+<p>The redisctl MCP server exposes <strong>~100 tools</strong> for managing Redis Cloud, Redis Enterprise, and direct database operations.</p>
+<p>Tools marked with <em>(write)</em> require <code>--read-only=false</code> flag. Database tools require a <code>--database-url</code> connection.</p>
+<div class="admonition warning">
+<p class="admonition-title">Documentation Update in Progress</p>
+<p>The detailed tool listing below is being updated. For the most accurate list, start <code>redisctl-mcp</code> and check the tools your AI assistant discovers, or inspect the source code.</p>
+</div>
 <h2 id="redis-cloud-tools-29-tools">Redis Cloud Tools (29 tools)<a class="headerlink" href="#redis-cloud-tools-29-tools" title="Permanent link">&para;</a></h2>
 <h3 id="account-infrastructure">Account &amp; Infrastructure<a class="headerlink" href="#account-infrastructure" title="Permanent link">&para;</a></h3>
 <table>
@@ -4634,7 +4704,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="license-modules">License &amp; Modules<a class="headerlink" href="#license-modules" title="Permanent link">&para;</a></h3>
+<h3 id="license-management">License Management<a class="headerlink" href="#license-management" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -4644,15 +4714,100 @@
 </thead>
 <tbody>
 <tr>
-<td><code>enterprise_license_get</code></td>
+<td><code>get_license</code></td>
 <td>Get license information</td>
 </tr>
 <tr>
-<td><code>enterprise_modules_list</code></td>
+<td><code>get_license_usage</code></td>
+<td>Get license utilization stats</td>
+</tr>
+<tr>
+<td><code>update_enterprise_license</code></td>
+<td>Update cluster license <em>(write)</em></td>
+</tr>
+<tr>
+<td><code>validate_enterprise_license</code></td>
+<td>Validate license before applying</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cluster-configuration">Cluster Configuration<a class="headerlink" href="#cluster-configuration" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>get_cluster</code></td>
+<td>Get cluster information</td>
+</tr>
+<tr>
+<td><code>get_cluster_stats</code></td>
+<td>Get cluster statistics</td>
+</tr>
+<tr>
+<td><code>update_enterprise_cluster</code></td>
+<td>Update cluster settings <em>(write)</em></td>
+</tr>
+<tr>
+<td><code>get_enterprise_cluster_policy</code></td>
+<td>Get cluster policy settings</td>
+</tr>
+<tr>
+<td><code>update_enterprise_cluster_policy</code></td>
+<td>Update cluster policy <em>(write)</em></td>
+</tr>
+<tr>
+<td><code>enable_enterprise_maintenance_mode</code></td>
+<td>Enable maintenance mode <em>(write)</em></td>
+</tr>
+<tr>
+<td><code>disable_enterprise_maintenance_mode</code></td>
+<td>Disable maintenance mode <em>(write)</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="certificate-management">Certificate Management<a class="headerlink" href="#certificate-management" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>get_enterprise_cluster_certificates</code></td>
+<td>Get all certificates</td>
+</tr>
+<tr>
+<td><code>rotate_enterprise_cluster_certificates</code></td>
+<td>Rotate certificates <em>(write)</em></td>
+</tr>
+<tr>
+<td><code>update_enterprise_cluster_certificates</code></td>
+<td>Update certificate <em>(write)</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="modules">Modules<a class="headerlink" href="#modules" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>list_modules</code></td>
 <td>List available modules</td>
 </tr>
 <tr>
-<td><code>enterprise_module_get</code></td>
+<td><code>get_module</code></td>
 <td>Get module details</td>
 </tr>
 </tbody>
