@@ -3459,6 +3459,10 @@
 <h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span>run<span class="w"> </span>ghcr.io/redis-developer/redisctl<span class="w"> </span>--help
 </span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Explicit prefixes in Docker</p>
+<p>The examples on this page use explicit <code>cloud</code>/<code>enterprise</code> prefixes because Docker containers typically don't have a persistent config file. If you mount a config directory (see <a href="#mount-config-file">Mount Config File</a> below), prefix inference works the same as a native install. See <a href="../../common/profiles/#platform-inference">Platform Inference</a> for details.</p>
+</div>
 <h2 id="passing-credentials">Passing Credentials<a class="headerlink" href="#passing-credentials" title="Permanent link">&para;</a></h2>
 <h3 id="environment-variables">Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span><span class="se">\</span>

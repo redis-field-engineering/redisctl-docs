@@ -3275,8 +3275,8 @@
 </span></code></pre></div></p>
 <h3 id="2-commands">2. Commands<a class="headerlink" href="#2-commands" title="Permanent link">&para;</a></h3>
 <p>Human-friendly commands for day-to-day operations:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>cluster<span class="w"> </span>get
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>database<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>mydb<span class="w"> </span>--memory-size<span class="w"> </span><span class="m">1073741824</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>redisctl<span class="w"> </span>cluster<span class="w"> </span>get<span class="w">                                      </span><span class="c1"># prefix optional</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>redisctl<span class="w"> </span>database<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>mydb<span class="w"> </span>--memory-size<span class="w"> </span><span class="m">1073741824</span>
 </span></code></pre></div></p>
 <h3 id="3-workflows">3. Workflows<a class="headerlink" href="#3-workflows" title="Permanent link">&para;</a></h3>
 <p>Multi-step operations:
@@ -3331,23 +3331,27 @@
 <p>Most Enterprise clusters use self-signed certificates. Set <code>REDIS_ENTERPRISE_INSECURE=true</code> or use <code>--enterprise-insecure</code> in profiles.</p>
 </div>
 <h2 id="quick-examples">Quick Examples<a class="headerlink" href="#quick-examples" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Get cluster info</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>cluster<span class="w"> </span>get
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Get cluster info (enterprise-only, prefix optional)</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>redisctl<span class="w"> </span>cluster<span class="w"> </span>get
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># List databases</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>database<span class="w"> </span>list<span class="w"> </span>-o<span class="w"> </span>table
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>redisctl<span class="w"> </span>database<span class="w"> </span>list<span class="w"> </span>-o<span class="w"> </span>table
 </span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
 </span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># Create database</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>database<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>redisctl<span class="w"> </span>database<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span>--name<span class="w"> </span>cache<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span>--memory-size<span class="w"> </span><span class="m">1073741824</span>
 </span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
 </span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="c1"># Stream cluster stats</span>
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>stats<span class="w"> </span>cluster<span class="w"> </span>--follow
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>redisctl<span class="w"> </span>stats<span class="w"> </span>cluster<span class="w"> </span>--follow
 </span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
 </span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="c1"># Generate support package</span>
-</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>support-package<span class="w"> </span>cluster<span class="w"> </span>--upload
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>redisctl<span class="w"> </span>support-package<span class="w"> </span>cluster<span class="w"> </span>--upload
 </span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Prefix-free commands</p>
+<p>The <code>enterprise</code> prefix is optional when your profile is an Enterprise profile. All examples above work with or without <code>redisctl enterprise ...</code>. See <a href="../common/profiles/#platform-inference">Platform Inference</a> for details.</p>
+</div>
 <h2 id="command-groups">Command Groups<a class="headerlink" href="#command-groups" title="Permanent link">&para;</a></h2>
 <div class="grid cards">
 <ul>

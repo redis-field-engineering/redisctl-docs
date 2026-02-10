@@ -3261,8 +3261,8 @@
 </span></code></pre></div></p>
 <h3 id="2-commands">2. Commands<a class="headerlink" href="#2-commands" title="Permanent link">&para;</a></h3>
 <p>Human-friendly commands for day-to-day operations:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>subscription<span class="w"> </span>list
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>database<span class="w"> </span>create<span class="w"> </span>--subscription<span class="w"> </span><span class="m">123</span><span class="w"> </span>--data<span class="w"> </span>@db.json<span class="w"> </span>--wait
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>redisctl<span class="w"> </span>subscription<span class="w"> </span>list<span class="w">                                </span><span class="c1"># prefix optional</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>redisctl<span class="w"> </span>database<span class="w"> </span>create<span class="w"> </span>--subscription<span class="w"> </span><span class="m">123</span><span class="w"> </span>--data<span class="w"> </span>@db.json<span class="w"> </span>--wait
 </span></code></pre></div></p>
 <h3 id="3-workflows">3. Workflows<a class="headerlink" href="#3-workflows" title="Permanent link">&para;</a></h3>
 <p>Multi-step operations:
@@ -3308,26 +3308,30 @@
 <p>Get your API keys from <a href="https://app.redislabs.com">app.redislabs.com</a> under <strong>Access Management &gt; API Keys</strong>.</p>
 </div>
 <h2 id="quick-examples">Quick Examples<a class="headerlink" href="#quick-examples" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># List subscriptions</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>subscription<span class="w"> </span>list<span class="w"> </span>-o<span class="w"> </span>table
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># List subscriptions (cloud-only, prefix optional)</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>redisctl<span class="w"> </span>subscription<span class="w"> </span>list<span class="w"> </span>-o<span class="w"> </span>table
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Create database and wait</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>database<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>redisctl<span class="w"> </span>database<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span>--subscription<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span>--name<span class="w"> </span>cache<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span>--memory-limit-in-gb<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span>--wait
 </span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
 </span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="c1"># Get database connection info</span>
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>database<span class="w"> </span>get<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="m">789</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>redisctl<span class="w"> </span>database<span class="w"> </span>get<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="m">789</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">  </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;{endpoint: publicEndpoint, password: password}&#39;</span>
 </span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
 </span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="c1"># Set up VPC peering</span>
-</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>vpc-peering<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>redisctl<span class="w"> </span>vpc-peering<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">  </span>--subscription<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">  </span>--data<span class="w"> </span>@peering.json<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">  </span>--wait
 </span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Prefix-free commands</p>
+<p>The <code>cloud</code> prefix is optional when your profile is a Cloud profile. All examples above work with or without <code>redisctl cloud ...</code>. See <a href="../common/profiles/#platform-inference">Platform Inference</a> for details.</p>
+</div>
 <h2 id="command-groups">Command Groups<a class="headerlink" href="#command-groups" title="Permanent link">&para;</a></h2>
 <div class="grid cards">
 <ul>
