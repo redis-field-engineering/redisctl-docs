@@ -16,7 +16,7 @@
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../output-formats/">
+        <link rel="next" href="../troubleshooting/">
       
       
         
@@ -735,6 +735,8 @@
       
         
       
+        
+      
     
     
     
@@ -881,6 +883,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#interactive-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#creating-profiles" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1020,6 +1033,34 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tags
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tags">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filter-by-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filter by Tag
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#managing-profiles" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1077,6 +1118,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell-prompt-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shell Prompt Integration
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1145,6 +1197,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -3430,6 +3510,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#interactive-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#creating-profiles" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3569,6 +3660,34 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tags
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tags">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filter-by-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filter by Tag
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#managing-profiles" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3626,6 +3745,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#shell-prompt-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shell Prompt Integration
+      
+    </span>
+  </a>
   
 </li>
       
@@ -3744,24 +3874,38 @@
 </tr>
 </tbody>
 </table>
+<h2 id="interactive-setup">Interactive Setup<a class="headerlink" href="#interactive-setup" title="Permanent link">&para;</a></h2>
+<p>The quickest way to create a profile is with the interactive wizard:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>redisctl<span class="w"> </span>profile<span class="w"> </span>init
+</span></code></pre></div>
+<p>The wizard walks you through:</p>
+<ol>
+<li>Choosing a profile name</li>
+<li>Selecting the deployment type (Cloud, Enterprise, or Database)</li>
+<li>Entering credentials with guided prompts</li>
+<li>Optionally storing credentials in the OS keyring</li>
+</ol>
+<p>This is the recommended approach for first-time setup. You can also use <code>redisctl profile setup</code> (alias).</p>
 <h2 id="creating-profiles">Creating Profiles<a class="headerlink" href="#creating-profiles" title="Permanent link">&para;</a></h2>
 <h3 id="redis-cloud">Redis Cloud<a class="headerlink" href="#redis-cloud" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>redisctl<span class="w"> </span>profile<span class="w"> </span><span class="nb">set</span><span class="w"> </span>my-cloud<span class="w"> </span>--type<span class="w"> </span>cloud<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span>--api-key<span class="w"> </span><span class="s2">&quot;your-api-key&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span>--api-secret<span class="w"> </span><span class="s2">&quot;your-secret-key&quot;</span>
+<p>You'll need an API key and secret from the <a href="https://cloud.redis.io">Redis Cloud console</a> under <strong>Access Management &gt; API Keys</strong>.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>redisctl<span class="w"> </span>profile<span class="w"> </span><span class="nb">set</span><span class="w"> </span>my-cloud<span class="w"> </span>--type<span class="w"> </span>cloud<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>--api-key<span class="w"> </span><span class="s2">&quot;your-api-key&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span>--api-secret<span class="w"> </span><span class="s2">&quot;your-secret-key&quot;</span>
 </span></code></pre></div>
 <h3 id="redis-enterprise">Redis Enterprise<a class="headerlink" href="#redis-enterprise" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>redisctl<span class="w"> </span>profile<span class="w"> </span><span class="nb">set</span><span class="w"> </span>my-enterprise<span class="w"> </span>--type<span class="w"> </span>enterprise<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>--url<span class="w"> </span><span class="s2">&quot;https://cluster.example.com:9443&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span>--username<span class="w"> </span><span class="s2">&quot;admin@cluster.local&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span>--password<span class="w"> </span><span class="s2">&quot;your-password&quot;</span>
+<p>You'll need the cluster management URL (<code>https://&lt;host&gt;:9443</code>) and admin credentials from your Redis Enterprise admin console.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>redisctl<span class="w"> </span>profile<span class="w"> </span><span class="nb">set</span><span class="w"> </span>my-enterprise<span class="w"> </span>--type<span class="w"> </span>enterprise<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span>--url<span class="w"> </span><span class="s2">&quot;https://cluster.example.com:9443&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span>--username<span class="w"> </span><span class="s2">&quot;admin@cluster.local&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span>--password<span class="w"> </span><span class="s2">&quot;your-password&quot;</span>
 </span></code></pre></div>
 <h3 id="database-direct-redis-connection">Database (Direct Redis Connection)<a class="headerlink" href="#database-direct-redis-connection" title="Permanent link">&para;</a></h3>
 <p>For direct connections to Redis databases:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>redisctl<span class="w"> </span>profile<span class="w"> </span><span class="nb">set</span><span class="w"> </span>my-cache<span class="w"> </span>--type<span class="w"> </span>database<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span>--host<span class="w"> </span><span class="s2">&quot;redis-12345.cloud.redislabs.com&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span>--port<span class="w"> </span><span class="m">12345</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span>--password<span class="w"> </span><span class="s2">&quot;your-password&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>redisctl<span class="w"> </span>profile<span class="w"> </span><span class="nb">set</span><span class="w"> </span>my-cache<span class="w"> </span>--type<span class="w"> </span>database<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span>--host<span class="w"> </span><span class="s2">&quot;redis-12345.cloud.redislabs.com&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span>--port<span class="w"> </span><span class="m">12345</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span>--password<span class="w"> </span><span class="s2">&quot;your-password&quot;</span>
 </span></code></pre></div>
 <p>Database profiles support these options:</p>
 <table>
@@ -3806,35 +3950,35 @@
 </tbody>
 </table>
 <p>Example for local development without TLS:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>redisctl<span class="w"> </span>profile<span class="w"> </span><span class="nb">set</span><span class="w"> </span>local-redis<span class="w"> </span>--type<span class="w"> </span>database<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span>--host<span class="w"> </span>localhost<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span>--port<span class="w"> </span><span class="m">6379</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span>--no-tls
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>redisctl<span class="w"> </span>profile<span class="w"> </span><span class="nb">set</span><span class="w"> </span>local-redis<span class="w"> </span>--type<span class="w"> </span>database<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span>--host<span class="w"> </span>localhost<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span>--port<span class="w"> </span><span class="m">6379</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span>--no-tls
 </span></code></pre></div>
 <h2 id="using-profiles">Using Profiles<a class="headerlink" href="#using-profiles" title="Permanent link">&para;</a></h2>
 <h3 id="per-command">Per-Command<a class="headerlink" href="#per-command" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># With explicit prefix</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>redisctl<span class="w"> </span>--profile<span class="w"> </span>prod<span class="w"> </span>cloud<span class="w"> </span>subscription<span class="w"> </span>list
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>redisctl<span class="w"> </span>--profile<span class="w"> </span>dev<span class="w"> </span>enterprise<span class="w"> </span>cluster<span class="w"> </span>get
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># Prefix optional — profile type tells the CLI which platform</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>redisctl<span class="w"> </span>--profile<span class="w"> </span>prod<span class="w"> </span>subscription<span class="w"> </span>list
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>redisctl<span class="w"> </span>--profile<span class="w"> </span>dev<span class="w"> </span>cluster<span class="w"> </span>get
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># With explicit prefix</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>redisctl<span class="w"> </span>--profile<span class="w"> </span>prod<span class="w"> </span>cloud<span class="w"> </span>subscription<span class="w"> </span>list
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>redisctl<span class="w"> </span>--profile<span class="w"> </span>dev<span class="w"> </span>enterprise<span class="w"> </span>cluster<span class="w"> </span>get
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1"># Prefix optional — profile type tells the CLI which platform</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>redisctl<span class="w"> </span>--profile<span class="w"> </span>prod<span class="w"> </span>subscription<span class="w"> </span>list
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>redisctl<span class="w"> </span>--profile<span class="w"> </span>dev<span class="w"> </span>cluster<span class="w"> </span>get
 </span></code></pre></div>
 <h3 id="default-profiles">Default Profiles<a class="headerlink" href="#default-profiles" title="Permanent link">&para;</a></h3>
 <p>Set defaults for each profile type:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Set default Cloud profile</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>redisctl<span class="w"> </span>profile<span class="w"> </span>default-cloud<span class="w"> </span>prod-cloud
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Set default Enterprise profile</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>redisctl<span class="w"> </span>profile<span class="w"> </span>default-enterprise<span class="w"> </span>prod-cluster
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># Set default Database profile</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>redisctl<span class="w"> </span>profile<span class="w"> </span>default-database<span class="w"> </span>my-cache
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Set default Cloud profile</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>redisctl<span class="w"> </span>profile<span class="w"> </span>default-cloud<span class="w"> </span>prod-cloud
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Set default Enterprise profile</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>redisctl<span class="w"> </span>profile<span class="w"> </span>default-enterprise<span class="w"> </span>prod-cluster
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># Set default Database profile</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>redisctl<span class="w"> </span>profile<span class="w"> </span>default-database<span class="w"> </span>my-cache
 </span></code></pre></div>
 <p>Now commands use the appropriate default automatically:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>subscription<span class="w"> </span>list<span class="w">      </span><span class="c1"># Uses prod-cloud</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>cluster<span class="w"> </span>get<span class="w">       </span><span class="c1"># Uses prod-cluster</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>subscription<span class="w"> </span>list<span class="w">      </span><span class="c1"># Uses prod-cloud</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>cluster<span class="w"> </span>get<span class="w">       </span><span class="c1"># Uses prod-cluster</span>
 </span></code></pre></div>
 <h2 id="platform-inference">Platform Inference<a class="headerlink" href="#platform-inference" title="Permanent link">&para;</a></h2>
 <p>When your configuration makes the platform unambiguous, you can omit the <code>cloud</code> or <code>enterprise</code> prefix entirely. The CLI infers the correct platform from your profile.</p>
@@ -3843,19 +3987,19 @@
 <ul>
 <li><code>subscription</code>, <code>account</code>, <code>payment-method</code>, <code>cloud-account</code>, <code>essentials</code>, <code>vpc-peering</code>, <code>transit-gateway</code>, <code>private-link</code></li>
 </ul>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>redisctl<span class="w"> </span>subscription<span class="w"> </span>list<span class="w">                   </span><span class="c1"># always Cloud</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>redisctl<span class="w"> </span>subscription<span class="w"> </span>list<span class="w">                   </span><span class="c1"># always Cloud</span>
 </span></code></pre></div>
 <p><strong>Enterprise-only commands</strong> — never need a prefix:</p>
 <ul>
 <li><code>cluster</code>, <code>node</code>, <code>shard</code>, <code>module</code>, <code>logs</code>, <code>stats</code>, <code>support-package</code>, <code>debuginfo</code>, <code>diagnostics</code>, <code>endpoint</code>, <code>crdb</code>, <code>ldap</code>, <code>alert</code></li>
 </ul>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>redisctl<span class="w"> </span>cluster<span class="w"> </span>get<span class="w">                         </span><span class="c1"># always Enterprise</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>redisctl<span class="w"> </span>cluster<span class="w"> </span>get<span class="w">                         </span><span class="c1"># always Enterprise</span>
 </span></code></pre></div>
 <p><strong>Shared commands</strong> — inferred from your default profile:</p>
 <ul>
 <li><code>database</code>, <code>user</code>, <code>acl</code>, <code>role</code></li>
 </ul>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>redisctl<span class="w"> </span>database<span class="w"> </span>list<span class="w">                       </span><span class="c1"># uses your default profile&#39;s platform</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>redisctl<span class="w"> </span>database<span class="w"> </span>list<span class="w">                       </span><span class="c1"># uses your default profile&#39;s platform</span>
 </span></code></pre></div>
 <h3 id="when-you-still-need-prefixes">When You Still Need Prefixes<a class="headerlink" href="#when-you-still-need-prefixes" title="Permanent link">&para;</a></h3>
 <ul>
@@ -3863,42 +4007,81 @@
 <li><strong>Scripts and automation</strong> — explicit prefixes make scripts config-independent</li>
 <li><strong><code>--profile</code> flag</strong> — when overriding the default, the prefix is optional since the profile type is known</li>
 </ul>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Explicit for clarity in scripts</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>database<span class="w"> </span>list<span class="w"> </span>--subscription-id<span class="w"> </span><span class="m">123</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># --profile makes the platform clear, so prefix is optional</span>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>redisctl<span class="w"> </span>--profile<span class="w"> </span>prod-cluster<span class="w"> </span>database<span class="w"> </span>list
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Explicit for clarity in scripts</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>database<span class="w"> </span>list<span class="w"> </span>--subscription-id<span class="w"> </span><span class="m">123</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># --profile makes the platform clear, so prefix is optional</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>redisctl<span class="w"> </span>--profile<span class="w"> </span>prod-cluster<span class="w"> </span>database<span class="w"> </span>list
 </span></code></pre></div>
 <h3 id="override-with-environment">Override with Environment<a class="headerlink" href="#override-with-environment" title="Permanent link">&para;</a></h3>
 <p>Environment variables override profile settings:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Profile says one thing, env var wins</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">REDIS_CLOUD_API_KEY</span><span class="o">=</span><span class="s2">&quot;override-key&quot;</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>redisctl<span class="w"> </span>--profile<span class="w"> </span>prod<span class="w"> </span>cloud<span class="w"> </span>subscription<span class="w"> </span>list<span class="w">  </span><span class="c1"># Uses override-key</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Profile says one thing, env var wins</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">REDIS_CLOUD_API_KEY</span><span class="o">=</span><span class="s2">&quot;override-key&quot;</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>redisctl<span class="w"> </span>--profile<span class="w"> </span>prod<span class="w"> </span>cloud<span class="w"> </span>subscription<span class="w"> </span>list<span class="w">  </span><span class="c1"># Uses override-key</span>
+</span></code></pre></div>
+<h2 id="tags">Tags<a class="headerlink" href="#tags" title="Permanent link">&para;</a></h2>
+<p>Organize profiles with tags when managing many deployments:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># Add tags when creating a profile</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>redisctl<span class="w"> </span>profile<span class="w"> </span><span class="nb">set</span><span class="w"> </span>prod-cloud<span class="w"> </span>--type<span class="w"> </span>cloud<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span>--api-key<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span>--api-secret<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SECRET</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">  </span>--tag<span class="w"> </span>prod<span class="w"> </span>--tag<span class="w"> </span>us-east
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="c1"># Add tags to an existing profile</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>redisctl<span class="w"> </span>profile<span class="w"> </span><span class="nb">set</span><span class="w"> </span>prod-cloud<span class="w"> </span>--tag<span class="w"> </span>prod<span class="w"> </span>--tag<span class="w"> </span>us-east
+</span></code></pre></div>
+<p>Tags are repeatable -- pass <code>--tag</code> multiple times for multiple tags. When updating a profile, existing tags are preserved unless you provide new ones.</p>
+<h3 id="filter-by-tag">Filter by Tag<a class="headerlink" href="#filter-by-tag" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Show only profiles tagged &quot;prod&quot;</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>redisctl<span class="w"> </span>profile<span class="w"> </span>list<span class="w"> </span>--tag<span class="w"> </span>prod
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1"># Show profiles tagged &quot;us-east&quot; or &quot;us-west&quot; (matches any)</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>redisctl<span class="w"> </span>profile<span class="w"> </span>list<span class="w"> </span>--tag<span class="w"> </span>us-east<span class="w"> </span>--tag<span class="w"> </span>us-west
 </span></code></pre></div>
 <h2 id="managing-profiles">Managing Profiles<a class="headerlink" href="#managing-profiles" title="Permanent link">&para;</a></h2>
 <h3 id="list-all-profiles">List All Profiles<a class="headerlink" href="#list-all-profiles" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>redisctl<span class="w"> </span>profile<span class="w"> </span>list
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>redisctl<span class="w"> </span>profile<span class="w"> </span>list
 </span></code></pre></div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Profiles:
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>  Cloud:
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    * prod-cloud (default)
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>      dev-cloud
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>  Enterprise:
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>    * prod-cluster (default)
-</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>      staging-cluster
-</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>  Database:
-</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>    * my-cache (default)
-</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>      local-redis
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Profiles:
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>  Cloud:
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>    * prod-cloud (default) [prod, us-east]
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>      dev-cloud
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>  Enterprise:
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>    * prod-cluster (default) [prod]
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>      staging-cluster [staging]
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>  Database:
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>    * my-cache (default)
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>      local-redis
 </span></code></pre></div>
 <h3 id="show-profile-details">Show Profile Details<a class="headerlink" href="#show-profile-details" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>redisctl<span class="w"> </span>profile<span class="w"> </span>show<span class="w"> </span>prod-cloud
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>redisctl<span class="w"> </span>profile<span class="w"> </span>show<span class="w"> </span>prod-cloud
 </span></code></pre></div>
 <h3 id="delete-a-profile">Delete a Profile<a class="headerlink" href="#delete-a-profile" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>redisctl<span class="w"> </span>profile<span class="w"> </span>remove<span class="w"> </span>dev-cloud
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>redisctl<span class="w"> </span>profile<span class="w"> </span>remove<span class="w"> </span>dev-cloud
 </span></code></pre></div>
 <h3 id="validate-configuration">Validate Configuration<a class="headerlink" href="#validate-configuration" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>redisctl<span class="w"> </span>profile<span class="w"> </span>validate
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># Check profile config for errors</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>redisctl<span class="w"> </span>profile<span class="w"> </span>validate
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="c1"># Also test actual API/database connectivity</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>redisctl<span class="w"> </span>profile<span class="w"> </span>validate<span class="w"> </span>--connect
 </span></code></pre></div>
+<h2 id="shell-prompt-integration">Shell Prompt Integration<a class="headerlink" href="#shell-prompt-integration" title="Permanent link">&para;</a></h2>
+<p>Display the active profile name in your shell prompt:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>redisctl<span class="w"> </span>profile<span class="w"> </span>current<span class="w"> </span>--type<span class="w"> </span>cloud
+</span></code></pre></div>
+<p>Example shell integration (bash/zsh):</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1"># Add to .bashrc or .zshrc</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>redis_profile<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">  </span><span class="nb">local</span><span class="w"> </span>profile
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="w">  </span><span class="nv">profile</span><span class="o">=</span><span class="k">$(</span>redisctl<span class="w"> </span>profile<span class="w"> </span>current<span class="w"> </span>--type<span class="w"> </span>cloud<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="k">)</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$profile</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot; [redis:</span><span class="si">${</span><span class="nv">profile</span><span class="si">}</span><span class="s2">]&quot;</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">  </span><span class="k">fi</span>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="o">}</span>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="nv">PS1</span><span class="o">=</span><span class="s1">&#39;$(redis_profile)\$ &#39;</span>
+</span></code></pre></div>
+<p>The <code>--type</code> flag is required and accepts <code>cloud</code>, <code>enterprise</code>, or <code>database</code>. You can also use the alias <code>redisctl profile active</code>.</p>
 <h2 id="secure-storage">Secure Storage<a class="headerlink" href="#secure-storage" title="Permanent link">&para;</a></h2>
 <div class="admonition danger">
 <p class="admonition-title">Default is Plaintext</p>
@@ -3906,23 +4089,23 @@
 </div>
 <h3 id="option-1-os-keyring">Option 1: OS Keyring<a class="headerlink" href="#option-1-os-keyring" title="Permanent link">&para;</a></h3>
 <p>Store credentials in macOS Keychain, Windows Credential Manager, or Linux Secret Service:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># Create profile with keyring storage</span>
-</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>redisctl<span class="w"> </span>profile<span class="w"> </span><span class="nb">set</span><span class="w"> </span>prod<span class="w"> </span>--type<span class="w"> </span>cloud<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span>--api-key<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">  </span>--api-secret<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SECRET</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">  </span>--use-keyring
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1"># Create profile with keyring storage</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>redisctl<span class="w"> </span>profile<span class="w"> </span><span class="nb">set</span><span class="w"> </span>prod<span class="w"> </span>--type<span class="w"> </span>cloud<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">  </span>--api-key<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">  </span>--api-secret<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SECRET</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">  </span>--use-keyring
 </span></code></pre></div>
 <p>The config file only stores a reference:</p>
-<div class="language-toml highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">[profiles.prod]</span>
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">deployment_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;cloud&quot;</span>
-</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="n">api_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;keyring:prod-api-key&quot;</span>
-</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="n">api_secret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;keyring:prod-api-secret&quot;</span>
+<div class="language-toml highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="k">[profiles.prod]</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="n">deployment_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;cloud&quot;</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="n">api_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;keyring:prod-api-key&quot;</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="n">api_secret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;keyring:prod-api-secret&quot;</span>
 </span></code></pre></div>
 <h3 id="option-2-environment-references">Option 2: Environment References<a class="headerlink" href="#option-2-environment-references" title="Permanent link">&para;</a></h3>
 <p>Store references to environment variables:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>redisctl<span class="w"> </span>profile<span class="w"> </span><span class="nb">set</span><span class="w"> </span>prod<span class="w"> </span>--type<span class="w"> </span>cloud<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span>--api-key<span class="w"> </span><span class="s1">&#39;${REDIS_CLOUD_API_KEY}&#39;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span>--api-secret<span class="w"> </span><span class="s1">&#39;${REDIS_CLOUD_SECRET_KEY}&#39;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>redisctl<span class="w"> </span>profile<span class="w"> </span><span class="nb">set</span><span class="w"> </span>prod<span class="w"> </span>--type<span class="w"> </span>cloud<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">  </span>--api-key<span class="w"> </span><span class="s1">&#39;${REDIS_CLOUD_API_KEY}&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">  </span>--api-secret<span class="w"> </span><span class="s1">&#39;${REDIS_CLOUD_SECRET_KEY}&#39;</span>
 </span></code></pre></div>
 <p>Variables are resolved at runtime. Great for CI/CD where secrets are injected.</p>
 <h2 id="configuration-file-location">Configuration File Location<a class="headerlink" href="#configuration-file-location" title="Permanent link">&para;</a></h2>
@@ -3949,41 +4132,44 @@
 </tbody>
 </table>
 <h2 id="example-configuration">Example Configuration<a class="headerlink" href="#example-configuration" title="Permanent link">&para;</a></h2>
-<div class="language-toml highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">default_cloud</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;prod-cloud&quot;</span>
-</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="n">default_enterprise</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;prod-cluster&quot;</span>
-</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="n">default_database</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;my-cache&quot;</span>
-</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>
-</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="k">[profiles.prod-cloud]</span>
-</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="n">deployment_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;cloud&quot;</span>
-</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="n">api_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;keyring:prod-api-key&quot;</span>
-</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="n">api_secret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;keyring:prod-api-secret&quot;</span>
-</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>
-</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="k">[profiles.prod-cluster]</span>
-</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="n">deployment_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;enterprise&quot;</span>
-</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://prod-cluster:9443&quot;</span>
-</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="n">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;admin@cluster.local&quot;</span>
-</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;${PROD_PASSWORD}&quot;</span>
-</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>
-</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a><span class="k">[profiles.dev-cluster]</span>
-</span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a><span class="n">deployment_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;enterprise&quot;</span>
-</span><span id="__span-20-18"><a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://dev-cluster:9443&quot;</span>
-</span><span id="__span-20-19"><a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a><span class="n">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;admin@cluster.local&quot;</span>
-</span><span id="__span-20-20"><a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;${DEV_PASSWORD}&quot;</span>
-</span><span id="__span-20-21"><a id="__codelineno-20-21" name="__codelineno-20-21" href="#__codelineno-20-21"></a><span class="n">insecure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-20-22"><a id="__codelineno-20-22" name="__codelineno-20-22" href="#__codelineno-20-22"></a>
-</span><span id="__span-20-23"><a id="__codelineno-20-23" name="__codelineno-20-23" href="#__codelineno-20-23"></a><span class="k">[profiles.my-cache]</span>
-</span><span id="__span-20-24"><a id="__codelineno-20-24" name="__codelineno-20-24" href="#__codelineno-20-24"></a><span class="n">deployment_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;database&quot;</span>
-</span><span id="__span-20-25"><a id="__codelineno-20-25" name="__codelineno-20-25" href="#__codelineno-20-25"></a><span class="n">host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;redis-12345.cloud.redislabs.com&quot;</span>
-</span><span id="__span-20-26"><a id="__codelineno-20-26" name="__codelineno-20-26" href="#__codelineno-20-26"></a><span class="n">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12345</span>
-</span><span id="__span-20-27"><a id="__codelineno-20-27" name="__codelineno-20-27" href="#__codelineno-20-27"></a><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;keyring:my-cache-password&quot;</span>
-</span><span id="__span-20-28"><a id="__codelineno-20-28" name="__codelineno-20-28" href="#__codelineno-20-28"></a><span class="n">tls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-20-29"><a id="__codelineno-20-29" name="__codelineno-20-29" href="#__codelineno-20-29"></a><span class="n">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;default&quot;</span>
-</span><span id="__span-20-30"><a id="__codelineno-20-30" name="__codelineno-20-30" href="#__codelineno-20-30"></a>
-</span><span id="__span-20-31"><a id="__codelineno-20-31" name="__codelineno-20-31" href="#__codelineno-20-31"></a><span class="k">[profiles.local-redis]</span>
-</span><span id="__span-20-32"><a id="__codelineno-20-32" name="__codelineno-20-32" href="#__codelineno-20-32"></a><span class="n">deployment_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;database&quot;</span>
-</span><span id="__span-20-33"><a id="__codelineno-20-33" name="__codelineno-20-33" href="#__codelineno-20-33"></a><span class="n">host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;localhost&quot;</span>
-</span><span id="__span-20-34"><a id="__codelineno-20-34" name="__codelineno-20-34" href="#__codelineno-20-34"></a><span class="n">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6379</span>
-</span><span id="__span-20-35"><a id="__codelineno-20-35" name="__codelineno-20-35" href="#__codelineno-20-35"></a><span class="n">tls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
+<div class="language-toml highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">default_cloud</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;prod-cloud&quot;</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="n">default_enterprise</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;prod-cluster&quot;</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="n">default_database</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;my-cache&quot;</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="k">[profiles.prod-cloud]</span>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="n">deployment_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;cloud&quot;</span>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="n">api_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;keyring:prod-api-key&quot;</span>
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="n">api_secret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;keyring:prod-api-secret&quot;</span>
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="n">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;prod&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;us-east&quot;</span><span class="p">]</span>
+</span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>
+</span><span id="__span-25-11"><a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a><span class="k">[profiles.prod-cluster]</span>
+</span><span id="__span-25-12"><a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a><span class="n">deployment_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;enterprise&quot;</span>
+</span><span id="__span-25-13"><a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://prod-cluster:9443&quot;</span>
+</span><span id="__span-25-14"><a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a><span class="n">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;admin@cluster.local&quot;</span>
+</span><span id="__span-25-15"><a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;${PROD_PASSWORD}&quot;</span>
+</span><span id="__span-25-16"><a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a><span class="n">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;prod&quot;</span><span class="p">]</span>
+</span><span id="__span-25-17"><a id="__codelineno-25-17" name="__codelineno-25-17" href="#__codelineno-25-17"></a>
+</span><span id="__span-25-18"><a id="__codelineno-25-18" name="__codelineno-25-18" href="#__codelineno-25-18"></a><span class="k">[profiles.dev-cluster]</span>
+</span><span id="__span-25-19"><a id="__codelineno-25-19" name="__codelineno-25-19" href="#__codelineno-25-19"></a><span class="n">deployment_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;enterprise&quot;</span>
+</span><span id="__span-25-20"><a id="__codelineno-25-20" name="__codelineno-25-20" href="#__codelineno-25-20"></a><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://dev-cluster:9443&quot;</span>
+</span><span id="__span-25-21"><a id="__codelineno-25-21" name="__codelineno-25-21" href="#__codelineno-25-21"></a><span class="n">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;admin@cluster.local&quot;</span>
+</span><span id="__span-25-22"><a id="__codelineno-25-22" name="__codelineno-25-22" href="#__codelineno-25-22"></a><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;${DEV_PASSWORD}&quot;</span>
+</span><span id="__span-25-23"><a id="__codelineno-25-23" name="__codelineno-25-23" href="#__codelineno-25-23"></a><span class="n">insecure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-25-24"><a id="__codelineno-25-24" name="__codelineno-25-24" href="#__codelineno-25-24"></a><span class="n">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;dev&quot;</span><span class="p">]</span>
+</span><span id="__span-25-25"><a id="__codelineno-25-25" name="__codelineno-25-25" href="#__codelineno-25-25"></a>
+</span><span id="__span-25-26"><a id="__codelineno-25-26" name="__codelineno-25-26" href="#__codelineno-25-26"></a><span class="k">[profiles.my-cache]</span>
+</span><span id="__span-25-27"><a id="__codelineno-25-27" name="__codelineno-25-27" href="#__codelineno-25-27"></a><span class="n">deployment_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;database&quot;</span>
+</span><span id="__span-25-28"><a id="__codelineno-25-28" name="__codelineno-25-28" href="#__codelineno-25-28"></a><span class="n">host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;redis-12345.cloud.redislabs.com&quot;</span>
+</span><span id="__span-25-29"><a id="__codelineno-25-29" name="__codelineno-25-29" href="#__codelineno-25-29"></a><span class="n">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12345</span>
+</span><span id="__span-25-30"><a id="__codelineno-25-30" name="__codelineno-25-30" href="#__codelineno-25-30"></a><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;keyring:my-cache-password&quot;</span>
+</span><span id="__span-25-31"><a id="__codelineno-25-31" name="__codelineno-25-31" href="#__codelineno-25-31"></a><span class="n">tls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-25-32"><a id="__codelineno-25-32" name="__codelineno-25-32" href="#__codelineno-25-32"></a><span class="n">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;default&quot;</span>
+</span><span id="__span-25-33"><a id="__codelineno-25-33" name="__codelineno-25-33" href="#__codelineno-25-33"></a>
+</span><span id="__span-25-34"><a id="__codelineno-25-34" name="__codelineno-25-34" href="#__codelineno-25-34"></a><span class="k">[profiles.local-redis]</span>
+</span><span id="__span-25-35"><a id="__codelineno-25-35" name="__codelineno-25-35" href="#__codelineno-25-35"></a><span class="n">deployment_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;database&quot;</span>
+</span><span id="__span-25-36"><a id="__codelineno-25-36" name="__codelineno-25-36" href="#__codelineno-25-36"></a><span class="n">host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;localhost&quot;</span>
+</span><span id="__span-25-37"><a id="__codelineno-25-37" name="__codelineno-25-37" href="#__codelineno-25-37"></a><span class="n">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6379</span>
+</span><span id="__span-25-38"><a id="__codelineno-25-38" name="__codelineno-25-38" href="#__codelineno-25-38"></a><span class="n">tls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
 </span></code></pre></div>
 
 
