@@ -3041,15 +3041,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#database-toolset-55-tools" class="md-nav__link">
+  <a href="#database-toolset-90-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Database Toolset (55 tools)
+        Database Toolset (90 tools)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Database Toolset (55 tools)">
+    <nav class="md-nav" aria-label="Database Toolset (90 tools)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3064,10 +3064,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#databasekeys-15-tools" class="md-nav__link">
+  <a href="#databasekeys-31-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
-        database:keys (15 tools)
+        database:keys (31 tools)
       
     </span>
   </a>
@@ -3075,10 +3075,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#databasestructures-21-tools" class="md-nav__link">
+  <a href="#databasestructures-40-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
-        database:structures (21 tools)
+        database:structures (40 tools)
       
     </span>
   </a>
@@ -3694,15 +3694,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#database-toolset-55-tools" class="md-nav__link">
+  <a href="#database-toolset-90-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Database Toolset (55 tools)
+        Database Toolset (90 tools)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Database Toolset (55 tools)">
+    <nav class="md-nav" aria-label="Database Toolset (90 tools)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3717,10 +3717,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#databasekeys-15-tools" class="md-nav__link">
+  <a href="#databasekeys-31-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
-        database:keys (15 tools)
+        database:keys (31 tools)
       
     </span>
   </a>
@@ -3728,10 +3728,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#databasestructures-21-tools" class="md-nav__link">
+  <a href="#databasestructures-40-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
-        database:structures (21 tools)
+        database:structures (40 tools)
       
     </span>
   </a>
@@ -3869,7 +3869,7 @@
 
 
 <h1 id="tools-reference">Tools Reference<a class="headerlink" href="#tools-reference" title="Permanent link">&para;</a></h1>
-<p>The redisctl MCP server exposes <strong>305 tools</strong> across 4 toolsets and 2 system tools for managing Redis Cloud, Redis Enterprise, and direct database operations.</p>
+<p>The redisctl MCP server exposes <strong>340 tools</strong> across 4 toolsets and 2 system tools for managing Redis Cloud, Redis Enterprise, and direct database operations.</p>
 <p>Tools are organized into <strong>toolsets</strong> (Cloud, Enterprise, Database, App) and further into <strong>sub-modules</strong> that can be selectively loaded with the <a href="../configuration/#the-tools-flag"><code>--tools</code> flag</a>.</p>
 <p>Tools that modify state require <code>--read-only=false</code> or an appropriate <a href="../configuration/#safety-tiers">safety tier</a>. Database tools require a <code>--database-url</code> connection.</p>
 <div class="admonition tip">
@@ -4350,7 +4350,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="database-toolset-55-tools">Database Toolset (55 tools)<a class="headerlink" href="#database-toolset-55-tools" title="Permanent link">&para;</a></h2>
+<h2 id="database-toolset-90-tools">Database Toolset (90 tools)<a class="headerlink" href="#database-toolset-90-tools" title="Permanent link">&para;</a></h2>
 <p>Direct Redis database operations. Requires <code>--database-url</code> connection. Select with <code>--tools database</code> or target specific sub-modules.</p>
 <h3 id="databaseserver-14-tools"><code>database:server</code> (14 tools)<a class="headerlink" href="#databaseserver-14-tools" title="Permanent link">&para;</a></h3>
 <p>Server-level operations -- connectivity, server info, client listing, slow log, memory stats, latency, ACL inspection, and config management.</p>
@@ -4396,8 +4396,8 @@
 </tr>
 </tbody>
 </table>
-<h3 id="databasekeys-15-tools"><code>database:keys</code> (15 tools)<a class="headerlink" href="#databasekeys-15-tools" title="Permanent link">&para;</a></h3>
-<p>Key-space operations -- listing, scanning, get/set, type inspection, TTL, existence checks, memory usage, and key mutation.</p>
+<h3 id="databasekeys-31-tools"><code>database:keys</code> (31 tools)<a class="headerlink" href="#databasekeys-31-tools" title="Permanent link">&para;</a></h3>
+<p>Key-space operations -- listing, scanning, get/set, type inspection, TTL, existence checks, memory usage, key mutation, multi-key operations, atomic counters, and string manipulation.</p>
 <table>
 <thead>
 <tr>
@@ -4423,6 +4423,14 @@
 <td>Set string value <em>(write)</em></td>
 </tr>
 <tr>
+<td><code>redis_mget</code></td>
+<td>Get multiple key values</td>
+</tr>
+<tr>
+<td><code>redis_mset</code></td>
+<td>Set multiple key-value pairs <em>(write)</em></td>
+</tr>
+<tr>
 <td><code>redis_type</code></td>
 <td>Get key type</td>
 </tr>
@@ -4435,13 +4443,25 @@
 <td>Delete keys <em>(write)</em></td>
 </tr>
 <tr>
+<td><code>redis_unlink</code></td>
+<td>Async-delete keys <em>(write)</em></td>
+</tr>
+<tr>
 <td><code>redis_expire</code></td>
 <td>Set key expiration <em>(write)</em></td>
 </tr>
+<tr>
+<td><code>redis_incr</code></td>
+<td>Increment integer value <em>(write)</em></td>
+</tr>
+<tr>
+<td><code>redis_decr</code></td>
+<td>Decrement integer value <em>(write)</em></td>
+</tr>
 </tbody>
 </table>
-<h3 id="databasestructures-21-tools"><code>database:structures</code> (21 tools)<a class="headerlink" href="#databasestructures-21-tools" title="Permanent link">&para;</a></h3>
-<p>Data structure operations -- hashes, lists, sets, sorted sets, streams, and pub/sub inspection.</p>
+<h3 id="databasestructures-40-tools"><code>database:structures</code> (40 tools)<a class="headerlink" href="#databasestructures-40-tools" title="Permanent link">&para;</a></h3>
+<p>Data structure operations -- hashes, lists, sets, sorted sets, streams, pub/sub inspection, set algebra, and granular field/member accessors.</p>
 <table>
 <thead>
 <tr>
@@ -4455,16 +4475,72 @@
 <td>Get all hash fields</td>
 </tr>
 <tr>
+<td><code>redis_hget</code></td>
+<td>Get a single hash field</td>
+</tr>
+<tr>
+<td><code>redis_hmget</code></td>
+<td>Get multiple hash fields</td>
+</tr>
+<tr>
+<td><code>redis_hlen</code></td>
+<td>Get hash field count</td>
+</tr>
+<tr>
 <td><code>redis_lrange</code></td>
 <td>Get list range</td>
+</tr>
+<tr>
+<td><code>redis_llen</code></td>
+<td>Get list length</td>
+</tr>
+<tr>
+<td><code>redis_lindex</code></td>
+<td>Get list element by index</td>
 </tr>
 <tr>
 <td><code>redis_smembers</code></td>
 <td>Get all set members</td>
 </tr>
 <tr>
+<td><code>redis_scard</code></td>
+<td>Get set cardinality</td>
+</tr>
+<tr>
+<td><code>redis_sismember</code></td>
+<td>Check set membership</td>
+</tr>
+<tr>
+<td><code>redis_sunion</code></td>
+<td>Set union</td>
+</tr>
+<tr>
+<td><code>redis_sinter</code></td>
+<td>Set intersection</td>
+</tr>
+<tr>
+<td><code>redis_sdiff</code></td>
+<td>Set difference</td>
+</tr>
+<tr>
 <td><code>redis_zrange</code></td>
 <td>Get sorted set range</td>
+</tr>
+<tr>
+<td><code>redis_zscore</code></td>
+<td>Get member score</td>
+</tr>
+<tr>
+<td><code>redis_zrank</code></td>
+<td>Get member rank</td>
+</tr>
+<tr>
+<td><code>redis_zcount</code></td>
+<td>Count members by score range</td>
+</tr>
+<tr>
+<td><code>redis_zrangebyscore</code></td>
+<td>Get members by score range</td>
 </tr>
 <tr>
 <td><code>redis_xinfo_stream</code></td>
@@ -4593,8 +4669,8 @@
 </tr>
 <tr>
 <td>Database</td>
-<td><code>server</code> (14), <code>keys</code> (15), <code>structures</code> (21), <code>diagnostics</code> (4), <code>raw</code> (1)</td>
-<td><strong>55</strong></td>
+<td><code>server</code> (14), <code>keys</code> (31), <code>structures</code> (40), <code>diagnostics</code> (4), <code>raw</code> (1)</td>
+<td><strong>90</strong></td>
 </tr>
 <tr>
 <td>App</td>
@@ -4609,7 +4685,7 @@
 <tr>
 <td><strong>Total</strong></td>
 <td></td>
-<td><strong>305</strong></td>
+<td><strong>340</strong></td>
 </tr>
 </tbody>
 </table>
