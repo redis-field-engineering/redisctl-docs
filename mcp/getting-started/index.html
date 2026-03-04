@@ -16,14 +16,14 @@
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../cloud-quickstart/">
+        <link rel="next" href="../configuration/">
       
       
         
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
     
     
       
@@ -2626,6 +2626,8 @@
       
         
       
+        
+      
     
     
     
@@ -3053,6 +3055,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -3845,7 +3875,12 @@
 </span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
 </span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="c1"># Full access: Cloud/Enterprise management + database operations + writes</span>
 </span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>redisctl-mcp<span class="w"> </span>--profile<span class="w"> </span>my-profile<span class="w"> </span>--read-only<span class="o">=</span><span class="nb">false</span><span class="w"> </span>--database-url<span class="w"> </span>redis://localhost:6379
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="c1"># Load only specific toolsets or sub-modules</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>redisctl-mcp<span class="w"> </span>--profile<span class="w"> </span>my-profile<span class="w"> </span>--tools<span class="w"> </span>cloud
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>redisctl-mcp<span class="w"> </span>--profile<span class="w"> </span>my-profile<span class="w"> </span>--tools<span class="w"> </span>cloud:subscriptions,cloud:account
 </span></code></pre></div>
+<p>See <a href="../configuration/">Configuration</a> for the full CLI reference, <code>--tools</code> syntax, safety tiers, and presets.</p>
 <h3 id="database-connection-options">Database Connection Options<a class="headerlink" href="#database-connection-options" title="Permanent link">&para;</a></h3>
 <p>The MCP server provides database tools for direct Redis operations including core data types. You can connect in two ways:</p>
 <h4 id="option-1-direct-url-recommended-for-ad-hoc-connections">Option 1: Direct URL (Recommended for Ad-Hoc Connections)<a class="headerlink" href="#option-1-direct-url-recommended-for-ad-hoc-connections" title="Permanent link">&para;</a></h4>
@@ -4074,6 +4109,7 @@
 </ul>
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <ul>
+<li><a href="../configuration/">Configuration</a> - Tool selection, safety tiers, and presets</li>
 <li><a href="../tools-reference/">Tools Reference</a> - Complete list of available tools</li>
 <li><a href="../advanced-usage/">Advanced Usage</a> - JMESPath integration and analytics</li>
 <li><a href="../workflows/">Workflows</a> - Real-world use cases and examples</li>

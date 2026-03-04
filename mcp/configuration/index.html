@@ -10,31 +10,31 @@
       
       
       
-        <link rel="canonical" href="https://redis-field-engineering.github.io/redisctl-docs/enterprise/operations/debuginfo/">
+        <link rel="canonical" href="https://redis-field-engineering.github.io/redisctl-docs/mcp/configuration/">
       
       
-        <link rel="prev" href="../support-package/">
+        <link rel="prev" href="../getting-started/">
       
       
-        <link rel="next" href="../../workflows/">
+        <link rel="next" href="../cloud-quickstart/">
       
       
         
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
     
     
       
-        <title>Debug Info - redisctl</title>
+        <title>Configuration - redisctl</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,9 +53,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#debug-info" class="md-skip">
+        <a href="#configuration" class="md-skip">
           Skip to content
         </a>
       
@@ -96,9 +96,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="redisctl" class="md-header__button md-logo" aria-label="redisctl" data-md-component="logo">
+    <a href="../.." title="redisctl" class="md-header__button md-logo" aria-label="redisctl" data-md-component="logo">
       
-  <img src="../../../assets/redis-logo.svg" alt="logo">
+  <img src="../../assets/redis-logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Debug Info
+              Configuration
             
           </span>
         </div>
@@ -227,7 +227,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -248,7 +248,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../getting-started/" class="md-tabs__link">
+        <a href="../../getting-started/" class="md-tabs__link">
           
   
   
@@ -270,7 +270,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../common/" class="md-tabs__link">
+        <a href="../../common/" class="md-tabs__link">
           
   
   
@@ -292,7 +292,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../cloud/" class="md-tabs__link">
+        <a href="../../cloud/" class="md-tabs__link">
           
   
   
@@ -310,13 +310,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../enterprise/" class="md-tabs__link">
           
   
   
@@ -338,7 +336,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../cookbook/" class="md-tabs__link">
+        <a href="../../cookbook/" class="md-tabs__link">
           
   
   
@@ -360,7 +358,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../reference/" class="md-tabs__link">
+        <a href="../../reference/" class="md-tabs__link">
           
   
   
@@ -378,11 +376,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../mcp/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -404,7 +404,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../developer/" class="md-tabs__link">
+        <a href="../../developer/" class="md-tabs__link">
           
   
   
@@ -424,7 +424,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../presentation/" class="md-tabs__link">
+      <a href="../../presentation/" class="md-tabs__link">
         
   
   
@@ -465,9 +465,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="redisctl" class="md-nav__button md-logo" aria-label="redisctl" data-md-component="logo">
+    <a href="../.." title="redisctl" class="md-nav__button md-logo" aria-label="redisctl" data-md-component="logo">
       
-  <img src="../../../assets/redis-logo.svg" alt="logo">
+  <img src="../../assets/redis-logo.svg" alt="logo">
 
     </a>
     redisctl
@@ -494,7 +494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -554,7 +554,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../getting-started/" class="md-nav__link ">
+            <a href="../../getting-started/" class="md-nav__link ">
               
   
   
@@ -598,7 +598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/installation/" class="md-nav__link">
+      <a href="../../getting-started/installation/" class="md-nav__link">
         
   
   
@@ -626,7 +626,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/quickstart/" class="md-nav__link">
+      <a href="../../getting-started/quickstart/" class="md-nav__link">
         
   
   
@@ -654,7 +654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/authentication/" class="md-nav__link">
+      <a href="../../getting-started/authentication/" class="md-nav__link">
         
   
   
@@ -682,7 +682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/docker/" class="md-nav__link">
+      <a href="../../getting-started/docker/" class="md-nav__link">
         
   
   
@@ -754,7 +754,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../common/" class="md-nav__link ">
+            <a href="../../common/" class="md-nav__link ">
               
   
   
@@ -798,7 +798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../common/profiles/" class="md-nav__link">
+      <a href="../../common/profiles/" class="md-nav__link">
         
   
   
@@ -826,7 +826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../common/troubleshooting/" class="md-nav__link">
+      <a href="../../common/troubleshooting/" class="md-nav__link">
         
   
   
@@ -854,7 +854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../common/output-formats/" class="md-nav__link">
+      <a href="../../common/output-formats/" class="md-nav__link">
         
   
   
@@ -882,7 +882,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../common/jmespath/" class="md-nav__link">
+      <a href="../../common/jmespath/" class="md-nav__link">
         
   
   
@@ -910,7 +910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../common/async-operations/" class="md-nav__link">
+      <a href="../../common/async-operations/" class="md-nav__link">
         
   
   
@@ -938,7 +938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../common/raw-api/" class="md-nav__link">
+      <a href="../../common/raw-api/" class="md-nav__link">
         
   
   
@@ -1002,7 +1002,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../cloud/" class="md-nav__link ">
+            <a href="../../cloud/" class="md-nav__link ">
               
   
   
@@ -1087,7 +1087,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../cloud/commands/" class="md-nav__link ">
+            <a href="../../cloud/commands/" class="md-nav__link ">
               
   
   
@@ -1131,7 +1131,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud/commands/subscriptions/" class="md-nav__link">
+      <a href="../../cloud/commands/subscriptions/" class="md-nav__link">
         
   
   
@@ -1159,7 +1159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud/commands/databases/" class="md-nav__link">
+      <a href="../../cloud/commands/databases/" class="md-nav__link">
         
   
   
@@ -1187,7 +1187,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud/commands/fixed-subscriptions/" class="md-nav__link">
+      <a href="../../cloud/commands/fixed-subscriptions/" class="md-nav__link">
         
   
   
@@ -1215,7 +1215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud/commands/fixed-databases/" class="md-nav__link">
+      <a href="../../cloud/commands/fixed-databases/" class="md-nav__link">
         
   
   
@@ -1243,7 +1243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud/commands/access-control/" class="md-nav__link">
+      <a href="../../cloud/commands/access-control/" class="md-nav__link">
         
   
   
@@ -1271,7 +1271,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud/commands/networking/" class="md-nav__link">
+      <a href="../../cloud/commands/networking/" class="md-nav__link">
         
   
   
@@ -1299,7 +1299,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud/commands/cost-report/" class="md-nav__link">
+      <a href="../../cloud/commands/cost-report/" class="md-nav__link">
         
   
   
@@ -1327,7 +1327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud/commands/tasks/" class="md-nav__link">
+      <a href="../../cloud/commands/tasks/" class="md-nav__link">
         
   
   
@@ -1363,7 +1363,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud/workflows/" class="md-nav__link">
+      <a href="../../cloud/workflows/" class="md-nav__link">
         
   
   
@@ -1395,8 +1395,6 @@
       
   
   
-    
-  
   
   
     
@@ -1416,23 +1414,22 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../../enterprise/" class="md-nav__link ">
               
   
   
@@ -1450,13 +1447,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1500,13 +1497,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -1516,7 +1510,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../commands/" class="md-nav__link ">
+            <a href="../../enterprise/commands/" class="md-nav__link ">
               
   
   
@@ -1534,7 +1528,7 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="">
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -1560,7 +1554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../commands/cluster/" class="md-nav__link">
+      <a href="../../enterprise/commands/cluster/" class="md-nav__link">
         
   
   
@@ -1588,7 +1582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../commands/databases/" class="md-nav__link">
+      <a href="../../enterprise/commands/databases/" class="md-nav__link">
         
   
   
@@ -1616,7 +1610,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../commands/nodes/" class="md-nav__link">
+      <a href="../../enterprise/commands/nodes/" class="md-nav__link">
         
   
   
@@ -1644,7 +1638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../commands/access-control/" class="md-nav__link">
+      <a href="../../enterprise/commands/access-control/" class="md-nav__link">
         
   
   
@@ -1672,7 +1666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../commands/monitoring/" class="md-nav__link">
+      <a href="../../enterprise/commands/monitoring/" class="md-nav__link">
         
   
   
@@ -1700,7 +1694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../commands/active-active/" class="md-nav__link">
+      <a href="../../enterprise/commands/active-active/" class="md-nav__link">
         
   
   
@@ -1733,8 +1727,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1754,21 +1746,20 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../enterprise/operations/" class="md-nav__link ">
               
   
   
@@ -1786,13 +1777,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_5_3" id="__nav_5_3_label" tabindex="">
+              <label class="md-nav__link " for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1812,7 +1803,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../support-package/" class="md-nav__link">
+      <a href="../../enterprise/operations/support-package/" class="md-nav__link">
         
   
   
@@ -1837,37 +1828,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Debug Info
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../enterprise/operations/debuginfo/" class="md-nav__link">
         
   
   
@@ -1883,170 +1847,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Overview
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Commands
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Commands">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cluster-debug-info" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cluster Debug Info
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#node-debug-info" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Node Debug Info
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#database-debug-info" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Database Debug Info
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#options" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Options
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#save-to-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Save to File
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#collect-for-specific-issue" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Collect for Specific Issue
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#raw-api-access" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Raw API Access
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#debug-info-vs-support-package" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Debug Info vs Support Package
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#related" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Related
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2067,7 +1867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../workflows/" class="md-nav__link">
+      <a href="../../enterprise/workflows/" class="md-nav__link">
         
   
   
@@ -2131,7 +1931,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../cookbook/" class="md-nav__link ">
+            <a href="../../cookbook/" class="md-nav__link ">
               
   
   
@@ -2241,7 +2041,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cookbook/cloud/first-database/" class="md-nav__link">
+      <a href="../../cookbook/cloud/first-database/" class="md-nav__link">
         
   
   
@@ -2269,7 +2069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cookbook/cloud/vpc-peering/" class="md-nav__link">
+      <a href="../../cookbook/cloud/vpc-peering/" class="md-nav__link">
         
   
   
@@ -2297,7 +2097,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cookbook/cloud/acls/" class="md-nav__link">
+      <a href="../../cookbook/cloud/acls/" class="md-nav__link">
         
   
   
@@ -2325,7 +2125,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cookbook/cloud/backup-restore/" class="md-nav__link">
+      <a href="../../cookbook/cloud/backup-restore/" class="md-nav__link">
         
   
   
@@ -2353,7 +2153,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cookbook/cloud/cost-reports/" class="md-nav__link">
+      <a href="../../cookbook/cloud/cost-reports/" class="md-nav__link">
         
   
   
@@ -2453,7 +2253,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cookbook/enterprise/create-database/" class="md-nav__link">
+      <a href="../../cookbook/enterprise/create-database/" class="md-nav__link">
         
   
   
@@ -2481,7 +2281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cookbook/enterprise/support-package/" class="md-nav__link">
+      <a href="../../cookbook/enterprise/support-package/" class="md-nav__link">
         
   
   
@@ -2509,7 +2309,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cookbook/enterprise/cluster-health/" class="md-nav__link">
+      <a href="../../cookbook/enterprise/cluster-health/" class="md-nav__link">
         
   
   
@@ -2537,7 +2337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cookbook/enterprise/node-management/" class="md-nav__link">
+      <a href="../../cookbook/enterprise/node-management/" class="md-nav__link">
         
   
   
@@ -2615,7 +2415,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../reference/" class="md-nav__link ">
+            <a href="../../reference/" class="md-nav__link ">
               
   
   
@@ -2659,7 +2459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/environment-variables/" class="md-nav__link">
+      <a href="../../reference/environment-variables/" class="md-nav__link">
         
   
   
@@ -2687,7 +2487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/config-file/" class="md-nav__link">
+      <a href="../../reference/config-file/" class="md-nav__link">
         
   
   
@@ -2715,7 +2515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/shell-completions/" class="md-nav__link">
+      <a href="../../reference/shell-completions/" class="md-nav__link">
         
   
   
@@ -2743,7 +2543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/security/" class="md-nav__link">
+      <a href="../../reference/security/" class="md-nav__link">
         
   
   
@@ -2771,7 +2571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/rladmin/" class="md-nav__link">
+      <a href="../../reference/rladmin/" class="md-nav__link">
         
   
   
@@ -2803,6 +2603,8 @@
       
   
   
+    
+  
   
   
     
@@ -2830,22 +2632,23 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../mcp/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -2863,13 +2666,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2889,7 +2692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../mcp/getting-started/" class="md-nav__link">
+      <a href="../getting-started/" class="md-nav__link">
         
   
   
@@ -2914,10 +2717,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../mcp/configuration/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2933,6 +2763,164 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cli-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-tools-flag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The --tools Flag
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The --tools Flag">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Syntax
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolution-priority" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resolution Priority
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#available-toolsets-and-sub-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Available Toolsets and Sub-Modules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bare-overrides-selective-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bare-Overrides-Selective Rule
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Behavior
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#safety-tiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Safety Tiers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#presets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Presets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choosing-the-right-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing the Right Approach
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2945,7 +2933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../mcp/cloud-quickstart/" class="md-nav__link">
+      <a href="../cloud-quickstart/" class="md-nav__link">
         
   
   
@@ -2973,7 +2961,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../mcp/enterprise-quickstart/" class="md-nav__link">
+      <a href="../enterprise-quickstart/" class="md-nav__link">
         
   
   
@@ -3001,7 +2989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../mcp/tools-reference/" class="md-nav__link">
+      <a href="../tools-reference/" class="md-nav__link">
         
   
   
@@ -3029,7 +3017,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../mcp/advanced-usage/" class="md-nav__link">
+      <a href="../advanced-usage/" class="md-nav__link">
         
   
   
@@ -3057,7 +3045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../mcp/workflows/" class="md-nav__link">
+      <a href="../workflows/" class="md-nav__link">
         
   
   
@@ -3125,7 +3113,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../developer/" class="md-nav__link ">
+            <a href="../../developer/" class="md-nav__link ">
               
   
   
@@ -3169,7 +3157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/architecture/" class="md-nav__link">
+      <a href="../../developer/architecture/" class="md-nav__link">
         
   
   
@@ -3197,7 +3185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/libraries/" class="md-nav__link">
+      <a href="../../developer/libraries/" class="md-nav__link">
         
   
   
@@ -3225,7 +3213,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/python/" class="md-nav__link">
+      <a href="../../developer/python/" class="md-nav__link">
         
   
   
@@ -3253,7 +3241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/contributing/" class="md-nav__link">
+      <a href="../../developer/contributing/" class="md-nav__link">
         
   
   
@@ -3288,7 +3276,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../presentation/" class="md-nav__link">
+      <a href="../../presentation/" class="md-nav__link">
         
   
   
@@ -3335,10 +3323,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#cli-reference" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Overview
+        CLI Reference
       
     </span>
   </a>
@@ -3346,22 +3334,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
+  <a href="#the-tools-flag" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Commands
+        The --tools Flag
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Commands">
+    <nav class="md-nav" aria-label="The --tools Flag">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#cluster-debug-info" class="md-nav__link">
+  <a href="#syntax" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Cluster Debug Info
+        Syntax
       
     </span>
   </a>
@@ -3369,10 +3357,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#node-debug-info" class="md-nav__link">
+  <a href="#resolution-priority" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Node Debug Info
+        Resolution Priority
       
     </span>
   </a>
@@ -3380,33 +3368,17 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#database-debug-info" class="md-nav__link">
+  <a href="#available-toolsets-and-sub-modules" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Database Debug Info
+        Available Toolsets and Sub-Modules
       
     </span>
   </a>
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#options" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Options
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#examples" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3415,14 +3387,13 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Examples">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
-  <a href="#save-to-file" class="md-nav__link">
+  <a href="#bare-overrides-selective-rule" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Save to File
+        Bare-Overrides-Selective Rule
       
     </span>
   </a>
@@ -3430,10 +3401,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#collect-for-specific-issue" class="md-nav__link">
+  <a href="#error-behavior" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Collect for Specific Issue
+        Error Behavior
       
     </span>
   </a>
@@ -3446,10 +3417,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#raw-api-access" class="md-nav__link">
+  <a href="#safety-tiers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Raw API Access
+        Safety Tiers
       
     </span>
   </a>
@@ -3457,10 +3428,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#debug-info-vs-support-package" class="md-nav__link">
+  <a href="#presets" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Debug Info vs Support Package
+        Presets
       
     </span>
   </a>
@@ -3468,10 +3439,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#related" class="md-nav__link">
+  <a href="#choosing-the-right-approach" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Related
+        Choosing the Right Approach
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
       
     </span>
   </a>
@@ -3498,108 +3480,355 @@
   
 
 
-<h1 id="debug-info">Debug Info<a class="headerlink" href="#debug-info" title="Permanent link">&para;</a></h1>
-<p>Collect detailed debugging information from Redis Enterprise clusters.</p>
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>Debug info provides lower-level diagnostic data than support packages. Use it for:</p>
-<ul>
-<li>Quick diagnostics without full support package</li>
-<li>Targeted debugging of specific components</li>
-<li>Automated collection in scripts</li>
-</ul>
-<p>For support tickets, use <a href="../support-package/">support-package</a> instead.</p>
-<h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
-<h3 id="cluster-debug-info">Cluster Debug Info<a class="headerlink" href="#cluster-debug-info" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>debuginfo<span class="w"> </span>cluster
-</span></code></pre></div>
-<h3 id="node-debug-info">Node Debug Info<a class="headerlink" href="#node-debug-info" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># All nodes</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>debuginfo<span class="w"> </span>node
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Specific node</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>debuginfo<span class="w"> </span>node<span class="w"> </span><span class="m">1</span>
-</span></code></pre></div>
-<h3 id="database-debug-info">Database Debug Info<a class="headerlink" href="#database-debug-info" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>debuginfo<span class="w"> </span>database<span class="w"> </span><span class="m">1</span>
-</span></code></pre></div>
-<h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
+<h1 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h1>
+<p>The redisctl MCP server has three configuration axes:</p>
+<ol>
+<li><strong>What to load</strong> -- which toolsets and sub-modules are active (<code>--tools</code>)</li>
+<li><strong>What to permit</strong> -- which operations are allowed (<code>--read-only</code>, policy files)</li>
+<li><strong>How to connect</strong> -- transport and credentials (<code>--transport</code>, <code>--profile</code>, <code>--database-url</code>)</li>
+</ol>
+<p>This page covers all three, with emphasis on <code>--tools</code> for controlling the tool surface.</p>
+<h2 id="cli-reference">CLI Reference<a class="headerlink" href="#cli-reference" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Option</th>
+<th>Flag</th>
+<th>Short</th>
+<th>Env Var</th>
+<th>Default</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>-o, --output</code></td>
-<td>Output file path</td>
+<td><code>--transport</code></td>
+<td><code>-t</code></td>
+<td>--</td>
+<td><code>stdio</code></td>
+<td>Transport mode (<code>stdio</code> or <code>http</code>)</td>
 </tr>
 <tr>
-<td><code>--use-new-api</code></td>
-<td>Use new API endpoints (7.4+)</td>
+<td><code>--profile</code></td>
+<td><code>-p</code></td>
+<td><code>REDISCTL_PROFILE</code></td>
+<td>--</td>
+<td>Profile name(s) for credential resolution (repeatable)</td>
+</tr>
+<tr>
+<td><code>--read-only</code></td>
+<td>--</td>
+<td>--</td>
+<td><code>true</code></td>
+<td>Read-only mode; use <code>--read-only=false</code> for writes. Ignored when a policy file is active</td>
+</tr>
+<tr>
+<td><code>--policy</code></td>
+<td>--</td>
+<td><code>REDISCTL_MCP_POLICY</code></td>
+<td>--</td>
+<td>Path to TOML policy file for granular access control. Overrides <code>--read-only</code></td>
+</tr>
+<tr>
+<td><code>--database-url</code></td>
+<td>--</td>
+<td><code>REDIS_URL</code></td>
+<td>--</td>
+<td>Redis URL for direct database connections</td>
+</tr>
+<tr>
+<td><code>--tools</code></td>
+<td>--</td>
+<td>--</td>
+<td>--</td>
+<td>Comma-delimited toolset/sub-module selection (see below)</td>
+</tr>
+<tr>
+<td><code>--host</code></td>
+<td>--</td>
+<td>--</td>
+<td><code>127.0.0.1</code></td>
+<td>HTTP bind host (HTTP transport only)</td>
+</tr>
+<tr>
+<td><code>--port</code></td>
+<td>--</td>
+<td>--</td>
+<td><code>8080</code></td>
+<td>HTTP bind port (HTTP transport only)</td>
+</tr>
+<tr>
+<td><code>--oauth</code></td>
+<td>--</td>
+<td>--</td>
+<td><code>false</code></td>
+<td>Enable OAuth authentication (HTTP transport only)</td>
+</tr>
+<tr>
+<td><code>--oauth-issuer</code></td>
+<td>--</td>
+<td><code>OAUTH_ISSUER</code></td>
+<td>--</td>
+<td>OAuth issuer URL</td>
+</tr>
+<tr>
+<td><code>--oauth-audience</code></td>
+<td>--</td>
+<td><code>OAUTH_AUDIENCE</code></td>
+<td>--</td>
+<td>OAuth audience</td>
+</tr>
+<tr>
+<td><code>--jwks-uri</code></td>
+<td>--</td>
+<td><code>OAUTH_JWKS_URI</code></td>
+<td>--</td>
+<td>JWKS URI for token validation</td>
+</tr>
+<tr>
+<td><code>--max-concurrent</code></td>
+<td>--</td>
+<td>--</td>
+<td><code>10</code></td>
+<td>Maximum concurrent requests</td>
+</tr>
+<tr>
+<td><code>--rate-limit-ms</code></td>
+<td>--</td>
+<td>--</td>
+<td><code>100</code></td>
+<td>Rate limit interval in milliseconds</td>
+</tr>
+<tr>
+<td><code>--request-timeout-secs</code></td>
+<td>--</td>
+<td>--</td>
+<td><code>30</code></td>
+<td>Request timeout in seconds (HTTP transport only)</td>
+</tr>
+<tr>
+<td><code>--log-level</code></td>
+<td>--</td>
+<td><code>RUST_LOG</code></td>
+<td><code>info</code></td>
+<td>Log level</td>
 </tr>
 </tbody>
 </table>
-<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
-<h3 id="save-to-file">Save to File<a class="headerlink" href="#save-to-file" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>debuginfo<span class="w"> </span>cluster<span class="w"> </span>-o<span class="w"> </span>cluster-debug.tar.gz
+<h2 id="the-tools-flag">The <code>--tools</code> Flag<a class="headerlink" href="#the-tools-flag" title="Permanent link">&para;</a></h2>
+<p>By default, the MCP server loads all compiled-in toolsets. With <code>--tools</code>, you control exactly which toolsets and sub-modules are active. This is useful when you want to:</p>
+<ul>
+<li>Reduce the tool surface to what you actually need</li>
+<li>Keep token usage low by exposing fewer tool descriptions</li>
+<li>Scope an AI assistant to a specific domain (e.g., Cloud only)</li>
+</ul>
+<h3 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>--tools &lt;spec&gt;[,&lt;spec&gt;...]
 </span></code></pre></div>
-<h3 id="collect-for-specific-issue">Collect for Specific Issue<a class="headerlink" href="#collect-for-specific-issue" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Database issue</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>debuginfo<span class="w"> </span>database<span class="w"> </span><span class="m">1</span><span class="w"> </span>-o<span class="w"> </span>db1-debug.tar.gz
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Node issue</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>debuginfo<span class="w"> </span>node<span class="w"> </span><span class="m">2</span><span class="w"> </span>-o<span class="w"> </span>node2-debug.tar.gz
-</span></code></pre></div>
-<h2 id="raw-api-access">Raw API Access<a class="headerlink" href="#raw-api-access" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Cluster debug info</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>redisctl<span class="w"> </span>api<span class="w"> </span>enterprise<span class="w"> </span>get<span class="w"> </span>/v1/debuginfo/all<span class="w"> </span>--output<span class="w"> </span>debug.tar.gz
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Node debug info</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>redisctl<span class="w"> </span>api<span class="w"> </span>enterprise<span class="w"> </span>get<span class="w"> </span>/v1/debuginfo/node/1<span class="w"> </span>--output<span class="w"> </span>node1.tar.gz
-</span></code></pre></div>
-<h2 id="debug-info-vs-support-package">Debug Info vs Support Package<a class="headerlink" href="#debug-info-vs-support-package" title="Permanent link">&para;</a></h2>
+<p>Each <code>&lt;spec&gt;</code> is either:</p>
+<ul>
+<li><strong>Bare name</strong> -- loads all sub-modules for that toolset: <code>cloud</code>, <code>enterprise</code>, <code>database</code>, <code>app</code></li>
+<li><strong>Colon syntax</strong> -- loads a single sub-module: <code>cloud:subscriptions</code>, <code>enterprise:observability</code></li>
+</ul>
+<p>Specs are comma-delimited. You can mix bare and colon forms freely.</p>
+<h3 id="resolution-priority">Resolution Priority<a class="headerlink" href="#resolution-priority" title="Permanent link">&para;</a></h3>
+<p>The server resolves which toolsets to load in this order:</p>
+<ol>
+<li><strong>Explicit <code>--tools</code></strong> -- always wins when provided</li>
+<li><strong>Auto-detect from profiles</strong> -- infers toolsets from your configured profile types (e.g., a Cloud profile enables the <code>cloud</code> toolset)</li>
+<li><strong>All compiled-in features</strong> -- fallback when neither of the above applies</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When <code>--tools</code> is not explicitly set, toolsets marked <code>enabled = false</code> in a policy file are also removed. When <code>--tools</code> is explicit, policy-based toolset disabling is skipped.</p>
+</div>
+<h3 id="available-toolsets-and-sub-modules">Available Toolsets and Sub-Modules<a class="headerlink" href="#available-toolsets-and-sub-modules" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Feature</th>
-<th>Debug Info</th>
-<th>Support Package</th>
+<th>Toolset</th>
+<th>Sub-modules</th>
+<th>Total Tools</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Size</td>
-<td>Smaller</td>
-<td>Larger (more complete)</td>
+<td><code>cloud</code></td>
+<td><code>subscriptions</code>, <code>account</code>, <code>networking</code>, <code>fixed</code>, <code>raw</code></td>
+<td>151</td>
 </tr>
 <tr>
-<td>Optimization</td>
-<td>No</td>
-<td>Yes (<code>--optimize</code>)</td>
+<td><code>enterprise</code></td>
+<td><code>cluster</code>, <code>databases</code>, <code>rbac</code>, <code>observability</code>, <code>proxy</code>, <code>services</code>, <code>raw</code></td>
+<td>92</td>
 </tr>
 <tr>
-<td>Upload</td>
-<td>No</td>
-<td>Yes (<code>--upload</code>)</td>
+<td><code>database</code></td>
+<td><code>server</code>, <code>keys</code>, <code>structures</code>, <code>diagnostics</code>, <code>raw</code></td>
+<td>56</td>
 </tr>
 <tr>
-<td>Progress</td>
-<td>Basic</td>
-<td>Enhanced</td>
+<td><code>app</code></td>
+<td><em>(none -- flat toolset)</em></td>
+<td>8</td>
 </tr>
 <tr>
-<td>Use case</td>
-<td>Quick debug</td>
-<td>Support tickets</td>
+<td><em>(system)</em></td>
+<td><em>(always loaded)</em></td>
+<td>2</td>
 </tr>
 </tbody>
 </table>
-<h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">&para;</a></h2>
+<p>The two system tools (<code>list_available_tools</code> and <code>show_policy</code>) are always registered regardless of <code>--tools</code> selection.</p>
+<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
+<p><strong>Cloud only</strong> -- all Cloud sub-modules (149 tools + system):</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>redisctl-mcp<span class="w"> </span>--profile<span class="w"> </span>my-cloud<span class="w"> </span>--tools<span class="w"> </span>cloud
+</span></code></pre></div>
+<p><strong>Cloud subscriptions and networking only</strong> (86 tools + system):</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>redisctl-mcp<span class="w"> </span>--profile<span class="w"> </span>my-cloud<span class="w"> </span>--tools<span class="w"> </span>cloud:subscriptions,cloud:networking
+</span></code></pre></div>
+<p><strong>Enterprise monitoring</strong> -- cluster info + observability (40 tools + system):</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>redisctl-mcp<span class="w"> </span>--profile<span class="w"> </span>my-re<span class="w"> </span>--tools<span class="w"> </span>enterprise:cluster,enterprise:observability
+</span></code></pre></div>
+<p><strong>Database only</strong> -- direct Redis operations (55 tools + system):</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>redisctl-mcp<span class="w"> </span>--database-url<span class="w"> </span>redis://localhost:6379<span class="w"> </span>--tools<span class="w"> </span>database
+</span></code></pre></div>
+<p><strong>Minimal Cloud</strong> -- just account info and subscriptions (69 tools + system):</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>redisctl-mcp<span class="w"> </span>--profile<span class="w"> </span>my-cloud<span class="w"> </span>--tools<span class="w"> </span>cloud:account,cloud:subscriptions
+</span></code></pre></div>
+<p><strong>Everything except database</strong> -- Cloud + Enterprise + profile management:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>redisctl-mcp<span class="w"> </span>--profile<span class="w"> </span>my-cloud<span class="w"> </span>--profile<span class="w"> </span>my-re<span class="w"> </span>--tools<span class="w"> </span>cloud,enterprise,app
+</span></code></pre></div>
+<p><strong>Mixed selective and bare</strong> -- all Enterprise + specific Cloud sub-modules:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>redisctl-mcp<span class="w"> </span>--tools<span class="w"> </span>enterprise,cloud:subscriptions,cloud:account
+</span></code></pre></div>
+<h3 id="bare-overrides-selective-rule">Bare-Overrides-Selective Rule<a class="headerlink" href="#bare-overrides-selective-rule" title="Permanent link">&para;</a></h3>
+<p>If you specify both a bare name and colon-syntax for the same toolset, the bare name wins. For example:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># &quot;cloud&quot; overrides &quot;cloud:subscriptions&quot; -- all Cloud sub-modules are loaded</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>--tools<span class="w"> </span>cloud:subscriptions,cloud
+</span></code></pre></div>
+<p>This makes it easy to "upgrade" a selective choice to the full toolset without removing the specific entries.</p>
+<h3 id="error-behavior">Error Behavior<a class="headerlink" href="#error-behavior" title="Permanent link">&para;</a></h3>
+<p>The server exits with an error if:</p>
 <ul>
-<li><a href="../support-package/">Support Package</a> - Full diagnostic packages for support</li>
-<li><a href="../../../cookbook/enterprise/cluster-health/">Cluster Health</a> - Health monitoring</li>
+<li>An unknown toolset name is used (e.g., <code>--tools nosuch</code>)</li>
+<li>An unknown sub-module is used (e.g., <code>--tools cloud:nosuch</code>)</li>
+<li>A sub-module is specified for <code>app</code>, which has no sub-modules (e.g., <code>--tools app:anything</code>)</li>
+</ul>
+<p>Error messages include the list of valid toolset or sub-module names.</p>
+<h2 id="safety-tiers">Safety Tiers<a class="headerlink" href="#safety-tiers" title="Permanent link">&para;</a></h2>
+<p>The MCP server enforces three safety tiers that control which categories of operations are permitted:</p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Flag / Policy Value</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Read-only</strong></td>
+<td><code>--read-only</code> (default) / <code>"read-only"</code></td>
+<td>Only tools marked as read-only are allowed</td>
+</tr>
+<tr>
+<td><strong>Read-write</strong></td>
+<td>-- / <code>"read-write"</code></td>
+<td>Reads + non-destructive writes (e.g., create, update)</td>
+</tr>
+<tr>
+<td><strong>Full</strong></td>
+<td><code>--read-only=false</code> / <code>"full"</code></td>
+<td>All operations including destructive ones (delete, flush)</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>--read-only</code> flag maps to the read-only and full tiers. For the intermediate read-write tier, use a policy file:</p>
+<div class="language-toml highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># mcp-policy.toml</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">[safety]</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;read-write&quot;</span>
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>redisctl-mcp<span class="w"> </span>--profile<span class="w"> </span>my-profile<span class="w"> </span>--policy<span class="w"> </span>mcp-policy.toml
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When a policy file is active, it overrides <code>--read-only</code>. The policy file is the authoritative source for safety tier configuration.</p>
+</div>
+<h2 id="presets">Presets<a class="headerlink" href="#presets" title="Permanent link">&para;</a></h2>
+<p>Presets control tool <strong>visibility</strong> -- which tools are presented to the AI model. This is independent of <code>--tools</code> (which controls what is <em>loaded</em>) and safety tiers (which control what is <em>permitted</em>).</p>
+<p>Two presets are available:</p>
+<table>
+<thead>
+<tr>
+<th>Preset</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"all"</code></td>
+<td>Every loaded tool is visible (default)</td>
+</tr>
+<tr>
+<td><code>"essentials"</code></td>
+<td>A curated subset per toolset: ~20 Cloud, ~18 Enterprise, ~15 Database, all 8 App tools</td>
+</tr>
+</tbody>
+</table>
+<p>Configure presets in the policy file:</p>
+<div class="language-toml highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">[tools]</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">preset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;essentials&quot;</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">include</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;enterprise_raw_api&quot;</span><span class="p">]</span><span class="w">  </span><span class="c1"># add tools on top of the preset</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;flush_database&quot;</span><span class="p">]</span><span class="w">      </span><span class="c1"># remove tools from the resolved set</span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use the <code>list_available_tools</code> system tool at runtime to see which tools are active vs. hidden under the current preset. This lets you discover tools you might want to add to the <code>include</code> list.</p>
+</div>
+<h2 id="choosing-the-right-approach">Choosing the Right Approach<a class="headerlink" href="#choosing-the-right-approach" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Goal</th>
+<th>Approach</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Limit to one product (Cloud or Enterprise)</td>
+<td><code>--tools cloud</code> or <code>--tools enterprise</code></td>
+</tr>
+<tr>
+<td>Reduce tool surface within a product</td>
+<td><code>--tools cloud:subscriptions,cloud:account</code></td>
+</tr>
+<tr>
+<td>Allow writes but not destructive ops</td>
+<td>Policy file with <code>tier = "read-write"</code></td>
+</tr>
+<tr>
+<td>Curate which tools the AI sees</td>
+<td>Policy file with <code>preset = "essentials"</code></td>
+</tr>
+<tr>
+<td>Quick read-only exploration</td>
+<td>Default settings (no extra flags)</td>
+</tr>
+<tr>
+<td>Full access for development</td>
+<td><code>--read-only=false --tools cloud,enterprise,database</code></td>
+</tr>
+<tr>
+<td>Fine-grained per-tool control</td>
+<td>Policy file with <code>include</code> / <code>exclude</code> lists</td>
+</tr>
+</tbody>
+</table>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../tools-reference/">Tools Reference</a> -- see what tools are available per toolset and sub-module</li>
+<li><a href="../getting-started/">Getting Started</a> -- installation and IDE setup</li>
+<li><a href="../advanced-usage/">Advanced Usage</a> -- JMESPath integration and analytics</li>
 </ul>
 
 
@@ -3680,10 +3909,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
