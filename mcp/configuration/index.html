@@ -3654,7 +3654,7 @@
 <tr>
 <td><code>cloud</code></td>
 <td><code>subscriptions</code>, <code>account</code>, <code>networking</code>, <code>fixed</code>, <code>raw</code></td>
-<td>151</td>
+<td>148</td>
 </tr>
 <tr>
 <td><code>enterprise</code></td>
@@ -3664,7 +3664,7 @@
 <tr>
 <td><code>database</code></td>
 <td><code>server</code>, <code>keys</code>, <code>structures</code>, <code>diagnostics</code>, <code>raw</code></td>
-<td>56</td>
+<td>55</td>
 </tr>
 <tr>
 <td><code>app</code></td>
@@ -3680,10 +3680,10 @@
 </table>
 <p>The two system tools (<code>list_available_tools</code> and <code>show_policy</code>) are always registered regardless of <code>--tools</code> selection.</p>
 <h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
-<p><strong>Cloud only</strong> -- all Cloud sub-modules (149 tools + system):</p>
+<p><strong>Cloud only</strong> -- all Cloud sub-modules (148 tools + system):</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>redisctl-mcp<span class="w"> </span>--profile<span class="w"> </span>my-cloud<span class="w"> </span>--tools<span class="w"> </span>cloud
 </span></code></pre></div>
-<p><strong>Cloud subscriptions and networking only</strong> (86 tools + system):</p>
+<p><strong>Cloud subscriptions and networking only</strong> (87 tools + system):</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>redisctl-mcp<span class="w"> </span>--profile<span class="w"> </span>my-cloud<span class="w"> </span>--tools<span class="w"> </span>cloud:subscriptions,cloud:networking
 </span></code></pre></div>
 <p><strong>Enterprise monitoring</strong> -- cluster info + observability (40 tools + system):</p>
@@ -3745,8 +3745,7 @@
 </table>
 <p>The <code>--read-only</code> flag maps to the read-only and full tiers. For the intermediate read-write tier, use a policy file:</p>
 <div class="language-toml highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># mcp-policy.toml</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">[safety]</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;read-write&quot;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;read-write&quot;</span>
 </span></code></pre></div>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>redisctl-mcp<span class="w"> </span>--profile<span class="w"> </span>my-profile<span class="w"> </span>--policy<span class="w"> </span>mcp-policy.toml
 </span></code></pre></div>

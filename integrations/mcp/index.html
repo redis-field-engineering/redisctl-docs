@@ -3325,156 +3325,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Available Tools">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#redis-cloud-tools-17-tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Redis Cloud Tools (17 tools)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Redis Cloud Tools (17 tools)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#account-infrastructure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Account &amp; Infrastructure
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pro-subscriptions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pro Subscriptions
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#essentials-subscriptions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Essentials Subscriptions
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#database-task-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Database &amp; Task Operations
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#redis-enterprise-tools-48-tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Redis Enterprise Tools (48 tools)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Redis Enterprise Tools (48 tools)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cluster-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cluster Operations
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#database-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Database Operations
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#node-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Node Operations
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#shard-alert-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Shard &amp; Alert Operations
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#user-access-management" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        User &amp; Access Management
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#other-operations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Other Operations
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -3794,397 +3644,62 @@
 </span></code></pre></div>
 <p>See <a href="../../mcp/configuration/">Configuration</a> for the full <code>--tools</code> syntax, safety tiers, and presets.</p>
 <h2 id="available-tools">Available Tools<a class="headerlink" href="#available-tools" title="Permanent link">&para;</a></h2>
-<h3 id="redis-cloud-tools-17-tools">Redis Cloud Tools (17 tools)<a class="headerlink" href="#redis-cloud-tools-17-tools" title="Permanent link">&para;</a></h3>
-<h4 id="account-infrastructure">Account &amp; Infrastructure<a class="headerlink" href="#account-infrastructure" title="Permanent link">&para;</a></h4>
+<p>The MCP server provides <strong>305 tools</strong> across 4 toolsets:</p>
 <table>
 <thead>
 <tr>
-<th>Tool</th>
+<th>Toolset</th>
+<th>Tools</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>cloud_account_get</code></td>
-<td>Get account information</td>
+<td><strong>Cloud</strong></td>
+<td>148</td>
+<td>Subscriptions, databases, networking, Essentials, account management</td>
 </tr>
 <tr>
-<td><code>cloud_payment_methods_get</code></td>
-<td>List all payment methods configured for your account</td>
+<td><strong>Enterprise</strong></td>
+<td>92</td>
+<td>Cluster, databases, RBAC, observability, proxies, services</td>
 </tr>
 <tr>
-<td><code>cloud_database_modules_get</code></td>
-<td>List all available database modules (capabilities)</td>
+<td><strong>Database</strong></td>
+<td>55</td>
+<td>Direct Redis operations -- keys, data structures, diagnostics</td>
 </tr>
 <tr>
-<td><code>cloud_regions_get</code></td>
-<td>Get available regions across cloud providers (AWS, GCP, Azure)</td>
-</tr>
-</tbody>
-</table>
-<h4 id="pro-subscriptions">Pro Subscriptions<a class="headerlink" href="#pro-subscriptions" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>cloud_subscriptions_list</code></td>
-<td>List all Pro subscriptions</td>
+<td><strong>App</strong></td>
+<td>8</td>
+<td>Profile and configuration management</td>
 </tr>
 <tr>
-<td><code>cloud_subscription_get</code></td>
-<td>Get Pro subscription details</td>
-</tr>
-<tr>
-<td><code>cloud_pro_subscription_create</code></td>
-<td>Create a new Pro subscription <em>(write)</em></td>
-</tr>
-<tr>
-<td><code>cloud_pro_subscription_delete</code></td>
-<td>Delete a Pro subscription <em>(write)</em></td>
+<td><strong>System</strong></td>
+<td>2</td>
+<td><code>list_available_tools</code>, <code>show_policy</code> (always available)</td>
 </tr>
 </tbody>
 </table>
-<h4 id="essentials-subscriptions">Essentials Subscriptions<a class="headerlink" href="#essentials-subscriptions" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>cloud_essentials_subscriptions_list</code></td>
-<td>List all Essentials subscriptions</td>
-</tr>
-<tr>
-<td><code>cloud_essentials_subscription_get</code></td>
-<td>Get Essentials subscription details</td>
-</tr>
-<tr>
-<td><code>cloud_essentials_subscription_create</code></td>
-<td>Create a new Essentials subscription <em>(write)</em></td>
-</tr>
-<tr>
-<td><code>cloud_essentials_subscription_delete</code></td>
-<td>Delete an Essentials subscription <em>(write)</em></td>
-</tr>
-<tr>
-<td><code>cloud_essentials_plans_list</code></td>
-<td>List available Essentials plans with pricing</td>
-</tr>
-</tbody>
-</table>
-<h4 id="database-task-operations">Database &amp; Task Operations<a class="headerlink" href="#database-task-operations" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>cloud_databases_list</code></td>
-<td>List databases in a subscription</td>
-</tr>
-<tr>
-<td><code>cloud_database_get</code></td>
-<td>Get database details</td>
-</tr>
-<tr>
-<td><code>cloud_tasks_list</code></td>
-<td>List recent async tasks</td>
-</tr>
-<tr>
-<td><code>cloud_task_get</code></td>
-<td>Get task status</td>
-</tr>
-</tbody>
-</table>
-<h3 id="redis-enterprise-tools-48-tools">Redis Enterprise Tools (48 tools)<a class="headerlink" href="#redis-enterprise-tools-48-tools" title="Permanent link">&para;</a></h3>
-<h4 id="cluster-operations">Cluster Operations<a class="headerlink" href="#cluster-operations" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>enterprise_cluster_get</code></td>
-<td>Get cluster information</td>
-</tr>
-<tr>
-<td><code>enterprise_cluster_stats</code></td>
-<td>Get cluster statistics</td>
-</tr>
-<tr>
-<td><code>enterprise_cluster_settings</code></td>
-<td>Get cluster settings</td>
-</tr>
-<tr>
-<td><code>enterprise_cluster_topology</code></td>
-<td>Get cluster topology</td>
-</tr>
-<tr>
-<td><code>enterprise_cluster_update</code></td>
-<td>Update cluster configuration <em>(write)</em></td>
-</tr>
-</tbody>
-</table>
-<h4 id="database-operations">Database Operations<a class="headerlink" href="#database-operations" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>enterprise_databases_list</code></td>
-<td>List all databases</td>
-</tr>
-<tr>
-<td><code>enterprise_database_get</code></td>
-<td>Get database details</td>
-</tr>
-<tr>
-<td><code>enterprise_database_stats</code></td>
-<td>Get database statistics</td>
-</tr>
-<tr>
-<td><code>enterprise_database_metrics</code></td>
-<td>Get database performance metrics</td>
-</tr>
-<tr>
-<td><code>enterprise_database_create</code></td>
-<td>Create a new database <em>(write)</em></td>
-</tr>
-<tr>
-<td><code>enterprise_database_update</code></td>
-<td>Update database configuration <em>(write)</em></td>
-</tr>
-<tr>
-<td><code>enterprise_database_delete</code></td>
-<td>Delete a database <em>(write)</em></td>
-</tr>
-<tr>
-<td><code>enterprise_database_flush</code></td>
-<td>Flush all data from database <em>(write)</em></td>
-</tr>
-<tr>
-<td><code>enterprise_database_export</code></td>
-<td>Export database to external location <em>(write)</em></td>
-</tr>
-<tr>
-<td><code>enterprise_database_import</code></td>
-<td>Import data into database <em>(write)</em></td>
-</tr>
-<tr>
-<td><code>enterprise_database_backup</code></td>
-<td>Trigger database backup <em>(write)</em></td>
-</tr>
-<tr>
-<td><code>enterprise_database_restore</code></td>
-<td>Restore database from backup <em>(write)</em></td>
-</tr>
-</tbody>
-</table>
-<h4 id="node-operations">Node Operations<a class="headerlink" href="#node-operations" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>enterprise_nodes_list</code></td>
-<td>List all cluster nodes</td>
-</tr>
-<tr>
-<td><code>enterprise_node_get</code></td>
-<td>Get node details</td>
-</tr>
-<tr>
-<td><code>enterprise_node_stats</code></td>
-<td>Get node statistics</td>
-</tr>
-<tr>
-<td><code>enterprise_node_update</code></td>
-<td>Update node configuration <em>(write)</em></td>
-</tr>
-<tr>
-<td><code>enterprise_node_remove</code></td>
-<td>Remove node from cluster <em>(write)</em></td>
-</tr>
-</tbody>
-</table>
-<h4 id="shard-alert-operations">Shard &amp; Alert Operations<a class="headerlink" href="#shard-alert-operations" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>enterprise_shards_list</code></td>
-<td>List all shards</td>
-</tr>
-<tr>
-<td><code>enterprise_shard_get</code></td>
-<td>Get shard details</td>
-</tr>
-<tr>
-<td><code>enterprise_alerts_list</code></td>
-<td>List active alerts</td>
-</tr>
-<tr>
-<td><code>enterprise_alert_get</code></td>
-<td>Get alert details</td>
-</tr>
-</tbody>
-</table>
-<h4 id="user-access-management">User &amp; Access Management<a class="headerlink" href="#user-access-management" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>enterprise_users_list</code></td>
-<td>List all users</td>
-</tr>
-<tr>
-<td><code>enterprise_user_get</code></td>
-<td>Get user details</td>
-</tr>
-<tr>
-<td><code>enterprise_user_create</code></td>
-<td>Create a new user <em>(write)</em></td>
-</tr>
-<tr>
-<td><code>enterprise_user_delete</code></td>
-<td>Delete a user <em>(write)</em></td>
-</tr>
-<tr>
-<td><code>enterprise_roles_list</code></td>
-<td>List all roles</td>
-</tr>
-<tr>
-<td><code>enterprise_role_get</code></td>
-<td>Get role details</td>
-</tr>
-<tr>
-<td><code>enterprise_role_create</code></td>
-<td>Create a new role <em>(write)</em></td>
-</tr>
-<tr>
-<td><code>enterprise_role_delete</code></td>
-<td>Delete a role <em>(write)</em></td>
-</tr>
-<tr>
-<td><code>enterprise_acls_list</code></td>
-<td>List all Redis ACLs</td>
-</tr>
-<tr>
-<td><code>enterprise_acl_get</code></td>
-<td>Get ACL details</td>
-</tr>
-<tr>
-<td><code>enterprise_acl_create</code></td>
-<td>Create a new Redis ACL <em>(write)</em></td>
-</tr>
-<tr>
-<td><code>enterprise_acl_delete</code></td>
-<td>Delete a Redis ACL <em>(write)</em></td>
-</tr>
-</tbody>
-</table>
-<h4 id="other-operations">Other Operations<a class="headerlink" href="#other-operations" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th>Tool</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>enterprise_logs_get</code></td>
-<td>Get cluster event logs</td>
-</tr>
-<tr>
-<td><code>enterprise_license_get</code></td>
-<td>Get license information</td>
-</tr>
-<tr>
-<td><code>enterprise_modules_list</code></td>
-<td>List available modules</td>
-</tr>
-<tr>
-<td><code>enterprise_module_get</code></td>
-<td>Get module details</td>
-</tr>
-<tr>
-<td><code>enterprise_crdbs_list</code></td>
-<td>List Active-Active databases</td>
-</tr>
-<tr>
-<td><code>enterprise_crdb_get</code></td>
-<td>Get Active-Active database details</td>
-</tr>
-<tr>
-<td><code>enterprise_crdb_update</code></td>
-<td>Update Active-Active database <em>(write)</em></td>
-</tr>
-<tr>
-<td><code>enterprise_crdb_delete</code></td>
-<td>Delete Active-Active database <em>(write)</em></td>
-</tr>
-<tr>
-<td><code>enterprise_debuginfo_list</code></td>
-<td>List debug info tasks</td>
-</tr>
-<tr>
-<td><code>enterprise_debuginfo_status</code></td>
-<td>Get debug info task status</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Total: 65 tools</strong> (17 Cloud + 48 Enterprise)</p>
+<p>For the complete tool catalog with sub-module breakdowns, see the <a href="../../mcp/tools-reference/">Tools Reference</a>.</p>
 <h2 id="example-conversations">Example Conversations<a class="headerlink" href="#example-conversations" title="Permanent link">&para;</a></h2>
 <p>Once configured, you can interact naturally with your Redis infrastructure:</p>
 <blockquote>
 <p><strong>You</strong>: What databases do I have in my enterprise cluster?</p>
-<p><strong>Claude</strong>: <em>uses enterprise_databases_list</em>
+<p><strong>Claude</strong>: <em>uses list_enterprise_databases</em>
 You have 2 databases:</p>
 <ul>
 <li><code>default-db</code> (uid: 1) - 1GB, active</li>
 <li><code>cache-db</code> (uid: 2) - 256MB, active</li>
 </ul>
 <p><strong>You</strong>: Create a new database called session-store with 512MB</p>
-<p><strong>Claude</strong>: <em>uses enterprise_database_create</em>
+<p><strong>Claude</strong>: <em>uses create_enterprise_database</em>
 Created database <code>session-store</code> (uid: 3) with 512MB memory. Status: active.</p>
 <p><strong>You</strong>: Show me any active alerts</p>
-<p><strong>Claude</strong>: <em>uses enterprise_alerts_list</em>
+<p><strong>Claude</strong>: <em>uses list_alerts</em>
 No active alerts in your cluster.</p>
 <p><strong>You</strong>: What Essentials plans are available on AWS?</p>
-<p><strong>Claude</strong>: <em>uses cloud_essentials_plans_list with provider: AWS</em>
+<p><strong>Claude</strong>: <em>uses list_fixed_plans with provider: AWS</em>
 Here are the available Essentials plans on AWS:</p>
 <ul>
 <li>250MB Cache ($5/month) - us-east-1</li>
@@ -4193,8 +3708,8 @@ Here are the available Essentials plans on AWS:</p>
 <li>...</li>
 </ul>
 <p><strong>You</strong>: Create a new Essentials subscription with the 250MB plan</p>
-<p><strong>Claude</strong>: <em>uses cloud_essentials_subscription_create</em>
-Created Essentials subscription <code>my-cache</code> with plan 250MB. Task ID: abc123. Use cloud_task_get to monitor progress.</p>
+<p><strong>Claude</strong>: <em>uses create_fixed_subscription</em>
+Created Essentials subscription <code>my-cache</code> with plan 250MB. Task ID: abc123. Use <code>get_task</code> to monitor progress.</p>
 </blockquote>
 <h2 id="security-considerations">Security Considerations<a class="headerlink" href="#security-considerations" title="Permanent link">&para;</a></h2>
 <h3 id="read-only-mode-default">Read-Only Mode (Default)<a class="headerlink" href="#read-only-mode-default" title="Permanent link">&para;</a></h3>
