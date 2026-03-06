@@ -3806,7 +3806,7 @@
 <h2 id="quick-pitch">Quick Pitch<a class="headerlink" href="#quick-pitch" title="Permanent link">&para;</a></h2>
 <p>Need a one-liner?</p>
 <blockquote>
-<p><strong>redisctl</strong> is the first CLI for Redis Cloud and Enterprise. Type-safe API clients, async operation handling, support package automation, and structured output for scripting.</p>
+<p><strong>redisctl</strong> manages Redis Cloud, Redis Enterprise, and Redis databases from one tool -- as a CLI for humans or an MCP server for AI agents.</p>
 </blockquote>
 <h2 id="demo-script">Demo Script<a class="headerlink" href="#demo-script" title="Permanent link">&para;</a></h2>
 <h3 id="1-setup-30-seconds">1. Setup (30 seconds)<a class="headerlink" href="#1-setup-30-seconds" title="Permanent link">&para;</a></h3>
@@ -3815,9 +3815,10 @@
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Configure profile</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>redisctl<span class="w"> </span>profile<span class="w"> </span><span class="nb">set</span><span class="w"> </span>demo<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span>--enterprise-url<span class="w"> </span><span class="s2">&quot;https://cluster:9443&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span>--enterprise-user<span class="w"> </span><span class="s2">&quot;admin@cluster.local&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span>--enterprise-password<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PASSWORD</span><span class="s2">&quot;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span>--type<span class="w"> </span>enterprise<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span>--url<span class="w"> </span><span class="s2">&quot;https://cluster:9443&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span>--username<span class="w"> </span><span class="s2">&quot;admin@cluster.local&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span>--password<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PASSWORD</span><span class="s2">&quot;</span>
 </span></code></pre></div>
 <h3 id="2-basic-commands-1-minute">2. Basic Commands (1 minute)<a class="headerlink" href="#2-basic-commands-1-minute" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Cluster info</span>
@@ -3898,20 +3899,20 @@
 <p>redisctl provides unified multi-cluster management through profiles:</p>
 <h3 id="1-configure-multiple-clusters">1. Configure Multiple Clusters<a class="headerlink" href="#1-configure-multiple-clusters" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Add each cluster as a profile</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>redisctl<span class="w"> </span>profile<span class="w"> </span>create<span class="w"> </span>cluster-west<span class="w"> </span>--type<span class="w"> </span>enterprise<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span>--enterprise-url<span class="w"> </span>https://west.example.com:9443<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span>--enterprise-user<span class="w"> </span>admin@redis.local<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span>--enterprise-password<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PASSWORD</span><span class="s2">&quot;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>redisctl<span class="w"> </span>profile<span class="w"> </span><span class="nb">set</span><span class="w"> </span>cluster-west<span class="w"> </span>--type<span class="w"> </span>enterprise<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span>--url<span class="w"> </span>https://west.example.com:9443<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span>--username<span class="w"> </span>admin@redis.local<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span>--password<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PASSWORD</span><span class="s2">&quot;</span>
 </span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>redisctl<span class="w"> </span>profile<span class="w"> </span>create<span class="w"> </span>cluster-east<span class="w"> </span>--type<span class="w"> </span>enterprise<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">  </span>--enterprise-url<span class="w"> </span>https://east.example.com:9443<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">  </span>--enterprise-user<span class="w"> </span>admin@redis.local<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">  </span>--enterprise-password<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PASSWORD</span><span class="s2">&quot;</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>redisctl<span class="w"> </span>profile<span class="w"> </span><span class="nb">set</span><span class="w"> </span>cluster-east<span class="w"> </span>--type<span class="w"> </span>enterprise<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">  </span>--url<span class="w"> </span>https://east.example.com:9443<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">  </span>--username<span class="w"> </span>admin@redis.local<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">  </span>--password<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PASSWORD</span><span class="s2">&quot;</span>
 </span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
-</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>redisctl<span class="w"> </span>profile<span class="w"> </span>create<span class="w"> </span>cluster-central<span class="w"> </span>--type<span class="w"> </span>enterprise<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">  </span>--enterprise-url<span class="w"> </span>https://central.example.com:9443<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">  </span>--enterprise-user<span class="w"> </span>admin@redis.local<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">  </span>--enterprise-password<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PASSWORD</span><span class="s2">&quot;</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>redisctl<span class="w"> </span>profile<span class="w"> </span><span class="nb">set</span><span class="w"> </span>cluster-central<span class="w"> </span>--type<span class="w"> </span>enterprise<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">  </span>--url<span class="w"> </span>https://central.example.com:9443<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">  </span>--username<span class="w"> </span>admin@redis.local<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">  </span>--password<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PASSWORD</span><span class="s2">&quot;</span>
 </span></code></pre></div>
 <h3 id="2-cross-cluster-cli-queries">2. Cross-Cluster CLI Queries<a class="headerlink" href="#2-cross-cluster-cli-queries" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Check all clusters at once</span>
@@ -3945,7 +3946,7 @@
 <li>"Which databases across all clusters don't have persistence enabled?"</li>
 <li>"Total up all the databases across my fleet"</li>
 </ul>
-<p>The AI uses <code>profile_list</code> to discover clusters and <code>profile_set_default_enterprise</code> to switch between them, then aggregates the results.</p>
+<p>The AI uses <code>profile_list</code> to discover clusters and targets each one via the <code>profile</code> parameter on tool calls, then aggregates the results.</p>
 <h3 id="key-differentiators">Key Differentiators<a class="headerlink" href="#key-differentiators" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
