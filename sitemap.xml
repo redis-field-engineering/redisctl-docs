@@ -221,6 +221,14 @@
          <lastmod>2026-03-06</lastmod>
     </url>
     <url>
+         <loc>https://redis-field-engineering.github.io/redisctl-docs/mcp/architecture/</loc>
+         <lastmod>2026-03-06</lastmod>
+    </url>
+    <url>
+         <loc>https://redis-field-engineering.github.io/redisctl-docs/mcp/audit-logging/</loc>
+         <lastmod>2026-03-06</lastmod>
+    </url>
+    <url>
          <loc>https://redis-field-engineering.github.io/redisctl-docs/mcp/cloud-quickstart/</loc>
          <lastmod>2026-03-06</lastmod>
     </url>
