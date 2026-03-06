@@ -3149,15 +3149,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#redisctl-config" class="md-nav__link">
+  <a href="#redisctl-core" class="md-nav__link">
     <span class="md-ellipsis">
       
-        redisctl-config
+        redisctl-core
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="redisctl-config">
+    <nav class="md-nav" aria-label="redisctl-core">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3491,15 +3491,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#redisctl-config" class="md-nav__link">
+  <a href="#redisctl-core" class="md-nav__link">
     <span class="md-ellipsis">
       
-        redisctl-config
+        redisctl-core
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="redisctl-config">
+    <nav class="md-nav" aria-label="redisctl-core">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3664,9 +3664,9 @@
 <td><a href="https://github.com/redis-developer/redis-enterprise-rs">redis-enterprise-rs</a></td>
 </tr>
 <tr>
-<td><code>redisctl-config</code></td>
+<td><code>redisctl-core</code></td>
 <td>Profile and credential management</td>
-<td><a href="https://docs.rs/redisctl-config">docs</a></td>
+<td><a href="https://docs.rs/redisctl-core">docs</a></td>
 <td><a href="https://github.com/redis-developer/redisctl">redisctl</a></td>
 </tr>
 </tbody>
@@ -3741,14 +3741,14 @@
 </span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">    </span><span class="nb">Ok</span><span class="p">(())</span>
 </span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="redisctl-config">redisctl-config<a class="headerlink" href="#redisctl-config" title="Permanent link">&para;</a></h2>
-<p>Profile and credential management.</p>
+<h2 id="redisctl-core">redisctl-core<a class="headerlink" href="#redisctl-core" title="Permanent link">&para;</a></h2>
+<p>Core library for config, workflows, and shared logic.</p>
 <h3 id="installation_2">Installation<a class="headerlink" href="#installation_2" title="Permanent link">&para;</a></h3>
 <div class="language-toml highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">[dependencies]</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">redisctl-config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.1&quot;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">redisctl-core</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;0.8&quot;</span>
 </span></code></pre></div>
 <h3 id="example_2">Example<a class="headerlink" href="#example_2" title="Permanent link">&para;</a></h3>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">use</span><span class="w"> </span><span class="n">redisctl_config</span><span class="p">::{</span><span class="n">Config</span><span class="p">,</span><span class="w"> </span><span class="n">Profile</span><span class="p">};</span>
+<div class="language-rust highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">use</span><span class="w"> </span><span class="n">redisctl_core</span><span class="p">::{</span><span class="n">Config</span><span class="p">,</span><span class="w"> </span><span class="n">Profile</span><span class="p">};</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">fn</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="nc">anyhow</span><span class="p">::</span><span class="nb">Result</span><span class="o">&lt;</span><span class="p">()</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="c1">// Load config</span>

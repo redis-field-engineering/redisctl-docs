@@ -3865,20 +3865,20 @@
 <p>Before using the MCP server, configure a profile with your Redis credentials.</p>
 <h3 id="redis-cloud">Redis Cloud<a class="headerlink" href="#redis-cloud" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Interactive setup (prompts for API keys)</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>redisctl<span class="w"> </span>profile<span class="w"> </span>add<span class="w"> </span>my-cloud-profile<span class="w"> </span>--cloud
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>redisctl<span class="w"> </span>profile<span class="w"> </span><span class="nb">set</span><span class="w"> </span>my-cloud-profile<span class="w"> </span>--type<span class="w"> </span>cloud
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Or provide keys directly</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>redisctl<span class="w"> </span>profile<span class="w"> </span>add<span class="w"> </span>my-cloud-profile<span class="w"> </span>--cloud<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>redisctl<span class="w"> </span>profile<span class="w"> </span><span class="nb">set</span><span class="w"> </span>my-cloud-profile<span class="w"> </span>--type<span class="w"> </span>cloud<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span>--api-key<span class="w"> </span>YOUR_API_KEY<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span>--secret-key<span class="w"> </span>YOUR_SECRET_KEY
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span>--api-secret<span class="w"> </span>YOUR_SECRET_KEY
 </span></code></pre></div>
 <p>Get your API keys from the <a href="https://app.redislabs.com/">Redis Cloud Console</a> under Account &gt; API Keys.</p>
 <h3 id="redis-enterprise">Redis Enterprise<a class="headerlink" href="#redis-enterprise" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Interactive setup</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>redisctl<span class="w"> </span>profile<span class="w"> </span>add<span class="w"> </span>my-enterprise-profile<span class="w"> </span>--enterprise
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>redisctl<span class="w"> </span>profile<span class="w"> </span><span class="nb">set</span><span class="w"> </span>my-enterprise-profile<span class="w"> </span>--type<span class="w"> </span>enterprise
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Or provide credentials directly</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>redisctl<span class="w"> </span>profile<span class="w"> </span>add<span class="w"> </span>my-enterprise-profile<span class="w"> </span>--enterprise<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>redisctl<span class="w"> </span>profile<span class="w"> </span><span class="nb">set</span><span class="w"> </span>my-enterprise-profile<span class="w"> </span>--type<span class="w"> </span>enterprise<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span>--url<span class="w"> </span>https://your-cluster:9443<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span>--username<span class="w"> </span>admin@redis.com<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span>--password<span class="w"> </span>YOUR_PASSWORD<span class="w"> </span><span class="se">\</span>
