@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="CLI for Redis Cloud and Redis Enterprise">
+        <meta name="description" content="The CLI and MCP Server for Redis">
       
       
       
@@ -2632,6 +2632,8 @@
       
         
       
+        
+      
     
     
     
@@ -2732,6 +2734,34 @@
     
   
     Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="database-quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Quickstart
   
 
     
@@ -3273,19 +3303,19 @@
 
 
 <h1 id="mcp-server">MCP Server<a class="headerlink" href="#mcp-server" title="Permanent link">&para;</a></h1>
-<p>redisctl includes a built-in <a href="https://modelcontextprotocol.io/">Model Context Protocol (MCP)</a> server that enables AI assistants to manage your Redis deployments through natural language.</p>
+<p>redisctl includes a built-in <a href="https://modelcontextprotocol.io/">Model Context Protocol (MCP)</a> server that turns your AI assistant into a Redis power tool -- for working with data, exploring databases, and managing infrastructure.</p>
 <h2 id="what-is-mcp">What is MCP?<a class="headerlink" href="#what-is-mcp" title="Permanent link">&para;</a></h2>
-<p>The Model Context Protocol is an open standard that allows AI systems to securely interact with external tools and data sources. The redisctl MCP server exposes Redis management operations as tools that AI assistants like Claude, Cursor, and others can discover and invoke.</p>
+<p>The Model Context Protocol is an open standard that allows AI systems to securely interact with external tools and data sources. The redisctl MCP server exposes Redis operations as tools that AI assistants like Claude, Cursor, and others can discover and invoke.</p>
 <h2 id="what-can-you-do">What Can You Do?<a class="headerlink" href="#what-can-you-do" title="Permanent link">&para;</a></h2>
 <p>With the MCP server, you can:</p>
 <ul>
-<li><strong>Query infrastructure</strong> - "List all my Redis databases" or "Show cluster health"</li>
-<li><strong>Manage licenses</strong> - "Check license expiration" or "Update the cluster license"</li>
-<li><strong>Configure clusters</strong> - "Enable maintenance mode" or "Update cluster policy"</li>
-<li><strong>Create resources</strong> - "Create a new 256MB database called cache-db"</li>
-<li><strong>Monitor status</strong> - "Any active alerts?" or "Show me cluster stats"</li>
-<li><strong>Manage certificates</strong> - "Show certificates" or "Rotate cluster certificates"</li>
-<li><strong>Work with data directly</strong> - "Add this user to my hash" or "Show me the top 10 leaderboard scores"</li>
+<li><strong>Explore your data</strong> - "What keys are in my database?" or "Show me the top 10 leaderboard scores"</li>
+<li><strong>Work with any data structure</strong> - Hashes, sets, sorted sets, lists, streams, JSON documents</li>
+<li><strong>Search and index</strong> - "Create a search index on my products" or "Search for wireless headphones"</li>
+<li><strong>Debug and diagnose</strong> - "What are the slowest queries?" or "Which keys use the most memory?"</li>
+<li><strong>Monitor health</strong> - "How much memory is Redis using?" or "Show me connected clients"</li>
+<li><strong>Query infrastructure</strong> - "List all my Cloud subscriptions" or "Show cluster health"</li>
+<li><strong>Manage deployments</strong> - "Create a new database" or "Backup database 67890"</li>
 </ul>
 <h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
 <div class="grid cards">
@@ -3313,29 +3343,106 @@
 </ul>
 </div>
 <h2 id="quick-example">Quick Example<a class="headerlink" href="#quick-example" title="Permanent link">&para;</a></h2>
-<p>Once configured, interact naturally with your Redis infrastructure:</p>
+<p>Once configured, interact naturally with your Redis data:</p>
 <blockquote>
-<p><strong>You</strong>: What databases do I have in my enterprise cluster?</p>
-<p><strong>Claude</strong>: You have 2 databases:</p>
-<ul>
-<li><code>default-db</code> (uid: 1) - 1GB, active, with modules: RediSearch, RedisJSON</li>
-<li><code>cache-db</code> (uid: 2) - 256MB, active</li>
-</ul>
-<p><strong>You</strong>: Show me the license status</p>
-<p><strong>Claude</strong>: Your cluster is running a Trial license:</p>
-<ul>
-<li><strong>Expires</strong>: February 11, 2026 (30 days remaining)</li>
-<li><strong>Shards</strong>: 1 of 4 used (25% utilization)</li>
-<li><strong>Features</strong>: bigstore enabled</li>
-</ul>
+<p><strong>You</strong>: What's in my database?</p>
+<p><strong>Claude</strong>: You have 1,247 keys. Here's the breakdown:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Count</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hash</td>
+<td>892</td>
+<td><code>user:*</code>, <code>session:*</code></td>
+</tr>
+<tr>
+<td>string</td>
+<td>203</td>
+<td><code>config:*</code>, <code>cache:*</code></td>
+</tr>
+<tr>
+<td>sorted set</td>
+<td>98</td>
+<td><code>leaderboard:*</code></td>
+</tr>
+<tr>
+<td>set</td>
+<td>42</td>
+<td><code>tags:*</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>You</strong>: Show me the top 5 leaderboard scores</p>
+<p><strong>Claude</strong>: Top 5 in <code>leaderboard:global</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Member</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>player:alice</td>
+<td>15,230</td>
+</tr>
+<tr>
+<td>2</td>
+<td>player:bob</td>
+<td>14,890</td>
+</tr>
+<tr>
+<td>3</td>
+<td>player:carol</td>
+<td>12,450</td>
+</tr>
+</tbody>
+</table>
+<p><strong>You</strong>: Which keys are using the most memory?</p>
+<p><strong>Claude</strong>: Largest keys by memory usage:</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Memory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>session:index</code></td>
+<td>sorted set</td>
+<td>4.2 MB</td>
+</tr>
+<tr>
+<td><code>user:cache</code></td>
+<td>hash</td>
+<td>2.8 MB</td>
+</tr>
+<tr>
+<td><code>events:main</code></td>
+<td>stream</td>
+<td>1.9 MB</td>
+</tr>
+</tbody>
+</table>
 </blockquote>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <p>Ready to set up MCP? Choose your path:</p>
 <ul>
+<li><strong><a href="database-quickstart/">Database Quickstart</a></strong> - Connect to any Redis instance and start exploring</li>
+<li><strong><a href="cloud-quickstart/">Cloud Quickstart</a></strong> - Redis Cloud users: manage subscriptions and databases</li>
+<li><strong><a href="enterprise-quickstart/">Enterprise Quickstart</a></strong> - Redis Enterprise users: includes multi-cluster setup</li>
 <li><strong><a href="getting-started/">Getting Started</a></strong> - Full installation and configuration guide</li>
 <li><strong><a href="configuration/">Configuration</a></strong> - Tool selection, safety tiers, and presets</li>
-<li><strong><a href="cloud-quickstart/">Cloud Quickstart</a></strong> - Redis Cloud users: get running in 5 minutes</li>
-<li><strong><a href="enterprise-quickstart/">Enterprise Quickstart</a></strong> - Redis Enterprise users: includes multi-cluster setup</li>
 </ul>
 <p>Want to see what's possible? Check out <a href="advanced-usage/">Advanced Usage</a> for JMESPath integration and complex analytics pipelines.</p>
 <p>For operators, see <a href="architecture/">Architecture</a> for how the server works internally, and <a href="audit-logging/">Audit Logging</a> for compliance and operational visibility.</p>

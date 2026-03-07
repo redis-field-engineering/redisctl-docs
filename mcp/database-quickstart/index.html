@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://redis-field-engineering.github.io/redisctl-docs/mcp/audit-logging/">
+        <link rel="canonical" href="https://redis-field-engineering.github.io/redisctl-docs/mcp/database-quickstart/">
       
       
-        <link rel="prev" href="../architecture/">
+        <link rel="prev" href="../configuration/">
       
       
-        <link rel="next" href="../advanced-usage/">
+        <link rel="next" href="../cloud-quickstart/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Audit Logging - redisctl</title>
+        <title>Database Quickstart - redisctl</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#audit-logging" class="md-skip">
+        <a href="#database-quickstart" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Audit Logging
+              Database Quickstart
             
           </span>
         </div>
@@ -2751,10 +2751,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../database-quickstart/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Quickstart
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2770,6 +2797,225 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-create-a-database-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Create a Database Profile
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-configure-your-ai-assistant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Configure Your AI Assistant
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-try-these-prompts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Try These Prompts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3: Try These Prompts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explore-your-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explore Your Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#work-with-data-structures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Work with Data Structures
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagnostics-and-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagnostics and Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redisjson-requires-json-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RedisJSON (requires JSON module)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redisearch-requires-search-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RediSearch (requires Search module)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-enable-write-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional: Enable Write Operations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-conversation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Conversation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connection-refused" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Connection refused"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication-required-or-noauth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Authentication required" or "NOAUTH"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools-not-appearing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools not appearing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redisjsonredisearch-tools-not-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RedisJSON/RediSearch tools not working
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2891,37 +3137,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Audit Logging
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../audit-logging/" class="md-nav__link">
         
   
   
@@ -2937,176 +3156,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#enabling-audit-logging" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Enabling Audit Logging
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuration Reference
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#audit-levels" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Audit Levels
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#log-format" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Log Format
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Log Format">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#event-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Event Types
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#with-arguments" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        With Arguments
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#routing-audit-logs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Routing Audit Logs
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Routing Audit Logs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#log-aggregation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Log Aggregation
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#practical-examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Practical Examples
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Practical Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#compliance-full-mutation-audit" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Compliance: Full Mutation Audit
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#security-denied-operations-only" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Security: Denied Operations Only
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#debugging-everything" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Debugging: Everything
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3425,10 +3474,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#enabling-audit-logging" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Enabling Audit Logging
+        Prerequisites
       
     </span>
   </a>
@@ -3436,10 +3485,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration-reference" class="md-nav__link">
+  <a href="#step-1-create-a-database-profile" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuration Reference
+        Step 1: Create a Database Profile
       
     </span>
   </a>
@@ -3447,10 +3496,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#audit-levels" class="md-nav__link">
+  <a href="#step-2-configure-your-ai-assistant" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Audit Levels
+        Step 2: Configure Your AI Assistant
       
     </span>
   </a>
@@ -3458,22 +3507,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#log-format" class="md-nav__link">
+  <a href="#step-3-try-these-prompts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Log Format
+        Step 3: Try These Prompts
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Log Format">
+    <nav class="md-nav" aria-label="Step 3: Try These Prompts">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#event-types" class="md-nav__link">
+  <a href="#explore-your-data" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Event Types
+        Explore Your Data
       
     </span>
   </a>
@@ -3481,10 +3530,43 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#with-arguments" class="md-nav__link">
+  <a href="#work-with-data-structures" class="md-nav__link">
     <span class="md-ellipsis">
       
-        With Arguments
+        Work with Data Structures
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagnostics-and-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagnostics and Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redisjson-requires-json-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RedisJSON (requires JSON module)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redisearch-requires-search-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RediSearch (requires Search module)
       
     </span>
   </a>
@@ -3497,22 +3579,77 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#routing-audit-logs" class="md-nav__link">
+  <a href="#optional-enable-write-operations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Routing Audit Logs
+        Optional: Enable Write Operations
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Routing Audit Logs">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-conversation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Conversation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#log-aggregation" class="md-nav__link">
+  <a href="#connection-refused" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Log Aggregation
+        "Connection refused"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication-required-or-noauth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Authentication required" or "NOAUTH"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools-not-appearing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools not appearing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redisjsonredisearch-tools-not-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RedisJSON/RediSearch tools not working
       
     </span>
   </a>
@@ -3525,52 +3662,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#practical-examples" class="md-nav__link">
+  <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Practical Examples
+        Next Steps
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Practical Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#compliance-full-mutation-audit" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Compliance: Full Mutation Audit
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#security-denied-operations-only" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Security: Denied Operations Only
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#debugging-everything" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Debugging: Everything
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3594,190 +3692,363 @@
   
 
 
-<h1 id="audit-logging">Audit Logging<a class="headerlink" href="#audit-logging" title="Permanent link">&para;</a></h1>
-<p>Track every tool invocation for compliance, debugging, and operational visibility.</p>
-<h2 id="enabling-audit-logging">Enabling Audit Logging<a class="headerlink" href="#enabling-audit-logging" title="Permanent link">&para;</a></h2>
-<p>Audit logging is disabled by default. Enable it in your policy file:</p>
-<div class="language-toml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[audit]</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</span></code></pre></div>
-<p>Or for a more complete configuration:</p>
-<div class="language-toml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[audit]</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;all&quot;</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">include_args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">redact_fields</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;password&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;api_key&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;api_secret&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;secret&quot;</span><span class="p">]</span>
-</span></code></pre></div>
-<h2 id="configuration-reference">Configuration Reference<a class="headerlink" href="#configuration-reference" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>enabled</code></td>
-<td>bool</td>
-<td><code>false</code></td>
-<td>Master switch for audit logging</td>
-</tr>
-<tr>
-<td><code>level</code></td>
-<td>string</td>
-<td><code>"all"</code></td>
-<td>Which events to log (see levels below)</td>
-</tr>
-<tr>
-<td><code>include_args</code></td>
-<td>bool</td>
-<td><code>false</code></td>
-<td>Include tool arguments in log entries</td>
-</tr>
-<tr>
-<td><code>redact_fields</code></td>
-<td>list</td>
-<td><code>["password", "api_key", "api_secret", "secret"]</code></td>
-<td>Field names to redact when <code>include_args</code> is true</td>
-</tr>
-</tbody>
-</table>
-<h2 id="audit-levels">Audit Levels<a class="headerlink" href="#audit-levels" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Level</th>
-<th>Logs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>all</code></td>
-<td>Every tool call (success, error, and denied)</td>
-</tr>
-<tr>
-<td><code>writes</code></td>
-<td>Non-read-only calls + errors + denied</td>
-</tr>
-<tr>
-<td><code>destructive</code></td>
-<td>Destructive calls + errors + denied</td>
-</tr>
-<tr>
-<td><code>denied</code></td>
-<td>Only policy-denied calls and errors</td>
-</tr>
-</tbody>
-</table>
-<p>Choose based on your needs:</p>
+<h1 id="database-quickstart">Database Quickstart<a class="headerlink" href="#database-quickstart" title="Permanent link">&para;</a></h1>
+<p>Get up and running with MCP for Redis database operations in 5 minutes. No Redis Cloud or Enterprise account required -- just a Redis instance.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Production monitoring</strong>: <code>"denied"</code> -- catch policy violations without log noise</li>
-<li><strong>Development/debugging</strong>: <code>"all"</code> -- see everything</li>
-<li><strong>Compliance</strong>: <code>"writes"</code> or <code>"all"</code> with <code>include_args = true</code> -- full mutation audit trail</li>
+<li>A running Redis instance (local, Docker, or remote)</li>
+<li>redisctl installed (<a href="../../getting-started/installation/">Installation Guide</a>)</li>
 </ul>
-<h2 id="log-format">Log Format<a class="headerlink" href="#log-format" title="Permanent link">&para;</a></h2>
-<p>Audit events are emitted as structured JSON via the <code>tracing</code> crate with <code>target: "audit"</code>. When using JSON log output (<code>--log-level</code> with <code>RUST_LOG</code> filtering), each event includes:</p>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-03-05T10:30:00.123Z&quot;</span><span class="p">,</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;level&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;INFO&quot;</span><span class="p">,</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;audit&quot;</span><span class="p">,</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nt">&quot;event&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tool_invocation&quot;</span><span class="p">,</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nt">&quot;tool&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;list_enterprise_databases&quot;</span><span class="p">,</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="nt">&quot;toolset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;enterprise&quot;</span><span class="p">,</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="nt">&quot;duration_ms&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="p">}</span>
+<h2 id="step-1-create-a-database-profile">Step 1: Create a Database Profile<a class="headerlink" href="#step-1-create-a-database-profile" title="Permanent link">&para;</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Profile (Recommended)</label><label for="__tabbed_1_2">Direct URL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>redisctl<span class="w"> </span>profile<span class="w"> </span><span class="nb">set</span><span class="w"> </span>mydb<span class="w"> </span>--type<span class="w"> </span>database<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span>--host<span class="w"> </span>localhost<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span>--port<span class="w"> </span><span class="m">6379</span>
 </span></code></pre></div>
-<h3 id="event-types">Event Types<a class="headerlink" href="#event-types" title="Permanent link">&para;</a></h3>
+<p>For authenticated or TLS connections:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>redisctl<span class="w"> </span>profile<span class="w"> </span><span class="nb">set</span><span class="w"> </span>mydb<span class="w"> </span>--type<span class="w"> </span>database<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>--host<span class="w"> </span>redis.example.com<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span>--port<span class="w"> </span><span class="m">6380</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span>--username<span class="w"> </span>default<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span>--password<span class="w"> </span>YOUR_PASSWORD<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span>--tls
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>Skip the profile and pass a URL directly in your MCP config (Step 2).</p>
+</div>
+</div>
+</div>
+<h2 id="step-2-configure-your-ai-assistant">Step 2: Configure Your AI Assistant<a class="headerlink" href="#step-2-configure-your-ai-assistant" title="Permanent link">&para;</a></h2>
+<p>Add to your MCP configuration (read-only by default for safe exploration):</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Claude Desktop</label><label for="__tabbed_2_2">Claude Code</label><label for="__tabbed_2_3">Cursor</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><strong>macOS</strong>: <code>~/Library/Application Support/Claude/claude_desktop_config.json</code></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&quot;redisctl&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;redisctl-mcp&quot;</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;--profile&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;mydb&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;--tools&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;database&quot;</span><span class="p">]</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>Add to <code>.mcp.json</code> in your project:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">&quot;redisctl&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;redisctl-mcp&quot;</span><span class="p">,</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;--profile&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;mydb&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;--tools&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;database&quot;</span><span class="p">]</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><strong>macOS</strong>: <code>~/.cursor/mcp.json</code></p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">&quot;redisctl&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;redisctl-mcp&quot;</span><span class="p">,</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;--profile&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;mydb&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;--tools&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;database&quot;</span><span class="p">]</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Direct URL alternative</p>
+<p>If you skipped the profile, replace <code>"--profile", "mydb"</code> with <code>"--database-url", "redis://localhost:6379"</code>.</p>
+</div>
+<p>Restart your AI assistant to load the new configuration.</p>
+<h2 id="step-3-try-these-prompts">Step 3: Try These Prompts<a class="headerlink" href="#step-3-try-these-prompts" title="Permanent link">&para;</a></h2>
+<p>Start a conversation with your AI assistant and try these examples:</p>
+<h3 id="explore-your-data">Explore Your Data<a class="headerlink" href="#explore-your-data" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Event</th>
-<th>Description</th>
+<th>Prompt</th>
+<th>What it does</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>tool_invocation</code></td>
-<td>Tool was called and completed successfully</td>
+<td>"What keys are in my database?"</td>
+<td>Scans keys with pattern matching</td>
 </tr>
 <tr>
-<td><code>tool_denied</code></td>
-<td>Tool call was blocked by policy (error code -32007)</td>
+<td>"How many keys do I have?"</td>
+<td>Returns the DBSIZE count</td>
 </tr>
 <tr>
-<td><code>tool_error</code></td>
-<td>Tool call failed with an error</td>
+<td>"What type is the key <code>users:1</code>?"</td>
+<td>Shows the data type of a key</td>
+</tr>
+<tr>
+<td>"Show me the health of this Redis instance"</td>
+<td>Runs a comprehensive health check</td>
 </tr>
 </tbody>
 </table>
-<h3 id="with-arguments">With Arguments<a class="headerlink" href="#with-arguments" title="Permanent link">&para;</a></h3>
-<p>When <code>include_args = true</code>, an <code>arguments</code> field is added containing the tool's input parameters. Sensitive fields listed in <code>redact_fields</code> are replaced with <code>[REDACTED]</code>:</p>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;fields&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">&quot;event&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tool_invocation&quot;</span><span class="p">,</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nt">&quot;tool&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;create_enterprise_database&quot;</span><span class="p">,</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nt">&quot;toolset&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;enterprise&quot;</span><span class="p">,</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nt">&quot;result&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="nt">&quot;duration_ms&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1200</span><span class="p">,</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="nt">&quot;arguments&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{\&quot;name\&quot;:\&quot;cache-db\&quot;,\&quot;memory_size\&quot;:104857600,\&quot;password\&quot;:\&quot;[REDACTED]\&quot;}&quot;</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="p">}</span>
+<h3 id="work-with-data-structures">Work with Data Structures<a class="headerlink" href="#work-with-data-structures" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Prompt</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Show me all fields in the hash <code>user:42</code>"</td>
+<td>Returns HGETALL for the hash</td>
+</tr>
+<tr>
+<td>"What are the top 10 scores in the <code>leaderboard</code> sorted set?"</td>
+<td>Returns ZRANGE with scores</td>
+</tr>
+<tr>
+<td>"List the members of the <code>active-users</code> set"</td>
+<td>Returns SMEMBERS</td>
+</tr>
+<tr>
+<td>"Show the last 5 items in the <code>events</code> stream"</td>
+<td>Returns XRANGE for recent entries</td>
+</tr>
+</tbody>
+</table>
+<h3 id="diagnostics-and-performance">Diagnostics and Performance<a class="headerlink" href="#diagnostics-and-performance" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Prompt</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"What are the slowest queries?"</td>
+<td>Shows the slow log</td>
+</tr>
+<tr>
+<td>"How much memory is Redis using?"</td>
+<td>Returns memory stats</td>
+</tr>
+<tr>
+<td>"Which keys are using the most memory?"</td>
+<td>Samples keys by memory size</td>
+</tr>
+<tr>
+<td>"Show me the connected clients"</td>
+<td>Lists client connections</td>
+</tr>
+</tbody>
+</table>
+<h3 id="redisjson-requires-json-module">RedisJSON (requires JSON module)<a class="headerlink" href="#redisjson-requires-json-module" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Prompt</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Get the JSON document at key <code>product:100</code>"</td>
+<td>Returns JSON.GET result</td>
+</tr>
+<tr>
+<td>"What are the object keys in <code>config</code>?"</td>
+<td>Returns JSON.OBJKEYS</td>
+</tr>
+</tbody>
+</table>
+<h3 id="redisearch-requires-search-module">RediSearch (requires Search module)<a class="headerlink" href="#redisearch-requires-search-module" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Prompt</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"List all search indexes"</td>
+<td>Returns FT._LIST</td>
+</tr>
+<tr>
+<td>"Show me the schema for index <code>idx:products</code>"</td>
+<td>Returns FT.INFO</td>
+</tr>
+<tr>
+<td>"Search <code>idx:products</code> for 'wireless headphones'"</td>
+<td>Runs FT.SEARCH</td>
+</tr>
+</tbody>
+</table>
+<h2 id="optional-enable-write-operations">Optional: Enable Write Operations<a class="headerlink" href="#optional-enable-write-operations" title="Permanent link">&para;</a></h2>
+<p>By default, the MCP server runs in <strong>read-only mode</strong> -- you can explore freely without risk of modifying anything. When you're ready for write operations, update your config:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nt">&quot;redisctl&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;redisctl-mcp&quot;</span><span class="p">,</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;--profile&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;mydb&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;--tools&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;database&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;--read-only=false&quot;</span><span class="p">]</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Redaction is recursive -- fields are redacted at any depth in the JSON structure.</p>
-<h2 id="routing-audit-logs">Routing Audit Logs<a class="headerlink" href="#routing-audit-logs" title="Permanent link">&para;</a></h2>
-<p>Audit events use <code>target: "audit"</code> so you can route them separately from application logs using <code>RUST_LOG</code> filtering:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># All logs at info, audit at debug</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nv">RUST_LOG</span><span class="o">=</span>info,audit<span class="o">=</span>debug<span class="w"> </span>redisctl-mcp<span class="w"> </span>--profile<span class="w"> </span>my-profile
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Only audit logs</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nv">RUST_LOG</span><span class="o">=</span>warn,audit<span class="o">=</span>info<span class="w"> </span>redisctl-mcp<span class="w"> </span>--profile<span class="w"> </span>my-profile
-</span></code></pre></div>
-<h3 id="log-aggregation">Log Aggregation<a class="headerlink" href="#log-aggregation" title="Permanent link">&para;</a></h3>
-<p>To send audit logs to an external system, pipe JSON output to your collector:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Datadog</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>redisctl-mcp<span class="w"> </span>--profile<span class="w"> </span>my-profile<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>datadog-agent<span class="w"> </span>pipe
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Fluentd</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>redisctl-mcp<span class="w"> </span>--profile<span class="w"> </span>my-profile<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>fluent-cat<span class="w"> </span>audit.mcp
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># File-based (rotate with logrotate)</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>redisctl-mcp<span class="w"> </span>--profile<span class="w"> </span>my-profile<span class="w"> </span><span class="m">2</span>&gt;&gt;<span class="w"> </span>/var/log/redisctl-mcp-audit.jsonl
-</span></code></pre></div>
-<p>Since the MCP server uses stderr for logs and stdout for MCP protocol messages, redirect stderr (<code>2&gt;</code>) to capture audit output without interfering with the MCP transport.</p>
-<h2 id="practical-examples">Practical Examples<a class="headerlink" href="#practical-examples" title="Permanent link">&para;</a></h2>
-<h3 id="compliance-full-mutation-audit">Compliance: Full Mutation Audit<a class="headerlink" href="#compliance-full-mutation-audit" title="Permanent link">&para;</a></h3>
-<p>Track all state-changing operations with arguments:</p>
-<div class="language-toml highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;read-write&quot;</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">[audit]</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;writes&quot;</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">include_args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">redact_fields</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;password&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;api_key&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;api_secret&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;secret&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;token&quot;</span><span class="p">]</span>
-</span></code></pre></div>
-<h3 id="security-denied-operations-only">Security: Denied Operations Only<a class="headerlink" href="#security-denied-operations-only" title="Permanent link">&para;</a></h3>
-<p>Alert on policy violations:</p>
-<div class="language-toml highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;read-only&quot;</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">[audit]</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;denied&quot;</span>
-</span></code></pre></div>
-<h3 id="debugging-everything">Debugging: Everything<a class="headerlink" href="#debugging-everything" title="Permanent link">&para;</a></h3>
-<p>Full visibility during development:</p>
-<div class="language-toml highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;full&quot;</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">[audit]</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;all&quot;</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">include_args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</span></code></pre></div>
+<p>Write prompts to try:</p>
+<table>
+<thead>
+<tr>
+<th>Prompt</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Set the key <code>greeting</code> to 'hello world'"</td>
+<td>Sets a string value</td>
+</tr>
+<tr>
+<td>"Add user data to the hash <code>user:99</code>"</td>
+<td>Creates/updates hash fields</td>
+</tr>
+<tr>
+<td>"Store this JSON document as <code>doc:1</code>"</td>
+<td>Uses JSON.SET to store structured data</td>
+</tr>
+<tr>
+<td>"Create a search index on my user hashes"</td>
+<td>Uses FT.CREATE to define an index</td>
+</tr>
+</tbody>
+</table>
+<h2 id="example-conversation">Example Conversation<a class="headerlink" href="#example-conversation" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>You</strong>: What's in my database?</p>
+<p><strong>AI</strong>: Your database has 1,247 keys. Here's a breakdown by type:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Count</th>
+<th>Example Keys</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hash</td>
+<td>892</td>
+<td><code>user:*</code>, <code>session:*</code></td>
+</tr>
+<tr>
+<td>string</td>
+<td>203</td>
+<td><code>config:*</code>, <code>cache:*</code></td>
+</tr>
+<tr>
+<td>sorted set</td>
+<td>98</td>
+<td><code>leaderboard:*</code>, <code>timeline:*</code></td>
+</tr>
+<tr>
+<td>set</td>
+<td>42</td>
+<td><code>tags:*</code>, <code>active-users</code></td>
+</tr>
+<tr>
+<td>stream</td>
+<td>12</td>
+<td><code>events:*</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>You</strong>: Show me the top 5 leaderboard scores</p>
+<p><strong>AI</strong>: Here are the top 5 entries in <code>leaderboard:global</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Member</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>player:alice</td>
+<td>15,230</td>
+</tr>
+<tr>
+<td>2</td>
+<td>player:bob</td>
+<td>14,890</td>
+</tr>
+<tr>
+<td>3</td>
+<td>player:carol</td>
+<td>12,450</td>
+</tr>
+<tr>
+<td>4</td>
+<td>player:dave</td>
+<td>11,200</td>
+</tr>
+<tr>
+<td>5</td>
+<td>player:eve</td>
+<td>10,890</td>
+</tr>
+</tbody>
+</table>
+<p><strong>You</strong>: What's the memory breakdown?</p>
+<p><strong>AI</strong>: Redis is using <strong>48.2 MB</strong> of memory:</p>
+<ul>
+<li>Dataset: 32.1 MB (66.6%)</li>
+<li>Overhead: 12.4 MB (25.7%)</li>
+<li>Lua: 3.7 MB (7.7%)</li>
+<li>Peak usage: 52.8 MB</li>
+</ul>
+</blockquote>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="connection-refused">"Connection refused"<a class="headerlink" href="#connection-refused" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Verify Redis is running: <code>redis-cli ping</code></li>
+<li>Check the host and port in your profile match your Redis instance</li>
+<li>For Docker Redis, ensure the port is published (<code>-p 6379:6379</code>)</li>
+</ul>
+<h3 id="authentication-required-or-noauth">"Authentication required" or "NOAUTH"<a class="headerlink" href="#authentication-required-or-noauth" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Add <code>--password</code> to your profile or include credentials in the URL</li>
+<li>For Redis 6+ ACLs, ensure the user has appropriate permissions</li>
+</ul>
+<h3 id="tools-not-appearing">Tools not appearing<a class="headerlink" href="#tools-not-appearing" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Restart your AI assistant after config changes</li>
+<li>Check that <code>redisctl-mcp</code> is in your PATH</li>
+<li>Verify the <code>--tools database</code> flag is set</li>
+</ul>
+<h3 id="redisjsonredisearch-tools-not-working">RedisJSON/RediSearch tools not working<a class="headerlink" href="#redisjsonredisearch-tools-not-working" title="Permanent link">&para;</a></h3>
+<ul>
+<li>These tools require the corresponding Redis modules to be loaded</li>
+<li>Check with <code>redis-cli MODULE LIST</code></li>
+<li>Use <a href="https://redis.io/docs/latest/operate/oss_and_stack/install/install-stack/">Redis Stack</a> for an all-in-one install</li>
+</ul>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../tools-reference/">Tools Reference</a> - Complete list of database tools</li>
+<li><a href="../advanced-usage/">Advanced Usage</a> - Complex queries with JMESPath</li>
+<li><a href="../cloud-quickstart/">Cloud Quickstart</a> - If you also use Redis Cloud</li>
+<li><a href="../enterprise-quickstart/">Enterprise Quickstart</a> - If you also use Redis Enterprise</li>
+</ul>
 
 
 
