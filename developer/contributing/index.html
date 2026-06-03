@@ -3731,7 +3731,7 @@
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Rust 1.75+ (edition 2024)</li>
+<li>Rust 1.90+ (edition 2024)</li>
 <li>Git</li>
 </ul>
 <h3 id="clone-and-build">Clone and Build<a class="headerlink" href="#clone-and-build" title="Permanent link">&para;</a></h3>
@@ -3800,10 +3800,10 @@
 - <a href="https://github.com/redis-developer/redis-enterprise-rs">redis-enterprise</a> - Enterprise API client</p>
 <h2 id="adding-a-new-command">Adding a New Command<a class="headerlink" href="#adding-a-new-command" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Add command enum in <code>crates/redisctl/src/cli.rs</code></li>
-<li>Implement handler in <code>src/commands/</code></li>
-<li>Add to command routing in <code>src/main.rs</code></li>
-<li>Add tests in <code>tests/</code></li>
+<li>Add command enum in <code>crates/redisctl/src/cli/mod.rs</code> (top-level) or the relevant domain file: <code>src/cli/cloud.rs</code> (Cloud), <code>src/cli/enterprise.rs</code> (Enterprise)</li>
+<li>Implement handler in <code>crates/redisctl/src/commands/</code> (subdirs: <code>cloud/</code>, <code>enterprise/</code>)</li>
+<li>Add to command routing in <code>crates/redisctl/src/main.rs</code></li>
+<li>Add tests in <code>crates/redisctl/tests/</code></li>
 <li>Update documentation</li>
 </ol>
 <h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
@@ -3833,7 +3833,7 @@
 </span></code></pre></div>
 <h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
 <ul>
-<li>User docs: <code>mkdocs-site/docs/</code></li>
+<li>User docs: <code>docs/docs/</code></li>
 <li>API docs: Inline rustdoc comments</li>
 <li>Build docs: <code>cargo doc --workspace</code></li>
 </ul>
