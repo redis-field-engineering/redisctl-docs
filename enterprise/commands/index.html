@@ -3242,6 +3242,89 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Command Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#admin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Admin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3300,6 +3383,7 @@
 <h1 id="enterprise-commands">Enterprise Commands<a class="headerlink" href="#enterprise-commands" title="Permanent link">&para;</a></h1>
 <p>All Redis Enterprise CLI commands.</p>
 <h2 id="command-reference">Command Reference<a class="headerlink" href="#command-reference" title="Permanent link">&para;</a></h2>
+<h3 id="core">Core<a class="headerlink" href="#core" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -3309,17 +3393,36 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="cluster/">cluster</a></td>
-<td>Cluster configuration</td>
-</tr>
-<tr>
 <td><a href="databases/">database</a></td>
 <td>Database management</td>
+</tr>
+<tr>
+<td><a href="cluster/">cluster</a></td>
+<td>Cluster configuration and operations</td>
 </tr>
 <tr>
 <td><a href="nodes/">node</a></td>
 <td>Node operations</td>
 </tr>
+<tr>
+<td>shard</td>
+<td>Shard management operations</td>
+</tr>
+<tr>
+<td>endpoint</td>
+<td>Endpoint operations</td>
+</tr>
+</tbody>
+</table>
+<h3 id="access">Access<a class="headerlink" href="#access" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Command Group</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td><a href="access-control/">user</a></td>
 <td>User management</td>
@@ -3329,12 +3432,175 @@
 <td>Role management</td>
 </tr>
 <tr>
-<td><a href="monitoring/">alert</a></td>
-<td>Alert configuration</td>
+<td><a href="access-control/">acl</a></td>
+<td>ACL operations</td>
 </tr>
 <tr>
+<td>ldap</td>
+<td>LDAP integration</td>
+</tr>
+<tr>
+<td>ldap-mappings</td>
+<td>LDAP mappings management</td>
+</tr>
+<tr>
+<td>auth</td>
+<td>Authentication and sessions</td>
+</tr>
+</tbody>
+</table>
+<h3 id="monitoring">Monitoring<a class="headerlink" href="#monitoring" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Command Group</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="monitoring/">alerts</a></td>
+<td>Alert management</td>
+</tr>
+<tr>
+<td>stats</td>
+<td>Statistics and metrics</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Comprehensive cluster status (cluster, nodes, databases, shards)</td>
+</tr>
+<tr>
+<td><a href="monitoring/">logs</a></td>
+<td>Log operations</td>
+</tr>
+<tr>
+<td><a href="monitoring/">diagnostics</a></td>
+<td>Diagnostics operations</td>
+</tr>
+<tr>
+<td>debug-info</td>
+<td>Debug info collection</td>
+</tr>
+</tbody>
+</table>
+<h3 id="admin">Admin<a class="headerlink" href="#admin" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Command Group</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>license</td>
+<td>License management</td>
+</tr>
+<tr>
+<td>module</td>
+<td>Module management</td>
+</tr>
+<tr>
+<td>proxy</td>
+<td>Proxy management</td>
+</tr>
+<tr>
+<td>services</td>
+<td>Service management</td>
+</tr>
+<tr>
+<td>cm-settings</td>
+<td>Cluster manager settings</td>
+</tr>
+<tr>
+<td>suffix</td>
+<td>DNS suffix management</td>
+</tr>
+</tbody>
+</table>
+<h3 id="advanced">Advanced<a class="headerlink" href="#advanced" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Command Group</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
 <td><a href="active-active/">crdb</a></td>
-<td>Active-Active databases</td>
+<td>Active-Active database (CRDB) operations</td>
+</tr>
+<tr>
+<td>crdb-task</td>
+<td>CRDB task operations</td>
+</tr>
+<tr>
+<td>bdb-group</td>
+<td>Database group operations</td>
+</tr>
+<tr>
+<td>migration</td>
+<td>Migration operations</td>
+</tr>
+<tr>
+<td>bootstrap</td>
+<td>Bootstrap and initialization operations</td>
+</tr>
+<tr>
+<td>job-scheduler</td>
+<td>Job scheduler operations</td>
+</tr>
+</tbody>
+</table>
+<h3 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Command Group</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>support-package</td>
+<td>Support package generation for troubleshooting</td>
+</tr>
+<tr>
+<td>ocsp</td>
+<td>OCSP certificate validation</td>
+</tr>
+<tr>
+<td>usage-report</td>
+<td>Usage report operations</td>
+</tr>
+<tr>
+<td>local</td>
+<td>Local node operations</td>
+</tr>
+</tbody>
+</table>
+<h3 id="other">Other<a class="headerlink" href="#other" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Command Group</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>action</td>
+<td>Action (task) operations</td>
+</tr>
+<tr>
+<td>workflow</td>
+<td>Workflow operations for multi-step tasks</td>
+</tr>
+<tr>
+<td>jsonschema</td>
+<td>JSON schema operations</td>
 </tr>
 </tbody>
 </table>

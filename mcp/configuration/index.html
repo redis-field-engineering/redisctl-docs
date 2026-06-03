@@ -4054,7 +4054,7 @@
 <tr>
 <td><code>cloud</code></td>
 <td><code>subscriptions</code>, <code>account</code>, <code>networking</code>, <code>fixed</code>, <code>raw</code></td>
-<td>148</td>
+<td>151</td>
 </tr>
 <tr>
 <td><code>enterprise</code></td>
@@ -4063,8 +4063,8 @@
 </tr>
 <tr>
 <td><code>database</code></td>
-<td><code>server</code>, <code>keys</code>, <code>structures</code>, <code>diagnostics</code>, <code>raw</code></td>
-<td>90</td>
+<td><code>server</code>, <code>keys</code>, <code>structures</code>, <code>diagnostics</code>, <code>json</code>, <code>search</code>, <code>aliases</code>, <code>bulk</code>, <code>raw</code></td>
+<td>139</td>
 </tr>
 <tr>
 <td><code>app</code></td>
@@ -4080,7 +4080,7 @@
 </table>
 <p>The two system tools (<code>list_available_tools</code> and <code>show_policy</code>) are always registered regardless of <code>--tools</code> selection.</p>
 <h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
-<p><strong>Cloud only</strong> -- all Cloud sub-modules (148 tools + system):</p>
+<p><strong>Cloud only</strong> -- all Cloud sub-modules (151 tools + system):</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>redisctl-mcp<span class="w"> </span>--profile<span class="w"> </span>my-cloud<span class="w"> </span>--tools<span class="w"> </span>cloud
 </span></code></pre></div>
 <p><strong>Cloud subscriptions and networking only</strong> (87 tools + system):</p>
@@ -4089,7 +4089,7 @@
 <p><strong>Enterprise monitoring</strong> -- cluster info + observability (40 tools + system):</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>redisctl-mcp<span class="w"> </span>--profile<span class="w"> </span>my-re<span class="w"> </span>--tools<span class="w"> </span>enterprise:cluster,enterprise:observability
 </span></code></pre></div>
-<p><strong>Database only</strong> -- direct Redis operations (90 tools + system):</p>
+<p><strong>Database only</strong> -- direct Redis operations (139 tools + system):</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>redisctl-mcp<span class="w"> </span>--database-url<span class="w"> </span>redis://localhost:6379<span class="w"> </span>--tools<span class="w"> </span>database
 </span></code></pre></div>
 <p><strong>Minimal Cloud</strong> -- just account info and subscriptions (69 tools + system):</p>
