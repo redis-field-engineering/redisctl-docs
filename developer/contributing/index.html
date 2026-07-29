@@ -3764,6 +3764,7 @@
 <li>Use <code>anyhow</code> for CLI errors, <code>thiserror</code> for library errors</li>
 <li>All commands must support <code>-o json</code> output</li>
 <li>Add tests for new functionality</li>
+<li>Destructive commands must use long-only <code>--force</code> to skip confirmation; do not assign <code>-f</code></li>
 </ul>
 <h3 id="3-test-locally">3. Test Locally<a class="headerlink" href="#3-test-locally" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Run all tests</span>
@@ -3806,6 +3807,11 @@
 <li>Add tests in <code>crates/redisctl/tests/</code></li>
 <li>Update documentation</li>
 </ol>
+<p>When adding a destructive command, add its command path to the <code>DESTRUCTIVE_COMMANDS</code> inventory in
+<code>crates/redisctl/src/main.rs</code>. The command-tree tests require every listed command to expose the
+canonical long-only <code>--force</code> bypass and reject a canonical <code>--yes</code> flag. Do not add new
+compatibility aliases; the hidden <code>--yes</code> and <code>-y</code> aliases exist only for commands that exposed them
+before this convention was adopted.</p>
 <h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
 <h3 id="unit-tests">Unit Tests<a class="headerlink" href="#unit-tests" title="Permanent link">&para;</a></h3>
 <div class="language-rust highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cp">#[test]</span>

@@ -3239,6 +3239,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#destructive-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Destructive Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#features-at-a-glance" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3319,6 +3330,15 @@
 </tr>
 </tbody>
 </table>
+<h2 id="destructive-commands">Destructive Commands<a class="headerlink" href="#destructive-commands" title="Permanent link">&para;</a></h2>
+<p>Commands that delete, flush, reset, or otherwise make irreversible changes ask for confirmation
+when run interactively. Use the long-only <code>--force</code> flag to bypass that prompt in automation:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>database<span class="w"> </span>delete<span class="w"> </span><span class="m">123456</span>:789<span class="w"> </span>--force
+</span></code></pre></div>
+<p><code>--force</code> only skips the confirmation prompt; it does not change API validation, permissions, or
+error handling. The older <code>--yes</code> and <code>-y</code> spellings remain as hidden compatibility aliases on the
+commands that previously exposed them. They are deprecated, will be accepted throughout the 0.x
+release series, and are scheduled for removal in 1.0.</p>
 <h2 id="features-at-a-glance">Features at a Glance<a class="headerlink" href="#features-at-a-glance" title="Permanent link">&para;</a></h2>
 <div class="grid cards">
 <ul>

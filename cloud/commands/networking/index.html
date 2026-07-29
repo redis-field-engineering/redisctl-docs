@@ -4215,7 +4215,7 @@
 </span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">  </span>--wait
 </span></code></pre></div>
 <h3 id="delete-psc-endpoint">Delete PSC Endpoint<a class="headerlink" href="#delete-psc-endpoint" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>connectivity<span class="w"> </span>psc<span class="w"> </span>endpoint-delete<span class="w"> </span><span class="m">123456</span><span class="w"> </span>--endpoint-id<span class="w"> </span><span class="m">789</span><span class="w"> </span>--yes<span class="w"> </span>--wait
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>connectivity<span class="w"> </span>psc<span class="w"> </span>endpoint-delete<span class="w"> </span><span class="m">123456</span><span class="w"> </span>--endpoint-id<span class="w"> </span><span class="m">789</span><span class="w"> </span>--force<span class="w"> </span>--wait
 </span></code></pre></div>
 <h2 id="transit-gateway-aws">Transit Gateway (AWS)<a class="headerlink" href="#transit-gateway-aws" title="Permanent link">&para;</a></h2>
 <h3 id="list-attachments">List Attachments<a class="headerlink" href="#list-attachments" title="Permanent link">&para;</a></h3>
@@ -4249,7 +4249,7 @@
 </span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">  </span>--wait
 </span></code></pre></div>
 <h3 id="delete-attachment">Delete Attachment<a class="headerlink" href="#delete-attachment" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>connectivity<span class="w"> </span>tgw<span class="w"> </span>attachment-delete<span class="w"> </span><span class="m">123456</span><span class="w"> </span>att-abc123<span class="w"> </span>--yes<span class="w"> </span>--wait
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>connectivity<span class="w"> </span>tgw<span class="w"> </span>attachment-delete<span class="w"> </span><span class="m">123456</span><span class="w"> </span>att-abc123<span class="w"> </span>--force<span class="w"> </span>--wait
 </span></code></pre></div>
 <h3 id="list-invitations">List Invitations<a class="headerlink" href="#list-invitations" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>connectivity<span class="w"> </span>tgw<span class="w"> </span>invitations-list<span class="w"> </span><span class="m">123456</span>
