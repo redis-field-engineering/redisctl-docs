@@ -3037,17 +3037,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#oauth-based-http-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OAuth-based (HTTP mode)
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -3076,10 +3065,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#concurrency-and-rate-limiting" class="md-nav__link">
+  <a href="#concurrency-and-timeouts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Concurrency and Rate Limiting
+        Concurrency and Timeouts
       
     </span>
   </a>
@@ -3558,17 +3547,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#oauth-based-http-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        OAuth-based (HTTP mode)
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -3597,10 +3575,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#concurrency-and-rate-limiting" class="md-nav__link">
+  <a href="#concurrency-and-timeouts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Concurrency and Rate Limiting
+        Concurrency and Timeouts
       
     </span>
   </a>
@@ -3657,7 +3635,7 @@
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    |       +-- Database tools -&gt; redis crate -&gt; Redis protocol
 </span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    |       +-- App tools -&gt; redisctl-core -&gt; local config
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    |
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    +-- Credential resolution (profiles or OAuth)
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    +-- Credential resolution (profiles or direct database URL)
 </span></code></pre></div>
 <h2 id="feature-flags">Feature Flags<a class="headerlink" href="#feature-flags" title="Permanent link">&para;</a></h2>
 <p>The binary is compiled with feature flags that gate platform-specific dependencies:</p>
@@ -3688,7 +3666,7 @@
 <tr>
 <td><code>http</code></td>
 <td>yes</td>
-<td>HTTP/SSE transport with optional OAuth</td>
+<td>Unauthenticated HTTP/SSE transport</td>
 </tr>
 <tr>
 <td><code>secure-storage</code></td>
@@ -3743,12 +3721,10 @@
 <p>HTTP transport with Server-Sent Events for streaming. Useful for shared deployments where multiple clients connect to a single MCP server instance.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>redisctl-mcp<span class="w"> </span>--transport<span class="w"> </span>http<span class="w"> </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span>--port<span class="w"> </span><span class="m">8080</span>
 </span></code></pre></div>
-<p>Optional OAuth authentication protects the HTTP endpoint:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>redisctl-mcp<span class="w"> </span>--transport<span class="w"> </span>http<span class="w"> </span>--oauth<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span>--oauth-issuer<span class="w"> </span>https://auth.example.com<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span>--oauth-audience<span class="w"> </span>my-audience<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span>--jwks-uri<span class="w"> </span>https://auth.example.com/.well-known/jwks.json
-</span></code></pre></div>
+<p>The HTTP transport does not provide built-in authentication. Keep the default
+loopback bind for local use. Shared deployments must put the server behind a
+trusted gateway or reverse proxy that provides authentication, authorization,
+and TLS.</p>
 <h2 id="credential-resolution">Credential Resolution<a class="headerlink" href="#credential-resolution" title="Permanent link">&para;</a></h2>
 <p>Credentials are resolved at tool invocation time, not at server startup. This allows multi-profile configurations where different tools target different clusters.</p>
 <h3 id="profile-based-stdio-mode">Profile-based (stdio mode)<a class="headerlink" href="#profile-based-stdio-mode" title="Permanent link">&para;</a></h3>
@@ -3759,8 +3735,6 @@
 <li>Resolve credentials from the profile (including keyring lookups)</li>
 <li>Build or reuse a cached API client for that profile</li>
 </ol>
-<h3 id="oauth-based-http-mode">OAuth-based (HTTP mode)<a class="headerlink" href="#oauth-based-http-mode" title="Permanent link">&para;</a></h3>
-<p>In HTTP mode with OAuth enabled, credentials come from environment variables (<code>REDIS_CLOUD_API_KEY</code>, <code>REDIS_ENTERPRISE_URL</code>, etc.) rather than profiles.</p>
 <h2 id="policy-engine">Policy Engine<a class="headerlink" href="#policy-engine" title="Permanent link">&para;</a></h2>
 <p>The policy engine evaluates every tool call against the active policy before execution. See <a href="../configuration/">Configuration</a> for the full policy reference.</p>
 <p>The evaluation flow:</p>
@@ -3771,11 +3745,10 @@
 </ol>
 <h2 id="audit-layer">Audit Layer<a class="headerlink" href="#audit-layer" title="Permanent link">&para;</a></h2>
 <p>A tower middleware (<code>AuditLayer</code>) sits between the transport and the tool router. It intercepts every tool call and emits structured events via the <code>tracing</code> crate with <code>target: "audit"</code>. See <a href="../audit-logging/">Audit Logging</a> for configuration details.</p>
-<h2 id="concurrency-and-rate-limiting">Concurrency and Rate Limiting<a class="headerlink" href="#concurrency-and-rate-limiting" title="Permanent link">&para;</a></h2>
-<p>The server enforces concurrency and rate limits via CLI flags:</p>
+<h2 id="concurrency-and-timeouts">Concurrency and Timeouts<a class="headerlink" href="#concurrency-and-timeouts" title="Permanent link">&para;</a></h2>
+<p>The server bounds request concurrency and HTTP request duration via CLI flags:</p>
 <ul>
 <li><code>--max-concurrent 10</code> -- maximum parallel tool calls (default: 10)</li>
-<li><code>--rate-limit-ms 100</code> -- minimum interval between calls in milliseconds (default: 100)</li>
 <li><code>--request-timeout-secs 30</code> -- per-request timeout for HTTP transport (default: 30)</li>
 </ul>
 <h2 id="request-flow">Request Flow<a class="headerlink" href="#request-flow" title="Permanent link">&para;</a></h2>

@@ -3936,11 +3936,32 @@
 <td>Redis URL for direct database connections</td>
 </tr>
 <tr>
+<td><code>--cluster</code></td>
+<td>--</td>
+<td><code>REDIS_CLUSTER</code></td>
+<td><code>false</code></td>
+<td>Enable Redis Cluster mode for direct database connections</td>
+</tr>
+<tr>
+<td><code>--client-name</code></td>
+<td>--</td>
+<td><code>REDIS_CLIENT_NAME</code></td>
+<td><code>redisctl-mcp</code></td>
+<td>Client name shown in Redis <code>CLIENT LIST</code></td>
+</tr>
+<tr>
 <td><code>--tools</code></td>
 <td>--</td>
 <td>--</td>
 <td>--</td>
 <td>Comma-delimited toolset/sub-module selection (see below)</td>
+</tr>
+<tr>
+<td><code>--skills-dir</code></td>
+<td>--</td>
+<td><code>REDISCTL_MCP_SKILLS_DIR</code></td>
+<td>--</td>
+<td>Directory containing Agent Skills to expose as MCP prompts</td>
 </tr>
 <tr>
 <td><code>--host</code></td>
@@ -3957,46 +3978,11 @@
 <td>HTTP bind port (HTTP transport only)</td>
 </tr>
 <tr>
-<td><code>--oauth</code></td>
-<td>--</td>
-<td>--</td>
-<td><code>false</code></td>
-<td>Enable OAuth authentication (HTTP transport only)</td>
-</tr>
-<tr>
-<td><code>--oauth-issuer</code></td>
-<td>--</td>
-<td><code>OAUTH_ISSUER</code></td>
-<td>--</td>
-<td>OAuth issuer URL</td>
-</tr>
-<tr>
-<td><code>--oauth-audience</code></td>
-<td>--</td>
-<td><code>OAUTH_AUDIENCE</code></td>
-<td>--</td>
-<td>OAuth audience</td>
-</tr>
-<tr>
-<td><code>--jwks-uri</code></td>
-<td>--</td>
-<td><code>OAUTH_JWKS_URI</code></td>
-<td>--</td>
-<td>JWKS URI for token validation</td>
-</tr>
-<tr>
 <td><code>--max-concurrent</code></td>
 <td>--</td>
 <td>--</td>
 <td><code>10</code></td>
 <td>Maximum concurrent requests</td>
-</tr>
-<tr>
-<td><code>--rate-limit-ms</code></td>
-<td>--</td>
-<td>--</td>
-<td><code>100</code></td>
-<td>Rate limit interval in milliseconds</td>
 </tr>
 <tr>
 <td><code>--request-timeout-secs</code></td>
@@ -4014,6 +4000,13 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition warning">
+<p class="admonition-title">HTTP transport does not provide built-in authentication</p>
+<p>Keep the default loopback bind unless the server is protected by a trusted
+gateway or reverse proxy that provides authentication, authorization, and
+TLS. Do not expose an unprotected <code>redisctl-mcp</code> HTTP endpoint to an
+untrusted network.</p>
+</div>
 <h2 id="the-tools-flag">The <code>--tools</code> Flag<a class="headerlink" href="#the-tools-flag" title="Permanent link">&para;</a></h2>
 <p>By default, the MCP server loads all compiled-in toolsets. With <code>--tools</code>, you control exactly which toolsets and sub-modules are active. This is useful when you want to:</p>
 <ul>
