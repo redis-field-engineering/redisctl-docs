@@ -3600,17 +3600,17 @@
 <p>For support tickets, use <a href="../support-package/">support-package</a> instead.</p>
 <h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
 <h3 id="cluster-debug-info">Cluster Debug Info<a class="headerlink" href="#cluster-debug-info" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>debuginfo<span class="w"> </span>cluster
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>debug-info<span class="w"> </span>all
 </span></code></pre></div>
 <h3 id="node-debug-info">Node Debug Info<a class="headerlink" href="#node-debug-info" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># All nodes</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>debuginfo<span class="w"> </span>node
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>debug-info<span class="w"> </span>node
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Specific node</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>debuginfo<span class="w"> </span>node<span class="w"> </span><span class="m">1</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>debug-info<span class="w"> </span>node<span class="w"> </span>--node-uid<span class="w"> </span><span class="m">1</span>
 </span></code></pre></div>
 <h3 id="database-debug-info">Database Debug Info<a class="headerlink" href="#database-debug-info" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>debuginfo<span class="w"> </span>database<span class="w"> </span><span class="m">1</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>debug-info<span class="w"> </span>database<span class="w"> </span><span class="m">1</span>
 </span></code></pre></div>
 <h2 id="options">Options<a class="headerlink" href="#options" title="Permanent link">&para;</a></h2>
 <table>
@@ -3622,32 +3622,28 @@
 </thead>
 <tbody>
 <tr>
-<td><code>-o, --output</code></td>
+<td><code>-f, --file</code></td>
 <td>Output file path</td>
-</tr>
-<tr>
-<td><code>--use-new-api</code></td>
-<td>Use new API endpoints (7.4+)</td>
 </tr>
 </tbody>
 </table>
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
 <h3 id="save-to-file">Save to File<a class="headerlink" href="#save-to-file" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>debuginfo<span class="w"> </span>cluster<span class="w"> </span>-o<span class="w"> </span>cluster-debug.tar.gz
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>debug-info<span class="w"> </span>all<span class="w"> </span>--file<span class="w"> </span>cluster-debug.tar.gz
 </span></code></pre></div>
 <h3 id="collect-for-specific-issue">Collect for Specific Issue<a class="headerlink" href="#collect-for-specific-issue" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Database issue</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>debuginfo<span class="w"> </span>database<span class="w"> </span><span class="m">1</span><span class="w"> </span>-o<span class="w"> </span>db1-debug.tar.gz
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>debug-info<span class="w"> </span>database<span class="w"> </span><span class="m">1</span><span class="w"> </span>--file<span class="w"> </span>db1-debug.tar.gz
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Node issue</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>debuginfo<span class="w"> </span>node<span class="w"> </span><span class="m">2</span><span class="w"> </span>-o<span class="w"> </span>node2-debug.tar.gz
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>debug-info<span class="w"> </span>node<span class="w"> </span>--node-uid<span class="w"> </span><span class="m">2</span><span class="w"> </span>--file<span class="w"> </span>node2-debug.tar.gz
 </span></code></pre></div>
 <h2 id="raw-api-access">Raw API Access<a class="headerlink" href="#raw-api-access" title="Permanent link">&para;</a></h2>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Cluster debug info</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>redisctl<span class="w"> </span>api<span class="w"> </span>enterprise<span class="w"> </span>get<span class="w"> </span>/v1/debuginfo/all<span class="w"> </span>--output<span class="w"> </span>debug.tar.gz
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>redisctl<span class="w"> </span>api<span class="w"> </span>enterprise<span class="w"> </span>get<span class="w"> </span>/v1/cluster/debuginfo
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Node debug info</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>redisctl<span class="w"> </span>api<span class="w"> </span>enterprise<span class="w"> </span>get<span class="w"> </span>/v1/debuginfo/node/1<span class="w"> </span>--output<span class="w"> </span>node1.tar.gz
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>redisctl<span class="w"> </span>api<span class="w"> </span>enterprise<span class="w"> </span>get<span class="w"> </span>/v1/nodes/1/debuginfo
 </span></code></pre></div>
 <h2 id="debug-info-vs-support-package">Debug Info vs Support Package<a class="headerlink" href="#debug-info-vs-support-package" title="Permanent link">&para;</a></h2>
 <table>
