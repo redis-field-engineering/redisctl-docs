@@ -3686,16 +3686,17 @@
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    v
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>redisctl-mcp
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    |
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    +-- Policy engine (tier checks, allow/deny lists)
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    +-- Audit layer (structured logging of tool calls)
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    +-- Tool router (cataloged tools across 4 toolsets)
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    |       |
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    |       +-- Cloud tools -&gt; redis-cloud client -&gt; Cloud REST API
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    |       +-- Enterprise tools -&gt; redis-enterprise client -&gt; Enterprise REST API
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    |       +-- Database tools -&gt; redis crate -&gt; Redis protocol
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    |       +-- App tools -&gt; redisctl-core -&gt; local config
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    |
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    +-- Credential resolution (profiles or direct database URL)
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    +-- McpServerBuilder (canonical binary + library assembly)
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    +-- Policy engine (tier checks, allow/deny lists)
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    +-- Audit layer (structured logging of tool calls)
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    +-- Tool router (cataloged tools across 4 toolsets)
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    |       |
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    |       +-- Cloud tools -&gt; redis-cloud client -&gt; Cloud REST API
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    |       +-- Enterprise tools -&gt; redis-enterprise client -&gt; Enterprise REST API
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    |       +-- Database tools -&gt; redis crate -&gt; Redis protocol
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    |       +-- App tools -&gt; redisctl-core -&gt; local config
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    |
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    +-- Credential resolution (profiles or direct database URL)
 </span></code></pre></div>
 <h2 id="feature-flags">Feature Flags<a class="headerlink" href="#feature-flags" title="Permanent link">&para;</a></h2>
 <p>The binary is compiled with feature flags that gate platform-specific dependencies:</p>
@@ -3736,6 +3737,8 @@
 </tbody>
 </table>
 <p>Profile/app tools and the two system tools are always compiled in (they only depend on <code>redisctl-core</code>).</p>
+<p>The <code>test-support</code> feature is reserved for this repository's integration tests. It exposes direct
+tool constructors that are otherwise private and is not part of the supported Rust API.</p>
 <p>Compile with <code>--no-default-features</code> and selectively enable what you need:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Cloud-only binary</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>cargo<span class="w"> </span>install<span class="w"> </span>redisctl-mcp<span class="w"> </span>--no-default-features<span class="w"> </span>--features<span class="w"> </span>cloud
@@ -3757,6 +3760,9 @@
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>This produces a <code>TOOL_NAMES</code> array and a <code>router()</code> function that builds tools and merges them into the MCP router.</p>
+<p>These generated constructors are internal assembly details. Embedders use <code>McpServerBuilder</code>,
+which composes the selected internal routers and then installs policy and visibility filters,
+system tools, prompts, skills, and instructions. The standalone binary uses the same builder.</p>
 <h3 id="tool-macros">Tool Macros<a class="headerlink" href="#tool-macros" title="Permanent link">&para;</a></h3>
 <p>Three platform-specific macros eliminate per-tool boilerplate:</p>
 <ul>

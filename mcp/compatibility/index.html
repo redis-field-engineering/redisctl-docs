@@ -2846,6 +2846,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#rust-embedding-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rust embedding API
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#what-the-catalog-records" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3401,6 +3412,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#rust-embedding-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rust embedding API
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#what-the-catalog-records" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3525,6 +3547,25 @@ and checked in CI.</p>
 <p>Runtime discovery remains authoritative for a particular installation. Feature flags, <code>--tools</code>,
 visibility presets, and policy tiers can expose a supported subset of this catalog. Call
 <code>list_available_tools</code> to inspect that resolved subset.</p>
+<h2 id="rust-embedding-api">Rust embedding API<a class="headerlink" href="#rust-embedding-api" title="Permanent link">&para;</a></h2>
+<p>The supported Rust embedding entry point is <code>McpServerBuilder</code>. It constructs the same router used
+by the <code>redisctl-mcp</code> binary, including:</p>
+<ul>
+<li>the tool-to-toolset mapping used by per-toolset policy rules;</li>
+<li>safety-tier and allow/deny filtering;</li>
+<li>visibility presets and the two system tools;</li>
+<li>built-in and dynamically loaded prompts; and</li>
+<li>server instructions and shared application state.</li>
+</ul>
+<p>This is an intentional security boundary: creating state with a policy is not sufficient unless
+the router also installs that policy as a capability filter. The binary and library now share one
+construction path so those behaviors cannot drift. A toolset disabled by policy remains disabled
+even when a caller or CLI invocation selects it explicitly.</p>
+<p>Generated input structs and individual tool-constructor functions are implementation details, not
+supported Rust APIs. They are hidden in normal builds. The <code>test-support</code> feature exposes them only
+for redisctl's own integration tests and carries no 1.x compatibility promise. The MCP names,
+schemas, annotations, and tiers produced by those internals remain protected by the catalog
+contract described on this page.</p>
 <h2 id="what-the-catalog-records">What the catalog records<a class="headerlink" href="#what-the-catalog-records" title="Permanent link">&para;</a></h2>
 <p>Each entry records:</p>
 <ul>
