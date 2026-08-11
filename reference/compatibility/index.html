@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://redis-field-engineering.github.io/redisctl-docs/common/output-formats/">
+        <link rel="canonical" href="https://redis-field-engineering.github.io/redisctl-docs/reference/compatibility/">
       
       
-        <link rel="prev" href="../troubleshooting/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../jmespath/">
+        <link rel="next" href="../environment-variables/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Output Formats - redisctl</title>
+        <title>Compatibility and Support - redisctl</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#output-formats" class="md-skip">
+        <a href="#compatibility-and-support-policy" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Output Formats
+              Compatibility and Support
             
           </span>
         </div>
@@ -266,13 +266,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../common/" class="md-tabs__link">
           
   
   
@@ -356,11 +354,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../reference/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -714,8 +714,6 @@
       
   
   
-    
-  
   
   
     
@@ -741,23 +739,22 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../common/" class="md-nav__link ">
               
   
   
@@ -775,13 +772,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -801,7 +798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../profiles/" class="md-nav__link">
+      <a href="../../common/profiles/" class="md-nav__link">
         
   
   
@@ -829,7 +826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../troubleshooting/" class="md-nav__link">
+      <a href="../../common/troubleshooting/" class="md-nav__link">
         
   
   
@@ -854,37 +851,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Output Formats
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../common/output-formats/" class="md-nav__link">
         
   
   
@@ -900,159 +870,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#available-formats" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Available Formats
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#table-output-default" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Table Output (Default)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#json-output" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        JSON Output
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="JSON Output">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pretty-vs-compact" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pretty vs Compact
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#yaml-output" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        YAML Output
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#combining-with-jmespath" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Combining with JMESPath
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#scripting-examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scripting Examples
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Scripting Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#extract-single-value" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Extract Single Value
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#loop-over-results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Loop Over Results
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#conditional-logic" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Conditional Logic
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cicd-integration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CI/CD Integration
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1065,7 +882,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../jmespath/" class="md-nav__link">
+      <a href="../../common/jmespath/" class="md-nav__link">
         
   
   
@@ -1093,7 +910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../async-operations/" class="md-nav__link">
+      <a href="../../common/async-operations/" class="md-nav__link">
         
   
   
@@ -1121,7 +938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../raw-api/" class="md-nav__link">
+      <a href="../../common/raw-api/" class="md-nav__link">
         
   
   
@@ -2560,6 +2377,8 @@
       
   
   
+    
+  
   
   
     
@@ -2585,22 +2404,23 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../reference/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -2618,13 +2438,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2641,10 +2461,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../reference/compatibility/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compatibility and Support
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2660,6 +2507,147 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#support-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Support levels
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-surfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported surfaces
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI compatibility
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration compatibility
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#machine-readable-output-and-exit-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Machine-readable output and exit codes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mcp-compatibility-and-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP compatibility and safety
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rust-crate-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rust crate compatibility
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deprecation-and-removal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deprecation and removal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-and-support-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release and support policy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exceptional-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exceptional changes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reviewing-future-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reviewing future changes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2672,7 +2660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/environment-variables/" class="md-nav__link">
+      <a href="../environment-variables/" class="md-nav__link">
         
   
   
@@ -2700,7 +2688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/config-file/" class="md-nav__link">
+      <a href="../config-file/" class="md-nav__link">
         
   
   
@@ -2728,7 +2716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/shell-completions/" class="md-nav__link">
+      <a href="../shell-completions/" class="md-nav__link">
         
   
   
@@ -2756,7 +2744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/security/" class="md-nav__link">
+      <a href="../security/" class="md-nav__link">
         
   
   
@@ -2784,7 +2772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/rladmin/" class="md-nav__link">
+      <a href="../rladmin/" class="md-nav__link">
         
   
   
@@ -3438,10 +3426,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#available-formats" class="md-nav__link">
+  <a href="#support-levels" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Available Formats
+        Support levels
       
     </span>
   </a>
@@ -3449,10 +3437,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#table-output-default" class="md-nav__link">
+  <a href="#supported-surfaces" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Table Output (Default)
+        Supported surfaces
       
     </span>
   </a>
@@ -3460,38 +3448,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#json-output" class="md-nav__link">
+  <a href="#cli-compatibility" class="md-nav__link">
     <span class="md-ellipsis">
       
-        JSON Output
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="JSON Output">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pretty-vs-compact" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pretty vs Compact
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#yaml-output" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        YAML Output
+        CLI compatibility
       
     </span>
   </a>
@@ -3499,10 +3459,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#combining-with-jmespath" class="md-nav__link">
+  <a href="#configuration-compatibility" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Combining with JMESPath
+        Configuration compatibility
       
     </span>
   </a>
@@ -3510,60 +3470,76 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#scripting-examples" class="md-nav__link">
+  <a href="#machine-readable-output-and-exit-codes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Scripting Examples
+        Machine-readable output and exit codes
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Scripting Examples">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#extract-single-value" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Extract Single Value
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#loop-over-results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Loop Over Results
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#conditional-logic" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Conditional Logic
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#cicd-integration" class="md-nav__link">
+  <a href="#mcp-compatibility-and-safety" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CI/CD Integration
+        MCP compatibility and safety
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rust-crate-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rust crate compatibility
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deprecation-and-removal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deprecation and removal
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-and-support-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release and support policy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exceptional-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exceptional changes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reviewing-future-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reviewing future changes
       
     </span>
   </a>
@@ -3590,122 +3566,254 @@
   
 
 
-<h1 id="output-formats">Output Formats<a class="headerlink" href="#output-formats" title="Permanent link">&para;</a></h1>
-<p>Control how redisctl displays results.</p>
-<p>For automation guarantees—including stable fields, upstream-controlled payloads, stderr behavior,
-and exit codes—see the <a href="../../reference/compatibility/">Compatibility and Support Policy</a>.</p>
-<h2 id="available-formats">Available Formats<a class="headerlink" href="#available-formats" title="Permanent link">&para;</a></h2>
+<h1 id="compatibility-and-support-policy">Compatibility and Support Policy<a class="headerlink" href="#compatibility-and-support-policy" title="Permanent link">&para;</a></h1>
+<ul>
+<li><strong>Policy version:</strong> 1.0</li>
+<li><strong>Applies to:</strong> redisctl 1.x releases</li>
+<li><strong>Status:</strong> The contract takes effect with redisctl 1.0.0. Until then, 0.x releases may make
+  breaking changes called out in their release notes.</li>
+</ul>
+<p>redisctl 1.0 is a compatibility commitment for deliberately supported interfaces. It is not a
+claim that every Redis Cloud or Redis Enterprise endpoint, every Redis command, or every possible
+MCP workflow is implemented.</p>
+<h2 id="support-levels">Support levels<a class="headerlink" href="#support-levels" title="Permanent link">&para;</a></h2>
+<p>Every externally visible surface is classified as one of the following:</p>
 <table>
 <thead>
 <tr>
-<th>Format</th>
-<th>Flag</th>
-<th>Best For</th>
+<th>Level</th>
+<th>Meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Table</td>
-<td><code>-o table</code> (default)</td>
-<td>Human reading</td>
+<td><strong>Stable</strong></td>
+<td>Covered by the 1.x compatibility rules in this document. Breaking changes require a major release, except for the limited safety exceptions below.</td>
 </tr>
 <tr>
-<td>JSON</td>
-<td><code>-o json</code></td>
-<td>Scripting, piping to jq</td>
+<td><strong>Preview</strong></td>
+<td>Available for evaluation. It may change in a minor release, with the change documented in release notes and migration guidance when practical.</td>
 </tr>
 <tr>
-<td>YAML</td>
-<td><code>-o yaml</code></td>
-<td>Configuration files</td>
+<td><strong>Internal</strong></td>
+<td>An implementation detail. It may change without notice and must not be treated as a supported integration point.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="table-output-default">Table Output (Default)<a class="headerlink" href="#table-output-default" title="Permanent link">&para;</a></h2>
-<p>Human-readable tables with aligned columns:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>database<span class="w"> </span>list
-</span></code></pre></div>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ID  Name           Memory     Status  Endpoints
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>1   session-cache  1.0 GB     active  redis-12345.cluster.local:12000
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>2   user-data      2.0 GB     active  redis-12346.cluster.local:12001
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>3   analytics      4.0 GB     active  redis-12347.cluster.local:12002
-</span></code></pre></div>
-<h2 id="json-output">JSON Output<a class="headerlink" href="#json-output" title="Permanent link">&para;</a></h2>
-<p>Structured data for scripting and automation:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>database<span class="w"> </span>list<span class="w"> </span>-o<span class="w"> </span>json
-</span></code></pre></div>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">[</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="p">{</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">&quot;uid&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;session-cache&quot;</span><span class="p">,</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nt">&quot;memory_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1073741824</span><span class="p">,</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;active&quot;</span><span class="p">,</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="nt">&quot;endpoints&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">      </span><span class="p">{</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="nt">&quot;addr&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;redis-12345.cluster.local:12000&quot;</span><span class="p">]</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">      </span><span class="p">}</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="p">]</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="p">]</span>
-</span></code></pre></div>
-<h3 id="pretty-vs-compact">Pretty vs Compact<a class="headerlink" href="#pretty-vs-compact" title="Permanent link">&para;</a></h3>
-<p>JSON is pretty-printed by default. For compact output, pipe through <code>jq -c</code>:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>subscription<span class="w"> </span>list<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;.[]&#39;</span>
-</span></code></pre></div>
-<h2 id="yaml-output">YAML Output<a class="headerlink" href="#yaml-output" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>cluster<span class="w"> </span>get<span class="w"> </span>-o<span class="w"> </span>yaml
-</span></code></pre></div>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">production-cluster</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nt">uid</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">abc123</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nt">nodes</span><span class="p">:</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uid</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="nt">addr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.0.0.1</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">active</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uid</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="nt">addr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.0.0.2</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">active</span>
-</span></code></pre></div>
-<h2 id="combining-with-jmespath">Combining with JMESPath<a class="headerlink" href="#combining-with-jmespath" title="Permanent link">&para;</a></h2>
-<p>Use <code>-q</code> to filter before output formatting:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Get just names as JSON array</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>subscription<span class="w"> </span>list<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;[].name&#39;</span>
-</span></code></pre></div>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">[</span><span class="s2">&quot;prod-sub&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;dev-sub&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;staging-sub&quot;</span><span class="p">]</span>
-</span></code></pre></div>
-<p>See <a href="../jmespath/">JMESPath Queries</a> for more examples.</p>
-<h2 id="scripting-examples">Scripting Examples<a class="headerlink" href="#scripting-examples" title="Permanent link">&para;</a></h2>
-<h3 id="extract-single-value">Extract Single Value<a class="headerlink" href="#extract-single-value" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Get cluster name</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nv">CLUSTER</span><span class="o">=</span><span class="k">$(</span>redisctl<span class="w"> </span>enterprise<span class="w"> </span>cluster<span class="w"> </span>get<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;name&#39;</span><span class="k">)</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Connected to: </span><span class="nv">$CLUSTER</span><span class="s2">&quot;</span>
-</span></code></pre></div>
-<h3 id="loop-over-results">Loop Over Results<a class="headerlink" href="#loop-over-results" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Process each database</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>database<span class="w"> </span>list<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;[].uid&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.[]&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="nb">read</span><span class="w"> </span>uid<span class="p">;</span><span class="w"> </span><span class="k">do</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Processing database </span><span class="nv">$uid</span><span class="s2">&quot;</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span>redisctl<span class="w"> </span>enterprise<span class="w"> </span>database<span class="w"> </span>get<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$uid</span><span class="s2">&quot;</span><span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;db-</span><span class="nv">$uid</span><span class="s2">.json&quot;</span>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="k">done</span>
-</span></code></pre></div>
-<h3 id="conditional-logic">Conditional Logic<a class="headerlink" href="#conditional-logic" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Check if any database is inactive</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nv">INACTIVE</span><span class="o">=</span><span class="k">$(</span>redisctl<span class="w"> </span>enterprise<span class="w"> </span>database<span class="w"> </span>list<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s2">&quot;[?status!=&#39;active&#39;] | length(@)&quot;</span><span class="k">)</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$INACTIVE</span><span class="s2">&quot;</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Warning: </span><span class="nv">$INACTIVE</span><span class="s2"> databases are not active&quot;</span>
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="k">fi</span>
-</span></code></pre></div>
-<h2 id="cicd-integration">CI/CD Integration<a class="headerlink" href="#cicd-integration" title="Permanent link">&para;</a></h2>
-<p>JSON output is essential for CI/CD pipelines:</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># GitHub Actions example</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Get database endpoint</span>
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span>
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="no">ENDPOINT=$(redisctl cloud database get $SUB_ID $DB_ID -o json -q &#39;publicEndpoint&#39;)</span>
-</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="no">echo &quot;endpoint=$ENDPOINT&quot; &gt;&gt; $GITHUB_OUTPUT</span>
-</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
-</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Use endpoint</span>
-</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">    </span><span class="no">redis-cli -u redis://${{ steps.db.outputs.endpoint }} PING</span>
-</span></code></pre></div>
+<p>An interface is stable only when it is documented as stable. Being visible in source code, emitted
+by an upstream API, or reachable through a hidden command does not make it stable.</p>
+<h2 id="supported-surfaces">Supported surfaces<a class="headerlink" href="#supported-surfaces" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Surface</th>
+<th>1.0 level</th>
+<th>Compatibility commitment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Documented, non-hidden <code>redisctl</code> commands and flags</td>
+<td>Stable</td>
+<td>Command paths, option names, accepted documented inputs, defaults that affect automation, and documented behavior follow the CLI rules below.</td>
+</tr>
+<tr>
+<td>Configuration and profiles</td>
+<td>Stable</td>
+<td>The versioned 1.0 schema, credential references, and documented precedence rules remain readable throughout 1.x.</td>
+</tr>
+<tr>
+<td>JSON/YAML success output owned by redisctl</td>
+<td>Stable</td>
+<td>Documented redisctl-owned fields and value meanings follow the machine-output rules below.</td>
+</tr>
+<tr>
+<td>Structured error envelope and process exit codes</td>
+<td>Stable</td>
+<td>Existing string codes, numeric exit codes, stream placement, and documented meanings are not reused or changed incompatibly in 1.x.</td>
+</tr>
+<tr>
+<td>Human-readable table and diagnostic wording</td>
+<td>Stable</td>
+<td>Output remains usable by people, but spacing, colors, headings, tips, and prose are not scripting contracts.</td>
+</tr>
+<tr>
+<td><code>redisctl-mcp</code> stdio transport</td>
+<td>Stable</td>
+<td>Startup flags, safe defaults, and the supported MCP catalog follow the MCP rules below.</td>
+</tr>
+<tr>
+<td>MCP HTTP transport</td>
+<td>Preview</td>
+<td>HTTP remains unauthenticated and intended for loopback or a separately secured proxy. Its deployment contract may change before promotion to stable.</td>
+</tr>
+<tr>
+<td>MCP tool catalog enabled by a documented feature set</td>
+<td>Stable</td>
+<td>Tool names, required inputs, output contracts owned by redisctl, annotations, and safety tiers follow the MCP rules below.</td>
+</tr>
+<tr>
+<td>Bundled Agent Skills</td>
+<td>Preview</td>
+<td>Skill names and workflow text may evolve as clients and tool coverage mature. Skill metadata and tool references must still validate.</td>
+</tr>
+<tr>
+<td>Raw Cloud or Enterprise API access</td>
+<td>Preview</td>
+<td>redisctl preserves the documented raw request mechanism, but endpoint availability and payloads are controlled by the upstream service.</td>
+</tr>
+<tr>
+<td>Documented public APIs of <code>redisctl-core</code> and <code>redisctl-mcp</code></td>
+<td>Stable</td>
+<td>The intentionally supported Rust API and feature combinations follow Rust SemVer after the 1.0 baseline is recorded.</td>
+</tr>
+<tr>
+<td>Hidden commands, undocumented flags, test-support features, and repository layout</td>
+<td>Internal</td>
+<td>These may change without a compatibility period.</td>
+</tr>
+</tbody>
+</table>
+<p>Support for a product area is described separately from interface stability. The
+<a href="https://github.com/redis/redisctl/issues/1085">support matrix</a> records which Redis products, API
+operations, versions, and release targets have validation evidence.</p>
+<h2 id="cli-compatibility">CLI compatibility<a class="headerlink" href="#cli-compatibility" title="Permanent link">&para;</a></h2>
+<p>For documented, non-hidden commands, the following are breaking changes:</p>
+<ul>
+<li>removing or renaming a command, option, or documented alias;</li>
+<li>making an optional argument required;</li>
+<li>rejecting a previously documented input;</li>
+<li>changing a default in a way that can alter automation or side effects;</li>
+<li>changing a read operation into a write operation, or weakening a confirmation requirement;</li>
+<li>changing documented stdout/stderr placement or success/failure exit behavior.</li>
+</ul>
+<p>The following are normally additive changes:</p>
+<ul>
+<li>adding a command or option;</li>
+<li>accepting a new input value;</li>
+<li>adding an opt-in behavior whose default preserves existing behavior;</li>
+<li>improving human-readable text or table layout.</li>
+</ul>
+<p>Shell completions and <code>--help</code> reflect the current command catalog. Their exact whitespace and
+ordering are not stable.</p>
+<p>The hidden <code>--yes</code> and <code>-y</code> compatibility aliases that existed during 0.x are removed at the 1.0
+boundary. Destructive commands use the documented, long-only <code>--force</code> flag. After 1.0, a
+documented compatibility alias is covered like any other stable CLI option; a hidden development
+command is internal until it is deliberately published. The removal is tracked by
+<a href="https://github.com/redis/redisctl/issues/1095">issue #1095</a>.</p>
+<h2 id="configuration-compatibility">Configuration compatibility<a class="headerlink" href="#configuration-compatibility" title="Permanent link">&para;</a></h2>
+<p>Profiles are persistent user data, not an implementation detail. The 1.0 configuration work must:</p>
+<ul>
+<li>assign an explicit schema version;</li>
+<li>continue to read the documented final 0.x profile format or return a precise migration error;</li>
+<li>migrate without silently losing unknown fields or credentials;</li>
+<li>perform any rewrite atomically and provide a recovery path;</li>
+<li>reject configurations from an unsupported newer schema with an actionable error rather than
+  guessing.</li>
+</ul>
+<p>Adding an optional field with a backward-compatible default is additive. Removing or renaming a
+field, changing its meaning, changing precedence, or requiring an existing installation to rewrite
+manually is breaking unless handled by a compatible migration.</p>
+<p>The schema and migration mechanism are tracked by
+<a href="https://github.com/redis/redisctl/issues/1084">issue #1084</a>.</p>
+<h2 id="machine-readable-output-and-exit-codes">Machine-readable output and exit codes<a class="headerlink" href="#machine-readable-output-and-exit-codes" title="Permanent link">&para;</a></h2>
+<p>Automation should use JSON or YAML output and documented process exit codes. Table output and
+human diagnostic prose are not stable parsing formats.</p>
+<p>redisctl guarantees the following for stable commands:</p>
+<ul>
+<li>successful machine output is written to stdout;</li>
+<li>structured failures are written to stderr;</li>
+<li>the error envelope retains <code>error.code</code>, <code>error.exit_code</code>, <code>error.message</code>, and <code>error.tips</code>;</li>
+<li>existing string error codes and numeric exit codes keep their documented meaning;</li>
+<li>a newly classified failure receives a new code rather than changing the meaning of an old one;</li>
+<li>YAML represents the same data model as JSON.</li>
+</ul>
+<p>Adding an optional field is additive. Removing a field, changing its type or meaning, or adding a
+new required wrapper is breaking.</p>
+<p>Some commands intentionally expose Cloud or Enterprise response objects. Fields owned by the
+upstream API follow that API's lifecycle and can change independently of redisctl. redisctl-owned
+envelopes, normalized fields, and documented projections remain covered. Raw API output is always
+upstream-controlled. Scripts that require a narrow contract should use a documented JMESPath
+projection and account for upstream field availability.</p>
+<h2 id="mcp-compatibility-and-safety">MCP compatibility and safety<a class="headerlink" href="#mcp-compatibility-and-safety" title="Permanent link">&para;</a></h2>
+<p>The stable MCP contract covers the stdio server, default read-only policy, documented feature-gated
+toolsets, tool names, input schemas, redisctl-owned output contracts, and safety annotations.</p>
+<p>Within 1.x:</p>
+<ul>
+<li>removing or renaming a stable tool is breaking;</li>
+<li>adding a required input or rejecting a previously valid documented input is breaking;</li>
+<li>adding a tool or optional input is additive;</li>
+<li>moving a tool to a less restrictive safety tier is prohibited;</li>
+<li>making a tool more restrictive is a compatibility change and requires explicit security
+  rationale, release-note visibility, and migration guidance;</li>
+<li>disabling or bypassing policy evaluation is a security defect, not a compatibility option.</li>
+</ul>
+<p>Feature-gated tools are covered when their documented feature is enabled. A tool from a feature
+that was not built cannot be assumed to exist. Upstream-controlled payload fields have the same
+exception described for machine-readable CLI output.</p>
+<p>The canonical catalog and CI enforcement are tracked by
+<a href="https://github.com/redis/redisctl/issues/1089">issue #1089</a>.</p>
+<h2 id="rust-crate-compatibility">Rust crate compatibility<a class="headerlink" href="#rust-crate-compatibility" title="Permanent link">&para;</a></h2>
+<p>The workspace remains lockstep-versioned for the 1.x series. <code>redisctl</code>, <code>redisctl-core</code>, and
+<code>redisctl-mcp</code> share one version so release notes, binary behavior, profile compatibility, and MCP
+behavior refer to the same product baseline.</p>
+<p>The documented public Rust APIs of <code>redisctl-core</code> and <code>redisctl-mcp</code> are supported library
+surfaces. Before 1.0, accidental exports must be removed or explicitly classified. Beginning with
+the recorded 1.0 baseline:</p>
+<ul>
+<li>Rust SemVer applies to supported public items and documented feature combinations;</li>
+<li>adding public items or optional features is normally additive;</li>
+<li>removing an item, changing a public signature, or removing a documented feature requires a major
+  release;</li>
+<li><code>test-support</code>, private modules, binaries' internal modules, and items explicitly documented as
+  unstable are not supported library API.</li>
+</ul>
+<p>The public API inventory and SemVer gate are tracked by
+<a href="https://github.com/redis/redisctl/issues/1088">issue #1088</a>.</p>
+<h2 id="deprecation-and-removal">Deprecation and removal<a class="headerlink" href="#deprecation-and-removal" title="Permanent link">&para;</a></h2>
+<p>A stable interface scheduled for removal must:</p>
+<ol>
+<li>be marked deprecated in the relevant help or reference documentation;</li>
+<li>name its replacement and provide migration guidance;</li>
+<li>remain available for at least one minor release and 90 days, whichever is longer; and</li>
+<li>be removed only in a major release.</li>
+</ol>
+<p>Preview interfaces do not receive the major-release guarantee, but incompatible changes must be
+called out in release notes. Internal interfaces receive no deprecation period.</p>
+<h2 id="release-and-support-policy">Release and support policy<a class="headerlink" href="#release-and-support-policy" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Stable releases use Semantic Versioning. Release candidates such as <code>1.0.0-rc.1</code> are for
+  validation and are not production support baselines.</li>
+<li>The latest 1.x minor line receives normal bug and security fixes.</li>
+<li>A previous minor line is not supported after the next minor is published; users must upgrade to
+  receive fixes. Maintainers may issue an exceptional critical-security backport, but this is not a
+  support commitment.</li>
+<li>Patch releases do not intentionally break stable interfaces.</li>
+<li><code>main</code> is the development branch; no long-lived release branch is promised unless one is
+  announced for a specific maintenance need.</li>
+<li>Security reports and response expectations follow <a href="https://github.com/redis/redisctl/blob/main/SECURITY.md">SECURITY.md</a>.</li>
+</ul>
+<p>Release ownership, artifact validation, rollback, and critical-fix procedures are covered by the
+<a href="https://github.com/redis/redisctl/issues/1087">release-candidate checklist</a>.</p>
+<h2 id="exceptional-changes">Exceptional changes<a class="headerlink" href="#exceptional-changes" title="Permanent link">&para;</a></h2>
+<p>A critical vulnerability, unsafe default, legal requirement, or upstream service shutdown may make
+strict compatibility more harmful than a narrow breaking fix. In that case maintainers will:</p>
+<ul>
+<li>choose the smallest safe change;</li>
+<li>document the exception and affected versions prominently;</li>
+<li>provide migration or mitigation guidance when possible; and</li>
+<li>avoid reusing an existing command, field, tool, or error code with a different meaning.</li>
+</ul>
+<h2 id="reviewing-future-changes">Reviewing future changes<a class="headerlink" href="#reviewing-future-changes" title="Permanent link">&para;</a></h2>
+<p>Every change to a user-visible interface should answer:</p>
+<ol>
+<li>Which support level and surface does this affect?</li>
+<li>Is the change additive, breaking, or a safety correction under this policy?</li>
+<li>What automated contract test or recorded exception detects the change?</li>
+<li>Are release notes, migration guidance, and the support matrix affected?</li>
+</ol>
+<p>The policy itself may be clarified additively during 1.x. Weakening a stable 1.x compatibility
+commitment requires the same visibility and release treatment as changing the affected interface.</p>
 
 
 

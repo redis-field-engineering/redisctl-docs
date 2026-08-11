@@ -2396,6 +2396,8 @@
       
         
       
+        
+      
     
     
     
@@ -2450,6 +2452,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/compatibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compatibility and Support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -4001,11 +4031,13 @@
 </tbody>
 </table>
 <div class="admonition warning">
-<p class="admonition-title">HTTP transport does not provide built-in authentication</p>
+<p class="admonition-title">HTTP transport is preview and does not provide built-in authentication</p>
 <p>Keep the default loopback bind unless the server is protected by a trusted
 gateway or reverse proxy that provides authentication, authorization, and
 TLS. Do not expose an unprotected <code>redisctl-mcp</code> HTTP endpoint to an
 untrusted network.</p>
+<p>Stdio is the stable 1.0 transport. See the
+<a href="../../reference/compatibility/">Compatibility and Support Policy</a> for the MCP contract.</p>
 </div>
 <h2 id="the-tools-flag">The <code>--tools</code> Flag<a class="headerlink" href="#the-tools-flag" title="Permanent link">&para;</a></h2>
 <p>By default, the MCP server loads all compiled-in toolsets. With <code>--tools</code>, you control exactly which toolsets and sub-modules are active. This is useful when you want to:</p>
