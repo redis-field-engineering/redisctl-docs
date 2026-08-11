@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://redis-field-engineering.github.io/redisctl-docs/getting-started/quickstart/">
+        <link rel="canonical" href="https://redis-field-engineering.github.io/redisctl-docs/mcp/compatibility/">
       
       
-        <link rel="prev" href="../installation/">
+        <link rel="prev" href="../configuration/">
       
       
-        <link rel="next" href="../authentication/">
+        <link rel="next" href="../database-quickstart/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Quick Start - redisctl</title>
+        <title>Compatibility and Catalog - redisctl</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#quick-start" class="md-skip">
+        <a href="#mcp-compatibility-and-catalog" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Quick Start
+              Compatibility and Catalog
             
           </span>
         </div>
@@ -244,13 +244,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../getting-started/" class="md-tabs__link">
           
   
   
@@ -378,11 +376,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../mcp/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -518,8 +518,6 @@
       
   
   
-    
-  
   
   
     
@@ -541,23 +539,22 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../getting-started/" class="md-nav__link ">
               
   
   
@@ -575,13 +572,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -601,7 +598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../installation/" class="md-nav__link">
+      <a href="../../getting-started/installation/" class="md-nav__link">
         
   
   
@@ -626,37 +623,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quick Start
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../getting-started/quickstart/" class="md-nav__link">
         
   
   
@@ -672,137 +642,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#try-it-now" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Try It Now
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Try It Now">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#redis-cloud" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Redis Cloud
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#redis-enterprise" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Redis Enterprise
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-just-happened" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What Just Happened?
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#common-first-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Common First Commands
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Common First Commands">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#list-resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        List Resources
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#get-json-output" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Get JSON Output
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#filter-with-jmespath" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Filter with JMESPath
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Next Steps
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -815,7 +654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../authentication/" class="md-nav__link">
+      <a href="../../getting-started/authentication/" class="md-nav__link">
         
   
   
@@ -843,7 +682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../docker/" class="md-nav__link">
+      <a href="../../getting-started/docker/" class="md-nav__link">
         
   
   
@@ -2794,6 +2633,8 @@
       
   
   
+    
+  
   
   
     
@@ -2829,22 +2670,23 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../mcp/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -2862,13 +2704,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2888,7 +2730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mcp/getting-started/" class="md-nav__link">
+      <a href="../getting-started/" class="md-nav__link">
         
   
   
@@ -2916,7 +2758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mcp/configuration/" class="md-nav__link">
+      <a href="../configuration/" class="md-nav__link">
         
   
   
@@ -2941,10 +2783,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../mcp/compatibility/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compatibility and Catalog
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2960,6 +2829,92 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-catalog-records" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the catalog records
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compatibility-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compatibility rules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reviewing-an-intentional-catalog-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reviewing an intentional catalog change
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-deprecation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool deprecation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transports-and-deployment-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transports and deployment modes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bundled-agent-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bundled Agent Skills
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2972,7 +2927,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mcp/database-quickstart/" class="md-nav__link">
+      <a href="../database-quickstart/" class="md-nav__link">
         
   
   
@@ -3000,7 +2955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mcp/cloud-quickstart/" class="md-nav__link">
+      <a href="../cloud-quickstart/" class="md-nav__link">
         
   
   
@@ -3028,7 +2983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mcp/enterprise-quickstart/" class="md-nav__link">
+      <a href="../enterprise-quickstart/" class="md-nav__link">
         
   
   
@@ -3056,7 +3011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mcp/tools-reference/" class="md-nav__link">
+      <a href="../tools-reference/" class="md-nav__link">
         
   
   
@@ -3084,7 +3039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mcp/architecture/" class="md-nav__link">
+      <a href="../architecture/" class="md-nav__link">
         
   
   
@@ -3112,7 +3067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mcp/audit-logging/" class="md-nav__link">
+      <a href="../audit-logging/" class="md-nav__link">
         
   
   
@@ -3140,7 +3095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mcp/advanced-usage/" class="md-nav__link">
+      <a href="../advanced-usage/" class="md-nav__link">
         
   
   
@@ -3168,7 +3123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mcp/workflows/" class="md-nav__link">
+      <a href="../workflows/" class="md-nav__link">
         
   
   
@@ -3446,49 +3401,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#try-it-now" class="md-nav__link">
+  <a href="#what-the-catalog-records" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Try It Now
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Try It Now">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#redis-cloud" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Redis Cloud
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#redis-enterprise" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Redis Enterprise
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-just-happened" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What Just Happened?
+        What the catalog records
       
     </span>
   </a>
@@ -3496,60 +3412,54 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-first-commands" class="md-nav__link">
+  <a href="#compatibility-rules" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Common First Commands
+        Compatibility rules
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Common First Commands">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#list-resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        List Resources
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#get-json-output" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Get JSON Output
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#filter-with-jmespath" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Filter with JMESPath
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
+  <a href="#reviewing-an-intentional-catalog-change" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Next Steps
+        Reviewing an intentional catalog change
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tool-deprecation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tool deprecation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transports-and-deployment-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transports and deployment modes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bundled-agent-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bundled Agent Skills
       
     </span>
   </a>
@@ -3576,106 +3486,165 @@
   
 
 
-<h1 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h1>
-<p>Get running in 60 seconds with Docker.</p>
-<h2 id="try-it-now">Try It Now<a class="headerlink" href="#try-it-now" title="Permanent link">&para;</a></h2>
-<h3 id="redis-cloud">Redis Cloud<a class="headerlink" href="#redis-cloud" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Set your credentials</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">REDIS_CLOUD_API_KEY</span><span class="o">=</span><span class="s2">&quot;your-api-key&quot;</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">REDIS_CLOUD_SECRET_KEY</span><span class="o">=</span><span class="s2">&quot;your-secret-key&quot;</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Run a command</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span>-e<span class="w"> </span>REDIS_CLOUD_API_KEY<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span>-e<span class="w"> </span>REDIS_CLOUD_SECRET_KEY<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span>ghcr.io/redis/redisctl<span class="w"> </span>cloud<span class="w"> </span>subscription<span class="w"> </span>list
-</span></code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">Getting API Keys</p>
-<p>Get your API keys from the <a href="https://app.redislabs.com/">Redis Cloud console</a> under <strong>Access Management &gt; API Keys</strong>.</p>
-</div>
-<h3 id="redis-enterprise">Redis Enterprise<a class="headerlink" href="#redis-enterprise" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Set your credentials</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">REDIS_ENTERPRISE_URL</span><span class="o">=</span><span class="s2">&quot;https://cluster.example.com:9443&quot;</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">REDIS_ENTERPRISE_USER</span><span class="o">=</span><span class="s2">&quot;admin@cluster.local&quot;</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">REDIS_ENTERPRISE_PASSWORD</span><span class="o">=</span><span class="s2">&quot;your-password&quot;</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">REDIS_ENTERPRISE_INSECURE</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="w">  </span><span class="c1"># for self-signed certs</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Run a command</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span>-e<span class="w"> </span>REDIS_ENTERPRISE_URL<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span>-e<span class="w"> </span>REDIS_ENTERPRISE_USER<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span>-e<span class="w"> </span>REDIS_ENTERPRISE_PASSWORD<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span>-e<span class="w"> </span>REDIS_ENTERPRISE_INSECURE<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span>ghcr.io/redis/redisctl<span class="w"> </span>enterprise<span class="w"> </span>cluster<span class="w"> </span>get
-</span></code></pre></div>
-<p>That's it! You just ran your first redisctl command.</p>
-<h2 id="what-just-happened">What Just Happened?<a class="headerlink" href="#what-just-happened" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>Docker pulled the image</strong> - Pre-built with everything you need</li>
-<li><strong>Environment variables</strong> - Passed your credentials securely</li>
-<li><strong>Command executed</strong> - Called the Redis API and formatted the output</li>
-</ol>
-<h2 id="common-first-commands">Common First Commands<a class="headerlink" href="#common-first-commands" title="Permanent link">&para;</a></h2>
-<div class="admonition tip">
-<p class="admonition-title">Prefix-free commands</p>
-<p>The <code>cloud</code> and <code>enterprise</code> prefixes are optional when your profile makes the platform unambiguous. The examples below use the short form — add <code>cloud</code> or <code>enterprise</code> if you have profiles for both platforms.</p>
-</div>
-<h3 id="list-resources">List Resources<a class="headerlink" href="#list-resources" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># List all subscriptions (cloud-only command, prefix optional)</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>redisctl<span class="w"> </span>subscription<span class="w"> </span>list
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># List databases in a subscription (inferred from profile)</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>redisctl<span class="w"> </span>database<span class="w"> </span>list<span class="w"> </span>--subscription-id<span class="w"> </span><span class="m">123456</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># Get cluster info (enterprise-only command, prefix optional)</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>redisctl<span class="w"> </span>cluster<span class="w"> </span>get
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># Or be explicit</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>database<span class="w"> </span>list
-</span></code></pre></div>
-<h3 id="get-json-output">Get JSON Output<a class="headerlink" href="#get-json-output" title="Permanent link">&para;</a></h3>
-<p>Add <code>-o json</code> to any command for structured output:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>subscription<span class="w"> </span>list<span class="w"> </span>-o<span class="w"> </span>json
-</span></code></pre></div>
-<h3 id="filter-with-jmespath">Filter with JMESPath<a class="headerlink" href="#filter-with-jmespath" title="Permanent link">&para;</a></h3>
-<p>Use <code>-q</code> to query and filter results:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Get just subscription names</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>subscription<span class="w"> </span>list<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;[].name&#39;</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Count databases</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>database<span class="w"> </span>list<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;length(@)&#39;</span>
-</span></code></pre></div>
-<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
-<p>Choose your path:</p>
-<div class="grid cards">
+<h1 id="mcp-compatibility-and-catalog">MCP Compatibility and Catalog<a class="headerlink" href="#mcp-compatibility-and-catalog" title="Permanent link">&para;</a></h1>
+<p>The stable redisctl 1.x MCP contract is the tool surface exposed by the stdio server for a
+documented feature set. The all-features catalog is recorded in
+<a href="https://github.com/redis/redisctl/blob/main/crates/redisctl-mcp/tests/fixtures/mcp-catalog-v1.json"><code>mcp-catalog-v1.json</code></a>
+and checked in CI.</p>
+<p>The current all-features baseline contains 375 tools:</p>
+<table>
+<thead>
+<tr>
+<th>Toolset</th>
+<th style="text-align: right;">Tools</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cloud</td>
+<td style="text-align: right;">148</td>
+</tr>
+<tr>
+<td>Enterprise</td>
+<td style="text-align: right;">85</td>
+</tr>
+<tr>
+<td>Database</td>
+<td style="text-align: right;">132</td>
+</tr>
+<tr>
+<td>App/profile</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr>
+<td>System</td>
+<td style="text-align: right;">2</td>
+</tr>
+</tbody>
+</table>
+<p>Runtime discovery remains authoritative for a particular installation. Feature flags, <code>--tools</code>,
+visibility presets, and policy tiers can expose a supported subset of this catalog. Call
+<code>list_available_tools</code> to inspect that resolved subset.</p>
+<h2 id="what-the-catalog-records">What the catalog records<a class="headerlink" href="#what-the-catalog-records" title="Permanent link">&para;</a></h2>
+<p>Each entry records:</p>
 <ul>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17z"/></svg></span> <strong>New to redisctl?</strong></p>
-<hr />
-<p>Understand the architecture and concepts</p>
-<p><a href="../../common/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Common Features</a></p>
-</li>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20Z"/></svg></span> <strong>Redis Cloud User</strong></p>
-<hr />
-<p>Manage subscriptions and databases</p>
-<p><a href="../../cloud/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Cloud Commands</a></p>
-</li>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 1h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1m0 8h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1m0 8h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1M9 5h1V3H9zm0 8h1v-2H9zm0 8h1v-2H9zM5 3v2h2V3zm0 8v2h2v-2zm0 8v2h2v-2z"/></svg></span> <strong>Redis Enterprise User</strong></p>
-<hr />
-<p>Control clusters and generate support packages</p>
-<p><a href="../../enterprise/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Enterprise Commands</a></p>
-</li>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 12h7v1.5h-7m0-4h7V11h-7m0 3.5h7V16h-7m8-12H3a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 15h-9V6h9"/></svg></span> <strong>Learn by Example</strong></p>
-<hr />
-<p>Step-by-step guides for common tasks</p>
-<p><a href="../../cookbook/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"/></svg></span> Cookbook</a></p>
-</li>
+<li>the tool name, toolset, and submodule;</li>
+<li>its normalized input JSON Schema;</li>
+<li>its structured <code>outputSchema</code>, or <code>null</code> when the tool does not declare one;</li>
+<li>all MCP safety annotations with protocol defaults made explicit; and</li>
+<li>the minimum redisctl safety tier derived from those annotations.</li>
 </ul>
-</div>
+<p>Schema titles, descriptions, examples, and the repeated <code>$schema</code> declaration are excluded from
+the fixture. They are explanatory text rather than callable input constraints. Defaults, types,
+formats, accepted variants, required fields, and other validation constraints remain in the
+contract.</p>
+<p>Most current tools return MCP text content and do not declare a structured <code>outputSchema</code>.
+<code>outputSchema: null</code> records that fact; it does not turn prose or upstream-controlled JSON into a
+new structured guarantee. When redisctl owns and publishes a structured output schema, that schema
+becomes part of the catalog contract.</p>
+<h2 id="compatibility-rules">Compatibility rules<a class="headerlink" href="#compatibility-rules" title="Permanent link">&para;</a></h2>
+<p>The contract test classifies changes before maintainers update the fixture:</p>
+<table>
+<thead>
+<tr>
+<th>Change</th>
+<th>Classification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Add a tool or optional input</td>
+<td>Additive; requires catalog and documentation review</td>
+</tr>
+<tr>
+<td>Remove or rename a tool or accepted input</td>
+<td>Breaking</td>
+</tr>
+<tr>
+<td>Add a required input or a stricter input constraint</td>
+<td>Breaking</td>
+</tr>
+<tr>
+<td>Add an accepted schema variant or relax a constraint</td>
+<td>Additive; requires review</td>
+</tr>
+<tr>
+<td>Remove or change an existing structured output schema</td>
+<td>Breaking</td>
+</tr>
+<tr>
+<td>Move a tool to a less restrictive safety tier</td>
+<td>Safety regression; prohibited</td>
+</tr>
+<tr>
+<td>Make a tool more restrictive</td>
+<td>Compatibility change requiring security rationale and migration guidance</td>
+</tr>
+<tr>
+<td>Change idempotence or open-world annotations</td>
+<td>Reviewed as a behavioral contract change</td>
+</tr>
+</tbody>
+</table>
+<p>Both additive and breaking differences fail the snapshot test. This prevents a new tool or field
+from entering the stable catalog merely because it compiles. The failure explains the detected
+classification so the pull request can apply the appropriate SemVer, documentation, and migration
+treatment.</p>
+<h2 id="reviewing-an-intentional-catalog-change">Reviewing an intentional catalog change<a class="headerlink" href="#reviewing-an-intentional-catalog-change" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Run the contract test without updating the fixture and inspect its classification:</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cargo<span class="w"> </span><span class="nb">test</span><span class="w"> </span>-p<span class="w"> </span>redisctl-mcp<span class="w"> </span>--all-features<span class="w"> </span>mcp_catalog_matches_1_0_baseline
+</span></code></pre></div>
+<ol>
+<li>Apply the compatibility policy. For an incompatible 1.x change, retain the old tool or input and
+   use the deprecation process unless a documented safety exception applies.</li>
+<li>For an accepted additive change, or while deliberately preparing the pre-1.0 baseline, refresh
+   the fixture:</li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">UPDATE_MCP_CATALOG</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>cargo<span class="w"> </span><span class="nb">test</span><span class="w"> </span>-p<span class="w"> </span>redisctl-mcp<span class="w"> </span>--all-features<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>mcp_catalog_matches_1_0_baseline
+</span></code></pre></div>
+<ol>
+<li>Review the fixture diff. Update the tools reference, release notes, policy examples, bundled
+   skills, and migration guidance as applicable.</li>
+<li>Run the test again without <code>UPDATE_MCP_CATALOG</code> before committing.</li>
+</ol>
+<p>The fixture is generated through an in-process MCP client and <code>tools/list</code>, so it tests the router
+surface a client actually discovers rather than only checking handwritten name constants.</p>
+<h2 id="tool-deprecation">Tool deprecation<a class="headerlink" href="#tool-deprecation" title="Permanent link">&para;</a></h2>
+<p>A stable tool or input scheduled for replacement must:</p>
+<ol>
+<li>remain available under its existing name and behavior;</li>
+<li>identify the replacement in its tool description and reference documentation;</li>
+<li>be called out in release notes with migration guidance;</li>
+<li>remain available for at least one minor release and 90 days, whichever is longer; and</li>
+<li>be removed only in a major release.</li>
+</ol>
+<p>An optional replacement input may be added in a minor release. Making that input required still
+waits for a major release. Preview and internal tools follow the broader
+<a href="../../reference/compatibility/">Compatibility and Support Policy</a>.</p>
+<h2 id="transports-and-deployment-modes">Transports and deployment modes<a class="headerlink" href="#transports-and-deployment-modes" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Stdio is stable for 1.0.</strong> Startup behavior, safe defaults, and catalog discovery follow the
+  stable contract.</li>
+<li><strong>HTTP is preview.</strong> It has no built-in client authentication. Keep it on loopback or place it
+  behind a trusted gateway providing authentication, authorization, and TLS.</li>
+<li><strong>Feature-gated builds are supported subsets.</strong> A build without <code>cloud</code>, <code>enterprise</code>, or
+  <code>database</code> does not advertise that toolset.</li>
+<li><strong>Raw API tools are preview passthroughs.</strong> Their presence and redisctl-owned input contract are
+  recorded, but upstream endpoint behavior and response fields follow the upstream service.</li>
+</ul>
+<h2 id="bundled-agent-skills">Bundled Agent Skills<a class="headerlink" href="#bundled-agent-skills" title="Permanent link">&para;</a></h2>
+<p>Bundled Agent Skills remain preview, but CI validates that every <code>SKILL.md</code>:</p>
+<ul>
+<li>has parseable <code>name</code> and <code>description</code> frontmatter;</li>
+<li>uses a unique name matching its directory;</li>
+<li>contains a non-empty workflow; and</li>
+<li>references tools present in the compiled all-features catalog.</li>
+</ul>
+<p>This prevents a skill from shipping with a stale tool call while leaving broader skill catalog and
+workflow development independent of the 1.0 MCP contract.</p>
 
 
 
