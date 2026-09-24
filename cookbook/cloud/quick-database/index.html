@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://redis-field-engineering.github.io/redisctl-docs/cookbook/cloud/backup-restore/">
+        <link rel="canonical" href="https://redis-field-engineering.github.io/redisctl-docs/cookbook/cloud/quick-database/">
       
       
-        <link rel="prev" href="../acls/">
+        <link rel="prev" href="../first-database/">
       
       
-        <link rel="next" href="../cost-reports/">
+        <link rel="next" href="../vpc-peering/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Backup and Restore - redisctl</title>
+        <title>From Sign-In to REDIS_URL - redisctl</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#backup-and-restore" class="md-skip">
+        <a href="#from-sign-in-to-redis_url" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Backup and Restore
+              From Sign-In to REDIS_URL
             
           </span>
         </div>
@@ -2104,10 +2104,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../quick-database/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From Sign-In to REDIS_URL
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2123,6 +2150,103 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-sign-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Sign in
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-provision-a-free-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Provision a free database
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-connect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Connect
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#for-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For agents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2188,37 +2312,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Backup and Restore
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../backup-restore/" class="md-nav__link">
         
   
   
@@ -2234,159 +2331,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#view-backup-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        View Backup Settings
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-automatic-backups" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configure Automatic Backups
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configure Automatic Backups">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#backup-options" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Backup Options
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#manual-backup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Manual Backup
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#list-backups" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        List Backups
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#restore-from-backup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Restore from Backup
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Restore from Backup">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#to-same-database" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        To Same Database
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#to-new-database" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        To New Database
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#backup-to-s3-script" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Backup to S3 Script
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verify-backup-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Verify Backup Configuration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#related" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Related
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3564,10 +3508,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#view-backup-settings" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
-        View Backup Settings
+        Prerequisites
       
     </span>
   </a>
@@ -3575,38 +3519,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configure-automatic-backups" class="md-nav__link">
+  <a href="#step-1-sign-in" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configure Automatic Backups
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configure Automatic Backups">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#backup-options" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Backup Options
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#manual-backup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Manual Backup
+        Step 1: Sign in
       
     </span>
   </a>
@@ -3614,10 +3530,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#list-backups" class="md-nav__link">
+  <a href="#step-2-provision-a-free-database" class="md-nav__link">
     <span class="md-ellipsis">
       
-        List Backups
+        Step 2: Provision a free database
       
     </span>
   </a>
@@ -3625,49 +3541,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#restore-from-backup" class="md-nav__link">
+  <a href="#step-3-connect" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Restore from Backup
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Restore from Backup">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#to-same-database" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        To Same Database
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#to-new-database" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        To New Database
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#backup-to-s3-script" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Backup to S3 Script
+        Step 3: Connect
       
     </span>
   </a>
@@ -3675,10 +3552,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#verify-backup-configuration" class="md-nav__link">
+  <a href="#for-agents" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Verify Backup Configuration
+        For agents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP
       
     </span>
   </a>
@@ -3716,107 +3604,82 @@
   
 
 
-<h1 id="backup-and-restore">Backup and Restore<a class="headerlink" href="#backup-and-restore" title="Permanent link">&para;</a></h1>
-<p>Manage database backups in Redis Cloud.</p>
-<h2 id="view-backup-settings">View Backup Settings<a class="headerlink" href="#view-backup-settings" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>database<span class="w"> </span>get<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="m">789</span><span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">'{</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="s1">  name: name,</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="s1">  backup: backup</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="s1">}'</span>
+<h1 id="from-sign-in-to-redis_url">From Sign-In to REDIS_URL<a class="headerlink" href="#from-sign-in-to-redis_url" title="Permanent link">&para;</a></h1>
+<p>Go from nothing to a working Redis database and a <code>REDIS_URL</code> in your <code>.env</code> — the full
+agent-native arc: sign in once, provision a free database, connect. Credentials are written to a
+file, never printed, so they can't leak into logs or an agent's captured output.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li>A Redis Cloud account.</li>
+<li>redisctl installed (<code>brew install redis/homebrew-tap/redisctl</code>).</li>
+</ul>
+<p>No API keys to create or paste by hand — <code>cloud auth login</code> mints one for you.</p>
+<h2 id="step-1-sign-in">Step 1: Sign in<a class="headerlink" href="#step-1-sign-in" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>auth<span class="w"> </span>login
 </span></code></pre></div>
-<h2 id="configure-automatic-backups">Configure Automatic Backups<a class="headerlink" href="#configure-automatic-backups" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>database<span class="w"> </span>update<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="m">789</span><span class="w"> </span>--data<span class="w"> </span><span class="s1">'{</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="s1">  "backup": {</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="s1">    "enabled": true,</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="s1">    "interval": 24,</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="s1">    "destination": "s3://my-bucket/redis-backups"</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="s1">  }</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="s1">}'</span><span class="w"> </span>--wait
+<p>On an interactive terminal this opens your browser, signs you in, mints a Cloud API key, and
+stores it in a profile. On a headless machine or from an agent it automatically switches to the
+device flow (prints a URL + code); force it with <code>--device</code>. See
+<a href="../../../cloud/commands/auth/">Authentication commands</a> for the device / <code>status --wait</code> split.</p>
+<p>Confirm:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>auth<span class="w"> </span>status
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># → { "authenticated": true, "profile": "…" }</span>
 </span></code></pre></div>
-<h3 id="backup-options">Backup Options<a class="headerlink" href="#backup-options" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>enabled</code></td>
-<td>Enable/disable backups</td>
-</tr>
-<tr>
-<td><code>interval</code></td>
-<td>Hours between backups (12 or 24)</td>
-</tr>
-<tr>
-<td><code>destination</code></td>
-<td>S3 or GCS bucket URL</td>
-</tr>
-</tbody>
-</table>
-<h2 id="manual-backup">Manual Backup<a class="headerlink" href="#manual-backup" title="Permanent link">&para;</a></h2>
-<p>Trigger an immediate backup:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>database<span class="w"> </span>backup<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="m">789</span><span class="w"> </span>--wait
+<h2 id="step-2-provision-a-free-database">Step 2: Provision a free database<a class="headerlink" href="#step-2-provision-a-free-database" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>workflow<span class="w"> </span>quick-database<span class="w"> </span>--name<span class="w"> </span>my-app
 </span></code></pre></div>
-<h2 id="list-backups">List Backups<a class="headerlink" href="#list-backups" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>redisctl<span class="w"> </span>api<span class="w"> </span>cloud<span class="w"> </span>get<span class="w"> </span>/subscriptions/123456/databases/789/backups
+<p>This creates (or reuses) a free database and writes the connection string to <code>./.env</code>. It's
+idempotent by name — safe to re-run. The command prints only non-secret metadata:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">"database"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9001"</span><span class="p">,</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-app"</span><span class="p">,</span><span class="w"> </span><span class="nt">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"us-east-1"</span><span class="p">,</span><span class="w"> </span><span class="nt">"plan"</span><span class="p">:</span><span class="w"> </span><span class="s2">"free"</span><span class="p">,</span><span class="w"> </span><span class="nt">"tls"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">"credentials_written_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./.env"</span><span class="p">,</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">"credentials_variable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REDIS_URL"</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="restore-from-backup">Restore from Backup<a class="headerlink" href="#restore-from-backup" title="Permanent link">&para;</a></h2>
-<h3 id="to-same-database">To Same Database<a class="headerlink" href="#to-same-database" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>database<span class="w"> </span>restore<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="m">789</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span>--backup-id<span class="w"> </span>&lt;backup-id&gt;<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span>--wait
+<p>Your <code>.env</code> now holds the URL plus broken-out fields (created <code>0600</code>, auto-gitignored):</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>REDIS_URL=redis://default:••••••@host.example.com:12000
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>REDIS_HOST=host.example.com
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>REDIS_PORT=12000
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>REDIS_PASSWORD=••••••
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>REDIS_USERNAME=default
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>REDIS_TLS=false
 </span></code></pre></div>
-<h3 id="to-new-database">To New Database<a class="headerlink" href="#to-new-database" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Create new database</li>
-<li>Import from backup location</li>
-</ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>database<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span>--subscription-id<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span>--name<span class="w"> </span>restored-db<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span>--data<span class="w"> </span><span class="s1">'{</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="s1">    "memoryLimitInGb": 1,</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="s1">    "dataImport": {</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="s1">      "sourceUri": "s3://bucket/backup.rdb"</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="s1">    }</span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="s1">  }'</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span>--wait
+<div class="admonition warning">
+<p class="admonition-title">Free databases are not encrypted, and are reachable from anywhere</p>
+<p>Essentials free plans report <code>supportSsl: false</code>, so TLS cannot be enabled on them — the
+connection string is <code>redis://</code>, not <code>rediss://</code>, and traffic is unencrypted. The database is
+also created with <code>sourceIps: ["0.0.0.0/0"]</code>, so it accepts connections from any address, with
+the password as the only protection. Fine for a local prototype; move to a paid plan for
+anything else.</p>
+</div>
+<h2 id="step-3-connect">Step 3: Connect<a class="headerlink" href="#step-3-connect" title="Permanent link">&para;</a></h2>
+<p>Read <code>REDIS_URL</code> from the file — don't echo it:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>redis-cli<span class="w"> </span>-u<span class="w"> </span><span class="s2">"</span><span class="k">$(</span>grep<span class="w"> </span><span class="s1">'^REDIS_URL='</span><span class="w"> </span>.env<span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-d<span class="o">=</span><span class="w"> </span>-f2-<span class="k">)</span><span class="s2">"</span><span class="w"> </span>PING
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1"># → PONG</span>
 </span></code></pre></div>
-<h2 id="backup-to-s3-script">Backup to S3 Script<a class="headerlink" href="#backup-to-s3-script" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="ch">#!/bin/bash</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nv">SUB_ID</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">1</span><span class="p">:?Usage: </span><span class="nv">$0</span><span class="p"> &lt;subscription-id&gt; &lt;database-id&gt;</span><span class="si">}</span><span class="s2">"</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nv">DB_ID</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">2</span><span class="p">:?</span><span class="si">}</span><span class="s2">"</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Triggering backup for database </span><span class="nv">$DB_ID</span><span class="s2">..."</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># Configure backup destination if not set</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>database<span class="w"> </span>update<span class="w"> </span><span class="s2">"</span><span class="nv">$SUB_ID</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$DB_ID</span><span class="s2">"</span><span class="w"> </span>--data<span class="w"> </span><span class="s1">'{</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="s1">  "backup": {</span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="s1">    "enabled": true,</span>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="s1">    "interval": 24,</span>
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="s1">    "destination": "s3://my-backup-bucket/redis"</span>
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="s1">  }</span>
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="s1">}'</span><span class="w"> </span>--wait
-</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>
-</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="c1"># Trigger immediate backup</span>
-</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>database<span class="w"> </span>backup<span class="w"> </span><span class="s2">"</span><span class="nv">$SUB_ID</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$DB_ID</span><span class="s2">"</span><span class="w"> </span>--wait
-</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>
-</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Backup complete!"</span>
+<p>Already have a database and just want its connection string in a file? Use
+<code>database-credentials</code> instead of provisioning:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>workflow<span class="w"> </span>database-credentials<span class="w"> </span>--subscription-id<span class="w"> </span><span class="m">123456</span><span class="w"> </span>--database-id<span class="w"> </span><span class="m">67890</span>
 </span></code></pre></div>
-<h2 id="verify-backup-configuration">Verify Backup Configuration<a class="headerlink" href="#verify-backup-configuration" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>database<span class="w"> </span>list<span class="w"> </span>--subscription-id<span class="w"> </span><span class="m">123456</span><span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">'[].{</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="s1">  name: name,</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="s1">  backup_enabled: backup.enabled,</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="s1">  backup_interval: backup.interval</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="s1">}'</span>
-</span></code></pre></div>
+<h2 id="for-agents">For agents<a class="headerlink" href="#for-agents" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Check before you provision.</strong> <code>cloud auth status</code> (or the <code>cloud_auth_status</code> MCP tool) is an
+  offline check — branch on <code>authenticated</code> before calling <code>quick-database</code>.</li>
+<li><strong>Branch on the error code, not the message.</strong> Failures print a JSON envelope with a stable
+  <code>.error.code</code> and a mapped exit code — see <a href="../../../reference/agent-error-codes/">Agent Error Codes</a>.</li>
+<li><strong>Never echo the URL or password.</strong> Pass them by reference (<code>-u "$REDIS_URL"</code>), use placeholders
+  in any generated code or docs, and verify with a ping rather than a client that prints the URL.</li>
+</ul>
+<h2 id="mcp">MCP<a class="headerlink" href="#mcp" title="Permanent link">&para;</a></h2>
+<p>The same flow is available to agents over MCP: <code>cloud_auth_status</code> (read-only; check first) and
+<code>cloud_quick_database</code> (provisions and writes the file). They call the identical engine as the
+CLI. See the <code>redisctl-cloud-quickstart</code> skill.</p>
 <h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="../../../cloud/commands/databases/">Database Commands</a></li>
-<li><a href="../first-database/">Create First Database</a></li>
+<li><a href="../../../cloud/commands/auth/">Authentication commands</a></li>
+<li><a href="../../../cloud/workflows/">Cloud workflows</a></li>
+<li><a href="../../../reference/agent-error-codes/">Agent Error Codes</a></li>
 </ul>
 
 

@@ -1073,6 +1073,8 @@
       
         
       
+        
+      
     
     
     
@@ -1128,6 +1130,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -2246,6 +2276,8 @@
       
         
       
+        
+      
     
     
     
@@ -2308,6 +2340,34 @@
     
   
     Create Your First Database
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cookbook/cloud/quick-database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From Sign-In to REDIS_URL
   
 
     
@@ -2657,6 +2717,8 @@
       
         
       
+        
+      
     
     
     
@@ -2840,6 +2902,34 @@
     
   
     Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/agent-error-codes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Error Codes
   
 
     
@@ -3817,7 +3907,7 @@
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-subscription<span class="w"> </span>list<span class="w"> </span>-o<span class="w"> </span>json
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Get just IDs and names</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-subscription<span class="w"> </span>list<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;[].{id: id, name: name}&#39;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-subscription<span class="w"> </span>list<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">'[].{id: id, name: name}'</span>
 </span></code></pre></div>
 <h2 id="get-subscription">Get Subscription<a class="headerlink" href="#get-subscription" title="Permanent link">&para;</a></h2>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-subscription<span class="w"> </span>get<span class="w"> </span>&lt;subscription-id&gt;
@@ -3827,7 +3917,7 @@
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-subscription<span class="w"> </span>get<span class="w"> </span><span class="m">123456</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Just status</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-subscription<span class="w"> </span>get<span class="w"> </span><span class="m">123456</span><span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;status&#39;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-subscription<span class="w"> </span>get<span class="w"> </span><span class="m">123456</span><span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">'status'</span>
 </span></code></pre></div>
 <h2 id="list-plans">List Plans<a class="headerlink" href="#list-plans" title="Permanent link">&para;</a></h2>
 <p>List available Essentials plans with pricing.</p>
@@ -3856,12 +3946,12 @@
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-subscription<span class="w"> </span>list-plans<span class="w"> </span>--provider<span class="w"> </span>AWS
 </span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
 </span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># Show plan details</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-subscription<span class="w"> </span>list-plans<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;[].{</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-subscription<span class="w"> </span>list-plans<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">'[].{</span>
 </span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="s1">  id: id,</span>
 </span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="s1">  name: name,</span>
 </span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="s1">  size: size,</span>
 </span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="s1">  price: price</span>
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="s1">}&#39;</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="s1">}'</span>
 </span></code></pre></div>
 <h2 id="create-subscription">Create Subscription<a class="headerlink" href="#create-subscription" title="Permanent link">&para;</a></h2>
 <p>Create a new Essentials subscription with first-class parameters.</p>
@@ -3917,7 +4007,7 @@
 </span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>
 </span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="c1"># Use JSON for full control</span>
 </span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-subscription<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">  </span>--data<span class="w"> </span><span class="s1">&#39;{&quot;name&quot;: &quot;my-cache&quot;, &quot;planId&quot;: 12345}&#39;</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">  </span>--data<span class="w"> </span><span class="s1">'{"name": "my-cache", "planId": 12345}'</span>
 </span></code></pre></div>
 <h2 id="update-subscription">Update Subscription<a class="headerlink" href="#update-subscription" title="Permanent link">&para;</a></h2>
 <p>Update subscription settings using first-class parameters.</p>
@@ -3970,7 +4060,7 @@
 </span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>
 </span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="c1"># Update using JSON</span>
 </span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-subscription<span class="w"> </span>update<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">  </span>--data<span class="w"> </span><span class="s1">&#39;{&quot;name&quot;: &quot;new-name&quot;}&#39;</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">  </span>--data<span class="w"> </span><span class="s1">'{"name": "new-name"}'</span>
 </span></code></pre></div>
 <h2 id="delete-subscription">Delete Subscription<a class="headerlink" href="#delete-subscription" title="Permanent link">&para;</a></h2>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-subscription<span class="w"> </span>delete<span class="w"> </span>&lt;subscription-id&gt;<span class="w"> </span>--wait

@@ -1068,6 +1068,8 @@
       
         
       
+        
+      
     
     
     
@@ -1122,6 +1124,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud/commands/auth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1990,6 +2020,8 @@
       
         
       
+        
+      
     
     
     
@@ -2055,6 +2087,34 @@
     
   
     Create Your First Database
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud/quick-database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From Sign-In to REDIS_URL
   
 
     
@@ -2637,6 +2697,8 @@
       
         
       
+        
+      
     
     
     
@@ -2820,6 +2882,34 @@
     
   
     Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/agent-error-codes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Error Codes
   
 
     
@@ -3767,7 +3857,7 @@
 <p>Reduces package size by truncating logs and removing redundant data.</p>
 <h3 id="3-upload">3. Upload<a class="headerlink" href="#3-upload" title="Permanent link">&para;</a></h3>
 <p>Set up your Files.com API key (get from Redis Support):</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">REDIS_ENTERPRISE_FILES_API_KEY</span><span class="o">=</span><span class="s2">&quot;your-key&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">REDIS_ENTERPRISE_FILES_API_KEY</span><span class="o">=</span><span class="s2">"your-key"</span>
 </span></code></pre></div>
 <p>Then upload:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>support-package<span class="w"> </span>cluster<span class="w"> </span>--upload
@@ -3795,13 +3885,13 @@
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
 </span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># Pre-maintenance baseline</span>
 </span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>support-package<span class="w"> </span>cluster<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">  </span>-o<span class="w"> </span><span class="s2">&quot;pre-maintenance-</span><span class="nv">$DATE</span><span class="s2">.tar.gz&quot;</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">  </span>-o<span class="w"> </span><span class="s2">"pre-maintenance-</span><span class="nv">$DATE</span><span class="s2">.tar.gz"</span>
 </span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
 </span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="c1"># Do maintenance...</span>
 </span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
 </span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="c1"># Post-maintenance capture</span>
 </span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>support-package<span class="w"> </span>cluster<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">  </span>-o<span class="w"> </span><span class="s2">&quot;post-maintenance-</span><span class="nv">$DATE</span><span class="s2">.tar.gz&quot;</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">  </span>-o<span class="w"> </span><span class="s2">"post-maintenance-</span><span class="nv">$DATE</span><span class="s2">.tar.gz"</span>
 </span></code></pre></div>
 <h3 id="on-failure-in-ci">On Failure in CI<a class="headerlink" href="#on-failure-in-ci" title="Permanent link">&para;</a></h3>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Collect diagnostics on failure</span>

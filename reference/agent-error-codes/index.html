@@ -10,31 +10,31 @@
       
       
       
-        <link rel="canonical" href="https://redis-field-engineering.github.io/redisctl-docs/cookbook/cloud/backup-restore/">
+        <link rel="canonical" href="https://redis-field-engineering.github.io/redisctl-docs/reference/agent-error-codes/">
       
       
-        <link rel="prev" href="../acls/">
+        <link rel="prev" href="../security/">
       
       
-        <link rel="next" href="../cost-reports/">
+        <link rel="next" href="../rladmin/">
       
       
         
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Backup and Restore - redisctl</title>
+        <title>Agent Error Codes - redisctl</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,9 +53,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#backup-and-restore" class="md-skip">
+        <a href="#agent-error-codes" class="md-skip">
           Skip to content
         </a>
       
@@ -96,9 +96,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="redisctl" class="md-header__button md-logo" aria-label="redisctl" data-md-component="logo">
+    <a href="../.." title="redisctl" class="md-header__button md-logo" aria-label="redisctl" data-md-component="logo">
       
-  <img src="../../../assets/redis-logo.svg" alt="logo">
+  <img src="../../assets/redis-logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Backup and Restore
+              Agent Error Codes
             
           </span>
         </div>
@@ -227,7 +227,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -248,7 +248,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../getting-started/" class="md-tabs__link">
+        <a href="../../getting-started/" class="md-tabs__link">
           
   
   
@@ -270,7 +270,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../common/" class="md-tabs__link">
+        <a href="../../common/" class="md-tabs__link">
           
   
   
@@ -292,7 +292,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../cloud/" class="md-tabs__link">
+        <a href="../../cloud/" class="md-tabs__link">
           
   
   
@@ -314,7 +314,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../enterprise/" class="md-tabs__link">
+        <a href="../../enterprise/" class="md-tabs__link">
           
   
   
@@ -332,13 +332,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../cookbook/" class="md-tabs__link">
           
   
   
@@ -356,11 +354,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../reference/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -382,7 +382,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../mcp/" class="md-tabs__link">
+        <a href="../../mcp/" class="md-tabs__link">
           
   
   
@@ -404,7 +404,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../developer/" class="md-tabs__link">
+        <a href="../../developer/" class="md-tabs__link">
           
   
   
@@ -424,7 +424,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../presentation/" class="md-tabs__link">
+      <a href="../../presentation/" class="md-tabs__link">
         
   
   
@@ -465,9 +465,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="redisctl" class="md-nav__button md-logo" aria-label="redisctl" data-md-component="logo">
+    <a href="../.." title="redisctl" class="md-nav__button md-logo" aria-label="redisctl" data-md-component="logo">
       
-  <img src="../../../assets/redis-logo.svg" alt="logo">
+  <img src="../../assets/redis-logo.svg" alt="logo">
 
     </a>
     redisctl
@@ -494,7 +494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -554,7 +554,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../getting-started/" class="md-nav__link ">
+            <a href="../../getting-started/" class="md-nav__link ">
               
   
   
@@ -598,7 +598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/installation/" class="md-nav__link">
+      <a href="../../getting-started/installation/" class="md-nav__link">
         
   
   
@@ -626,7 +626,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/quickstart/" class="md-nav__link">
+      <a href="../../getting-started/quickstart/" class="md-nav__link">
         
   
   
@@ -654,7 +654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/authentication/" class="md-nav__link">
+      <a href="../../getting-started/authentication/" class="md-nav__link">
         
   
   
@@ -682,7 +682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting-started/docker/" class="md-nav__link">
+      <a href="../../getting-started/docker/" class="md-nav__link">
         
   
   
@@ -754,7 +754,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../common/" class="md-nav__link ">
+            <a href="../../common/" class="md-nav__link ">
               
   
   
@@ -798,7 +798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../common/profiles/" class="md-nav__link">
+      <a href="../../common/profiles/" class="md-nav__link">
         
   
   
@@ -826,7 +826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../common/troubleshooting/" class="md-nav__link">
+      <a href="../../common/troubleshooting/" class="md-nav__link">
         
   
   
@@ -854,7 +854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../common/output-formats/" class="md-nav__link">
+      <a href="../../common/output-formats/" class="md-nav__link">
         
   
   
@@ -882,7 +882,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../common/jmespath/" class="md-nav__link">
+      <a href="../../common/jmespath/" class="md-nav__link">
         
   
   
@@ -910,7 +910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../common/async-operations/" class="md-nav__link">
+      <a href="../../common/async-operations/" class="md-nav__link">
         
   
   
@@ -938,7 +938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../common/raw-api/" class="md-nav__link">
+      <a href="../../common/raw-api/" class="md-nav__link">
         
   
   
@@ -1002,7 +1002,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../cloud/" class="md-nav__link ">
+            <a href="../../cloud/" class="md-nav__link ">
               
   
   
@@ -1089,7 +1089,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../cloud/commands/" class="md-nav__link ">
+            <a href="../../cloud/commands/" class="md-nav__link ">
               
   
   
@@ -1133,7 +1133,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud/commands/auth/" class="md-nav__link">
+      <a href="../../cloud/commands/auth/" class="md-nav__link">
         
   
   
@@ -1161,7 +1161,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud/commands/subscriptions/" class="md-nav__link">
+      <a href="../../cloud/commands/subscriptions/" class="md-nav__link">
         
   
   
@@ -1189,7 +1189,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud/commands/databases/" class="md-nav__link">
+      <a href="../../cloud/commands/databases/" class="md-nav__link">
         
   
   
@@ -1217,7 +1217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud/commands/fixed-subscriptions/" class="md-nav__link">
+      <a href="../../cloud/commands/fixed-subscriptions/" class="md-nav__link">
         
   
   
@@ -1245,7 +1245,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud/commands/fixed-databases/" class="md-nav__link">
+      <a href="../../cloud/commands/fixed-databases/" class="md-nav__link">
         
   
   
@@ -1273,7 +1273,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud/commands/access-control/" class="md-nav__link">
+      <a href="../../cloud/commands/access-control/" class="md-nav__link">
         
   
   
@@ -1301,7 +1301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud/commands/networking/" class="md-nav__link">
+      <a href="../../cloud/commands/networking/" class="md-nav__link">
         
   
   
@@ -1329,7 +1329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud/commands/cost-report/" class="md-nav__link">
+      <a href="../../cloud/commands/cost-report/" class="md-nav__link">
         
   
   
@@ -1357,7 +1357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud/commands/tasks/" class="md-nav__link">
+      <a href="../../cloud/commands/tasks/" class="md-nav__link">
         
   
   
@@ -1393,7 +1393,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../cloud/workflows/" class="md-nav__link">
+      <a href="../../cloud/workflows/" class="md-nav__link">
         
   
   
@@ -1459,7 +1459,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../enterprise/" class="md-nav__link ">
+            <a href="../../enterprise/" class="md-nav__link ">
               
   
   
@@ -1540,7 +1540,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../enterprise/commands/" class="md-nav__link ">
+            <a href="../../enterprise/commands/" class="md-nav__link ">
               
   
   
@@ -1584,7 +1584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../enterprise/commands/cluster/" class="md-nav__link">
+      <a href="../../enterprise/commands/cluster/" class="md-nav__link">
         
   
   
@@ -1612,7 +1612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../enterprise/commands/databases/" class="md-nav__link">
+      <a href="../../enterprise/commands/databases/" class="md-nav__link">
         
   
   
@@ -1640,7 +1640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../enterprise/commands/nodes/" class="md-nav__link">
+      <a href="../../enterprise/commands/nodes/" class="md-nav__link">
         
   
   
@@ -1668,7 +1668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../enterprise/commands/access-control/" class="md-nav__link">
+      <a href="../../enterprise/commands/access-control/" class="md-nav__link">
         
   
   
@@ -1696,7 +1696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../enterprise/commands/monitoring/" class="md-nav__link">
+      <a href="../../enterprise/commands/monitoring/" class="md-nav__link">
         
   
   
@@ -1724,7 +1724,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../enterprise/commands/active-active/" class="md-nav__link">
+      <a href="../../enterprise/commands/active-active/" class="md-nav__link">
         
   
   
@@ -1789,7 +1789,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../enterprise/operations/" class="md-nav__link ">
+            <a href="../../enterprise/operations/" class="md-nav__link ">
               
   
   
@@ -1833,7 +1833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../enterprise/operations/support-package/" class="md-nav__link">
+      <a href="../../enterprise/operations/support-package/" class="md-nav__link">
         
   
   
@@ -1861,7 +1861,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../enterprise/operations/debuginfo/" class="md-nav__link">
+      <a href="../../enterprise/operations/debuginfo/" class="md-nav__link">
         
   
   
@@ -1897,7 +1897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../enterprise/workflows/" class="md-nav__link">
+      <a href="../../enterprise/workflows/" class="md-nav__link">
         
   
   
@@ -1929,8 +1929,6 @@
       
   
   
-    
-  
   
   
     
@@ -1948,23 +1946,22 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../../cookbook/" class="md-nav__link ">
               
   
   
@@ -1982,13 +1979,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2005,10 +2002,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -2029,21 +2024,20 @@
     
       
       
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
         
           
-          
         
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
         
           
-          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
             
   
   
@@ -2061,7 +2055,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2079,7 +2073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../first-database/" class="md-nav__link">
+      <a href="../../cookbook/cloud/first-database/" class="md-nav__link">
         
   
   
@@ -2107,7 +2101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../quick-database/" class="md-nav__link">
+      <a href="../../cookbook/cloud/quick-database/" class="md-nav__link">
         
   
   
@@ -2135,7 +2129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../vpc-peering/" class="md-nav__link">
+      <a href="../../cookbook/cloud/vpc-peering/" class="md-nav__link">
         
   
   
@@ -2163,7 +2157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../acls/" class="md-nav__link">
+      <a href="../../cookbook/cloud/acls/" class="md-nav__link">
         
   
   
@@ -2188,37 +2182,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Backup and Restore
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../cookbook/cloud/backup-restore/" class="md-nav__link">
         
   
   
@@ -2234,159 +2201,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#view-backup-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        View Backup Settings
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-automatic-backups" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configure Automatic Backups
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configure Automatic Backups">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#backup-options" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Backup Options
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#manual-backup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Manual Backup
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#list-backups" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        List Backups
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#restore-from-backup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Restore from Backup
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Restore from Backup">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#to-same-database" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        To Same Database
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#to-new-database" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        To New Database
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#backup-to-s3-script" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Backup to S3 Script
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verify-backup-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Verify Backup Configuration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#related" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Related
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2399,7 +2213,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cost-reports/" class="md-nav__link">
+      <a href="../../cookbook/cloud/cost-reports/" class="md-nav__link">
         
   
   
@@ -2451,13 +2265,10 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
@@ -2466,7 +2277,7 @@
         <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_3" >
         
           
-          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
             
   
   
@@ -2502,7 +2313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../enterprise/create-database/" class="md-nav__link">
+      <a href="../../cookbook/enterprise/create-database/" class="md-nav__link">
         
   
   
@@ -2530,7 +2341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../enterprise/support-package/" class="md-nav__link">
+      <a href="../../cookbook/enterprise/support-package/" class="md-nav__link">
         
   
   
@@ -2558,7 +2369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../enterprise/cluster-health/" class="md-nav__link">
+      <a href="../../cookbook/enterprise/cluster-health/" class="md-nav__link">
         
   
   
@@ -2586,7 +2397,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../enterprise/node-management/" class="md-nav__link">
+      <a href="../../cookbook/enterprise/node-management/" class="md-nav__link">
         
   
   
@@ -2626,6 +2437,8 @@
       
   
   
+    
+  
   
   
     
@@ -2653,22 +2466,23 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../reference/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -2686,13 +2500,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2712,7 +2526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/compatibility/" class="md-nav__link">
+      <a href="../compatibility/" class="md-nav__link">
         
   
   
@@ -2740,7 +2554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/environment-variables/" class="md-nav__link">
+      <a href="../environment-variables/" class="md-nav__link">
         
   
   
@@ -2768,7 +2582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/config-file/" class="md-nav__link">
+      <a href="../config-file/" class="md-nav__link">
         
   
   
@@ -2796,7 +2610,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/shell-completions/" class="md-nav__link">
+      <a href="../shell-completions/" class="md-nav__link">
         
   
   
@@ -2824,7 +2638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/security/" class="md-nav__link">
+      <a href="../security/" class="md-nav__link">
         
   
   
@@ -2849,10 +2663,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../reference/agent-error-codes/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Error Codes
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2868,6 +2709,81 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The contract
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exit-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exit codes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-inventory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code inventory
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#branching-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Branching example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2880,7 +2796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/rladmin/" class="md-nav__link">
+      <a href="../rladmin/" class="md-nav__link">
         
   
   
@@ -2962,7 +2878,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../mcp/" class="md-nav__link ">
+            <a href="../../mcp/" class="md-nav__link ">
               
   
   
@@ -3006,7 +2922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../mcp/getting-started/" class="md-nav__link">
+      <a href="../../mcp/getting-started/" class="md-nav__link">
         
   
   
@@ -3034,7 +2950,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../mcp/configuration/" class="md-nav__link">
+      <a href="../../mcp/configuration/" class="md-nav__link">
         
   
   
@@ -3062,7 +2978,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../mcp/compatibility/" class="md-nav__link">
+      <a href="../../mcp/compatibility/" class="md-nav__link">
         
   
   
@@ -3090,7 +3006,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../mcp/database-quickstart/" class="md-nav__link">
+      <a href="../../mcp/database-quickstart/" class="md-nav__link">
         
   
   
@@ -3118,7 +3034,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../mcp/cloud-quickstart/" class="md-nav__link">
+      <a href="../../mcp/cloud-quickstart/" class="md-nav__link">
         
   
   
@@ -3146,7 +3062,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../mcp/enterprise-quickstart/" class="md-nav__link">
+      <a href="../../mcp/enterprise-quickstart/" class="md-nav__link">
         
   
   
@@ -3174,7 +3090,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../mcp/tools-reference/" class="md-nav__link">
+      <a href="../../mcp/tools-reference/" class="md-nav__link">
         
   
   
@@ -3202,7 +3118,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../mcp/architecture/" class="md-nav__link">
+      <a href="../../mcp/architecture/" class="md-nav__link">
         
   
   
@@ -3230,7 +3146,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../mcp/audit-logging/" class="md-nav__link">
+      <a href="../../mcp/audit-logging/" class="md-nav__link">
         
   
   
@@ -3258,7 +3174,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../mcp/advanced-usage/" class="md-nav__link">
+      <a href="../../mcp/advanced-usage/" class="md-nav__link">
         
   
   
@@ -3286,7 +3202,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../mcp/workflows/" class="md-nav__link">
+      <a href="../../mcp/workflows/" class="md-nav__link">
         
   
   
@@ -3354,7 +3270,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../developer/" class="md-nav__link ">
+            <a href="../../developer/" class="md-nav__link ">
               
   
   
@@ -3398,7 +3314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/architecture/" class="md-nav__link">
+      <a href="../../developer/architecture/" class="md-nav__link">
         
   
   
@@ -3426,7 +3342,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/libraries/" class="md-nav__link">
+      <a href="../../developer/libraries/" class="md-nav__link">
         
   
   
@@ -3454,7 +3370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/python/" class="md-nav__link">
+      <a href="../../developer/python/" class="md-nav__link">
         
   
   
@@ -3482,7 +3398,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/contributing/" class="md-nav__link">
+      <a href="../../developer/contributing/" class="md-nav__link">
         
   
   
@@ -3517,7 +3433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../presentation/" class="md-nav__link">
+      <a href="../../presentation/" class="md-nav__link">
         
   
   
@@ -3564,10 +3480,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#view-backup-settings" class="md-nav__link">
+  <a href="#the-contract" class="md-nav__link">
     <span class="md-ellipsis">
       
-        View Backup Settings
+        The contract
       
     </span>
   </a>
@@ -3575,38 +3491,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configure-automatic-backups" class="md-nav__link">
+  <a href="#exit-codes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configure Automatic Backups
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configure Automatic Backups">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#backup-options" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Backup Options
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#manual-backup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Manual Backup
+        Exit codes
       
     </span>
   </a>
@@ -3614,10 +3502,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#list-backups" class="md-nav__link">
+  <a href="#code-inventory" class="md-nav__link">
     <span class="md-ellipsis">
       
-        List Backups
+        Code inventory
       
     </span>
   </a>
@@ -3625,49 +3513,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#restore-from-backup" class="md-nav__link">
+  <a href="#branching-example" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Restore from Backup
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Restore from Backup">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#to-same-database" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        To Same Database
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#to-new-database" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        To New Database
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#backup-to-s3-script" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Backup to S3 Script
+        Branching example
       
     </span>
   </a>
@@ -3675,21 +3524,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#verify-backup-configuration" class="md-nav__link">
+  <a href="#see-also" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Verify Backup Configuration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#related" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Related
+        See also
       
     </span>
   </a>
@@ -3716,107 +3554,224 @@
   
 
 
-<h1 id="backup-and-restore">Backup and Restore<a class="headerlink" href="#backup-and-restore" title="Permanent link">&para;</a></h1>
-<p>Manage database backups in Redis Cloud.</p>
-<h2 id="view-backup-settings">View Backup Settings<a class="headerlink" href="#view-backup-settings" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>database<span class="w"> </span>get<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="m">789</span><span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">'{</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="s1">  name: name,</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="s1">  backup: backup</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="s1">}'</span>
+<h1 id="agent-error-codes">Agent Error Codes<a class="headerlink" href="#agent-error-codes" title="Permanent link">&para;</a></h1>
+<p>The agent-native surface — <code>cloud auth login | switch | status | logout</code> and <code>cloud workflow
+quick-database | database-credentials</code> — reports failures in a <strong>machine-branchable</strong> form so
+scripts and agents can branch on a stable code instead of parsing prose.</p>
+<h2 id="the-contract">The contract<a class="headerlink" href="#the-contract" title="Permanent link">&para;</a></h2>
+<p>In <code>-o json</code> / <code>-o yaml</code> mode, a failure on these commands prints an error envelope to
+<strong>stdout</strong> and exits with a mapped code:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w"> </span><span class="nt">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"free_db_exists"</span><span class="p">,</span><span class="w"> </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"…"</span><span class="p">,</span><span class="w"> </span><span class="nt">"retryable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="configure-automatic-backups">Configure Automatic Backups<a class="headerlink" href="#configure-automatic-backups" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>database<span class="w"> </span>update<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="m">789</span><span class="w"> </span>--data<span class="w"> </span><span class="s1">'{</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="s1">  "backup": {</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="s1">    "enabled": true,</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="s1">    "interval": 24,</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="s1">    "destination": "s3://my-bucket/redis-backups"</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="s1">  }</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="s1">}'</span><span class="w"> </span>--wait
-</span></code></pre></div>
-<h3 id="backup-options">Backup Options<a class="headerlink" href="#backup-options" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>code</code> — a stable, append-only identifier. Branch on this.</li>
+<li><code>message</code> — human, actionable, and safe to show. Nothing in redisctl puts a credential in one,
+  and text relayed from an upstream service is bounded and stripped of control characters first —
+  but it is not a guarantee about what a third-party service echoes back.</li>
+<li><code>retryable</code> — whether re-running the same command unchanged might succeed.</li>
+</ul>
+<p>Human (non-JSON) mode is unchanged: the usual diagnostic goes to <strong>stderr</strong> and the process
+keeps today's <code>0</code> / <code>1</code> exit behavior.</p>
+<h2 id="exit-codes">Exit codes<a class="headerlink" href="#exit-codes" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Field</th>
-<th>Description</th>
+<th>Exit</th>
+<th>Class</th>
+<th>What the caller should do</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>enabled</code></td>
-<td>Enable/disable backups</td>
+<td><code>1</code></td>
+<td>unknown / backend failure</td>
+<td>Treat as a bug or an unexpected backend state; inspect <code>message</code>.</td>
 </tr>
 <tr>
-<td><code>interval</code></td>
-<td>Hours between backups (12 or 24)</td>
+<td><code>2</code></td>
+<td>usage / precondition</td>
+<td>Fix the input or state (bad name, not signed in), then retry.</td>
 </tr>
 <tr>
-<td><code>destination</code></td>
-<td>S3 or GCS bucket URL</td>
+<td><code>3</code></td>
+<td>transient / retryable</td>
+<td>Back off and retry the same command.</td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td>quota / limit reached</td>
+<td>A limit was hit; nothing to retry without changing the account.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="manual-backup">Manual Backup<a class="headerlink" href="#manual-backup" title="Permanent link">&para;</a></h2>
-<p>Trigger an immediate backup:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>database<span class="w"> </span>backup<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="m">789</span><span class="w"> </span>--wait
+<p><code>retryable</code> is <code>true</code> for exactly the exit-<code>3</code> class.</p>
+<h2 id="code-inventory">Code inventory<a class="headerlink" href="#code-inventory" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Exit</th>
+<th>Retryable</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>not_authenticated</code></td>
+<td>2</td>
+<td>no</td>
+<td>No usable credentials for the profile. Run <code>redisctl cloud auth login</code>.</td>
+</tr>
+<tr>
+<td><code>invalid_endpoint</code></td>
+<td>2</td>
+<td>no</td>
+<td>A configured endpoint cannot be used: not <code>https</code>, not a Redis host, or unparseable. The message names the field. Fix the profile's <code>[cloud_auth.&lt;name&gt;]</code> section; retrying changes nothing.</td>
+</tr>
+<tr>
+<td><code>auth_denied</code></td>
+<td>2</td>
+<td>no</td>
+<td>The sign-in request was denied.</td>
+</tr>
+<tr>
+<td><code>keyring_unavailable</code></td>
+<td>2</td>
+<td>no</td>
+<td>No OS keyring available to store the key. Re-run with <code>--allow-plaintext</code>.</td>
+</tr>
+<tr>
+<td><code>migration_required</code></td>
+<td>2</td>
+<td>no</td>
+<td>The account signs in with a password and must be linked to Google/GitHub once in the Redis Cloud console.</td>
+</tr>
+<tr>
+<td><code>insufficient_permission</code></td>
+<td>2</td>
+<td>no</td>
+<td>Your role on the account does not permit programmatic access. The message names the role that does — in practice the account owner.</td>
+</tr>
+<tr>
+<td><code>capi_disabled</code></td>
+<td>2</td>
+<td>no</td>
+<td>API access is switched off for the whole account, so no role can mint a key. Only Redis can re-enable it.</td>
+</tr>
+<tr>
+<td><code>account_required</code></td>
+<td>2</td>
+<td>no</td>
+<td><code>cloud auth switch</code> needs an account id when there is no terminal to choose on. Pass the id.</td>
+</tr>
+<tr>
+<td><code>unknown_account</code></td>
+<td>2</td>
+<td>no</td>
+<td><code>--account</code> named an account you don't belong to. The message lists the accounts you do have.</td>
+</tr>
+<tr>
+<td><code>mfa_required</code></td>
+<td>2</td>
+<td>no</td>
+<td>The account requires multi-factor authentication and there was no terminal to prompt on. Re-run <code>cloud auth login</code> interactively.</td>
+</tr>
+<tr>
+<td><code>mfa_invalid_code</code></td>
+<td>2</td>
+<td>no</td>
+<td>The multi-factor code was rejected. Start login again.</td>
+</tr>
+<tr>
+<td><code>invalid_name</code></td>
+<td>2</td>
+<td>no</td>
+<td>The database name doesn't match the naming rules (see below).</td>
+</tr>
+<tr>
+<td><code>name_conflict</code></td>
+<td>2</td>
+<td>no</td>
+<td>The name maps to a conflicting existing resource.</td>
+</tr>
+<tr>
+<td><code>device_code_expired</code></td>
+<td>3</td>
+<td>yes</td>
+<td>The device login code expired before approval. Start login again.</td>
+</tr>
+<tr>
+<td><code>auth_pending</code></td>
+<td>3</td>
+<td>yes</td>
+<td>Login hasn't been approved yet. Approve it and retry.</td>
+</tr>
+<tr>
+<td><code>transient_api_error</code></td>
+<td>3</td>
+<td>yes</td>
+<td>A transient backend error. Retry.</td>
+</tr>
+<tr>
+<td><code>rate_limited</code></td>
+<td>3</td>
+<td>yes</td>
+<td>Too many requests. Back off and retry.</td>
+</tr>
+<tr>
+<td><code>free_db_exists</code></td>
+<td>4</td>
+<td>no</td>
+<td>The account already has a free database.</td>
+</tr>
+<tr>
+<td><code>quota_exceeded</code></td>
+<td>4</td>
+<td>no</td>
+<td>An account quota or limit was reached.</td>
+</tr>
+<tr>
+<td><code>mfa_quota_exceeded</code></td>
+<td>4</td>
+<td>no</td>
+<td>Too many multi-factor attempts. Wait before trying again.</td>
+</tr>
+<tr>
+<td><code>sm_exchange_failed</code></td>
+<td>1</td>
+<td>no</td>
+<td>The sign-in / key-mint exchange failed unexpectedly.</td>
+</tr>
+<tr>
+<td><code>unknown</code></td>
+<td>1</td>
+<td>no</td>
+<td>Unclassified failure; inspect <code>message</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>The list is append-only: existing codes never change meaning or exit class, so a branch written
+today keeps working.</p>
+<div class="admonition note">
+<p class="admonition-title">Database naming</p>
+<p><code>quick-database</code> names must match <code>^[a-z][a-z0-9-]{1,38}[a-z0-9]$</code> — 3–40 characters,
+lowercase letters / digits / hyphens, starting with a letter, no leading, trailing, or
+doubled hyphen. A violation is reported as <code>invalid_name</code> (exit <code>2</code>) before any API call.</p>
+</div>
+<h2 id="branching-example">Branching example<a class="headerlink" href="#branching-example" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">out</span><span class="o">=</span><span class="k">$(</span>redisctl<span class="w"> </span>cloud<span class="w"> </span>workflow<span class="w"> </span>quick-database<span class="w"> </span>--name<span class="w"> </span>my-app<span class="w"> </span>-o<span class="w"> </span>json<span class="k">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">true</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">case</span><span class="w"> </span><span class="s2">"</span><span class="k">$(</span><span class="nb">printf</span><span class="w"> </span><span class="s1">'%s'</span><span class="w"> </span><span class="s2">"</span><span class="nv">$out</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">'.error.code // empty'</span><span class="k">)</span><span class="s2">"</span><span class="w"> </span><span class="k">in</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="s2">""</span><span class="o">)</span><span class="w">                               </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"ready"</span><span class="w"> </span><span class="p">;;</span><span class="w">                       </span><span class="c1"># success</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span>not_authenticated<span class="o">)</span><span class="w">                </span>redisctl<span class="w"> </span>cloud<span class="w"> </span>auth<span class="w"> </span>login<span class="w"> </span><span class="p">;;</span><span class="w">          </span><span class="c1"># then retry</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span>transient_api_error<span class="p">|</span>rate_limited<span class="o">)</span><span class="w"> </span>sleep<span class="w"> </span><span class="m">5</span><span class="p">;</span><span class="w"> </span><span class="nb">exec</span><span class="w"> </span><span class="s2">"</span><span class="nv">$0</span><span class="s2">"</span><span class="w"> </span><span class="p">;;</span><span class="w">                 </span><span class="c1"># back off</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span>free_db_exists<span class="o">)</span><span class="w">                   </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"account already has a free DB"</span><span class="w"> </span><span class="p">;;</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span>*<span class="o">)</span><span class="w">                                </span><span class="nb">printf</span><span class="w"> </span><span class="s1">'%s\n'</span><span class="w"> </span><span class="s2">"</span><span class="nv">$out</span><span class="s2">"</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span><span class="p">;</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">;;</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">esac</span>
 </span></code></pre></div>
-<h2 id="list-backups">List Backups<a class="headerlink" href="#list-backups" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>redisctl<span class="w"> </span>api<span class="w"> </span>cloud<span class="w"> </span>get<span class="w"> </span>/subscriptions/123456/databases/789/backups
-</span></code></pre></div>
-<h2 id="restore-from-backup">Restore from Backup<a class="headerlink" href="#restore-from-backup" title="Permanent link">&para;</a></h2>
-<h3 id="to-same-database">To Same Database<a class="headerlink" href="#to-same-database" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>database<span class="w"> </span>restore<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="m">789</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span>--backup-id<span class="w"> </span>&lt;backup-id&gt;<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span>--wait
-</span></code></pre></div>
-<h3 id="to-new-database">To New Database<a class="headerlink" href="#to-new-database" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Create new database</li>
-<li>Import from backup location</li>
-</ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>database<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span>--subscription-id<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span>--name<span class="w"> </span>restored-db<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span>--data<span class="w"> </span><span class="s1">'{</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="s1">    "memoryLimitInGb": 1,</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="s1">    "dataImport": {</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="s1">      "sourceUri": "s3://bucket/backup.rdb"</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="s1">    }</span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="s1">  }'</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span>--wait
-</span></code></pre></div>
-<h2 id="backup-to-s3-script">Backup to S3 Script<a class="headerlink" href="#backup-to-s3-script" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="ch">#!/bin/bash</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nv">SUB_ID</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">1</span><span class="p">:?Usage: </span><span class="nv">$0</span><span class="p"> &lt;subscription-id&gt; &lt;database-id&gt;</span><span class="si">}</span><span class="s2">"</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nv">DB_ID</span><span class="o">=</span><span class="s2">"</span><span class="si">${</span><span class="nv">2</span><span class="p">:?</span><span class="si">}</span><span class="s2">"</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Triggering backup for database </span><span class="nv">$DB_ID</span><span class="s2">..."</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># Configure backup destination if not set</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>database<span class="w"> </span>update<span class="w"> </span><span class="s2">"</span><span class="nv">$SUB_ID</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$DB_ID</span><span class="s2">"</span><span class="w"> </span>--data<span class="w"> </span><span class="s1">'{</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="s1">  "backup": {</span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="s1">    "enabled": true,</span>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="s1">    "interval": 24,</span>
-</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="s1">    "destination": "s3://my-backup-bucket/redis"</span>
-</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="s1">  }</span>
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="s1">}'</span><span class="w"> </span>--wait
-</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>
-</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="c1"># Trigger immediate backup</span>
-</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>database<span class="w"> </span>backup<span class="w"> </span><span class="s2">"</span><span class="nv">$SUB_ID</span><span class="s2">"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$DB_ID</span><span class="s2">"</span><span class="w"> </span>--wait
-</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>
-</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Backup complete!"</span>
-</span></code></pre></div>
-<h2 id="verify-backup-configuration">Verify Backup Configuration<a class="headerlink" href="#verify-backup-configuration" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>database<span class="w"> </span>list<span class="w"> </span>--subscription-id<span class="w"> </span><span class="m">123456</span><span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">'[].{</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="s1">  name: name,</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="s1">  backup_enabled: backup.enabled,</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="s1">  backup_interval: backup.interval</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="s1">}'</span>
-</span></code></pre></div>
-<h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">&para;</a></h2>
+<h2 id="see-also">See also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="../../../cloud/commands/databases/">Database Commands</a></li>
-<li><a href="../first-database/">Create First Database</a></li>
+<li><a href="../../cloud/commands/auth/">Authentication commands</a></li>
+<li><a href="../../cloud/workflows/">Cloud workflows</a> — <code>quick-database</code>, <code>database-credentials</code></li>
 </ul>
 
 
@@ -3897,10 +3852,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

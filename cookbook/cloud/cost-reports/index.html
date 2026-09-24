@@ -1068,6 +1068,8 @@
       
         
       
+        
+      
     
     
     
@@ -1122,6 +1124,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cloud/commands/auth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1992,6 +2022,8 @@
       
         
       
+        
+      
     
     
     
@@ -2055,6 +2087,34 @@
     
   
     Create Your First Database
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick-database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From Sign-In to REDIS_URL
   
 
     
@@ -2825,6 +2885,8 @@
       
         
       
+        
+      
     
     
     
@@ -3008,6 +3070,34 @@
     
   
     Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/agent-error-codes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Error Codes
   
 
     
@@ -4145,7 +4235,7 @@
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span>--start-date<span class="w"> </span><span class="m">2025</span>-01-01<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span>--end-date<span class="w"> </span><span class="m">2025</span>-01-31<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span>--wait<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;response.resource.costReportId&#39;</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">'response.resource.costReportId'</span>
 </span></code></pre></div>
 <p>This outputs just the ID:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>0f99c2fd-0d8a-4345-8543-8adb4e02f4dd.csv
@@ -4159,96 +4249,96 @@
 <h3 id="get-total-cost">Get Total Cost<a class="headerlink" href="#get-total-cost" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span>download<span class="w"> </span><span class="nv">$REPORT_ID</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span>--format<span class="w"> </span>json<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span>-q<span class="w"> </span><span class="s1">&#39;sum([].BilledCost)&#39;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span>-q<span class="w"> </span><span class="s1">'sum([].BilledCost)'</span>
 </span></code></pre></div>
 <h3 id="list-all-resources-and-costs">List All Resources and Costs<a class="headerlink" href="#list-all-resources-and-costs" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span>download<span class="w"> </span><span class="nv">$REPORT_ID</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span>--format<span class="w"> </span>json<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span>-q<span class="w"> </span><span class="s1">&#39;[].{name: ResourceName, type: ResourceType, cost: BilledCost}&#39;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span>-q<span class="w"> </span><span class="s1">'[].{name: ResourceName, type: ResourceType, cost: BilledCost}'</span>
 </span></code></pre></div>
 <h3 id="find-top-5-most-expensive-resources">Find Top 5 Most Expensive Resources<a class="headerlink" href="#find-top-5-most-expensive-resources" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span>download<span class="w"> </span><span class="nv">$REPORT_ID</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span>--format<span class="w"> </span>json<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span>-q<span class="w"> </span><span class="s1">&#39;sort_by(@, &amp;BilledCost) | reverse(@) | [:5].{name: ResourceName, cost: BilledCost}&#39;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span>-q<span class="w"> </span><span class="s1">'sort_by(@, &amp;BilledCost) | reverse(@) | [:5].{name: ResourceName, cost: BilledCost}'</span>
 </span></code></pre></div>
 <h3 id="filter-by-region">Filter by Region<a class="headerlink" href="#filter-by-region" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span>download<span class="w"> </span><span class="nv">$REPORT_ID</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span>--format<span class="w"> </span>json<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span>-q<span class="w"> </span><span class="s1">&#39;[?Region == `us-east-1`].{name: ResourceName, cost: BilledCost}&#39;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span>-q<span class="w"> </span><span class="s1">'[?Region == `us-east-1`].{name: ResourceName, cost: BilledCost}'</span>
 </span></code></pre></div>
 <h3 id="aggregate-costs-by-resource-name">Aggregate Costs by Resource Name<a class="headerlink" href="#aggregate-costs-by-resource-name" title="Permanent link">&para;</a></h3>
 <p>Using extended JMESPath functions to group and sum:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span>download<span class="w"> </span><span class="nv">$REPORT_ID</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span>-q<span class="w"> </span><span class="s1">&#39;group_by(@, `ResourceName`) | items(@) | [*].{name: [0], total: sum([1][*].BilledCost)} | sort_by(@, &amp;total) | reverse(@) | [:10]&#39;</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span>-q<span class="w"> </span><span class="s1">'group_by(@, `ResourceName`) | items(@) | [*].{name: [0], total: sum([1][*].BilledCost)} | sort_by(@, &amp;total) | reverse(@) | [:10]'</span>
 </span></code></pre></div>
 <p>Output:
 <div class="language-json highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">[</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;database-ck&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">159.98</span><span class="p">},</span>
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;jsd-aa-demo&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">32.69</span><span class="p">},</span>
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Autoscaling Subscription&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">10.96</span><span class="p">}</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"database-ck"</span><span class="p">,</span><span class="w"> </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">159.98</span><span class="p">},</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jsd-aa-demo"</span><span class="p">,</span><span class="w"> </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">32.69</span><span class="p">},</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span><span class="p">{</span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autoscaling Subscription"</span><span class="p">,</span><span class="w"> </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">10.96</span><span class="p">}</span>
 </span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="p">]</span>
 </span></code></pre></div></p>
 <h3 id="sum-costs-by-region">Sum Costs by Region<a class="headerlink" href="#sum-costs-by-region" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span>download<span class="w"> </span><span class="nv">$REPORT_ID</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span>-q<span class="w"> </span><span class="s1">&#39;group_by(@, `RegionName`) | items(@) | [*].{region: [0], total: sum([1][*].BilledCost)} | sort_by(@, &amp;total) | reverse(@)&#39;</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span>-q<span class="w"> </span><span class="s1">'group_by(@, `RegionName`) | items(@) | [*].{region: [0], total: sum([1][*].BilledCost)} | sort_by(@, &amp;total) | reverse(@)'</span>
 </span></code></pre></div>
 <h3 id="sum-costs-by-charge-category">Sum Costs by Charge Category<a class="headerlink" href="#sum-costs-by-charge-category" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span>download<span class="w"> </span><span class="nv">$REPORT_ID</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span>-q<span class="w"> </span><span class="s1">&#39;group_by(@, `ChargeCategory`) | items(@) | [*].{category: [0], total: sum([1][*].BilledCost)}&#39;</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span>-q<span class="w"> </span><span class="s1">'group_by(@, `ChargeCategory`) | items(@) | [*].{category: [0], total: sum([1][*].BilledCost)}'</span>
 </span></code></pre></div>
 <h3 id="filter-by-resource-type">Filter by Resource Type<a class="headerlink" href="#filter-by-resource-type" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Only database costs</span>
 </span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span>download<span class="w"> </span><span class="nv">$REPORT_ID</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">  </span>--format<span class="w"> </span>json<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">  </span>-q<span class="w"> </span><span class="s1">&#39;[?ResourceType == `Database`]&#39;</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">  </span>-q<span class="w"> </span><span class="s1">'[?ResourceType == `Database`]'</span>
 </span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>
 </span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="c1"># Only subscription-level costs  </span>
 </span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span>download<span class="w"> </span><span class="nv">$REPORT_ID</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">  </span>--format<span class="w"> </span>json<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">  </span>-q<span class="w"> </span><span class="s1">&#39;[?ResourceType == `Subscription`]&#39;</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">  </span>-q<span class="w"> </span><span class="s1">'[?ResourceType == `Subscription`]'</span>
 </span></code></pre></div>
 <h3 id="extract-costs-for-a-specific-tag">Extract Costs for a Specific Tag<a class="headerlink" href="#extract-costs-for-a-specific-tag" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span>download<span class="w"> </span><span class="nv">$REPORT_ID</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span>--format<span class="w"> </span>json<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">  </span>-q<span class="w"> </span><span class="s1">&#39;[?Tags.team == `platform`].{name: ResourceName, cost: BilledCost}&#39;</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">  </span>-q<span class="w"> </span><span class="s1">'[?Tags.team == `platform`].{name: ResourceName, cost: BilledCost}'</span>
 </span></code></pre></div>
 <h2 id="monthly-cost-report-script">Monthly Cost Report Script<a class="headerlink" href="#monthly-cost-report-script" title="Permanent link">&para;</a></h2>
 <p>Automate monthly cost reporting with this script:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="ch">#!/bin/bash</span>
 </span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="c1"># monthly-cost-report.sh</span>
-</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="c1"># Generate and download the previous month&#39;s cost report</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="c1"># Generate and download the previous month's cost report</span>
 </span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>
 </span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="nb">set</span><span class="w"> </span>-e
 </span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
-</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="c1"># Calculate previous month&#39;s date range</span>
-</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$OSTYPE</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;darwin&quot;</span>*<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="c1"># Calculate previous month's date range</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">"</span><span class="nv">$OSTYPE</span><span class="s2">"</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"darwin"</span>*<span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
 </span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">  </span><span class="c1"># macOS</span>
 </span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="w">  </span><span class="nv">START_DATE</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>-v-1m<span class="w"> </span>-v1d<span class="w"> </span>+%Y-%m-%d<span class="k">)</span>
 </span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w">  </span><span class="nv">END_DATE</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>-v1d<span class="w"> </span>-v-1d<span class="w"> </span>+%Y-%m-%d<span class="k">)</span>
 </span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a><span class="k">else</span>
 </span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="w">  </span><span class="c1"># Linux</span>
-</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="w">  </span><span class="nv">START_DATE</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;last month&quot;</span><span class="w"> </span>+%Y-%m-01<span class="k">)</span>
-</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="w">  </span><span class="nv">END_DATE</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>date<span class="w"> </span>+%Y-%m-01<span class="k">)</span><span class="s2"> - 1 day&quot;</span><span class="w"> </span>+%Y-%m-%d<span class="k">)</span>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="w">  </span><span class="nv">START_DATE</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>-d<span class="w"> </span><span class="s2">"last month"</span><span class="w"> </span>+%Y-%m-01<span class="k">)</span>
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="w">  </span><span class="nv">END_DATE</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>-d<span class="w"> </span><span class="s2">"</span><span class="k">$(</span>date<span class="w"> </span>+%Y-%m-01<span class="k">)</span><span class="s2"> - 1 day"</span><span class="w"> </span>+%Y-%m-%d<span class="k">)</span>
 </span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="k">fi</span>
 </span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>
-</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="nv">MONTH_NAME</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$START_DATE</span><span class="s2">&quot;</span><span class="w"> </span>+%B-%Y<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="o">||</span><span class="w"> </span>date<span class="w"> </span>-j<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;%Y-%m-%d&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$START_DATE</span><span class="s2">&quot;</span><span class="w"> </span>+%B-%Y<span class="k">)</span>
-</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="nv">OUTPUT_FILE</span><span class="o">=</span><span class="s2">&quot;redis-cloud-costs-</span><span class="si">${</span><span class="nv">MONTH_NAME</span><span class="si">}</span><span class="s2">.csv&quot;</span>
+</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="nv">MONTH_NAME</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>-d<span class="w"> </span><span class="s2">"</span><span class="nv">$START_DATE</span><span class="s2">"</span><span class="w"> </span>+%B-%Y<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="o">||</span><span class="w"> </span>date<span class="w"> </span>-j<span class="w"> </span>-f<span class="w"> </span><span class="s2">"%Y-%m-%d"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$START_DATE</span><span class="s2">"</span><span class="w"> </span>+%B-%Y<span class="k">)</span>
+</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="nv">OUTPUT_FILE</span><span class="o">=</span><span class="s2">"redis-cloud-costs-</span><span class="si">${</span><span class="nv">MONTH_NAME</span><span class="si">}</span><span class="s2">.csv"</span>
 </span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a>
-</span><span id="__span-17-21"><a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Generating cost report for </span><span class="nv">$START_DATE</span><span class="s2"> to </span><span class="nv">$END_DATE</span><span class="s2">...&quot;</span>
+</span><span id="__span-17-21"><a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Generating cost report for </span><span class="nv">$START_DATE</span><span class="s2"> to </span><span class="nv">$END_DATE</span><span class="s2">..."</span>
 </span><span id="__span-17-22"><a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a>
 </span><span id="__span-17-23"><a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a><span class="c1"># Export the report (generate + wait + download in one step)</span>
 </span><span id="__span-17-24"><a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-17-25"><a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a><span class="w">  </span>--start-date<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$START_DATE</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-17-26"><a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a><span class="w">  </span>--end-date<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$END_DATE</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-17-27"><a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a><span class="w">  </span>--file<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$OUTPUT_FILE</span><span class="s2">&quot;</span>
+</span><span id="__span-17-25"><a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a><span class="w">  </span>--start-date<span class="w"> </span><span class="s2">"</span><span class="nv">$START_DATE</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-26"><a id="__codelineno-17-26" name="__codelineno-17-26" href="#__codelineno-17-26"></a><span class="w">  </span>--end-date<span class="w"> </span><span class="s2">"</span><span class="nv">$END_DATE</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-27"><a id="__codelineno-17-27" name="__codelineno-17-27" href="#__codelineno-17-27"></a><span class="w">  </span>--file<span class="w"> </span><span class="s2">"</span><span class="nv">$OUTPUT_FILE</span><span class="s2">"</span>
 </span><span id="__span-17-28"><a id="__codelineno-17-28" name="__codelineno-17-28" href="#__codelineno-17-28"></a>
 </span><span id="__span-17-29"><a id="__codelineno-17-29" name="__codelineno-17-29" href="#__codelineno-17-29"></a><span class="c1"># Print summary</span>
-</span><span id="__span-17-30"><a id="__codelineno-17-30" name="__codelineno-17-30" href="#__codelineno-17-30"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
-</span><span id="__span-17-31"><a id="__codelineno-17-31" name="__codelineno-17-31" href="#__codelineno-17-31"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;=== Cost Summary ===&quot;</span>
+</span><span id="__span-17-30"><a id="__codelineno-17-30" name="__codelineno-17-30" href="#__codelineno-17-30"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">""</span>
+</span><span id="__span-17-31"><a id="__codelineno-17-31" name="__codelineno-17-31" href="#__codelineno-17-31"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"=== Cost Summary ==="</span>
 </span><span id="__span-17-32"><a id="__codelineno-17-32" name="__codelineno-17-32" href="#__codelineno-17-32"></a><span class="k">if</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span>-v<span class="w"> </span>csvstat<span class="w"> </span><span class="p">&amp;</span>&gt;<span class="w"> </span>/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
-</span><span id="__span-17-33"><a id="__codelineno-17-33" name="__codelineno-17-33" href="#__codelineno-17-33"></a><span class="w">  </span>csvstat<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$OUTPUT_FILE</span><span class="s2">&quot;</span><span class="w"> </span>--columns<span class="w"> </span>BilledCost
+</span><span id="__span-17-33"><a id="__codelineno-17-33" name="__codelineno-17-33" href="#__codelineno-17-33"></a><span class="w">  </span>csvstat<span class="w"> </span><span class="s2">"</span><span class="nv">$OUTPUT_FILE</span><span class="s2">"</span><span class="w"> </span>--columns<span class="w"> </span>BilledCost
 </span><span id="__span-17-34"><a id="__codelineno-17-34" name="__codelineno-17-34" href="#__codelineno-17-34"></a><span class="k">else</span>
-</span><span id="__span-17-35"><a id="__codelineno-17-35" name="__codelineno-17-35" href="#__codelineno-17-35"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Install csvkit for automatic summary: pip install csvkit&quot;</span>
+</span><span id="__span-17-35"><a id="__codelineno-17-35" name="__codelineno-17-35" href="#__codelineno-17-35"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Install csvkit for automatic summary: pip install csvkit"</span>
 </span><span id="__span-17-36"><a id="__codelineno-17-36" name="__codelineno-17-36" href="#__codelineno-17-36"></a><span class="k">fi</span>
 </span></code></pre></div>
 <p>Make it executable and run:</p>
@@ -4260,20 +4350,20 @@
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="ch">#!/bin/bash</span>
 </span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="c1"># team-cost-reports.sh</span>
 </span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
-</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="nv">START_DATE</span><span class="o">=</span><span class="s2">&quot;2025-01-01&quot;</span>
-</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="nv">END_DATE</span><span class="o">=</span><span class="s2">&quot;2025-01-31&quot;</span>
-</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="nv">TEAMS</span><span class="o">=(</span><span class="s2">&quot;platform&quot;</span><span class="w"> </span><span class="s2">&quot;backend&quot;</span><span class="w"> </span><span class="s2">&quot;frontend&quot;</span><span class="w"> </span><span class="s2">&quot;data&quot;</span><span class="o">)</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="nv">START_DATE</span><span class="o">=</span><span class="s2">"2025-01-01"</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="nv">END_DATE</span><span class="o">=</span><span class="s2">"2025-01-31"</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="nv">TEAMS</span><span class="o">=(</span><span class="s2">"platform"</span><span class="w"> </span><span class="s2">"backend"</span><span class="w"> </span><span class="s2">"frontend"</span><span class="w"> </span><span class="s2">"data"</span><span class="o">)</span>
 </span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>
-</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="k">for</span><span class="w"> </span>team<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">TEAMS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Generating report for team: </span><span class="nv">$team</span><span class="s2">&quot;</span>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="k">for</span><span class="w"> </span>team<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">TEAMS</span><span class="p">[@]</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Generating report for team: </span><span class="nv">$team</span><span class="s2">"</span>
 </span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>
-</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="w">  </span><span class="nv">OUTPUT_FILE</span><span class="o">=</span><span class="s2">&quot;costs-</span><span class="si">${</span><span class="nv">team</span><span class="si">}</span><span class="s2">-</span><span class="k">$(</span>date<span class="w"> </span>+%Y-%m<span class="k">)</span><span class="s2">.csv&quot;</span>
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="w">  </span><span class="nv">OUTPUT_FILE</span><span class="o">=</span><span class="s2">"costs-</span><span class="si">${</span><span class="nv">team</span><span class="si">}</span><span class="s2">-</span><span class="k">$(</span>date<span class="w"> </span>+%Y-%m<span class="k">)</span><span class="s2">.csv"</span>
 </span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>
 </span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="w">  </span>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="w">    </span>--start-date<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$START_DATE</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="w">    </span>--end-date<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$END_DATE</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a><span class="w">    </span>--tag<span class="w"> </span><span class="s2">&quot;team:</span><span class="nv">$team</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a><span class="w">    </span>--file<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$OUTPUT_FILE</span><span class="s2">&quot;</span>
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="w">    </span>--start-date<span class="w"> </span><span class="s2">"</span><span class="nv">$START_DATE</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="w">    </span>--end-date<span class="w"> </span><span class="s2">"</span><span class="nv">$END_DATE</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a><span class="w">    </span>--tag<span class="w"> </span><span class="s2">"team:</span><span class="nv">$team</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a><span class="w">    </span>--file<span class="w"> </span><span class="s2">"</span><span class="nv">$OUTPUT_FILE</span><span class="s2">"</span>
 </span><span id="__span-19-18"><a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a><span class="k">done</span>
 </span></code></pre></div>
 <h2 id="export-to-google-sheets">Export to Google Sheets<a class="headerlink" href="#export-to-google-sheets" title="Permanent link">&para;</a></h2>
@@ -4311,7 +4401,7 @@
 <h3 id="custom-dashboards">Custom Dashboards<a class="headerlink" href="#custom-dashboards" title="Permanent link">&para;</a></h3>
 <p>Use JSON format for direct integration with visualization tools:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1"># Export as JSON for Grafana/Superset/etc.</span>
-</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span>download<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$REPORT_ID</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span>download<span class="w"> </span><span class="s2">"</span><span class="nv">$REPORT_ID</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">  </span>--format<span class="w"> </span>json<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">  </span>--file<span class="w"> </span>costs.json
 </span></code></pre></div>
@@ -4327,8 +4417,8 @@
 </span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="c1"># For longer periods, generate multiple reports</span>
 </span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="k">for</span><span class="w"> </span>month<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">01</span><span class="w"> </span><span class="m">02</span><span class="w"> </span><span class="m">03</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 </span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="w">  </span>redisctl<span class="w"> </span>cloud<span class="w"> </span>cost-report<span class="w"> </span>generate<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="w">    </span>--start-date<span class="w"> </span><span class="s2">&quot;2025-</span><span class="si">${</span><span class="nv">month</span><span class="si">}</span><span class="s2">-01&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="w">    </span>--end-date<span class="w"> </span><span class="s2">&quot;2025-</span><span class="si">${</span><span class="nv">month</span><span class="si">}</span><span class="s2">-28&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="w">    </span>--start-date<span class="w"> </span><span class="s2">"2025-</span><span class="si">${</span><span class="nv">month</span><span class="si">}</span><span class="s2">-01"</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="w">    </span>--end-date<span class="w"> </span><span class="s2">"2025-</span><span class="si">${</span><span class="nv">month</span><span class="si">}</span><span class="s2">-28"</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="w">    </span>--wait
 </span><span id="__span-23-13"><a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="k">done</span>
 </span></code></pre></div>

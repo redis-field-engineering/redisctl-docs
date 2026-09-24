@@ -1073,6 +1073,8 @@
       
         
       
+        
+      
     
     
     
@@ -1128,6 +1130,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -2439,6 +2469,8 @@
       
         
       
+        
+      
     
     
     
@@ -2501,6 +2533,34 @@
     
   
     Create Your First Database
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cookbook/cloud/quick-database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From Sign-In to REDIS_URL
   
 
     
@@ -2850,6 +2910,8 @@
       
         
       
+        
+      
     
     
     
@@ -3033,6 +3095,34 @@
     
   
     Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/agent-error-codes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Error Codes
   
 
     
@@ -4187,12 +4277,12 @@
 </span></code></pre></div>
 <h4 id="using-json-escape-hatch-for-advanced-options">Using JSON (escape hatch for advanced options)<a class="headerlink" href="#using-json-escape-hatch-for-advanced-options" title="Permanent link">&para;</a></h4>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>connectivity<span class="w"> </span>vpc-peering<span class="w"> </span>create<span class="w"> </span>--subscription<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span>--data<span class="w"> </span><span class="s1">&#39;{</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="s1">    &quot;region&quot;: &quot;us-east-1&quot;,</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="s1">    &quot;awsAccountId&quot;: &quot;123456789012&quot;,</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="s1">    &quot;vpcId&quot;: &quot;vpc-abc123&quot;,</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="s1">    &quot;vpcCidr&quot;: &quot;10.0.0.0/16&quot;</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="s1">  }&#39;</span><span class="w"> </span>--wait
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span>--data<span class="w"> </span><span class="s1">'{</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="s1">    "region": "us-east-1",</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="s1">    "awsAccountId": "123456789012",</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="s1">    "vpcId": "vpc-abc123",</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="s1">    "vpcCidr": "10.0.0.0/16"</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="s1">  }'</span><span class="w"> </span>--wait
 </span></code></pre></div>
 <h3 id="update-peering">Update Peering<a class="headerlink" href="#update-peering" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Update CIDR blocks</span>
@@ -4216,7 +4306,7 @@
 </span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
 </span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="c1"># Using JSON</span>
 </span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>connectivity<span class="w"> </span>privatelink<span class="w"> </span>create<span class="w"> </span>--subscription<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">  </span>--data<span class="w"> </span><span class="s1">&#39;{&quot;shareName&quot;: &quot;my-privatelink-share&quot;}&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">  </span>--data<span class="w"> </span><span class="s1">'{"shareName": "my-privatelink-share"}'</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">  </span>--wait
 </span></code></pre></div>
 <h3 id="add-principal-allow-aws-account">Add Principal (Allow AWS Account)<a class="headerlink" href="#add-principal-allow-aws-account" title="Permanent link">&para;</a></h3>
@@ -4228,7 +4318,7 @@
 </span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
 </span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1"># Using JSON</span>
 </span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>connectivity<span class="w"> </span>privatelink<span class="w"> </span>add-principal<span class="w"> </span>--subscription<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">  </span>--data<span class="w"> </span><span class="s1">&#39;{&quot;principal&quot;: &quot;123456789012&quot;, &quot;principalType&quot;: &quot;aws_account&quot;}&#39;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">  </span>--data<span class="w"> </span><span class="s1">'{"principal": "123456789012", "principalType": "aws_account"}'</span><span class="w"> </span><span class="se">\</span>
 </span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">  </span>--wait
 </span></code></pre></div>
 <h3 id="remove-principal">Remove Principal<a class="headerlink" href="#remove-principal" title="Permanent link">&para;</a></h3>
@@ -4261,11 +4351,11 @@
 </span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>
 </span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="c1"># Using JSON</span>
 </span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>connectivity<span class="w"> </span>psc<span class="w"> </span>endpoint-create<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">  </span>--data<span class="w"> </span><span class="s1">&#39;{</span>
-</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="s1">    &quot;gcpProjectId&quot;: &quot;my-gcp-project&quot;,</span>
-</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="s1">    &quot;gcpVpcName&quot;: &quot;my-vpc&quot;,</span>
-</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="s1">    &quot;gcpVpcSubnetName&quot;: &quot;my-subnet&quot;</span>
-</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="s1">  }&#39;</span><span class="w"> </span>--wait
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">  </span>--data<span class="w"> </span><span class="s1">'{</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="s1">    "gcpProjectId": "my-gcp-project",</span>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="s1">    "gcpVpcName": "my-vpc",</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="s1">    "gcpVpcSubnetName": "my-subnet"</span>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="s1">  }'</span><span class="w"> </span>--wait
 </span></code></pre></div>
 <h3 id="update-psc-endpoint">Update PSC Endpoint<a class="headerlink" href="#update-psc-endpoint" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>connectivity<span class="w"> </span>psc<span class="w"> </span>endpoint-update<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="se">\</span>
@@ -4320,11 +4410,11 @@
 </span></code></pre></div>
 <h2 id="common-patterns">Common Patterns<a class="headerlink" href="#common-patterns" title="Permanent link">&para;</a></h2>
 <h3 id="check-peering-status">Check Peering Status<a class="headerlink" href="#check-peering-status" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>connectivity<span class="w"> </span>vpc-peering<span class="w"> </span>get<span class="w"> </span>--subscription<span class="w"> </span><span class="m">123456</span><span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;[].{</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>connectivity<span class="w"> </span>vpc-peering<span class="w"> </span>get<span class="w"> </span>--subscription<span class="w"> </span><span class="m">123456</span><span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">'[].{</span>
 </span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="s1">  id: id,</span>
 </span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="s1">  status: status,</span>
 </span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="s1">  vpcId: vpcId</span>
-</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="s1">}&#39;</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="s1">}'</span>
 </span></code></pre></div>
 <h3 id="wait-for-peering-active">Wait for Peering Active<a class="headerlink" href="#wait-for-peering-active" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>connectivity<span class="w"> </span>vpc-peering<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>

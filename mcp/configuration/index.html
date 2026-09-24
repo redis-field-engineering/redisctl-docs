@@ -1068,6 +1068,8 @@
       
         
       
+        
+      
     
     
     
@@ -1122,6 +1124,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud/commands/auth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1987,6 +2017,8 @@
       
         
       
+        
+      
     
     
     
@@ -2049,6 +2081,34 @@
     
   
     Create Your First Database
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbook/cloud/quick-database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From Sign-In to REDIS_URL
   
 
     
@@ -2398,6 +2458,8 @@
       
         
       
+        
+      
     
     
     
@@ -2581,6 +2643,34 @@
     
   
     Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/agent-error-codes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Error Codes
   
 
     
@@ -4058,8 +4148,27 @@
 <td><code>info</code></td>
 <td>Log level</td>
 </tr>
+<tr>
+<td>--</td>
+<td>--</td>
+<td><code>REDISCTL_MCP_OUTPUT_DIRS</code></td>
+<td>working directory</td>
+<td>Directories <code>cloud_quick_database</code> may write credentials into, separated like <code>PATH</code> (<code>:</code> on Unix, <code>;</code> on Windows)</td>
+</tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="admonition-title">Where credentials may be written</p>
+<p><code>cloud_quick_database</code> writes a connection string to a file, so its destination is
+constrained: the name has to be an env file (<code>.env</code>, <code>.env.local</code>, <code>something.env</code>) <strong>and</strong>
+the directory has to be the server's working directory or one named in
+<code>REDISCTL_MCP_OUTPUT_DIRS</code> (separated like <code>PATH</code>, so a Windows drive letter survives). The destination is resolved through symlinks before the check, so
+a link in any part of the path cannot carry the write outside a permitted directory.</p>
+<p>Absolute paths are still accepted — the server's working directory is often not the caller's
+project — which is why the directory list exists. The CLI's
+<code>cloud workflow quick-database</code> is unaffected: it takes its path from whoever is at the
+terminal, not from a model.</p>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">HTTP transport is preview and does not provide built-in authentication</p>
 <p>Keep the default loopback bind unless the server is protected by a trusted
@@ -4108,8 +4217,8 @@ untrusted network.</p>
 <tbody>
 <tr>
 <td><code>cloud</code></td>
-<td><code>subscriptions</code>, <code>account</code>, <code>networking</code>, <code>fixed</code>, <code>raw</code></td>
-<td>148</td>
+<td><code>subscriptions</code>, <code>account</code>, <code>networking</code>, <code>fixed</code>, <code>provisioning</code>, <code>raw</code></td>
+<td>150</td>
 </tr>
 <tr>
 <td><code>enterprise</code></td>
@@ -4158,7 +4267,7 @@ untrusted network.</p>
 </span></code></pre></div>
 <h3 id="bare-overrides-selective-rule">Bare-Overrides-Selective Rule<a class="headerlink" href="#bare-overrides-selective-rule" title="Permanent link">&para;</a></h3>
 <p>If you specify both a bare name and colon-syntax for the same toolset, the bare name wins. For example:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># &quot;cloud&quot; overrides &quot;cloud:subscriptions&quot; -- all Cloud sub-modules are loaded</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># "cloud" overrides "cloud:subscriptions" -- all Cloud sub-modules are loaded</span>
 </span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>--tools<span class="w"> </span>cloud:subscriptions,cloud
 </span></code></pre></div>
 <p>This makes it easy to "upgrade" a selective choice to the full toolset without removing the specific entries.</p>
@@ -4232,48 +4341,48 @@ untrusted network.</p>
 </span></code></pre></div>
 <p>Use the <code>show_policy</code> system tool at runtime to see which policy is active and where it was loaded from.</p>
 <h3 id="full-toml-schema">Full TOML Schema<a class="headerlink" href="#full-toml-schema" title="Permanent link">&para;</a></h3>
-<div class="language-toml highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Global default safety tier: &quot;read-only&quot; (default), &quot;read-write&quot;, or &quot;full&quot;</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;read-write&quot;</span>
+<div class="language-toml highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Global default safety tier: "read-only" (default), "read-write", or "full"</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"read-write"</span>
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># Deny entire categories globally (currently supports &quot;destructive&quot;)</span>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="n">deny_categories</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;destructive&quot;</span><span class="p">]</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="c1"># Deny entire categories globally (currently supports "destructive")</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="n">deny_categories</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"destructive"</span><span class="p">]</span>
 </span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
 </span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1"># Global explicit allow list -- these tools are allowed regardless of tier</span>
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="n">allow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;backup_database&quot;</span><span class="p">]</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="n">allow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"backup_database"</span><span class="p">]</span>
 </span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
 </span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="c1"># Global explicit deny list -- these tools are always blocked (wins over allow)</span>
-</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="n">deny</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;flush_database&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;delete_subscription&quot;</span><span class="p">]</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="n">deny</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"flush_database"</span><span class="p">,</span><span class="w"> </span><span class="s2">"delete_subscription"</span><span class="p">]</span>
 </span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>
 </span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="c1"># Per-toolset overrides</span>
 </span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="k">[cloud]</span>
 </span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w">           </span><span class="c1"># true (default) or false to disable the entire toolset</span>
-</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;read-write&quot;</span><span class="w">      </span><span class="c1"># overrides the global tier for Cloud tools</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"read-write"</span><span class="w">      </span><span class="c1"># overrides the global tier for Cloud tools</span>
 </span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="n">allow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w">               </span><span class="c1"># per-toolset allow list</span>
 </span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="n">deny</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w">                </span><span class="c1"># per-toolset deny list</span>
 </span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>
 </span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="k">[enterprise]</span>
 </span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a><span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;read-only&quot;</span>
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"read-only"</span>
 </span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a>
 </span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a><span class="k">[database]</span>
-</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;read-only&quot;</span>
-</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a><span class="n">allow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;redis_set&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;redis_expire&quot;</span><span class="p">]</span><span class="w">  </span><span class="c1"># allow specific writes despite read-only tier</span>
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"read-only"</span>
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a><span class="n">allow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"redis_set"</span><span class="p">,</span><span class="w"> </span><span class="s2">"redis_expire"</span><span class="p">]</span><span class="w">  </span><span class="c1"># allow specific writes despite read-only tier</span>
 </span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a>
 </span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28" href="#__codelineno-10-28"></a><span class="k">[app]</span>
 </span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29" href="#__codelineno-10-29"></a><span class="c1"># app toolset has no sub-modules; omit to use global defaults</span>
 </span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30" href="#__codelineno-10-30"></a>
 </span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31" href="#__codelineno-10-31"></a><span class="c1"># Tool visibility presets</span>
 </span><span id="__span-10-32"><a id="__codelineno-10-32" name="__codelineno-10-32" href="#__codelineno-10-32"></a><span class="k">[tools]</span>
-</span><span id="__span-10-33"><a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a><span class="n">preset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;all&quot;</span><span class="w">           </span><span class="c1"># &quot;all&quot; (default) or &quot;essentials&quot;</span>
+</span><span id="__span-10-33"><a id="__codelineno-10-33" name="__codelineno-10-33" href="#__codelineno-10-33"></a><span class="n">preset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"all"</span><span class="w">           </span><span class="c1"># "all" (default) or "essentials"</span>
 </span><span id="__span-10-34"><a id="__codelineno-10-34" name="__codelineno-10-34" href="#__codelineno-10-34"></a><span class="n">include</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w">             </span><span class="c1"># add specific tools on top of the preset</span>
 </span><span id="__span-10-35"><a id="__codelineno-10-35" name="__codelineno-10-35" href="#__codelineno-10-35"></a><span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w">             </span><span class="c1"># remove specific tools from the resolved set</span>
 </span><span id="__span-10-36"><a id="__codelineno-10-36" name="__codelineno-10-36" href="#__codelineno-10-36"></a>
 </span><span id="__span-10-37"><a id="__codelineno-10-37" name="__codelineno-10-37" href="#__codelineno-10-37"></a><span class="c1"># Audit logging</span>
 </span><span id="__span-10-38"><a id="__codelineno-10-38" name="__codelineno-10-38" href="#__codelineno-10-38"></a><span class="k">[audit]</span>
 </span><span id="__span-10-39"><a id="__codelineno-10-39" name="__codelineno-10-39" href="#__codelineno-10-39"></a><span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w">          </span><span class="c1"># enable/disable audit logging</span>
-</span><span id="__span-10-40"><a id="__codelineno-10-40" name="__codelineno-10-40" href="#__codelineno-10-40"></a><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;all&quot;</span><span class="w">            </span><span class="c1"># &quot;all&quot;, &quot;denied&quot;, or &quot;mutations&quot;</span>
+</span><span id="__span-10-40"><a id="__codelineno-10-40" name="__codelineno-10-40" href="#__codelineno-10-40"></a><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"all"</span><span class="w">            </span><span class="c1"># "all", "denied", or "mutations"</span>
 </span><span id="__span-10-41"><a id="__codelineno-10-41" name="__codelineno-10-41" href="#__codelineno-10-41"></a><span class="n">include_args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w">     </span><span class="c1"># include tool arguments in log entries</span>
-</span><span id="__span-10-42"><a id="__codelineno-10-42" name="__codelineno-10-42" href="#__codelineno-10-42"></a><span class="n">redact_fields</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;password&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;secret_key&quot;</span><span class="p">]</span><span class="w">  </span><span class="c1"># redact sensitive fields</span>
+</span><span id="__span-10-42"><a id="__codelineno-10-42" name="__codelineno-10-42" href="#__codelineno-10-42"></a><span class="n">redact_fields</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"password"</span><span class="p">,</span><span class="w"> </span><span class="s2">"secret_key"</span><span class="p">]</span><span class="w">  </span><span class="c1"># redact sensitive fields</span>
 </span></code></pre></div>
 <p>All fields are optional. An empty file is equivalent to the default read-only policy.</p>
 <h3 id="evaluation-order">Evaluation Order<a class="headerlink" href="#evaluation-order" title="Permanent link">&para;</a></h3>
@@ -4296,17 +4405,17 @@ untrusted network.</p>
 <h3 id="per-toolset-overrides">Per-Toolset Overrides<a class="headerlink" href="#per-toolset-overrides" title="Permanent link">&para;</a></h3>
 <p>Each toolset (<code>cloud</code>, <code>enterprise</code>, <code>database</code>, <code>app</code>) can have its own policy section that overrides the global settings:</p>
 <div class="language-toml highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Global: read-only</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;read-only&quot;</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"read-only"</span>
 </span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
 </span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># Cloud: allow non-destructive writes</span>
 </span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="k">[cloud]</span>
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;read-write&quot;</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"read-write"</span>
 </span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
 </span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="c1"># Enterprise: stay read-only (inherits global)</span>
 </span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
 </span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="c1"># Database: read-only but allow SET and EXPIRE</span>
 </span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="k">[database]</span>
-</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="n">allow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;redis_set&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;redis_expire&quot;</span><span class="p">]</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="n">allow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"redis_set"</span><span class="p">,</span><span class="w"> </span><span class="s2">"redis_expire"</span><span class="p">]</span>
 </span></code></pre></div>
 <p>You can also disable an entire toolset, preventing its tools from being registered at all:</p>
 <div class="language-toml highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">[enterprise]</span>
@@ -4328,16 +4437,16 @@ untrusted network.</p>
 </ul>
 <p>These are powerful but potentially dangerous. By default (when no policy file is loaded), all three are denied. When you load a custom policy file, raw tools follow normal tier/allow/deny rules -- they are not auto-denied.</p>
 <p>To explicitly enable raw tools in a policy file:</p>
-<div class="language-toml highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;full&quot;</span>
+<div class="language-toml highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"full"</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="c1"># raw tools are allowed because tier is full and deny list is empty</span>
 </span></code></pre></div>
 <p>To enable raw tools selectively:</p>
-<div class="language-toml highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;read-only&quot;</span>
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">allow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;redis_command&quot;</span><span class="p">]</span><span class="w">  </span><span class="c1"># allow redis_command despite read-only tier</span>
+<div class="language-toml highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"read-only"</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">allow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"redis_command"</span><span class="p">]</span><span class="w">  </span><span class="c1"># allow redis_command despite read-only tier</span>
 </span></code></pre></div>
 <p>To keep raw tools denied in a custom policy:</p>
-<div class="language-toml highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;full&quot;</span>
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">deny</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;cloud_raw_api&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;enterprise_raw_api&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;redis_command&quot;</span><span class="p">]</span>
+<div class="language-toml highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"full"</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">deny</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"cloud_raw_api"</span><span class="p">,</span><span class="w"> </span><span class="s2">"enterprise_raw_api"</span><span class="p">,</span><span class="w"> </span><span class="s2">"redis_command"</span><span class="p">]</span>
 </span></code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -4366,9 +4475,9 @@ untrusted network.</p>
 </table>
 <p>Configure presets in the policy file:</p>
 <div class="language-toml highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">[tools]</span>
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">preset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;essentials&quot;</span>
-</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="n">include</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;enterprise_raw_api&quot;</span><span class="p">]</span><span class="w">  </span><span class="c1"># add tools on top of the preset</span>
-</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;flush_database&quot;</span><span class="p">]</span><span class="w">      </span><span class="c1"># remove tools from the resolved set</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">preset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"essentials"</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="n">include</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"enterprise_raw_api"</span><span class="p">]</span><span class="w">  </span><span class="c1"># add tools on top of the preset</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"flush_database"</span><span class="p">]</span><span class="w">      </span><span class="c1"># remove tools from the resolved set</span>
 </span></code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -4382,42 +4491,42 @@ untrusted network.</p>
 <h3 id="development-environment-with-writes">Development environment with writes<a class="headerlink" href="#development-environment-with-writes" title="Permanent link">&para;</a></h3>
 <p>Allow creates and updates, but block destructive operations:</p>
 <div class="language-toml highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># ~/.config/redisctl/mcp-policy.toml</span>
-</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;read-write&quot;</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"read-write"</span>
 </span></code></pre></div>
 <h3 id="production-monitoring">Production monitoring<a class="headerlink" href="#production-monitoring" title="Permanent link">&para;</a></h3>
 <p>Read-only with only Cloud and Enterprise, no database tools:</p>
-<div class="language-toml highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;read-only&quot;</span>
+<div class="language-toml highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"read-only"</span>
 </span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
 </span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="k">[database]</span>
 </span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span>
 </span></code></pre></div>
 <h3 id="cicd-automation">CI/CD automation<a class="headerlink" href="#cicd-automation" title="Permanent link">&para;</a></h3>
 <p>Full access with audit logging enabled:</p>
-<div class="language-toml highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;full&quot;</span>
+<div class="language-toml highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"full"</span>
 </span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
 </span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="k">[audit]</span>
 </span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;mutations&quot;</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"mutations"</span>
 </span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="n">include_args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="n">redact_fields</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;password&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;secret_key&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;api_key&quot;</span><span class="p">]</span>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="n">redact_fields</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"password"</span><span class="p">,</span><span class="w"> </span><span class="s2">"secret_key"</span><span class="p">,</span><span class="w"> </span><span class="s2">"api_key"</span><span class="p">]</span>
 </span></code></pre></div>
 <h3 id="locked-down-shared-environment">Locked-down shared environment<a class="headerlink" href="#locked-down-shared-environment" title="Permanent link">&para;</a></h3>
 <p>Read-only globally, allow specific Cloud writes, deny all destructive operations:</p>
-<div class="language-toml highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;read-only&quot;</span>
-</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="n">deny_categories</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;destructive&quot;</span><span class="p">]</span>
+<div class="language-toml highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"read-only"</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="n">deny_categories</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"destructive"</span><span class="p">]</span>
 </span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>
 </span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="k">[cloud]</span>
-</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;read-write&quot;</span>
-</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="n">deny</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;delete_subscription&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;delete_database&quot;</span><span class="p">]</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"read-write"</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="n">deny</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"delete_subscription"</span><span class="p">,</span><span class="w"> </span><span class="s2">"delete_database"</span><span class="p">]</span>
 </span></code></pre></div>
 <h3 id="minimal-tool-surface">Minimal tool surface<a class="headerlink" href="#minimal-tool-surface" title="Permanent link">&para;</a></h3>
 <p>Essentials preset with a few additions:</p>
-<div class="language-toml highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;read-write&quot;</span>
+<div class="language-toml highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"read-write"</span>
 </span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
 </span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="k">[tools]</span>
-</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="n">preset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;essentials&quot;</span>
-</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="n">include</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;get_enterprise_crdb&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;list_enterprise_crdb&quot;</span><span class="p">]</span>
-</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;flush_database&quot;</span><span class="p">]</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="n">preset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"essentials"</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="n">include</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"get_enterprise_crdb"</span><span class="p">,</span><span class="w"> </span><span class="s2">"list_enterprise_crdb"</span><span class="p">]</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"flush_database"</span><span class="p">]</span>
 </span></code></pre></div>
 <h2 id="choosing-the-right-approach">Choosing the Right Approach<a class="headerlink" href="#choosing-the-right-approach" title="Permanent link">&para;</a></h2>
 <table>

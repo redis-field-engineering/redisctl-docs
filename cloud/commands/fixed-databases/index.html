@@ -1073,6 +1073,8 @@
       
         
       
+        
+      
     
     
     
@@ -1128,6 +1130,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../auth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -2324,6 +2354,8 @@
       
         
       
+        
+      
     
     
     
@@ -2386,6 +2418,34 @@
     
   
     Create Your First Database
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cookbook/cloud/quick-database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From Sign-In to REDIS_URL
   
 
     
@@ -2735,6 +2795,8 @@
       
         
       
+        
+      
     
     
     
@@ -2918,6 +2980,34 @@
     
   
     Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/agent-error-codes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Error Codes
   
 
     
@@ -3985,10 +4075,10 @@
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>list<span class="w"> </span>--subscription<span class="w"> </span><span class="m">123456</span><span class="w"> </span>-o<span class="w"> </span>json
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Just names and endpoints</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>list<span class="w"> </span>--subscription<span class="w"> </span><span class="m">123456</span><span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;[].{</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>list<span class="w"> </span>--subscription<span class="w"> </span><span class="m">123456</span><span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">'[].{</span>
 </span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="s1">  name: name,</span>
 </span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="s1">  endpoint: publicEndpoint</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="s1">}&#39;</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="s1">}'</span>
 </span></code></pre></div>
 <h2 id="get-database-details">Get Database Details<a class="headerlink" href="#get-database-details" title="Permanent link">&para;</a></h2>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>get<span class="w"> </span>&lt;subscription-id&gt;:&lt;database-id&gt;
@@ -3998,10 +4088,10 @@
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>get<span class="w"> </span><span class="m">123456</span>:789
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Connection info</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>get<span class="w"> </span><span class="m">123456</span>:789<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;{</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>get<span class="w"> </span><span class="m">123456</span>:789<span class="w"> </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">'{</span>
 </span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="s1">  endpoint: publicEndpoint,</span>
 </span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="s1">  password: security.password</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="s1">}&#39;</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="s1">}'</span>
 </span></code></pre></div>
 <h2 id="create-database">Create Database<a class="headerlink" href="#create-database" title="Permanent link">&para;</a></h2>
 <p>Create a database with first-class parameters for common options.</p>
@@ -4074,7 +4164,7 @@
 </span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
 </span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="c1"># Advanced: Use JSON for full control</span>
 </span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>create<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">  </span>--data<span class="w"> </span><span class="s1">&#39;{&quot;name&quot;: &quot;mydb&quot;, &quot;memoryLimitInGb&quot;: 1}&#39;</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">  </span>--data<span class="w"> </span><span class="s1">'{"name": "mydb", "memoryLimitInGb": 1}'</span>
 </span></code></pre></div>
 <h2 id="update-database">Update Database<a class="headerlink" href="#update-database" title="Permanent link">&para;</a></h2>
 <p>Update database configuration using first-class parameters.</p>
@@ -4264,7 +4354,7 @@
 </span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
 </span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="c1"># Use JSON for complex tag values</span>
 </span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>update-tags<span class="w"> </span><span class="m">123456</span>:789<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">  </span>--data<span class="w"> </span><span class="s1">&#39;[{&quot;key&quot;: &quot;env&quot;, &quot;value&quot;: &quot;prod&quot;}, {&quot;key&quot;: &quot;team&quot;, &quot;value&quot;: &quot;backend&quot;}]&#39;</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">  </span>--data<span class="w"> </span><span class="s1">'[{"key": "env", "value": "prod"}, {"key": "team", "value": "backend"}]'</span>
 </span></code></pre></div>
 <h3 id="delete-tag">Delete Tag<a class="headerlink" href="#delete-tag" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>fixed-database<span class="w"> </span>delete-tag<span class="w"> </span>&lt;subscription-id&gt;:&lt;database-id&gt;<span class="w"> </span>--key<span class="w"> </span>env

@@ -1071,6 +1071,8 @@
       
         
       
+        
+      
     
     
     
@@ -1128,6 +1130,34 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commands/auth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -1453,6 +1483,56 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Database
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Database">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#options_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database Credentials
+      
+    </span>
+  </a>
   
 </li>
       
@@ -2112,6 +2192,8 @@
       
         
       
+        
+      
     
     
     
@@ -2174,6 +2256,34 @@
     
   
     Create Your First Database
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cookbook/cloud/quick-database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    From Sign-In to REDIS_URL
   
 
     
@@ -2523,6 +2633,8 @@
       
         
       
+        
+      
     
     
     
@@ -2706,6 +2818,34 @@
     
   
     Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/agent-error-codes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent Error Codes
   
 
     
@@ -3438,6 +3578,56 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#quick-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Database
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Database">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#options_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database Credentials
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#when-to-use-workflows" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3552,6 +3742,131 @@
 </tr>
 </tbody>
 </table>
+<h2 id="quick-database">Quick Database<a class="headerlink" href="#quick-database" title="Permanent link">&para;</a></h2>
+<p>Go from nothing to a running <strong>free</strong> database with one command. <code>quick-database</code> creates (or
+reuses) a free Essentials subscription and database, waits for it to be ready, and writes the
+connection string to a file:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>workflow<span class="w"> </span>quick-database<span class="w"> </span>--name<span class="w"> </span>my-app
+</span></code></pre></div>
+<p>It is <strong>idempotent by name</strong>: re-running with the same <code>--name</code> returns the existing database
+instead of creating another, and it resumes a half-finished previous run. Requires an
+authenticated profile — see <a href="../commands/auth/"><code>cloud auth login</code></a>.</p>
+<h3 id="options_1">Options<a class="headerlink" href="#options_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--name</code></td>
+<td><em>(required)</em></td>
+<td>Database name; also names the subscription (prefixed <code>redisctl-</code>). Must match <code>^[a-z][a-z0-9-]{1,38}[a-z0-9]$</code>.</td>
+</tr>
+<tr>
+<td><code>--output-credentials</code></td>
+<td><code>./.env</code></td>
+<td>File to write the connection string into (created if missing; managed keys updated in place, other lines preserved).</td>
+</tr>
+<tr>
+<td><code>--variable</code></td>
+<td><code>REDIS_URL</code></td>
+<td>Environment-variable name for the primary URL. Broken-out fields derive their prefix from it.</td>
+</tr>
+<tr>
+<td><code>--wait-timeout</code></td>
+<td><code>600</code></td>
+<td>Max seconds to wait for each async operation.</td>
+</tr>
+<tr>
+<td><code>--wait-interval</code></td>
+<td><code>5</code></td>
+<td>Polling interval in seconds.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="output">Output<a class="headerlink" href="#output" title="Permanent link">&para;</a></h3>
+<p>The connection string and password are written <strong>only to the file</strong> — never to stdout. In
+<code>-o json</code> / <code>-o yaml</code> mode the command prints a non-secret report:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">,</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">"database"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9001"</span><span class="p">,</span><span class="w"> </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-app"</span><span class="p">,</span><span class="w"> </span><span class="nt">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"us-east-1"</span><span class="p">,</span><span class="w"> </span><span class="nt">"plan"</span><span class="p">:</span><span class="w"> </span><span class="s2">"free"</span><span class="p">,</span><span class="w"> </span><span class="nt">"tls"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">"credentials_written_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"./.env"</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="nt">"credentials_variable"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REDIS_URL"</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><code>status</code> is <code>ok</code> when a database was provisioned (or a half-finished run resumed) and <code>reused</code>
+when one with that name already existed. The file receives the URL plus broken-out fields:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>REDIS_URL=redis://default:••••••@host.example.com:12000
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>REDIS_HOST=host.example.com
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>REDIS_PORT=12000
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>REDIS_PASSWORD=••••••
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>REDIS_USERNAME=default
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>REDIS_TLS=false
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Free databases are not encrypted, and are reachable from anywhere</p>
+<p>Essentials free plans report <code>supportSsl: false</code>, so TLS cannot be enabled on them — the
+connection string is <code>redis://</code>, not <code>rediss://</code>, and traffic is unencrypted. The database is
+also created with <code>sourceIps: ["0.0.0.0/0"]</code>, so it accepts connections from any address, with
+the password as the only protection. Fine for a local prototype; move to a paid plan for
+anything else.</p>
+</div>
+<p>It is created <code>0600</code> (unix) and auto-added to <code>.gitignore</code> inside a git repo. On failure the
+command emits a machine-branchable envelope and a mapped exit code — see
+<a href="../../reference/agent-error-codes/">Agent Error Codes</a>.</p>
+<h2 id="database-credentials">Database Credentials<a class="headerlink" href="#database-credentials" title="Permanent link">&para;</a></h2>
+<p>Export an <strong>existing</strong> database's connection string to a file, without provisioning anything:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>workflow<span class="w"> </span>database-credentials<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span>--subscription-id<span class="w"> </span><span class="m">123456</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span>--database-id<span class="w"> </span><span class="m">67890</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--subscription-id</code></td>
+<td><em>(required)</em></td>
+<td>Subscription id of the existing database.</td>
+</tr>
+<tr>
+<td><code>--database-id</code></td>
+<td><em>(required)</em></td>
+<td>Database id within that subscription.</td>
+</tr>
+<tr>
+<td><code>--output-credentials</code></td>
+<td><code>./.env</code></td>
+<td>File to write the connection string into.</td>
+</tr>
+<tr>
+<td><code>--variable</code></td>
+<td><code>REDIS_URL</code></td>
+<td>Environment-variable name for the primary URL.</td>
+</tr>
+<tr>
+<td><code>--wait-timeout</code></td>
+<td><code>600</code></td>
+<td>Max seconds to wait for the endpoint to be readable.</td>
+</tr>
+<tr>
+<td><code>--wait-interval</code></td>
+<td><code>5</code></td>
+<td>Polling interval in seconds.</td>
+</tr>
+</tbody>
+</table>
+<p>Output matches <code>quick-database</code> (same file format and JSON report, with <code>status: existing</code>), and
+the same secret-safety applies: credentials go to the file, never to stdout.</p>
 <h2 id="when-to-use-workflows">When to Use Workflows<a class="headerlink" href="#when-to-use-workflows" title="Permanent link">&para;</a></h2>
 <p><strong>Use workflows when:</strong>
 - Setting up new environments
@@ -3568,32 +3883,35 @@
 - VPC peering setup</p>
 <h2 id="manual-multi-step-operations">Manual Multi-Step Operations<a class="headerlink" href="#manual-multi-step-operations" title="Permanent link">&para;</a></h2>
 <p>For complex scenarios not covered by workflows:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="ch">#!/bin/bash</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">set</span><span class="w"> </span>-e
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Step 1: Create subscription</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nv">SUB_ID</span><span class="o">=</span><span class="k">$(</span>redisctl<span class="w"> </span>cloud<span class="w"> </span>subscription<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span>--name<span class="w"> </span>production<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span>--cloud-provider<span class="w"> </span>AWS<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span>--region<span class="w"> </span>us-east-1<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span>--wait<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;id&#39;</span><span class="k">)</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Subscription created: </span><span class="nv">$SUB_ID</span><span class="s2">&quot;</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="c1"># Step 2: Create database</span>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>database<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">  </span>--subscription-id<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SUB_ID</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">  </span>--name<span class="w"> </span>cache<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">  </span>--memory-limit-in-gb<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">  </span>--wait
-</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>
-</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="c1"># Step 3: Get connection info</span>
-</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>database<span class="w"> </span>list<span class="w"> </span>--subscription-id<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$SUB_ID</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">  </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">&#39;[0].{endpoint: publicEndpoint}&#39;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">set</span><span class="w"> </span>-e
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Step 1: Create subscription</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="nv">SUB_ID</span><span class="o">=</span><span class="k">$(</span>redisctl<span class="w"> </span>cloud<span class="w"> </span>subscription<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span>--name<span class="w"> </span>production<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span>--cloud-provider<span class="w"> </span>AWS<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span>--region<span class="w"> </span>us-east-1<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span>--wait<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">'id'</span><span class="k">)</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Subscription created: </span><span class="nv">$SUB_ID</span><span class="s2">"</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="c1"># Step 2: Create database</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>database<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">  </span>--subscription-id<span class="w"> </span><span class="s2">"</span><span class="nv">$SUB_ID</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">  </span>--name<span class="w"> </span>cache<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">  </span>--memory-limit-in-gb<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">  </span>--wait
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="c1"># Step 3: Get connection info</span>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>database<span class="w"> </span>list<span class="w"> </span>--subscription-id<span class="w"> </span><span class="s2">"</span><span class="nv">$SUB_ID</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">  </span>-o<span class="w"> </span>json<span class="w"> </span>-q<span class="w"> </span><span class="s1">'[0].{endpoint: publicEndpoint}'</span>
 </span></code></pre></div>
 <h2 id="related">Related<a class="headerlink" href="#related" title="Permanent link">&para;</a></h2>
 <ul>
+<li><a href="../commands/auth/">Authentication commands</a> — sign in before <code>quick-database</code></li>
+<li><a href="../../reference/agent-error-codes/">Agent Error Codes</a> — the machine-branchable failure contract</li>
+<li><a href="../../cookbook/cloud/quick-database/">From sign-in to REDIS_URL</a> — the full agent walkthrough</li>
 <li><a href="../commands/subscriptions/">Subscription Commands</a></li>
 <li><a href="../commands/databases/">Database Commands</a></li>
 <li><a href="../../common/async-operations/">Async Operations</a></li>
