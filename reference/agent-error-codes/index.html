@@ -3662,7 +3662,7 @@ keeps today's <code>0</code> / <code>1</code> exit behavior.</p>
 <td><code>account_required</code></td>
 <td>2</td>
 <td>no</td>
-<td><code>cloud auth switch</code> needs an account id when there is no terminal to choose on. Pass the id.</td>
+<td>An account id is needed and cannot be chosen: <code>cloud auth switch</code> with no terminal to ask on, or a <code>cloud auth login</code> whose sign-in does not report which of several accounts is current. Pass the id with <code>--account</code>; a completed login lists the accounts you belong to in its <code>accounts</code> field.</td>
 </tr>
 <tr>
 <td><code>unknown_account</code></td>

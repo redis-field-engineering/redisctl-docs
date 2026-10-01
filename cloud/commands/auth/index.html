@@ -3952,7 +3952,9 @@ never have to look an account id up:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>redisctl<span class="w"> </span>cloud<span class="w"> </span>auth<span class="w"> </span>login<span class="w"> </span>--account<span class="w"> </span><span class="m">316941</span>
 </span></code></pre></div>
 <p>Naming an account you don't belong to exits <code>2</code> with <code>unknown_account</code>, and the message lists the
-ones you do have. You also need a role that can create API keys on whichever account you
+ones you do have. In the other direction, if the sign-in does not report which of several accounts
+is current, <code>login</code> asks which one on a terminal; with nowhere to ask it exits <code>2</code> with
+<code>account_required</code> and mints nothing rather than choosing one — pass <code>--account &lt;id&gt;</code>. You also need a role that can create API keys on whichever account you
 pick — your role on one account says nothing about your role on another, so <code>--account</code> can exit
 <code>2</code> with <code>insufficient_permission</code> even when a plain <code>login</code> succeeds. Keeping one profile per account works well:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>redisctl<span class="w"> </span>--profile<span class="w"> </span>acme<span class="w">    </span>cloud<span class="w"> </span>auth<span class="w"> </span>login<span class="w"> </span>--account<span class="w"> </span><span class="m">316941</span>
