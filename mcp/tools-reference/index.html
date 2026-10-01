@@ -5067,7 +5067,7 @@ free database without a subscription of its own.</p>
 </tr>
 <tr>
 <td><code>redis_alias_run</code></td>
-<td>Execute a saved alias</td>
+<td>Execute a saved alias <em>(destructive)</em></td>
 </tr>
 <tr>
 <td><code>redis_alias_delete</code></td>
@@ -5075,6 +5075,10 @@ free database without a subscription of its own.</p>
 </tr>
 </tbody>
 </table>
+<p><code>redis_alias_run</code> is conservatively advertised as destructive (Full by default): an alias may
+contain commands that mutate or delete data. Commands are classified again before every run.
+Destructive or unknown commands require Full policy, while blocked connection-state, blocking,
+and administrative variants cannot run at any policy tier.</p>
 <h3 id="databasebulk-2-tools"><code>database:bulk</code> (2 tools)<a class="headerlink" href="#databasebulk-2-tools" title="Permanent link">&para;</a></h3>
 <p>Bulk data generation and loading for repeatable prototyping and test workflows.</p>
 <table>
@@ -5087,7 +5091,7 @@ free database without a subscription of its own.</p>
 <tbody>
 <tr>
 <td><code>redis_bulk_load</code></td>
-<td>Execute a bounded batch of Redis commands <em>(write)</em></td>
+<td>Execute a bounded batch of arbitrary Redis commands <em>(destructive)</em></td>
 </tr>
 <tr>
 <td><code>redis_seed</code></td>
@@ -5095,6 +5099,9 @@ free database without a subscription of its own.</p>
 </tr>
 </tbody>
 </table>
+<p><code>redis_bulk_load</code> is conservatively advertised as destructive (Full by default) and preflights the
+entire batch before executing its first command. Destructive or unknown commands require Full
+policy, and blocked commands reject the whole batch without applying earlier commands.</p>
 <h3 id="databaseraw-1-tool"><code>database:raw</code> (1 tool)<a class="headerlink" href="#databaseraw-1-tool" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -5110,6 +5117,9 @@ free database without a subscription of its own.</p>
 </tr>
 </tbody>
 </table>
+<p>The raw, bulk, and alias command surfaces share one command classifier. See
+<a href="../configuration/#raw-api-and-arbitrary-command-tools">Raw API and arbitrary-command tools</a> for
+classification and blocking rules.</p>
 <h2 id="app-toolset-8-tools">App Toolset (8 tools)<a class="headerlink" href="#app-toolset-8-tools" title="Permanent link">&para;</a></h2>
 <p>Profile and configuration management tools. Always compiled in; no sub-modules.</p>
 <table>

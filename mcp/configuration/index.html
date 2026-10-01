@@ -3069,10 +3069,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#raw-api-tools" class="md-nav__link">
+  <a href="#raw-api-and-arbitrary-command-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Raw API Tools
+        Raw API and arbitrary-command tools
       
     </span>
   </a>
@@ -3879,10 +3879,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#raw-api-tools" class="md-nav__link">
+  <a href="#raw-api-and-arbitrary-command-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Raw API Tools
+        Raw API and arbitrary-command tools
       
     </span>
   </a>
@@ -4380,7 +4380,7 @@ untrusted network.</p>
 </span><span id="__span-10-37"><a id="__codelineno-10-37" name="__codelineno-10-37" href="#__codelineno-10-37"></a><span class="c1"># Audit logging</span>
 </span><span id="__span-10-38"><a id="__codelineno-10-38" name="__codelineno-10-38" href="#__codelineno-10-38"></a><span class="k">[audit]</span>
 </span><span id="__span-10-39"><a id="__codelineno-10-39" name="__codelineno-10-39" href="#__codelineno-10-39"></a><span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w">          </span><span class="c1"># enable/disable audit logging</span>
-</span><span id="__span-10-40"><a id="__codelineno-10-40" name="__codelineno-10-40" href="#__codelineno-10-40"></a><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"all"</span><span class="w">            </span><span class="c1"># "all", "denied", or "mutations"</span>
+</span><span id="__span-10-40"><a id="__codelineno-10-40" name="__codelineno-10-40" href="#__codelineno-10-40"></a><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"all"</span><span class="w">            </span><span class="c1"># "all", "writes", "destructive", or "denied"</span>
 </span><span id="__span-10-41"><a id="__codelineno-10-41" name="__codelineno-10-41" href="#__codelineno-10-41"></a><span class="n">include_args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w">     </span><span class="c1"># include tool arguments in log entries</span>
 </span><span id="__span-10-42"><a id="__codelineno-10-42" name="__codelineno-10-42" href="#__codelineno-10-42"></a><span class="n">redact_fields</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"password"</span><span class="p">,</span><span class="w"> </span><span class="s2">"secret_key"</span><span class="p">]</span><span class="w">  </span><span class="c1"># redact sensitive fields</span>
 </span></code></pre></div>
@@ -4428,7 +4428,7 @@ untrusted network.</p>
 <p class="admonition-title">Note</p>
 <p><code>enabled = false</code> prevents tools from being registered with the MCP router. This is different from deny lists, which register the tool but block invocation. Disabled toolsets save memory and reduce tool discovery noise.</p>
 </div>
-<h3 id="raw-api-tools">Raw API Tools<a class="headerlink" href="#raw-api-tools" title="Permanent link">&para;</a></h3>
+<h3 id="raw-api-and-arbitrary-command-tools">Raw API and arbitrary-command tools<a class="headerlink" href="#raw-api-and-arbitrary-command-tools" title="Permanent link">&para;</a></h3>
 <p>Three "raw" passthrough tools provide direct API/command access:</p>
 <ul>
 <li><code>cloud_raw_api</code> -- arbitrary Redis Cloud API calls</li>
@@ -4436,13 +4436,46 @@ untrusted network.</p>
 <li><code>redis_command</code> -- arbitrary Redis commands</li>
 </ul>
 <p>These are powerful but potentially dangerous. By default (when no policy file is loaded), all three are denied. When you load a custom policy file, raw tools follow normal tier/allow/deny rules -- they are not auto-denied.</p>
+<p>Three additional database tools accept or replay caller-supplied Redis commands:</p>
+<ul>
+<li><code>redis_bulk_load</code> -- executes an arbitrary batch after preflighting the entire batch</li>
+<li><code>redis_alias_set</code> -- validates and stores an arbitrary command sequence</li>
+<li><code>redis_alias_run</code> -- revalidates and executes a stored command sequence</li>
+</ul>
+<p>All four Redis command surfaces (<code>redis_command</code>, bulk loading, alias creation, and alias execution)
+use the same command normalizer and safety classifier. <code>redis_command</code>, <code>redis_bulk_load</code>, and
+<code>redis_alias_run</code> are conservatively advertised as destructive and therefore require Full policy
+for discovery by default. <code>redis_alias_set</code> is advertised as a write because it only stores the
+sequence. Commands the classifier does not recognize are treated as destructive.</p>
+<p>An explicit allow can expose an arbitrary-command tool below its advertised tier, but it does not
+raise the runtime safety ceiling. For example, an allowed raw-command tool under Read-only may run
+a classified read, while a write still requires Read-write and a destructive or unknown command
+still requires Full. An allow for bulk or alias execution grants its base write behavior, but
+dynamically destructive or unknown commands still require the effective Full tier. Deny rules and
+the <code>destructive</code> category deny retain their documented precedence.</p>
+<p>Some commands are blocked at every policy tier because they can change shared connection state,
+pin a pooled connection, alter server process or replication state, or bypass the normal safety
+model. These include:</p>
+<ul>
+<li>connection and session changes such as <code>AUTH</code>, <code>HELLO</code>, <code>SELECT</code>, transactions, watches,
+  subscriptions, and read-mode changes;</li>
+<li>blocking operations such as the blocking list and sorted-set families, <code>WAIT</code>, <code>WAITAOF</code>, and
+  <code>XREAD</code> or <code>XREADGROUP</code> when used with <code>BLOCK</code>;</li>
+<li>process, persistence, replication, failover, and flush commands such as <code>SHUTDOWN</code>, <code>DEBUG</code>,
+  <code>SAVE</code>, <code>BGSAVE</code>, <code>BGREWRITEAOF</code>, <code>REPLICAOF</code>, <code>FAILOVER</code>, <code>FLUSHDB</code>, and <code>FLUSHALL</code>; and</li>
+<li>unsafe administrative variants in the <code>CONFIG</code>, <code>ACL</code>, <code>CLIENT</code>, <code>CLUSTER</code>, and <code>MODULE</code>
+  families, plus <code>SCRIPT DEBUG</code>.</li>
+</ul>
+<p>Read-only administrative variants such as <code>CONFIG GET</code>, <code>ACL WHOAMI</code>, <code>CLIENT INFO</code>, and
+<code>MODULE LIST</code> remain available. Prefer dedicated MCP tools when one exists: their fixed behavior
+and static safety annotations allow narrower policies than an arbitrary-command surface.</p>
 <p>To explicitly enable raw tools in a policy file:</p>
 <div class="language-toml highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"full"</span>
 </span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="c1"># raw tools are allowed because tier is full and deny list is empty</span>
 </span></code></pre></div>
 <p>To enable raw tools selectively:</p>
 <div class="language-toml highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"read-only"</span>
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">allow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"redis_command"</span><span class="p">]</span><span class="w">  </span><span class="c1"># allow redis_command despite read-only tier</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">allow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"redis_command"</span><span class="p">]</span><span class="w">  </span><span class="c1"># expose it, while runtime classification still limits it to reads</span>
 </span></code></pre></div>
 <p>To keep raw tools denied in a custom policy:</p>
 <div class="language-toml highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">tier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"full"</span>
@@ -4450,7 +4483,9 @@ untrusted network.</p>
 </span></code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>The <code>redis_command</code> tool has its own built-in blocklist that prevents dangerous commands like <code>SHUTDOWN</code>, <code>DEBUG</code>, <code>CLUSTER FAILOVER</code>, and others regardless of policy tier. This provides defense-in-depth even at full tier.</p>
+<p>The shared classifier is applied before any raw command, bulk batch, or alias sequence runs.
+Alias commands are checked both when stored and when replayed, so a blocked command cannot be
+smuggled through a previously created alias.</p>
 </div>
 <h2 id="presets">Presets<a class="headerlink" href="#presets" title="Permanent link">&para;</a></h2>
 <p>Presets control tool <strong>visibility</strong> -- which tools are presented to the AI model. This is independent of <code>--tools</code> (which controls what is <em>loaded</em>) and safety tiers (which control what is <em>permitted</em>).</p>
@@ -4506,7 +4541,7 @@ untrusted network.</p>
 </span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
 </span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="k">[audit]</span>
 </span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"mutations"</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"writes"</span>
 </span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="n">include_args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 </span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="n">redact_fields</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"password"</span><span class="p">,</span><span class="w"> </span><span class="s2">"secret_key"</span><span class="p">,</span><span class="w"> </span><span class="s2">"api_key"</span><span class="p">]</span>
 </span></code></pre></div>

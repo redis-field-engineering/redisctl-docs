@@ -3896,7 +3896,7 @@ and TLS.</p>
 <p>The evaluation flow:</p>
 <ol>
 <li><strong>Registration-time filtering</strong> -- tools outside the active tier are hidden from the AI (not registered with the router)</li>
-<li><strong>Runtime guards</strong> -- write and destructive tools check the policy tier again inside the handler as defense-in-depth</li>
+<li><strong>Runtime guards</strong> -- generated tools evaluate the same resolved global, toolset, and per-tool policy inside the handler as defense-in-depth</li>
 <li><strong>Allow/deny lists</strong> -- evaluated per the <a href="../configuration/#evaluation-order">policy evaluation order</a></li>
 </ol>
 <h2 id="audit-layer">Audit Layer<a class="headerlink" href="#audit-layer" title="Permanent link">&para;</a></h2>

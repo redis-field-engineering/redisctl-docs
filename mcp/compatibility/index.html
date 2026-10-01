@@ -2966,6 +2966,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Compatibility rules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-exception-arbitrary-redis-command-surfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security exception: arbitrary Redis command surfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3532,6 +3549,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Compatibility rules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-exception-arbitrary-redis-command-surfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security exception: arbitrary Redis command surfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3721,6 +3755,30 @@ becomes part of the catalog contract.</p>
 from entering the stable catalog merely because it compiles. The failure explains the detected
 classification so the pull request can apply the appropriate SemVer, documentation, and migration
 treatment.</p>
+<h3 id="security-exception-arbitrary-redis-command-surfaces">Security exception: arbitrary Redis command surfaces<a class="headerlink" href="#security-exception-arbitrary-redis-command-surfaces" title="Permanent link">&para;</a></h3>
+<p><code>redis_alias_run</code> was previously advertised as read-only and idempotent, and <code>redis_bulk_load</code> as
+non-destructive, even though either tool can execute commands that delete data. Both execution
+surfaces are now conservatively annotated destructive, making Full the minimum tier at which they
+are discovered by default. <code>redis_alias_set</code> remains a write tool because it stores rather than
+executes commands. At invocation time, all three tools classify every contained command and require
+Full policy for destructive or unknown behavior. This is an intentional compatibility restriction:
+leaving the old annotations in place would let the same Redis operation bypass policy simply by
+entering through an alias or bulk batch.</p>
+<p>Clients migrating from the earlier catalog should account for these changes:</p>
+<ul>
+<li>Read-only and Read-write clients no longer discover <code>redis_alias_run</code> or <code>redis_bulk_load</code> by
+  default. An explicit allow may expose one of these surfaces to a narrower policy, but it does not
+  raise the runtime ceiling: dynamically destructive or unrecognized commands still require Full.</li>
+<li><code>redis_alias_set</code> remains available at Read-write for non-destructive commands; destructive or
+  unrecognized commands still require Full before they can be stored.</li>
+<li>Prefer dedicated MCP tools when possible, and avoid a blanket allow for an arbitrary-command
+  surface unless the client should receive that full capability.</li>
+<li>Connection-state changes, blocking commands (including <code>XREAD</code>/<code>XREADGROUP</code> with <code>BLOCK</code>),
+  unsafe administrative variants, and <code>SCRIPT DEBUG</code> are blocked at every tier. Existing aliases
+  containing them must be replaced rather than granted a broader policy.</li>
+</ul>
+<p>This exception makes the catalog more restrictive to close an authorization bypass. It does not
+rename or remove a tool or change its input schema.</p>
 <h2 id="reviewing-an-intentional-catalog-change">Reviewing an intentional catalog change<a class="headerlink" href="#reviewing-an-intentional-catalog-change" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Run the contract test without updating the fixture and inspect its classification:</li>

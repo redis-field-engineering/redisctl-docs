@@ -3756,7 +3756,7 @@
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"all"</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">include_args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">redact_fields</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"password"</span><span class="p">,</span><span class="w"> </span><span class="s2">"api_key"</span><span class="p">,</span><span class="w"> </span><span class="s2">"api_secret"</span><span class="p">,</span><span class="w"> </span><span class="s2">"secret"</span><span class="p">]</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">redact_fields</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">"password"</span><span class="p">,</span><span class="w"> </span><span class="s2">"db_password"</span><span class="p">,</span><span class="w"> </span><span class="s2">"global_password"</span><span class="p">,</span><span class="w"> </span><span class="s2">"api_key"</span><span class="p">,</span><span class="w"> </span><span class="s2">"api_secret"</span><span class="p">,</span><span class="w"> </span><span class="s2">"access_secret_key"</span><span class="p">,</span><span class="w"> </span><span class="s2">"console_password"</span><span class="p">,</span><span class="w"> </span><span class="s2">"bind_pass"</span><span class="p">,</span><span class="w"> </span><span class="s2">"license_key"</span><span class="p">,</span><span class="w"> </span><span class="s2">"secret"</span><span class="p">,</span><span class="w"> </span><span class="s2">"token"</span><span class="p">]</span>
 </span></code></pre></div>
 <h2 id="configuration-reference">Configuration Reference<a class="headerlink" href="#configuration-reference" title="Permanent link">&para;</a></h2>
 <table>
@@ -3790,8 +3790,8 @@
 <tr>
 <td><code>redact_fields</code></td>
 <td>list</td>
-<td><code>["password", "api_key", "api_secret", "secret"]</code></td>
-<td>Field names to redact when <code>include_args</code> is true</td>
+<td>Common password, API credential, key, secret, and token fields</td>
+<td>Additional field names to redact when <code>include_args</code> is true</td>
 </tr>
 </tbody>
 </table>
@@ -3810,18 +3810,22 @@
 </tr>
 <tr>
 <td><code>writes</code></td>
-<td>Non-read-only calls + errors + denied</td>
+<td>Write and destructive calls, including their errors, plus every policy denial</td>
 </tr>
 <tr>
 <td><code>destructive</code></td>
-<td>Destructive calls + errors + denied</td>
+<td>Destructive calls, including their errors, plus every policy denial</td>
 </tr>
 <tr>
 <td><code>denied</code></td>
-<td>Only policy-denied calls and errors</td>
+<td>Only policy-denied calls</td>
 </tr>
 </tbody>
 </table>
+<p>Policy denials are logged at every level. Other tool errors follow the safety
+classification of the tool that was called. The previously documented
+<code>"mutations"</code> value remains accepted as an alias for <code>"writes"</code>, but new
+configuration should use <code>"writes"</code>.</p>
 <p>Choose based on your needs:</p>
 <ul>
 <li><strong>Production monitoring</strong>: <code>"denied"</code> -- catch policy violations without log noise</li>
@@ -3858,7 +3862,7 @@
 </tr>
 <tr>
 <td><code>tool_denied</code></td>
-<td>Tool call was blocked by policy (error code -32007)</td>
+<td>Tool call was blocked by the router or a handler-time policy guard</td>
 </tr>
 <tr>
 <td><code>tool_error</code></td>
@@ -3867,7 +3871,7 @@
 </tbody>
 </table>
 <h3 id="with-arguments">With Arguments<a class="headerlink" href="#with-arguments" title="Permanent link">&para;</a></h3>
-<p>When <code>include_args = true</code>, an <code>arguments</code> field is added containing the tool's input parameters. Sensitive fields listed in <code>redact_fields</code> are replaced with <code>[REDACTED]</code>:</p>
+<p>When <code>include_args = true</code>, an <code>arguments</code> field is added containing the tool's input parameters. Built-in credential fields and the additional fields listed in <code>redact_fields</code> are replaced with <code>[REDACTED]</code>:</p>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tool_invocation"</span><span class="p">,</span>
@@ -3879,7 +3883,13 @@
 </span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Redaction is recursive -- fields are redacted at any depth in the JSON structure.</p>
+<p>Redaction is recursive and matches common credential-field spellings across
+snake_case, kebab-case, and camelCase. Redis credentials embedded in
+<code>redis://</code>, <code>rediss://</code>, <code>redis+unix://</code>, and <code>unix://</code> URLs are always
+sanitized. The arbitrary-command tools retain the command name for diagnosis
+but always redact every positional operand, since Redis command arguments can
+carry credentials or application secrets. These mandatory protections cannot
+be disabled by changing <code>redact_fields</code>.</p>
 <h2 id="routing-audit-logs">Routing Audit Logs<a class="headerlink" href="#routing-audit-logs" title="Permanent link">&para;</a></h2>
 <p>Audit events use <code>target: "audit"</code> so you can route them separately from application logs using <code>RUST_LOG</code> filtering:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># All logs at info, audit at debug</span>
