@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://redis-field-engineering.github.io/redisctl-docs/developer/contributing/">
+        <link rel="canonical" href="https://redis-field-engineering.github.io/redisctl-docs/mcp/database-migration/">
       
       
-        <link rel="prev" href="../python/">
+        <link rel="prev" href="../compatibility/">
       
       
-        <link rel="next" href="../../presentation/">
+        <link rel="next" href="../database-quickstart/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Contributing - redisctl</title>
+        <title>Database Migration Design - redisctl</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#contributing" class="md-skip">
+        <a href="#database-mcp-migration-contract" class="md-skip">
           Skip to content
         </a>
       
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Contributing
+              Database Migration Design
             
           </span>
         </div>
@@ -376,11 +376,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../mcp/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -398,13 +400,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../developer/" class="md-tabs__link">
           
   
   
@@ -2723,6 +2723,8 @@
       
   
   
+    
+  
   
   
     
@@ -2762,22 +2764,23 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../mcp/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -2795,13 +2798,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2821,7 +2824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mcp/getting-started/" class="md-nav__link">
+      <a href="../getting-started/" class="md-nav__link">
         
   
   
@@ -2849,7 +2852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mcp/configuration/" class="md-nav__link">
+      <a href="../configuration/" class="md-nav__link">
         
   
   
@@ -2877,7 +2880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mcp/skills/" class="md-nav__link">
+      <a href="../skills/" class="md-nav__link">
         
   
   
@@ -2905,7 +2908,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mcp/compatibility/" class="md-nav__link">
+      <a href="../compatibility/" class="md-nav__link">
         
   
   
@@ -2930,10 +2933,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../mcp/database-migration/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Migration Design
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2949,6 +2979,148 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#decision-one-database-target-per-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decision: one database target per process
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ownership-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ownership boundary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#startup-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Startup resolution
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Startup resolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connection-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#credential-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Credential boundary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-target-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multiple-target deployment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pilot-scope-and-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilot scope and compatibility
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pilot-acceptance-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilot acceptance matrix
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-checkpoint-and-dependency-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development checkpoint and dependency gates
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development checkpoint and dependency gates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#source-access-prerequisite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source-access prerequisite
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2961,7 +3133,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mcp/database-quickstart/" class="md-nav__link">
+      <a href="../database-quickstart/" class="md-nav__link">
         
   
   
@@ -2989,7 +3161,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mcp/cloud-quickstart/" class="md-nav__link">
+      <a href="../cloud-quickstart/" class="md-nav__link">
         
   
   
@@ -3017,7 +3189,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mcp/enterprise-quickstart/" class="md-nav__link">
+      <a href="../enterprise-quickstart/" class="md-nav__link">
         
   
   
@@ -3045,7 +3217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../mcp/tools-reference/" class="md-nav__link">
+      <a href="../tools-reference/" class="md-nav__link">
         
   
   
@@ -3064,205 +3236,6 @@
     </li>
   
 
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../mcp/architecture/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Architecture
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../mcp/audit-logging/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Audit Logging
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../mcp/advanced-usage/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Advanced Usage
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../mcp/workflows/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Workflows
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-        
-        
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Developer
-  
-
-    
-  </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_9">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Developer
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
               
             
               
@@ -3300,7 +3273,203 @@
   
   
     <li class="md-nav__item">
-      <a href="../libraries/" class="md-nav__link">
+      <a href="../audit-logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Audit Logging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../developer/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Developer
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer/libraries/" class="md-nav__link">
         
   
   
@@ -3328,7 +3497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../python/" class="md-nav__link">
+      <a href="../../developer/python/" class="md-nav__link">
         
   
   
@@ -3353,37 +3522,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Contributing
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../developer/contributing/" class="md-nav__link">
         
   
   
@@ -3399,242 +3541,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Getting Started
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Getting Started">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Prerequisites
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#clone-and-build" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Clone and Build
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#run-tests" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Run Tests
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#run-lints" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Run Lints
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#development-workflow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Development Workflow
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Development Workflow">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-create-a-branch" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Create a Branch
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-make-changes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Make Changes
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-test-locally" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Test Locally
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-commit" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Commit
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-push-and-create-pr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Push and Create PR
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Project Structure
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#adding-a-new-command" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Adding a New Command
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Testing
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Testing">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#unit-tests" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Unit Tests
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#integration-tests-with-mocks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Integration Tests with Mocks
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Questions?
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3701,22 +3607,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
+  <a href="#decision-one-database-target-per-process" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Getting Started
+        Decision: one database target per process
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Getting Started">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ownership-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ownership boundary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#startup-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Startup resolution
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Startup resolution">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#connection-policy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Prerequisites
+        Connection policy
       
     </span>
   </a>
@@ -3724,32 +3652,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#clone-and-build" class="md-nav__link">
+  <a href="#credential-boundary" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Clone and Build
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#run-tests" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Run Tests
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#run-lints" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Run Lints
+        Credential boundary
       
     </span>
   </a>
@@ -3762,66 +3668,55 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#development-workflow" class="md-nav__link">
+  <a href="#multiple-target-deployment" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Development Workflow
+        Multiple-target deployment
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Development Workflow">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pilot-scope-and-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilot scope and compatibility
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pilot-acceptance-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pilot acceptance matrix
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-checkpoint-and-dependency-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development checkpoint and dependency gates
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development checkpoint and dependency gates">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-create-a-branch" class="md-nav__link">
+  <a href="#source-access-prerequisite" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Create a Branch
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-make-changes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Make Changes
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-test-locally" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Test Locally
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-commit" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Commit
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-push-and-create-pr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Push and Create PR
+        Source-access prerequisite
       
     </span>
   </a>
@@ -3830,89 +3725,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Project Structure
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#adding-a-new-command" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Adding a New Command
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Testing
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Testing">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#unit-tests" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Unit Tests
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#integration-tests-with-mocks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Integration Tests with Mocks
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#questions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Questions?
-      
-    </span>
-  </a>
   
 </li>
       
@@ -3936,128 +3748,319 @@
   
 
 
-<h1 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h1>
-<p>How to contribute to redisctl.</p>
-<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
-<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Rust 1.90+ (edition 2024)</li>
-<li>Git</li>
-</ul>
-<h3 id="clone-and-build">Clone and Build<a class="headerlink" href="#clone-and-build" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/redis/redisctl
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>redisctl
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>cargo<span class="w"> </span>build
-</span></code></pre></div>
-<h3 id="run-tests">Run Tests<a class="headerlink" href="#run-tests" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cargo<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--workspace<span class="w"> </span>--all-features
-</span></code></pre></div>
-<h3 id="run-lints">Run Lints<a class="headerlink" href="#run-lints" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cargo<span class="w"> </span>fmt<span class="w"> </span>--all<span class="w"> </span>--<span class="w"> </span>--check
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>cargo<span class="w"> </span>clippy<span class="w"> </span>--all-targets<span class="w"> </span>--all-features<span class="w"> </span>--<span class="w"> </span>-D<span class="w"> </span>warnings
-</span></code></pre></div>
-<h2 id="development-workflow">Development Workflow<a class="headerlink" href="#development-workflow" title="Permanent link">&para;</a></h2>
-<h3 id="1-create-a-branch">1. Create a Branch<a class="headerlink" href="#1-create-a-branch" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feat/my-feature
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># or</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>fix/my-fix
-</span></code></pre></div>
-<p>Branch prefixes:
-- <code>feat/</code> - New features
-- <code>fix/</code> - Bug fixes
-- <code>docs/</code> - Documentation
-- <code>refactor/</code> - Code refactoring
-- <code>test/</code> - Test improvements</p>
-<h3 id="2-make-changes">2. Make Changes<a class="headerlink" href="#2-make-changes" title="Permanent link">&para;</a></h3>
-<p>Follow the existing code style. Key patterns:</p>
-<ul>
-<li>Use <code>anyhow</code> for CLI errors, <code>thiserror</code> for library errors</li>
-<li>All commands must support <code>-o json</code> output</li>
-<li>Add tests for new functionality</li>
-<li>Destructive commands must use long-only <code>--force</code> to skip confirmation; do not assign <code>-f</code></li>
-</ul>
-<h3 id="3-test-locally">3. Test Locally<a class="headerlink" href="#3-test-locally" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Run all tests</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>cargo<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--workspace<span class="w"> </span>--all-features
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Run specific test</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>cargo<span class="w"> </span><span class="nb">test</span><span class="w"> </span>test_database_list
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># Run with output</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>cargo<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--<span class="w"> </span>--nocapture
-</span></code></pre></div>
-<h3 id="4-commit">4. Commit<a class="headerlink" href="#4-commit" title="Permanent link">&para;</a></h3>
-<p>Use conventional commits:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"feat: add database backup command"</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"fix: handle empty response in subscription list"</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"docs: add VPC peering guide"</span>
-</span></code></pre></div>
-<p>Types: <code>feat</code>, <code>fix</code>, <code>docs</code>, <code>refactor</code>, <code>test</code>, <code>chore</code></p>
-<h3 id="5-push-and-create-pr">5. Push and Create PR<a class="headerlink" href="#5-push-and-create-pr" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feat/my-feature
-</span></code></pre></div>
-<p>Then create a PR on GitHub.</p>
-<h2 id="project-structure">Project Structure<a class="headerlink" href="#project-structure" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>crates/
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>├── redisctl-core/      # Core library - config, workflows, and shared logic
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>├── redisctl/           # CLI
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>│   ├── src/commands/   # Command implementations
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>│   ├── src/workflows/  # Multi-step workflows
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>│   └── tests/          # CLI tests
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>└── redisctl-mcp/       # MCP server
-</span></code></pre></div>
-<p><strong>External dependencies</strong> (separate repositories):
-- <a href="https://github.com/redis-developer/redis-cloud-rs">redis-cloud</a> - Cloud API client
-- <a href="https://github.com/redis-developer/redis-enterprise-rs">redis-enterprise</a> - Enterprise API client</p>
-<h2 id="adding-a-new-command">Adding a New Command<a class="headerlink" href="#adding-a-new-command" title="Permanent link">&para;</a></h2>
+<h1 id="database-mcp-migration-contract">Database MCP Migration Contract<a class="headerlink" href="#database-mcp-migration-contract" title="Permanent link">&para;</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Design for an opt-in pilot, not current runtime behavior</p>
+<p>This document proposes the host contract for
+<a href="https://github.com/redis/redisctl/issues/1171">#1171</a> and the validation plan for
+<a href="https://github.com/redis/redisctl/issues/1172">#1172</a>, under migration epic
+<a href="https://github.com/redis/redisctl/issues/1170">#1170</a>. The released 0.12.1
+server still uses the legacy database backend. This document adds no new
+runtime flags, dependency, or tool schema and does not authorize a cutover.</p>
+</div>
+<h2 id="decision-one-database-target-per-process">Decision: one database target per process<a class="headerlink" href="#decision-one-database-target-per-process" title="Permanent link">&para;</a></h2>
+<p>The library-backed database router binds to one fixed executor for the lifetime
+of the MCP process. redisctl chooses that target at startup. Database calls
+cannot switch it through tool arguments, profile edits, or shared mutable state.
+Separate targets require separate MCP server instances.</p>
+<p>Cloud and Enterprise remain redisctl-owned toolsets. Their existing per-call
+profile selection is unchanged. A combined server can expose those toolsets
+alongside one database target; a Cloud API profile is not a database target.</p>
+<h2 id="ownership-boundary">Ownership boundary<a class="headerlink" href="#ownership-boundary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Responsibility</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Database tool names/schemas, command semantics, structured results</td>
+<td><code>redis-mcp</code></td>
+</tr>
+<tr>
+<td>Access/effect classification, capability checks, output budgets and command timeouts</td>
+<td><code>redis-mcp</code></td>
+</tr>
+<tr>
+<td>Redis protocol, reconnection and Cluster connection setup</td>
+<td><code>redis-tower</code>, through <code>redis-mcp</code></td>
+</tr>
+<tr>
+<td>Profile and credential resolution, fixed startup target and connection policy</td>
+<td>redisctl</td>
+</tr>
+<tr>
+<td>Cloud/Enterprise/app toolsets, visibility, policy and combined transport</td>
+<td>redisctl</td>
+</tr>
+<tr>
+<td>Audit integration and process lifecycle</td>
+<td>redisctl, using public library lifecycle APIs</td>
+</tr>
+</tbody>
+</table>
+<p>redisctl must not copy library schemas or response normalization into parallel
+handlers. Its composition layer binds credentials and maps host policy/audit
+behavior onto the library router. It must not recreate the legacy backend as a
+production <code>redis-rs</code> executor behind the new schemas.</p>
+<h2 id="startup-resolution">Startup resolution<a class="headerlink" href="#startup-resolution" title="Permanent link">&para;</a></h2>
+<p>These rules apply only when the opt-in backend loads database tools. A server
+without library-backed database tools does not require a database target.</p>
 <ol>
-<li>Add command enum in <code>crates/redisctl/src/cli/mod.rs</code> (top-level) or the relevant domain file: <code>src/cli/cloud.rs</code> (Cloud), <code>src/cli/enterprise.rs</code> (Enterprise)</li>
-<li>Implement handler in <code>crates/redisctl/src/commands/</code> (subdirs: <code>cloud/</code>, <code>enterprise/</code>)</li>
-<li>Add to command routing in <code>crates/redisctl/src/main.rs</code></li>
-<li>Add tests in <code>crates/redisctl/tests/</code></li>
-<li>Update documentation</li>
+<li>Resolve CLI/environment values normally: explicit <code>--database-url</code> overrides
+   <code>REDIS_URL</code>; explicit <code>--profile</code> values override <code>REDISCTL_PROFILE</code>. Rust
+   embedders provide the equivalent values through the builder, rather than
+   implicitly reading CLI environment variables.</li>
+<li>Validate explicitly selected profile names against the startup configuration.
+   An unknown profile or unreadable/invalid configuration needed for profile
+   resolution is an error, not an empty configuration fallback. Deduplicate
+   repeated names. Count only selected <strong>database</strong> profiles as target candidates;
+   selected Cloud/Enterprise profiles do not enter this count.</li>
+<li>Apply the following matrix. A present but empty/malformed URL is an error,
+   not a reason to fall back to a profile.</li>
 </ol>
-<p>When adding a destructive command, add its command path to the <code>DESTRUCTIVE_COMMANDS</code> inventory in
-<code>crates/redisctl/src/main.rs</code>. The command-tree tests require every listed command to expose the
-canonical long-only <code>--force</code> bypass and reject a canonical <code>--yes</code> flag. Do not add new
-compatibility aliases; the hidden <code>--yes</code> and <code>-y</code> aliases exist only for commands that exposed them
-before this convention was adopted.</p>
-<h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
-<h3 id="unit-tests">Unit Tests<a class="headerlink" href="#unit-tests" title="Permanent link">&para;</a></h3>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cp">#[test]</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">fn</span><span class="w"> </span><span class="nf">test_parse_database_id</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parse_database_id</span><span class="p">(</span><span class="s">"123:456"</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="n">id</span><span class="p">.</span><span class="n">subscription</span><span class="p">,</span><span class="w"> </span><span class="mi">123</span><span class="p">);</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="fm">assert_eq!</span><span class="p">(</span><span class="n">id</span><span class="p">.</span><span class="n">database</span><span class="p">,</span><span class="w"> </span><span class="mi">456</span><span class="p">);</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="p">}</span>
-</span></code></pre></div>
-<h3 id="integration-tests-with-mocks">Integration Tests with Mocks<a class="headerlink" href="#integration-tests-with-mocks" title="Permanent link">&para;</a></h3>
-<div class="language-rust highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cp">#[tokio::test]</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">async</span><span class="w"> </span><span class="k">fn</span><span class="w"> </span><span class="nf">test_database_list</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">mock_server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MockServer</span><span class="p">::</span><span class="n">start</span><span class="p">().</span><span class="k">await</span><span class="p">;</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="n">Mock</span><span class="p">::</span><span class="n">given</span><span class="p">(</span><span class="n">method</span><span class="p">(</span><span class="s">"GET"</span><span class="p">))</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">        </span><span class="p">.</span><span class="n">and</span><span class="p">(</span><span class="n">path</span><span class="p">(</span><span class="s">"/v1/subscriptions/123/databases"</span><span class="p">))</span>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">        </span><span class="p">.</span><span class="n">respond_with</span><span class="p">(</span><span class="n">ResponseTemplate</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="mi">200</span><span class="p">).</span><span class="n">set_body_json</span><span class="p">(</span><span class="n">json</span><span class="o">!</span><span class="p">([</span>
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">            </span><span class="p">{</span><span class="s">"databaseId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">"name"</span><span class="p">:</span><span class="w"> </span><span class="s">"test"</span><span class="p">}</span>
-</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">        </span><span class="p">])))</span>
-</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">        </span><span class="p">.</span><span class="n">mount</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mock_server</span><span class="p">)</span>
-</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">        </span><span class="p">.</span><span class="k">await</span><span class="p">;</span>
-</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>
-</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">    </span><span class="c1">// Test against mock</span>
-</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="p">}</span>
-</span></code></pre></div>
-<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Direct URL</th>
+<th>Selected database profiles</th>
+<th>Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Present</td>
+<td>None</td>
+<td>Use the direct URL</td>
+</tr>
+<tr>
+<td>Absent</td>
+<td>Exactly one</td>
+<td>Resolve that database profile</td>
+</tr>
+<tr>
+<td>Present</td>
+<td>One or more</td>
+<td>Reject conflicting target sources</td>
+</tr>
+<tr>
+<td>Absent</td>
+<td>More than one</td>
+<td>Reject ambiguous database profiles</td>
+</tr>
+<tr>
+<td>Absent</td>
+<td>None</td>
+<td>Reject missing target</td>
+</tr>
+</tbody>
+</table>
+<p>There is no implicit target from <code>default_database</code>, the only configured
+database profile, the first profile in a list, or localhost. Explicit selection
+keeps the pilot deterministic even when local configuration changes. Multiple
+configured but <strong>unselected</strong> database profiles are not ambiguous. An inherited
+<code>REDIS_URL</code> conflicting with a selected database profile must produce a safe
+instruction to remove the conflicting source, never echo the URL.</p>
+<p>Validate target syntax and resolve required credentials at startup, but connect
+lazily on the first database operation. Initialization and catalog discovery
+must not require network access. A first-connect failure remains a bounded,
+redacted operation error, not an implicit switch to another target.</p>
+<h3 id="connection-policy">Connection policy<a class="headerlink" href="#connection-policy" title="Permanent link">&para;</a></h3>
 <ul>
-<li>User docs: <code>docs/docs/</code></li>
-<li>API docs: Inline rustdoc comments</li>
-<li>Build docs: <code>cargo doc --workspace</code></li>
+<li><code>--cluster</code> chooses the executor mode at startup; it is not a per-call field.
+  The first pilot can use a single configured seed. Multiple-seed configuration
+  is separate scope, not a new implicit CLI contract.</li>
+<li>Preserve authentication, TLS verification and the selected logical database.
+  Reject a nonzero logical database in Cluster mode instead of ignoring it.</li>
+<li>Never downgrade TLS, retry without credentials, or enable insecure mode to
+  recover from a connection error. Plaintext development connections remain an
+  explicit configuration choice.</li>
+<li>Client naming must eventually apply after authentication/protocol/database
+  setup and before traffic on every physical connection, including reconnects
+  and new/replacement Cluster nodes. A one-time <code>CLIENT SETNAME</code> does not satisfy
+  this contract. Until the upstream replay gate passes, the pilot must document
+  its limitation and must not claim production naming parity.</li>
+<li>Profile changes do not retarget a running router. Restart the MCP process to
+  resolve new configuration or credentials. In-process credential refresh is
+  separate work and must preserve fixed target identity.</li>
 </ul>
-<h2 id="questions">Questions?<a class="headerlink" href="#questions" title="Permanent link">&para;</a></h2>
+<h3 id="credential-boundary">Credential boundary<a class="headerlink" href="#credential-boundary" title="Permanent link">&para;</a></h3>
+<p>The migrated tool schemas contain neither <code>url</code> nor <code>profile</code> target fields.
+Credentials and connection URLs stay in host configuration and executor state;
+they must not enter model-facing schemas, tool results, errors, tracing, audit
+records, or instruction/resource text. A safe target summary may identify its
+source, profile name and standalone/Cluster mode, but must not print the URL.</p>
+<p>Sanitize parse, credential-resolution and connection errors as well as success
+paths. In particular, do not forward raw TOML source snippets, expanded
+environment values, or upstream errors containing authentication material.
+Tests use unique fake secrets to prove this boundary on failure paths.</p>
+<h2 id="multiple-target-deployment">Multiple-target deployment<a class="headerlink" href="#multiple-target-deployment" title="Permanent link">&para;</a></h2>
+<p>Use clearly named configurations in the MCP client, each launching its own
+process. For example, these existing launch options illustrate the proposed
+selection pattern without introducing a future backend-selector flag:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">"mcpServers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">"redis-dev"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">      </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/absolute/path/to/redisctl-mcp"</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"--profile"</span><span class="p">,</span><span class="w"> </span><span class="s2">"dev-db"</span><span class="p">,</span><span class="w"> </span><span class="s2">"--tools"</span><span class="p">,</span><span class="w"> </span><span class="s2">"database,app"</span><span class="p">]</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">"redis-staging"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/absolute/path/to/redisctl-mcp"</span><span class="p">,</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"--profile"</span><span class="p">,</span><span class="w"> </span><span class="s2">"staging-db"</span><span class="p">,</span><span class="w"> </span><span class="s2">"--tools"</span><span class="p">,</span><span class="w"> </span><span class="s2">"database,app"</span><span class="p">]</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Profiles are configured through trusted local credential flows, not by putting
+secrets in the client launch JSON. In HTTP mode, all sessions sharing a router
+share its fixed database target. HTTP transport does not supply built-in client
+authentication; keep loopback binding or use a trusted authenticated TLS gateway.</p>
+<h2 id="pilot-scope-and-compatibility">Pilot scope and compatibility<a class="headerlink" href="#pilot-scope-and-compatibility" title="Permanent link">&para;</a></h2>
+<p>The pilot is an additive compile-time feature plus an explicit runtime backend
+selection, with final option names settled in its implementation PR. Neither
+building the feature nor changing a dependency makes it the default.</p>
+<p>Only read-only Keyspace/Strings operations are composed initially. No duplicate
+tool registrations are permitted: the opted-in pilot replaces those database
+families for that server, rather than merging matching legacy names. Unmigrated
+database families are absent from the pilot catalog, not silently served by a
+second database backend. Cloud, Enterprise, app tools, transport and skill
+behavior remain unchanged. The legacy catalog stays the default and rollback
+requires only deselecting the pilot backend.</p>
+<p>Removing accepted <code>url</code>/<code>profile</code> fields is a breaking catalog change, even
+though the fields are optional. New structured outputs and changed return
+behavior also require explicit compatibility review. Keep a separate reviewed
+pilot catalog; do not replace the legacy fixture to hide differences. At the
+declared 1.0 boundary, users of per-call target selection migrate to one startup
+target per process. A default cutover before that boundary requires a separate,
+explicit compatibility decision, not an incidental dependency update.</p>
+<h2 id="pilot-acceptance-matrix">Pilot acceptance matrix<a class="headerlink" href="#pilot-acceptance-matrix" title="Permanent link">&para;</a></h2>
+<p>Each row requires recorded test evidence in the implementation PR. This table
+is a plan, not a claim that migration tests already exist or pass.</p>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Required evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Default path</td>
+<td>Default builds/runtime retain the legacy catalog; feature alone does not opt in; selector without compiled support fails clearly</td>
+</tr>
+<tr>
+<td>Target resolver</td>
+<td>CLI/environment precedence, explicit URL, named profile, missing/unknown/wrong-type profile, duplicate name, conflicting sources, multiple selected databases, and no implicit default</td>
+</tr>
+<tr>
+<td>Offline startup</td>
+<td>Initialization and discovery succeed for a valid target with Redis offline; no connection until first database operation</td>
+</tr>
+<tr>
+<td>Standalone parity</td>
+<td>Compare <code>redis_scan</code>, <code>redis_type</code>, <code>redis_get</code>, missing keys, TTL, Unicode and supported byte handling against one shared live fixture</td>
+</tr>
+<tr>
+<td>TLS/authentication</td>
+<td>Verified TLS and correct credentials succeed; wrong credentials, untrusted CA, malformed URL and refused connection fail safely without fallback</td>
+</tr>
+<tr>
+<td>Cluster</td>
+<td>Representative reads across slots and MOVED/topology behavior; Cluster database-index rejection; document library scan/fan-out differences</td>
+</tr>
+<tr>
+<td>Policy/visibility</td>
+<td>Tier, global/per-toolset allow/deny, disabled database toolset and presets are enforced on discovery and direct invocation; explicit allow cannot expose writes outside the read-only pilot</td>
+</tr>
+<tr>
+<td>Isolation</td>
+<td>Concurrent requests/sessions remain on the fixed target; changing a profile cannot move an already-built router</td>
+</tr>
+<tr>
+<td>Catalog/results</td>
+<td>Reviewed name/schema/annotation/output diff; no <code>url</code>/<code>profile</code> fields; no duplicate registration; normalize only test comparisons, not production responses</td>
+</tr>
+<tr>
+<td>Audit/secrets</td>
+<td>Representative success, denial, timeout and parser/auth/TLS failures preserve host auditing without fake secret/URL leakage</td>
+</tr>
+<tr>
+<td>Budgets/timeouts</td>
+<td>Connect and command failure paths terminate within documented limits; large replies respect library output budgets</td>
+</tr>
+<tr>
+<td>Lifecycle/rollback</td>
+<td>Exercise process stop and disposal; record unresolved upstream lifecycle limitations; deselection restores the legacy backend</td>
+</tr>
+<tr>
+<td>Build/release</td>
+<td>fmt, all-target/all-feature Clippy, workspace/integration tests, minimal-feature builds, strict rustdoc and clean-consumer checks against the pinned Git revision; registry packaging before release</td>
+</tr>
+</tbody>
+</table>
+<h2 id="development-checkpoint-and-dependency-gates">Development checkpoint and dependency gates<a class="headerlink" href="#development-checkpoint-and-dependency-gates" title="Permanent link">&para;</a></h2>
+<p>The target contract remains proposed until human review of
+<a href="https://github.com/redis/redisctl/pull/1175">#1175</a>. The isolated opt-in
+<a href="https://github.com/redis/redisctl/pull/1176">pilot #1176</a> implements it for
+validation, not as an accepted default compatibility change.</p>
+<p>The library's
+<a href="https://github.com/redis-developer/redis-database-mcp-rs/pull/124">published redis-tower dependency update #124</a>
+is merged. The pilot pins reviewed library revision
+<code>8eff8240679d38157ee08b9d5e5eaeb656ce7550</code>
+(<a href="https://github.com/redis-developer/redis-database-mcp-rs/pull/126">#126</a>) for
+reproducible committed builds. Local path overrides are allowed for coordinated
+development, but must not appear as machine-specific dependencies in committed
+manifests or lockfiles.</p>
+<p>Skills from <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/redis/redisctl/issues/1174" title="GitHub Issue: redis/redisctl #1174">#1174</a> are now embedded in main. Their resources and prompts remain
+host-owned; the pilot's <code>redisctl://skills</code> index must describe the actual
+composed, policy-visible catalog. Missing library families must not be advertised
+as available merely because a bundled workflow refers to them.</p>
+<h3 id="source-access-prerequisite">Source-access prerequisite<a class="headerlink" href="#source-access-prerequisite" title="Permanent link">&para;</a></h3>
+<p>The pinned library repository is INTERNAL. Public CI cannot currently fetch it.
+An approved read-access mechanism, owner and reference are required; this work
+does not provision credentials, change visibility, reuse release tokens or
+expose secrets to untrusted forks. Verify uncached resolution before every
+affected Cargo entry point, not only compile jobs:</p>
 <ul>
-<li><a href="https://github.com/redis/redisctl/issues">GitHub Issues</a></li>
-<li><a href="https://github.com/redis/redisctl/discussions">GitHub Discussions</a></li>
+<li><code>ci.yml</code>: Clippy/core checks, unit/integration/live tests, platform builds and
+  coverage.</li>
+<li><code>docs.yml</code>: default embedding API and all-feature workspace rustdoc.</li>
+<li><code>cargo-deny.yml</code>: both dependency-graph check groups.</li>
+<li><code>release.yml</code>: dist plan metadata, local/global builds and any host metadata
+  resolution; <code>release-plz.yml</code>: version/package/publish resolution.</li>
 </ul>
+<p>The lockfile-based <code>cargo audit</code> in <code>security.yml</code> is distinct from these graph
+checks. A trusted-CI read mechanism would not solve anonymous default-feature or
+public-fork builds: Cargo still resolves optional Git dependencies when their
+feature is disabled. Public source consumption requires a separate agreed
+distribution/access path. A warm cache is not clean-consumer evidence.</p>
+<p>Publication is not a pilot implementation gate. Before shipping a release that
+includes this dependency, discuss publication, switch to the agreed published
+crate version, and verify registry packaging and clean-consumer resolution. The
+library server has its own library-first release ordering; its binary is not a
+redisctl dependency.</p>
+<p>Before making the new backend default:</p>
+<ul>
+<li>Complete the pilot, each family's parity/catalog gates, and compatibility
+  migration treatment; delete duplicate handlers only in reviewed slices.</li>
+<li>Adopt and verify the library's
+  <a href="https://github.com/redis-developer/redis-database-mcp-rs/pull/128">connection setup #128</a>.
+  Upstream replay support in
+  <a href="https://github.com/joshrotenberg/redis-tower/issues/736">redis-tower #736</a>
+  is complete, but not yet consumed by the immutable pilot pin.</li>
+<li>Verify host-usable, deterministic executor shutdown, tracked in
+  <a href="https://github.com/redis-developer/redis-database-mcp-rs/issues/125">redis-database-mcp-rs #125</a>.</li>
+<li>Record live standalone, TLS/authentication, Cluster, rollback and release
+  evidence. Do not equate a passing compile or initial library release with
+  production readiness.</li>
+</ul>
+<p>The design document alone leaves <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/redis/redisctl/issues/1171" title="GitHub Issue: redis/redisctl #1171">#1171</a> open: implementation contract tests and
+the library-side consumer tracker
+<a href="https://github.com/redis-developer/redis-database-mcp-rs/issues/76">#76</a> still need
+the accepted host contract and evidence. The pilot and parent epic also remain
+open until their respective acceptance criteria are met.</p>
 
 
 

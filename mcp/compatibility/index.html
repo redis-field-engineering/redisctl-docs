@@ -16,7 +16,7 @@
         <link rel="prev" href="../skills/">
       
       
-        <link rel="next" href="../database-quickstart/">
+        <link rel="next" href="../database-migration/">
       
       
         
@@ -2758,6 +2758,8 @@
       
         
       
+        
+      
     
     
     
@@ -3063,6 +3065,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database-migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Migration Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -3702,6 +3732,10 @@ and checked in CI.</p>
 visibility presets, and policy tiers can expose a supported subset of this catalog. Call
 <code>list_available_tools</code> to inspect that resolved subset.</p>
 <h2 id="rust-embedding-api">Rust embedding API<a class="headerlink" href="#rust-embedding-api" title="Permanent link">&para;</a></h2>
+<p>For the proposed external database backend, see the
+<a href="../database-migration/">Database MCP Migration Contract</a>. It defines fixed startup
+target selection and the opt-in pilot's compatibility/parity gates; it does not
+change the currently released legacy backend or its catalog.</p>
 <p>The supported Rust embedding entry point is <code>McpServerBuilder</code>. It constructs the same router used
 by the <code>redisctl-mcp</code> binary, including:</p>
 <ul>
