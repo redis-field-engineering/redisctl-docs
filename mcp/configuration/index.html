@@ -16,7 +16,7 @@
         <link rel="prev" href="../getting-started/">
       
       
-        <link rel="next" href="../compatibility/">
+        <link rel="next" href="../skills/">
       
       
         
@@ -2756,6 +2756,8 @@
       
         
       
+        
+      
     
     
     
@@ -3204,6 +3206,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Embedded Skills and Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -4111,7 +4141,7 @@
 <td>--</td>
 <td><code>REDISCTL_MCP_SKILLS_DIR</code></td>
 <td>--</td>
-<td>Directory containing Agent Skills to expose as MCP prompts</td>
+<td>Custom skill directory; adds to or overrides embedded resources and prompts</td>
 </tr>
 <tr>
 <td><code>--host</code></td>
@@ -4203,7 +4233,8 @@ untrusted network.</p>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>When <code>--tools</code> is not explicitly set, toolsets marked <code>enabled = false</code> in a policy file are also removed. When <code>--tools</code> is explicit, policy-based toolset disabling is skipped.</p>
+<p>Toolsets marked <code>enabled = false</code> in a policy file remain unavailable even
+when selected explicitly with <code>--tools</code>.</p>
 </div>
 <h3 id="available-toolsets-and-sub-modules">Available Toolsets and Sub-Modules<a class="headerlink" href="#available-toolsets-and-sub-modules" title="Permanent link">&para;</a></h3>
 <table>
