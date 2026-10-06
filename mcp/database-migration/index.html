@@ -16,7 +16,7 @@
         <link rel="prev" href="../compatibility/">
       
       
-        <link rel="next" href="../database-quickstart/">
+        <link rel="next" href="../database-pilot/">
       
       
         
@@ -2760,6 +2760,8 @@
       
         
       
+        
+      
     
     
     
@@ -3102,10 +3104,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#source-access-prerequisite" class="md-nav__link">
+  <a href="#public-source-validation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Source-access prerequisite
+        Public source validation
       
     </span>
   </a>
@@ -3121,6 +3123,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database-pilot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Experimental Database Pilot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -3713,10 +3743,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#source-access-prerequisite" class="md-nav__link">
+  <a href="#public-source-validation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Source-access prerequisite
+        Public source validation
       
     </span>
   </a>
@@ -3751,7 +3781,7 @@
 <h1 id="database-mcp-migration-contract">Database MCP Migration Contract<a class="headerlink" href="#database-mcp-migration-contract" title="Permanent link">&para;</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Design for an opt-in pilot, not current runtime behavior</p>
-<p>This document proposes the host contract for
+<p>This document records the accepted opt-in pilot host contract for
 <a href="https://github.com/redis/redisctl/issues/1171">#1171</a> and the validation plan for
 <a href="https://github.com/redis/redisctl/issues/1172">#1172</a>, under migration epic
 <a href="https://github.com/redis/redisctl/issues/1170">#1170</a>. The released 0.12.1
@@ -3898,7 +3928,7 @@ environment values, or upstream errors containing authentication material.
 Tests use unique fake secrets to prove this boundary on failure paths.</p>
 <h2 id="multiple-target-deployment">Multiple-target deployment<a class="headerlink" href="#multiple-target-deployment" title="Permanent link">&para;</a></h2>
 <p>Use clearly named configurations in the MCP client, each launching its own
-process. For example, these existing launch options illustrate the proposed
+process. For example, these existing launch options illustrate the fixed-target
 selection pattern without introducing a future backend-selector flag:</p>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">"mcpServers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -3996,15 +4026,16 @@ is a plan, not a claim that migration tests already exist or pass.</p>
 </tr>
 <tr>
 <td>Build/release</td>
-<td>fmt, all-target/all-feature Clippy, workspace/integration tests, minimal-feature builds, strict rustdoc and clean-consumer checks against the pinned Git revision; registry packaging before release</td>
+<td>fmt, all-target/all-feature Clippy, workspace/integration tests, minimal-feature builds, strict rustdoc and clean-consumer checks against the pinned Git revision; registry packaging before crates.io publication; binary release packaging remains separate</td>
 </tr>
 </tbody>
 </table>
 <h2 id="development-checkpoint-and-dependency-gates">Development checkpoint and dependency gates<a class="headerlink" href="#development-checkpoint-and-dependency-gates" title="Permanent link">&para;</a></h2>
-<p>The target contract remains proposed until human review of
-<a href="https://github.com/redis/redisctl/pull/1175">#1175</a>. The isolated opt-in
+<p>The target contract was accepted for the opt-in pilot by merging
+<a href="https://github.com/redis/redisctl/pull/1175">#1175</a> on 2026-10-05. The isolated
 <a href="https://github.com/redis/redisctl/pull/1176">pilot #1176</a> implements it for
-validation, not as an accepted default compatibility change.</p>
+validation. That acceptance does not approve a release or a default
+compatibility change. The later public-source decision is separate.</p>
 <p>The library's
 <a href="https://github.com/redis-developer/redis-database-mcp-rs/pull/124">published redis-tower dependency update #124</a>
 is merged. The pilot pins reviewed library revision
@@ -4017,12 +4048,13 @@ manifests or lockfiles.</p>
 host-owned; the pilot's <code>redisctl://skills</code> index must describe the actual
 composed, policy-visible catalog. Missing library families must not be advertised
 as available merely because a bundled workflow refers to them.</p>
-<h3 id="source-access-prerequisite">Source-access prerequisite<a class="headerlink" href="#source-access-prerequisite" title="Permanent link">&para;</a></h3>
-<p>The pinned library repository is INTERNAL. Public CI cannot currently fetch it.
-An approved read-access mechanism, owner and reference are required; this work
-does not provision credentials, change visibility, reuse release tokens or
-expose secrets to untrusted forks. Verify uncached resolution before every
-affected Cargo entry point, not only compile jobs:</p>
+<h3 id="public-source-validation">Public source validation<a class="headerlink" href="#public-source-validation" title="Permanent link">&para;</a></h3>
+<p>The repository owner made the pinned library public on October 6, 2026. The
+former internal-source fetch blocker is resolved. Anonymous Git checkout and
+uncached Cargo resolution for default and pilot features have been verified;
+see the <a href="../database-pilot/">pilot guide</a> and <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/redis/redisctl/issues/1176" title="GitHub Issue: redis/redisctl #1176">#1176</a> for current-head evidence.
+No dependency-access credentials are required. Source resolution still matters
+in every affected Cargo entry point, not only compile jobs:</p>
 <ul>
 <li><code>ci.yml</code>: Clippy/core checks, unit/integration/live tests, platform builds and
   coverage.</li>
@@ -4032,13 +4064,14 @@ affected Cargo entry point, not only compile jobs:</p>
   resolution; <code>release-plz.yml</code>: version/package/publish resolution.</li>
 </ul>
 <p>The lockfile-based <code>cargo audit</code> in <code>security.yml</code> is distinct from these graph
-checks. A trusted-CI read mechanism would not solve anonymous default-feature or
-public-fork builds: Cargo still resolves optional Git dependencies when their
-feature is disabled. Public source consumption requires a separate agreed
-distribution/access path. A warm cache is not clean-consumer evidence.</p>
-<p>Publication is not a pilot implementation gate. Before shipping a release that
-includes this dependency, discuss publication, switch to the agreed published
-crate version, and verify registry packaging and clean-consumer resolution. The
+checks. Cargo still resolves optional Git dependencies when their feature is
+disabled. A warm cache is not clean-consumer evidence, and public source
+availability is not compilation/test evidence. Release build, host and publish
+steps remain separately gated; do not run them merely to validate the pilot.</p>
+<p>Publication is not a pilot implementation gate. Before publishing dependent
+redisctl crates to crates.io, switch to an actual registry dependency and verify
+registry packaging and clean-consumer resolution. Binary release packaging and
+supported distribution remain separate decisions, not pilot prerequisites. The
 library server has its own library-first release ordering; its binary is not a
 redisctl dependency.</p>
 <p>Before making the new backend default:</p>
@@ -4056,11 +4089,12 @@ redisctl dependency.</p>
   evidence. Do not equate a passing compile or initial library release with
   production readiness.</li>
 </ul>
-<p>The design document alone leaves <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/redis/redisctl/issues/1171" title="GitHub Issue: redis/redisctl #1171">#1171</a> open: implementation contract tests and
-the library-side consumer tracker
-<a href="https://github.com/redis-developer/redis-database-mcp-rs/issues/76">#76</a> still need
-the accepted host contract and evidence. The pilot and parent epic also remain
-open until their respective acceptance criteria are met.</p>
+<p>The accepted design leaves <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/redis/redisctl/issues/1171" title="GitHub Issue: redis/redisctl #1171">#1171</a> open for remaining implementation/validation
+acceptance, including current-head CI and independent review. The
+library-side consumer tracker
+<a href="https://github.com/redis-developer/redis-database-mcp-rs/issues/76">#76</a> records
+the host contract and evidence. The pilot and parent epic also remain open until
+their respective acceptance criteria are met.</p>
 
 
 
