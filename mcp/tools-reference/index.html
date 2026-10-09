@@ -4311,7 +4311,13 @@
 <h1 id="tools-reference">Tools Reference<a class="headerlink" href="#tools-reference" title="Permanent link">&para;</a></h1>
 <p>The redisctl MCP server exposes <strong>377 tools</strong> across 4 toolsets and 2 system tools for managing Redis Cloud, Redis Enterprise, and direct database operations. The machine-checked <a href="../compatibility/">MCP catalog</a> is the compatibility source of truth.</p>
 <p>Tools are organized into <strong>toolsets</strong> (Cloud, Enterprise, Database, App) and further into <strong>sub-modules</strong> that can be selectively loaded with the <a href="../configuration/#the-tools-flag"><code>--tools</code> flag</a>.</p>
-<p>Tools that modify state require <code>--read-only=false</code> or an appropriate <a href="../configuration/#safety-tiers">safety tier</a>. Database tools require a <code>--database-url</code> connection.</p>
+<p>Tools that modify state require <code>--read-only=false</code> or an appropriate <a href="../configuration/#safety-tiers">safety tier</a>.</p>
+<p>For the default legacy database backend, configure a Redis URL with
+<code>--database-url</code> (or <code>REDIS_URL</code>), or use a database profile such as
+<code>--profile mydb</code>. See <a href="../configuration/">Configuration</a> for the connection
+options and <a href="../skills/#first-run-setup">Embedded Skills and Setup</a> for safe
+profile setup. The opt-in <a href="../database-pilot/"><code>redis-mcp</code> pilot</a> has separate
+explicit-target rules; follow that guide when selecting the experimental backend.</p>
 <div class="admonition tip">
 <p class="admonition-title">Runtime Discovery</p>
 <p>Use the <code>list_available_tools</code> system tool at runtime to see exactly which tools are active in your current configuration, grouped by toolset. This is the most accurate way to discover available tools.</p>
