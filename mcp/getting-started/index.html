@@ -4183,17 +4183,25 @@
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
 <p>The MCP server is a separate binary called <code>redisctl-mcp</code>. Install it using one of the methods below.</p>
 <h3 id="installer-script-recommended">Installer Script (Recommended)<a class="headerlink" href="#installer-script-recommended" title="Permanent link">&para;</a></h3>
+<p>These examples install <strong>redisctl-mcp 0.12.1</strong> from its
+<a href="https://github.com/redis/redisctl/releases/tag/redisctl-mcp-v0.12.1">MCP release</a>.
+For another version, choose its <code>redisctl-mcp-v&lt;VERSION&gt;</code> release and matching
+installer. Avoid the repository-wide "latest" link: the CLI and MCP server are
+released separately, so "latest" may contain only CLI assets.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># macOS / Linux</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>curl<span class="w"> </span>--proto<span class="w"> </span><span class="s1">'=https'</span><span class="w"> </span>--tlsv1.2<span class="w"> </span>-LsSf<span class="w"> </span>https://github.com/redis/redisctl/releases/latest/download/redisctl-mcp-installer.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>curl<span class="w"> </span>--proto<span class="w"> </span><span class="s1">'=https'</span><span class="w"> </span>--tlsv1.2<span class="w"> </span>-LsSf<span class="w"> </span>https://github.com/redis/redisctl/releases/download/redisctl-mcp-v0.12.1/redisctl-mcp-installer.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
 </span></code></pre></div>
 <div class="language-powershell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c"># Windows</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">powershell</span> <span class="n">-ExecutionPolicy</span> <span class="n">Bypass</span> <span class="n">-c</span> <span class="s2">"irm https://github.com/redis/redisctl/releases/latest/download/redisctl-mcp-installer.ps1 | iex"</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">powershell</span> <span class="n">-ExecutionPolicy</span> <span class="n">Bypass</span> <span class="n">-c</span> <span class="s2">"irm https://github.com/redis/redisctl/releases/download/redisctl-mcp-v0.12.1/redisctl-mcp-installer.ps1 | iex"</span>
 </span></code></pre></div>
 <h3 id="cargo">Cargo<a class="headerlink" href="#cargo" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cargo<span class="w"> </span>install<span class="w"> </span>redisctl-mcp
 </span></code></pre></div>
 <h3 id="binary-downloads">Binary Downloads<a class="headerlink" href="#binary-downloads" title="Permanent link">&para;</a></h3>
-<p>Download pre-built binaries from <a href="https://github.com/redis/redisctl/releases/latest">GitHub Releases</a>.</p>
+<p>Download pre-built binaries from the
+<a href="https://github.com/redis/redisctl/releases/tag/redisctl-mcp-v0.12.1">MCP release</a>,
+not the CLI release. Use the archive for your platform and add the extracted
+directory containing <code>redisctl-mcp</code> (or <code>redisctl-mcp.exe</code> on Windows) to your PATH.</p>
 <h3 id="docker-zero-install">Docker (Zero-Install)<a class="headerlink" href="#docker-zero-install" title="Permanent link">&para;</a></h3>
 <p>No local install required. Pass credentials via environment variables and point your AI assistant at the Docker image:</p>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
