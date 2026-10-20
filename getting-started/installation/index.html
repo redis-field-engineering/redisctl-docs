@@ -694,6 +694,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#installer-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installer Scripts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#binary-downloads" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3655,6 +3666,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#installer-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installer Scripts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#binary-downloads" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3742,21 +3764,39 @@
 <p>With secure credential storage (OS keyring support):</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>cargo<span class="w"> </span>install<span class="w"> </span>redisctl<span class="w"> </span>--features<span class="w"> </span>secure-storage
 </span></code></pre></div>
+<h2 id="installer-scripts">Installer Scripts<a class="headerlink" href="#installer-scripts" title="Permanent link">&para;</a></h2>
+<p>The existing shell and PowerShell installers are available alongside the
+archives on the <a href="https://github.com/redis/redisctl/releases/tag/redisctl-v0.12.1">CLI release</a>.
+These examples install <strong>redisctl 0.12.1</strong>. For another version, select its
+<code>redisctl-v&lt;VERSION&gt;</code> tag and matching installer. Avoid the repository-wide
+"latest" link, which may point to the separately released MCP server.</p>
+<p>Like the MCP installers, these commands download and execute a release script.
+Use them only if your environment permits that installation method; use the
+<a href="#binary-downloads">archive recipes</a> if you prefer to install the binary directly.</p>
+<p><strong>macOS / Linux:</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>curl<span class="w"> </span>--proto<span class="w"> </span><span class="s1">'=https'</span><span class="w"> </span>--tlsv1.2<span class="w"> </span>-LsSf<span class="w"> </span>https://github.com/redis/redisctl/releases/download/redisctl-v0.12.1/redisctl-installer.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+</span></code></pre></div>
+<p><strong>Windows (PowerShell):</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">powershell</span> <span class="n">-ExecutionPolicy</span> <span class="n">Bypass</span> <span class="n">-c</span> <span class="s2">"irm https://github.com/redis/redisctl/releases/download/redisctl-v0.12.1/redisctl-installer.ps1 | iex"</span>
+</span></code></pre></div>
 <h2 id="binary-downloads">Binary Downloads<a class="headerlink" href="#binary-downloads" title="Permanent link">&para;</a></h2>
 <p>The examples below install <strong>redisctl 0.12.1</strong> from its
 <a href="https://github.com/redis/redisctl/releases/tag/redisctl-v0.12.1">CLI release</a>.
 For another version, choose its <code>redisctl-v&lt;VERSION&gt;</code> release and matching assets.
 Avoid the repository-wide "latest" link: this workspace releases the CLI and MCP
 server separately, so "latest" may point to the other application.</p>
+<p>These are pinned, published-release examples, not automatically updated "latest"
+commands. Maintainers check both installation pages using the
+<a href="../../developer/contributing/#installation-documentation-release-checklist">release checklist</a>.</p>
 <p>Archives contain a top-level platform directory. These commands extract it into
 a temporary directory before installing the binary.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Linux (x86_64)</label><label for="__tabbed_1_2">Linux (ARM64)</label><label for="__tabbed_1_3">macOS (Intel)</label><label for="__tabbed_1_4">macOS (Apple Silicon)</label><label for="__tabbed_1_5">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Linux (x86_64)</label><label for="__tabbed_1_2">Linux (ARM64)</label><label for="__tabbed_1_3">Linux (x86_64, musl)</label><label for="__tabbed_1_4">macOS (Intel)</label><label for="__tabbed_1_5">macOS (Apple Silicon)</label><label for="__tabbed_1_6">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nv">install_dir</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>mktemp<span class="w"> </span>-d<span class="k">)</span><span class="s2">"</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>curl<span class="w"> </span>-fL<span class="w"> </span>https://github.com/redis/redisctl/releases/download/redisctl-v0.12.1/redisctl-x86_64-unknown-linux-gnu.tar.xz<span class="w"> </span>-o<span class="w"> </span><span class="s2">"</span><span class="nv">$install_dir</span><span class="s2">/redisctl.tar.xz"</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>tar<span class="w"> </span>-xJf<span class="w"> </span><span class="s2">"</span><span class="nv">$install_dir</span><span class="s2">/redisctl.tar.xz"</span><span class="w"> </span>--strip-components<span class="o">=</span><span class="m">1</span><span class="w"> </span>-C<span class="w"> </span><span class="s2">"</span><span class="nv">$install_dir</span><span class="s2">"</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>sudo<span class="w"> </span>install<span class="w"> </span>-m<span class="w"> </span><span class="m">755</span><span class="w"> </span><span class="s2">"</span><span class="nv">$install_dir</span><span class="s2">/redisctl"</span><span class="w"> </span>/usr/local/bin/redisctl
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nv">install_dir</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>mktemp<span class="w"> </span>-d<span class="k">)</span><span class="s2">"</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>curl<span class="w"> </span>-fL<span class="w"> </span>https://github.com/redis/redisctl/releases/download/redisctl-v0.12.1/redisctl-x86_64-unknown-linux-gnu.tar.xz<span class="w"> </span>-o<span class="w"> </span><span class="s2">"</span><span class="nv">$install_dir</span><span class="s2">/redisctl.tar.xz"</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>tar<span class="w"> </span>-xJf<span class="w"> </span><span class="s2">"</span><span class="nv">$install_dir</span><span class="s2">/redisctl.tar.xz"</span><span class="w"> </span>--strip-components<span class="o">=</span><span class="m">1</span><span class="w"> </span>-C<span class="w"> </span><span class="s2">"</span><span class="nv">$install_dir</span><span class="s2">"</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>sudo<span class="w"> </span>install<span class="w"> </span>-m<span class="w"> </span><span class="m">755</span><span class="w"> </span><span class="s2">"</span><span class="nv">$install_dir</span><span class="s2">/redisctl"</span><span class="w"> </span>/usr/local/bin/redisctl
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -3765,17 +3805,25 @@ source with <a href="#cargo-from-source">Cargo</a>, or see the <a href="../docke
 for container-based installation.</p>
 </div>
 <div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nv">install_dir</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>mktemp<span class="w"> </span>-d<span class="k">)</span><span class="s2">"</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>curl<span class="w"> </span>-fL<span class="w"> </span>https://github.com/redis/redisctl/releases/download/redisctl-v0.12.1/redisctl-x86_64-apple-darwin.tar.xz<span class="w"> </span>-o<span class="w"> </span><span class="s2">"</span><span class="nv">$install_dir</span><span class="s2">/redisctl.tar.xz"</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>tar<span class="w"> </span>-xJf<span class="w"> </span><span class="s2">"</span><span class="nv">$install_dir</span><span class="s2">/redisctl.tar.xz"</span><span class="w"> </span>--strip-components<span class="o">=</span><span class="m">1</span><span class="w"> </span>-C<span class="w"> </span><span class="s2">"</span><span class="nv">$install_dir</span><span class="s2">"</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>sudo<span class="w"> </span>install<span class="w"> </span>-m<span class="w"> </span><span class="m">755</span><span class="w"> </span><span class="s2">"</span><span class="nv">$install_dir</span><span class="s2">/redisctl"</span><span class="w"> </span>/usr/local/bin/redisctl
+<p>For Alpine and other musl-based hosts, select the musl archive instead of GNU:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nv">install_dir</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>mktemp<span class="w"> </span>-d<span class="k">)</span><span class="s2">"</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>curl<span class="w"> </span>-fL<span class="w"> </span>https://github.com/redis/redisctl/releases/download/redisctl-v0.12.1/redisctl-x86_64-unknown-linux-musl.tar.xz<span class="w"> </span>-o<span class="w"> </span><span class="s2">"</span><span class="nv">$install_dir</span><span class="s2">/redisctl.tar.xz"</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>tar<span class="w"> </span>-xJf<span class="w"> </span><span class="s2">"</span><span class="nv">$install_dir</span><span class="s2">/redisctl.tar.xz"</span><span class="w"> </span>--strip-components<span class="o">=</span><span class="m">1</span><span class="w"> </span>-C<span class="w"> </span><span class="s2">"</span><span class="nv">$install_dir</span><span class="s2">"</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>sudo<span class="w"> </span>install<span class="w"> </span>-m<span class="w"> </span><span class="m">755</span><span class="w"> </span><span class="s2">"</span><span class="nv">$install_dir</span><span class="s2">/redisctl"</span><span class="w"> </span>/usr/local/bin/redisctl
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nv">install_dir</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>mktemp<span class="w"> </span>-d<span class="k">)</span><span class="s2">"</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>curl<span class="w"> </span>-fL<span class="w"> </span>https://github.com/redis/redisctl/releases/download/redisctl-v0.12.1/redisctl-aarch64-apple-darwin.tar.xz<span class="w"> </span>-o<span class="w"> </span><span class="s2">"</span><span class="nv">$install_dir</span><span class="s2">/redisctl.tar.xz"</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>tar<span class="w"> </span>-xJf<span class="w"> </span><span class="s2">"</span><span class="nv">$install_dir</span><span class="s2">/redisctl.tar.xz"</span><span class="w"> </span>--strip-components<span class="o">=</span><span class="m">1</span><span class="w"> </span>-C<span class="w"> </span><span class="s2">"</span><span class="nv">$install_dir</span><span class="s2">"</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>sudo<span class="w"> </span>install<span class="w"> </span>-m<span class="w"> </span><span class="m">755</span><span class="w"> </span><span class="s2">"</span><span class="nv">$install_dir</span><span class="s2">/redisctl"</span><span class="w"> </span>/usr/local/bin/redisctl
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nv">install_dir</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>mktemp<span class="w"> </span>-d<span class="k">)</span><span class="s2">"</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>curl<span class="w"> </span>-fL<span class="w"> </span>https://github.com/redis/redisctl/releases/download/redisctl-v0.12.1/redisctl-x86_64-apple-darwin.tar.xz<span class="w"> </span>-o<span class="w"> </span><span class="s2">"</span><span class="nv">$install_dir</span><span class="s2">/redisctl.tar.xz"</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>tar<span class="w"> </span>-xJf<span class="w"> </span><span class="s2">"</span><span class="nv">$install_dir</span><span class="s2">/redisctl.tar.xz"</span><span class="w"> </span>--strip-components<span class="o">=</span><span class="m">1</span><span class="w"> </span>-C<span class="w"> </span><span class="s2">"</span><span class="nv">$install_dir</span><span class="s2">"</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>sudo<span class="w"> </span>install<span class="w"> </span>-m<span class="w"> </span><span class="m">755</span><span class="w"> </span><span class="s2">"</span><span class="nv">$install_dir</span><span class="s2">/redisctl"</span><span class="w"> </span>/usr/local/bin/redisctl
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nv">install_dir</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span>mktemp<span class="w"> </span>-d<span class="k">)</span><span class="s2">"</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>curl<span class="w"> </span>-fL<span class="w"> </span>https://github.com/redis/redisctl/releases/download/redisctl-v0.12.1/redisctl-aarch64-apple-darwin.tar.xz<span class="w"> </span>-o<span class="w"> </span><span class="s2">"</span><span class="nv">$install_dir</span><span class="s2">/redisctl.tar.xz"</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>tar<span class="w"> </span>-xJf<span class="w"> </span><span class="s2">"</span><span class="nv">$install_dir</span><span class="s2">/redisctl.tar.xz"</span><span class="w"> </span>--strip-components<span class="o">=</span><span class="m">1</span><span class="w"> </span>-C<span class="w"> </span><span class="s2">"</span><span class="nv">$install_dir</span><span class="s2">"</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>sudo<span class="w"> </span>install<span class="w"> </span>-m<span class="w"> </span><span class="m">755</span><span class="w"> </span><span class="s2">"</span><span class="nv">$install_dir</span><span class="s2">/redisctl"</span><span class="w"> </span>/usr/local/bin/redisctl
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -3785,29 +3833,29 @@ extract it, and add the directory containing <code>redisctl.exe</code> to your P
 </div>
 </div>
 <h2 id="verify-installation">Verify Installation<a class="headerlink" href="#verify-installation" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>redisctl<span class="w"> </span>--version
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>redisctl<span class="w"> </span>--version
 </span></code></pre></div>
 <p>For the 0.12.1 binary download examples above, the expected output is:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>redisctl 0.12.1
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>redisctl 0.12.1
 </span></code></pre></div>
 <h2 id="shell-completions">Shell Completions<a class="headerlink" href="#shell-completions" title="Permanent link">&para;</a></h2>
 <p>Generate shell completions for tab completion:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Bash</label><label for="__tabbed_2_2">Zsh</label><label for="__tabbed_2_3">Fish</label><label for="__tabbed_2_4">PowerShell</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>redisctl<span class="w"> </span>completions<span class="w"> </span>bash<span class="w"> </span>&gt;<span class="w"> </span>~/.local/share/bash-completion/completions/redisctl
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>redisctl<span class="w"> </span>completions<span class="w"> </span>bash<span class="w"> </span>&gt;<span class="w"> </span>~/.local/share/bash-completion/completions/redisctl
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>redisctl<span class="w"> </span>completions<span class="w"> </span>zsh<span class="w"> </span>&gt;<span class="w"> </span>~/.zfunc/_redisctl
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>redisctl<span class="w"> </span>completions<span class="w"> </span>zsh<span class="w"> </span>&gt;<span class="w"> </span>~/.zfunc/_redisctl
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>redisctl<span class="w"> </span>completions<span class="w"> </span>fish<span class="w"> </span>&gt;<span class="w"> </span>~/.config/fish/completions/redisctl.fish
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>redisctl<span class="w"> </span>completions<span class="w"> </span>fish<span class="w"> </span>&gt;<span class="w"> </span>~/.config/fish/completions/redisctl.fish
 </span></code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="language-powershell highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">redisctl</span> <span class="n">completions</span> <span class="n">powershell</span> <span class="p">&gt;&gt;</span> <span class="nv">$PROFILE</span>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">redisctl</span> <span class="n">completions</span> <span class="n">powershell</span> <span class="p">&gt;&gt;</span> <span class="nv">$PROFILE</span>
 </span></code></pre></div>
 </div>
 </div>
