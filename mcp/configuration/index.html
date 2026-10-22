@@ -3016,6 +3016,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Safety Tiers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#protected-config-set-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protected CONFIG SET parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3940,6 +3957,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Safety Tiers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#protected-config-set-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protected CONFIG SET parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -4436,6 +4470,16 @@ when selected explicitly with <code>--tools</code>.</p>
 </table>
 <p>The <code>--read-only</code> CLI flag maps to read-only (<code>true</code>, default) and full (<code>false</code>) tiers. For the intermediate read-write tier, use a policy file.</p>
 <p>Tools that fall outside the active tier are hidden from the AI and return an "unauthorized" error if called directly.</p>
+<h3 id="protected-config-set-parameters">Protected <code>CONFIG SET</code> parameters<a class="headerlink" href="#protected-config-set-parameters" title="Permanent link">&para;</a></h3>
+<p><code>redis_config_set</code> is a write tool (available from the read-write tier up). Regardless of tier, it refuses security-sensitive parameters with a <code>config parameter '&lt;name&gt;' is blocked for safety</code> error before sending anything to Redis. The protected groups are:</p>
+<ul>
+<li>authentication (<code>requirepass</code>, <code>masterauth</code>, <code>masteruser</code>, <code>aclfile</code>)</li>
+<li>persistence paths and process settings (<code>dir</code>, <code>dbfilename</code>, <code>appendfilename</code>, <code>pidfile</code>, <code>logfile</code>, <code>unixsocket</code>, ...)</li>
+<li>bind, port and TLS settings</li>
+<li>replication topology (<code>replicaof</code>, <code>slaveof</code>)</li>
+<li>command-surface switches (<code>rename-command</code>, <code>enable-debug-command</code>, <code>enable-module-command</code>, <code>enable-protected-configs</code>, <code>loadmodule</code>, <code>include</code>)</li>
+</ul>
+<p>Operational parameters such as <code>maxmemory</code>, <code>maxmemory-policy</code>, <code>slowlog-log-slower-than</code>, <code>save</code> and <code>appendonly</code> remain settable. <code>redis_command</code>, alias and bulk-load paths apply the same refusal to <code>CONFIG SET</code>.</p>
 <h2 id="policy-files">Policy Files<a class="headerlink" href="#policy-files" title="Permanent link">&para;</a></h2>
 <p>Policy files give you granular control beyond the <code>--read-only</code> flag. A policy file is a TOML document that configures the safety tier, per-toolset overrides, explicit allow/deny lists, tool visibility presets, and audit logging.</p>
 <div class="admonition warning">
