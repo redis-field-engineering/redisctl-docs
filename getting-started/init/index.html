@@ -752,6 +752,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pinned-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pinned tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exit-codes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3674,6 +3685,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pinned-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pinned tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exit-codes" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3750,7 +3772,9 @@ directory to a validated database with the project wired.</p>
    <code>--cloud</code> answer the question up front.</li>
 <li><strong>Wires the project</strong>: <code>REDIS_URL</code> written to <code>.env</code> (an explicit database
    choice replaces an existing value), a committed <code>.env.example</code> placeholder, a <code>.gitignore</code> guard,
-   the official Redis client for the detected runtime, and redis-cli when missing.</li>
+   the official Redis client for the detected runtime, and redis-cli when missing
+   (on a terminal init asks first; otherwise it prints the install command unless
+   <code>--install-cli</code> is passed).</li>
 <li><strong>Teaches the agents</strong>: the official <a href="https://github.com/redis/agent-skills">redis/agent-skills</a>
    via the standard skills CLI, a generated <code>redis-project-setup</code> skill carrying this
    project's specific facts, and a credential-free <code>redis</code> MCP server registration
@@ -3797,6 +3821,10 @@ up before.</p>
 <tr>
 <td><code>--no-install-cli</code></td>
 <td>skip installing redis-cli when it is missing</td>
+</tr>
+<tr>
+<td><code>--install-cli</code></td>
+<td>install a missing redis-cli without asking. On a terminal init asks before running the official installer from packages.redis.io; a run with nothing to ask (piped stdin, <code>CI</code> set, or <code>--defaults</code>) only prints the install command unless this flag is set</td>
 </tr>
 <tr>
 <td><code>--skills-repo &lt;dir&gt;</code></td>
@@ -3867,6 +3895,18 @@ git decides whether <code>.env</code> is already ignored. A <code>.env</code> th
 init's keys on more than one line is refused too: dotenv loaders read the last line,
 and so does the MCP launcher. With <code>--cloud</code>, these checks and every other check on
 the project's files run before Redis Cloud is asked for a database.</p>
+<h2 id="pinned-tools">Pinned tools<a class="headerlink" href="#pinned-tools" title="Permanent link">&para;</a></h2>
+<p>The MCP configs launch exact releases: redis-mcp-server through uvx, the <code>mcp/redis</code>
+image by digest when uvx is missing, and mcp-remote for Context Retriever. init itself
+runs a pinned skills CLI, and tells the redis-cli installer which version to fetch (a
+<code>REDIS_CLI_VERSION</code> you export wins). Only those packages are pinned: uvx and npx
+resolve their dependencies the first time a machine runs them, while the Docker image
+carries its own locked set. The versions are in the generated configs and can move with
+a redisctl release: after upgrading, run <code>redisctl init</code> again to refresh them (add
+<code>--complete</code> when Context Retriever is set up). The redis/agent-skills content itself
+comes from that repository's default branch.</p>
+<p>init fetches the redis-cli installer script over https only. The script's own
+downloads, and its checksum check against a file on the same server, are its own.</p>
 <h2 id="exit-codes">Exit codes<a class="headerlink" href="#exit-codes" title="Permanent link">&para;</a></h2>
 <p>Built on the standard <code>redisctl</code> <a href="../../reference/agent-error-codes/#exit-codes">exit codes</a>:</p>
 <table>
