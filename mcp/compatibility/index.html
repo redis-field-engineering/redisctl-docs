@@ -3034,6 +3034,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#pre-10-migration-strict-tool-inputs-and-aggregation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pre-1.0 migration: strict tool inputs and aggregation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#security-exception-arbitrary-redis-command-surfaces" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3703,6 +3714,17 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#pre-10-migration-strict-tool-inputs-and-aggregation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pre-1.0 migration: strict tool inputs and aggregation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#security-exception-arbitrary-redis-command-surfaces" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3787,7 +3809,7 @@
 documented feature set. The all-features catalog is recorded in
 <a href="https://github.com/redis/redisctl/blob/main/crates/redisctl-mcp/tests/fixtures/mcp-catalog-v1.json"><code>mcp-catalog-v1.json</code></a>
 and checked in CI.</p>
-<p>The current all-features baseline contains 375 tools:</p>
+<p>The current all-features baseline contains 377 tools:</p>
 <table>
 <thead>
 <tr>
@@ -3798,7 +3820,7 @@ and checked in CI.</p>
 <tbody>
 <tr>
 <td>Cloud</td>
-<td style="text-align: right;">148</td>
+<td style="text-align: right;">150</td>
 </tr>
 <tr>
 <td>Enterprise</td>
@@ -3909,6 +3931,53 @@ becomes part of the catalog contract.</p>
 from entering the stable catalog merely because it compiles. The failure explains the detected
 classification so the pull request can apply the appropriate SemVer, documentation, and migration
 treatment.</p>
+<h3 id="pre-10-migration-strict-tool-inputs-and-aggregation">Pre-1.0 migration: strict tool inputs and aggregation<a class="headerlink" href="#pre-10-migration-strict-tool-inputs-and-aggregation" title="Permanent link">&para;</a></h3>
+<p>The change in <a href="https://github.com/redis/redisctl/pull/1225">PR #1225</a> intentionally
+tightens input acceptance before 1.0. Unknown properties in application tool inputs and typed
+nested argument objects now produce an <code>Invalid input: unknown field ...</code> error instead of being
+silently ignored. This is a breaking input-acceptance change, not merely an additive schema
+refresh. It affects 375 application/tool inputs in this baseline; the two system tools are
+unchanged. It does not change safety tiers or authorize additional operations.</p>
+<p>Clients adopting a build with this change should:</p>
+<ol>
+<li>Refresh MCP <code>tools/list</code> schemas and validate arguments against the tools actually exposed.
+   Correct misspelled fields such as <code>groupby</code> to <code>group_by</code>; do not retry the same invalid input.</li>
+<li>Keep tracing labels and other client metadata outside tool arguments. Remove undeclared
+   properties from typed nested arguments too, such as entries in an alias's <code>commands</code> array.</li>
+<li>Preserve application data inside documented payload fields. Arbitrary JSON inside raw API
+   <code>body</code> values and arbitrary keys in declared string maps (for example <code>redis_hset.fields</code>)
+   remain data, not unknown tool arguments. Their existing value types and upstream validation
+   still apply. Do not move metadata into a data payload merely to evade input validation.</li>
+</ol>
+<p><code>redis_ft_aggregate</code> also changes intentionally:</p>
+<ul>
+<li>Calls with only <code>index</code> and <code>query</code> (including pagination-only calls) now fail with pipeline
+  guidance. Use <code>redis_ft_search</code> for a document search, or provide aggregation stages.</li>
+<li><code>reduce</code> takes <strong>one reducer specification per string</strong>, not one token per entry. For example:</li>
+</ul>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">"index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"idx:products"</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">"query"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*"</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">"group_by"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"@category"</span><span class="p">],</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">"reduce"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"COUNT 0 AS count"</span><span class="p">],</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nt">"sort_by"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"@count"</span><span class="p">,</span><span class="w"> </span><span class="s2">"DESC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"MAX"</span><span class="p">,</span><span class="w"> </span><span class="s2">"10"</span><span class="p">],</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="nt">"limit_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<ul>
+<li>Structured stages run in this order: <code>LOAD</code>, <code>GROUPBY/REDUCE</code>, <code>raw_args</code>, <code>SORTBY</code>, <code>LIMIT</code>.
+  Reducer strings are whitespace-tokenized, not shell-quoted. For tokens containing whitespace,
+  or <code>APPLY</code>/<code>FILTER</code> stages needed before grouping, supply the complete ordered pipeline through
+  <code>raw_args</code> and omit the corresponding structured stages. Each raw array element is one token.</li>
+<li><code>sort_by</code> accepts properties with optional <code>ASC</code>/<code>DESC</code> and an optional trailing <code>MAX</code> count.
+  Use explicit <code>@max</code>, <code>@asc</code> or <code>@desc</code> for keyword-named sort properties to avoid ambiguity.</li>
+<li>The text heading is now <code>Results: N</code>, counting rows returned, not all matched documents or an
+  unpaginated total. Clients that parse the previous heading must adapt. This does not add cursor
+  support or make free-form text a structured output schema.</li>
+</ul>
+<p>This pre-1.0 decision does not weaken the 1.x compatibility rules above. Released versions without
+the change keep their existing behavior; check the release notes and discovered schemas when
+upgrading.</p>
 <h3 id="security-exception-arbitrary-redis-command-surfaces">Security exception: arbitrary Redis command surfaces<a class="headerlink" href="#security-exception-arbitrary-redis-command-surfaces" title="Permanent link">&para;</a></h3>
 <p><code>redis_alias_run</code> was previously advertised as read-only and idempotent, and <code>redis_bulk_load</code> as
 non-destructive, even though either tool can execute commands that delete data. Both execution
@@ -3937,7 +4006,7 @@ rename or remove a tool or change its input schema.</p>
 <ol>
 <li>Run the contract test without updating the fixture and inspect its classification:</li>
 </ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cargo<span class="w"> </span><span class="nb">test</span><span class="w"> </span>-p<span class="w"> </span>redisctl-mcp<span class="w"> </span>--all-features<span class="w"> </span>mcp_catalog_matches_1_0_baseline
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cargo<span class="w"> </span><span class="nb">test</span><span class="w"> </span>-p<span class="w"> </span>redisctl-mcp<span class="w"> </span>--all-features<span class="w"> </span>mcp_catalog_matches_1_0_baseline
 </span></code></pre></div>
 <ol>
 <li>Apply the compatibility policy. For an incompatible 1.x change, retain the old tool or input and
@@ -3945,8 +4014,8 @@ rename or remove a tool or change its input schema.</p>
 <li>For an accepted additive change, or while deliberately preparing the pre-1.0 baseline, refresh
    the fixture:</li>
 </ol>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">UPDATE_MCP_CATALOG</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>cargo<span class="w"> </span><span class="nb">test</span><span class="w"> </span>-p<span class="w"> </span>redisctl-mcp<span class="w"> </span>--all-features<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>mcp_catalog_matches_1_0_baseline
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nv">UPDATE_MCP_CATALOG</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>cargo<span class="w"> </span><span class="nb">test</span><span class="w"> </span>-p<span class="w"> </span>redisctl-mcp<span class="w"> </span>--all-features<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span>mcp_catalog_matches_1_0_baseline
 </span></code></pre></div>
 <ol>
 <li>Review the fixture diff. Update the tools reference, release notes, policy examples, bundled
