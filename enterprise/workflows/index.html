@@ -3771,13 +3771,16 @@
 <h2 id="init-cluster">Init Cluster<a class="headerlink" href="#init-cluster" title="Permanent link">&para;</a></h2>
 <p>Initialize a new cluster:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>redisctl<span class="w"> </span>enterprise<span class="w"> </span>workflow<span class="w"> </span>init-cluster<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span>--license-file<span class="w"> </span>./license.txt<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span>--cluster-name<span class="w"> </span>production
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span>--name<span class="w"> </span>production<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span>--username<span class="w"> </span>admin@example.com<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span>--password<span class="w"> </span><span class="s2">"</span><span class="nv">$REDIS_ENTERPRISE_INIT_PASSWORD</span><span class="s2">"</span>
 </span></code></pre></div>
 <p>This:
-1. Uploads the license
-2. Configures the cluster name
-3. Waits for initialization</p>
+1. Bootstraps the cluster with the given name and admin credentials
+2. Waits until the API reports the bootstrap as completed
+3. Creates a default database (<code>--skip-database</code> to skip; <code>--database-name</code> and
+   <code>--database-memory-gb</code> adjust it)</p>
+<p>To choose the database's Redis version, the workflow asks the cluster which versions its nodes support and requests the highest. Right after bootstrap the REST API can answer <code>401</code> for a few seconds while authentication comes up, so discovery retries for about 30 seconds before giving up; a cluster that keeps refusing is reported as an error rather than guessed at. If the cluster answers but advertises no supported version, the workflow prints a note and creates the database with the cluster default. Pass <code>--database-redis-version MAJOR.MINOR</code> to pin a version; an explicit value skips discovery and is validated strictly.</p>
 <h2 id="when-to-use-workflows">When to Use Workflows<a class="headerlink" href="#when-to-use-workflows" title="Permanent link">&para;</a></h2>
 <p><strong>Use workflows when:</strong>
 - Initial cluster setup
