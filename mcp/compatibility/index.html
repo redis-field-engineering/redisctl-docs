@@ -3045,6 +3045,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#credential-values-in-database-read-responses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Credential values in database read responses
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#security-exception-arbitrary-redis-command-surfaces" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3725,6 +3736,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#credential-values-in-database-read-responses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Credential values in database read responses
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#security-exception-arbitrary-redis-command-surfaces" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3978,6 +4000,24 @@ unchanged. It does not change safety tiers or authorize additional operations.</
 <p>This pre-1.0 decision does not weaken the 1.x compatibility rules above. Released versions without
 the change keep their existing behavior; check the release notes and discovered schemas when
 upgrading.</p>
+<h3 id="credential-values-in-database-read-responses">Credential values in database read responses<a class="headerlink" href="#credential-values-in-database-read-responses" title="Permanent link">&para;</a></h3>
+<p>Enterprise <code>list_enterprise_databases</code> and <code>get_enterprise_database</code> now replace populated
+<code>authentication_redis_pass</code>, <code>authentication_admin_pass</code>, and <code>authentication_sasl_pass</code> values
+with <code>[REDACTED]</code> before constructing either MCP text or structured content. Database identifiers,
+health/security flags, usernames, filtering and result counts remain available. Null and empty
+credential values retain their existing representation, so an unset credential is not reported
+as a populated one. Existing nested credential-name and Redis URL redaction is also applied.</p>
+<p><code>redis_config_get</code> similarly redacts populated <code>requirepass</code>, <code>masterauth</code>, <code>tls-key-file-pass</code>,
+and <code>tls-client-key-file-pass</code> values. Redaction uses the returned parameter names, including
+wildcard results; parameter labels/counts, empty values and non-secret configuration values
+remain available. These names cover the sensitive password/passphrase parameters in Redis 8.2;
+they are not a promise that arbitrary module configuration or all future parameters are safe.</p>
+<p>This is intentional output-compatibility tightening. Clients must treat <code>[REDACTED]</code> as a display
+marker, never as a reusable credential. Workflows that previously retrieved credentials through
+these MCP reads must use a separate authorized credential-management channel. There is no
+model-visible secret-display override. This change does not modify CLI/API-client output,
+credential storage, audit behavior, tool schemas, policy tiers or connection selection, nor does
+it certify other read-only tools or raw API responses as secret-free.</p>
 <h3 id="security-exception-arbitrary-redis-command-surfaces">Security exception: arbitrary Redis command surfaces<a class="headerlink" href="#security-exception-arbitrary-redis-command-surfaces" title="Permanent link">&para;</a></h3>
 <p><code>redis_alias_run</code> was previously advertised as read-only and idempotent, and <code>redis_bulk_load</code> as
 non-destructive, even though either tool can execute commands that delete data. Both execution
