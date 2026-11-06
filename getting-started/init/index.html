@@ -741,6 +741,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#cloud-endpoint-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud endpoint DNS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#credentials" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3674,6 +3685,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#cloud-endpoint-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloud endpoint DNS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#credentials" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3885,6 +3907,16 @@ up before.</p>
 </tr>
 </tbody>
 </table>
+<h2 id="cloud-endpoint-dns">Cloud endpoint DNS<a class="headerlink" href="#cloud-endpoint-dns" title="Permanent link">&para;</a></h2>
+<p>Before connecting to a Cloud database, init checks its authoritative DNS record.
+A confirmed missing record is polled on a 150-second deadline (a query in flight
+can finish after that deadline). A timeout, refusal or other DNS
+infrastructure failure after a confirmed missing record does not end polling.
+On the first check, such a failure is not reported as a missing record: init
+continues to normal connection validation. Newly created databases wait one
+additional 3-second interval first; reused databases do not. That short
+wait does not guarantee propagation. A visible record proceeds immediately.
+User-supplied URLs and literal addresses do not use this gate.</p>
 <h2 id="credentials">Credentials<a class="headerlink" href="#credentials" title="Permanent link">&para;</a></h2>
 <p><code>.env</code> is the only file that ever holds the connection string. The MCP configs and
 the generated skill are credential-free and safe to commit: the MCP launcher reads
