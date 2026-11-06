@@ -3943,7 +3943,7 @@ downloads, and its checksum check against a file on the same server, are its own
 </tr>
 <tr>
 <td>4</td>
-<td>Redis Cloud rejected the API keys</td>
+<td>Redis Cloud rejected the API keys, or Redis rejected authentication during database validation</td>
 </tr>
 <tr>
 <td>5</td>
@@ -3959,7 +3959,7 @@ downloads, and its checksum check against a file on the same server, are its own
 </tr>
 <tr>
 <td>8</td>
-<td>any other Redis Cloud API or server error</td>
+<td>any other Redis Cloud API or server error, including a refused database self-check command or an unsuccessful PING or SET/GET round trip</td>
 </tr>
 <tr>
 <td>9</td>
@@ -3967,7 +3967,7 @@ downloads, and its checksum check against a file on the same server, are its own
 </tr>
 <tr>
 <td>10</td>
-<td>database validation failed: connection/DNS failure, a refused self-check command, or an unsuccessful PING or SET/GET round trip</td>
+<td>database validation connection/DNS failure, or the connection failed or timed out during the self-check</td>
 </tr>
 <tr>
 <td>12</td>
