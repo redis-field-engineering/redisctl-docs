@@ -3779,7 +3779,12 @@ directory to a validated database with the project wired.</p>
    via the standard skills CLI, a generated <code>redis-project-setup</code> skill carrying this
    project's specific facts, and a credential-free <code>redis</code> MCP server registration
    per agent config.</li>
-<li><strong>Proves it works</strong>: a live PING and SET/GET round trip.</li>
+<li><strong>Proves it works</strong>: a live PING and SET/GET round trip on a per-run
+   <code>redisctl:selfcheck:&lt;uuid&gt;</code> key. SET uses NX to avoid overwriting an existing key
+   and a 60-second TTL. init attempts DEL after GET, including command refusals;
+   if cleanup is denied or the connection drops, the TTL removes the key.
+   Validation requires write access. Command refusals such as NOPERM, READONLY,
+   OOM and Cluster redirects get their own remedies, rather than stale-URL advice.</li>
 </ol>
 <p>Re-running with the same choices preserves the existing setup. An explicit database
 choice replaces <code>REDIS_URL</code>; other env values are kept, including placeholders
@@ -3962,7 +3967,7 @@ downloads, and its checksum check against a file on the same server, are its own
 </tr>
 <tr>
 <td>10</td>
-<td>the database cannot be reached (for a stale <code>.env</code> value, the message names it)</td>
+<td>database validation failed: connection/DNS failure, a refused self-check command, or an unsuccessful PING or SET/GET round trip</td>
 </tr>
 <tr>
 <td>12</td>
