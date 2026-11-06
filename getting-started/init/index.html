@@ -3893,8 +3893,11 @@ that is a symlink, and a <code>.env</code> that is the same file as <code>.env.e
 put the password in a committed file or leave <code>.env</code> unignored. In a git repository,
 git decides whether <code>.env</code> is already ignored. A <code>.env</code> that sets one of
 init's keys on more than one line is refused too: dotenv loaders read the last line,
-and so does the MCP launcher. With <code>--cloud</code>, these checks and every other check on
-the project's files run before Redis Cloud is asked for a database.</p>
+and so does the MCP launcher. With <code>--cloud</code>, these checks and the parent-directory
+checks for planned project files run before Redis Cloud is asked for a database.
+An existing file where an output needs a directory is refused without writing
+project files. Preflight does not reserve the paths: permissions or concurrent
+changes can still cause a write to fail later.</p>
 <h2 id="pinned-tools">Pinned tools<a class="headerlink" href="#pinned-tools" title="Permanent link">&para;</a></h2>
 <p>The MCP configs launch exact releases: redis-mcp-server through uvx, the <code>mcp/redis</code>
 image by digest when uvx is missing, and mcp-remote for Context Retriever. init itself
