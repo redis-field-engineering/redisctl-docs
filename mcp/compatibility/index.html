@@ -3066,6 +3066,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#pre-10-migration-unsupported-alert-acknowledgement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pre-1.0 migration: unsupported alert acknowledgement
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3757,6 +3768,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#pre-10-migration-unsupported-alert-acknowledgement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pre-1.0 migration: unsupported alert acknowledgement
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3831,7 +3853,7 @@
 documented feature set. The all-features catalog is recorded in
 <a href="https://github.com/redis/redisctl/blob/main/crates/redisctl-mcp/tests/fixtures/mcp-catalog-v1.json"><code>mcp-catalog-v1.json</code></a>
 and checked in CI.</p>
-<p>The current all-features baseline contains 377 tools:</p>
+<p>The current all-features baseline contains 376 tools:</p>
 <table>
 <thead>
 <tr>
@@ -3846,7 +3868,7 @@ and checked in CI.</p>
 </tr>
 <tr>
 <td>Enterprise</td>
-<td style="text-align: right;">85</td>
+<td style="text-align: right;">84</td>
 </tr>
 <tr>
 <td>Database</td>
@@ -3958,7 +3980,7 @@ treatment.</p>
 tightens input acceptance before 1.0. Unknown properties in application tool inputs and typed
 nested argument objects now produce an <code>Invalid input: unknown field ...</code> error instead of being
 silently ignored. This is a breaking input-acceptance change, not merely an additive schema
-refresh. It affects 375 application/tool inputs in this baseline; the two system tools are
+refresh. It affects application/tool inputs; the two system tools are
 unchanged. It does not change safety tiers or authorize additional operations.</p>
 <p>Clients adopting a build with this change should:</p>
 <ol>
@@ -4042,6 +4064,14 @@ entering through an alias or bulk batch.</p>
 </ul>
 <p>This exception makes the catalog more restrictive to close an authorization bypass. It does not
 rename or remove a tool or change its input schema.</p>
+<h3 id="pre-10-migration-unsupported-alert-acknowledgement">Pre-1.0 migration: unsupported alert acknowledgement<a class="headerlink" href="#pre-10-migration-unsupported-alert-acknowledgement" title="Permanent link">&para;</a></h3>
+<p><code>acknowledge_enterprise_alert</code> is removed from the catalog. Its
+<code>DELETE /v1/alerts/{uid}</code> route does not exist in the Enterprise REST API, which has no
+documented alert acknowledgement operation to substitute. This is an intentional breaking
+catalog removal before 1.0.</p>
+<p>Clients must refresh <code>tools/list</code> and remove calls to this tool from saved workflows. Use
+<code>list_alerts</code> to read the current cluster alert states. The remaining Enterprise observability
+tools remain available under their existing policy tiers.</p>
 <h2 id="reviewing-an-intentional-catalog-change">Reviewing an intentional catalog change<a class="headerlink" href="#reviewing-an-intentional-catalog-change" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Run the contract test without updating the fixture and inspect its classification:</li>

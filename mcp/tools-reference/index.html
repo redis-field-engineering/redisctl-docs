@@ -3262,15 +3262,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#enterprise-toolset-85-tools" class="md-nav__link">
+  <a href="#enterprise-toolset-84-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Enterprise Toolset (85 tools)
+        Enterprise Toolset (84 tools)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Enterprise Toolset (85 tools)">
+    <nav class="md-nav" aria-label="Enterprise Toolset (84 tools)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3307,10 +3307,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#enterpriseobservability-13-tools" class="md-nav__link">
+  <a href="#enterpriseobservability-12-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
-        enterprise:observability (13 tools)
+        enterprise:observability (12 tools)
       
     </span>
   </a>
@@ -4056,15 +4056,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#enterprise-toolset-85-tools" class="md-nav__link">
+  <a href="#enterprise-toolset-84-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Enterprise Toolset (85 tools)
+        Enterprise Toolset (84 tools)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Enterprise Toolset (85 tools)">
+    <nav class="md-nav" aria-label="Enterprise Toolset (84 tools)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -4101,10 +4101,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#enterpriseobservability-13-tools" class="md-nav__link">
+  <a href="#enterpriseobservability-12-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
-        enterprise:observability (13 tools)
+        enterprise:observability (12 tools)
       
     </span>
   </a>
@@ -4369,7 +4369,7 @@
 
 
 <h1 id="tools-reference">Tools Reference<a class="headerlink" href="#tools-reference" title="Permanent link">&para;</a></h1>
-<p>The redisctl MCP server exposes <strong>377 tools</strong> across 4 toolsets and 2 system tools for managing Redis Cloud, Redis Enterprise, and direct database operations. The machine-checked <a href="../compatibility/">MCP catalog</a> is the compatibility source of truth.</p>
+<p>The redisctl MCP server exposes <strong>376 tools</strong> across 4 toolsets and 2 system tools for managing Redis Cloud, Redis Enterprise, and direct database operations. The machine-checked <a href="../compatibility/">MCP catalog</a> is the compatibility source of truth.</p>
 <p>Tools are organized into <strong>toolsets</strong> (Cloud, Enterprise, Database, App) and further into <strong>sub-modules</strong> that can be selectively loaded with the <a href="../configuration/#the-tools-flag"><code>--tools</code> flag</a>.</p>
 <p>Tools that modify state require <code>--read-only=false</code> or an appropriate <a href="../configuration/#safety-tiers">safety tier</a>.</p>
 <p>For the default legacy database backend, configure a Redis URL with
@@ -4624,7 +4624,7 @@ free database without a subscription of its own.</p>
 </tr>
 </tbody>
 </table>
-<h2 id="enterprise-toolset-85-tools">Enterprise Toolset (85 tools)<a class="headerlink" href="#enterprise-toolset-85-tools" title="Permanent link">&para;</a></h2>
+<h2 id="enterprise-toolset-84-tools">Enterprise Toolset (84 tools)<a class="headerlink" href="#enterprise-toolset-84-tools" title="Permanent link">&para;</a></h2>
 <p>Redis Enterprise cluster management tools. Select with <code>--tools enterprise</code> or target specific sub-modules.</p>
 <h3 id="enterprisecluster-23-tools"><code>enterprise:cluster</code> (23 tools)<a class="headerlink" href="#enterprisecluster-23-tools" title="Permanent link">&para;</a></h3>
 <p>Cluster-level configuration -- license management, cluster policies, maintenance mode, TLS certificates, services, and node lifecycle.</p>
@@ -4754,7 +4754,7 @@ free database without a subscription of its own.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="enterpriseobservability-13-tools"><code>enterprise:observability</code> (13 tools)<a class="headerlink" href="#enterpriseobservability-13-tools" title="Permanent link">&para;</a></h3>
+<h3 id="enterpriseobservability-12-tools"><code>enterprise:observability</code> (12 tools)<a class="headerlink" href="#enterpriseobservability-12-tools" title="Permanent link">&para;</a></h3>
 <p>Monitoring -- alerts, audit logs, aggregate stats for nodes/databases/shards, and module listing.</p>
 <table>
 <thead>
@@ -4767,10 +4767,6 @@ free database without a subscription of its own.</p>
 <tr>
 <td><code>list_alerts</code></td>
 <td>List cluster alert states keyed by alert name</td>
-</tr>
-<tr>
-<td><code>acknowledge_enterprise_alert</code></td>
-<td>Acknowledge an alert <em>(write)</em></td>
 </tr>
 <tr>
 <td><code>list_logs</code></td>
@@ -5339,8 +5335,8 @@ classification and blocking rules.</p>
 </tr>
 <tr>
 <td>Enterprise</td>
-<td><code>cluster</code> (23), <code>databases</code> (19), <code>rbac</code> (19), <code>observability</code> (13), <code>proxy</code> (3), <code>services</code> (7), <code>raw</code> (1)</td>
-<td><strong>85</strong></td>
+<td><code>cluster</code> (23), <code>databases</code> (19), <code>rbac</code> (19), <code>observability</code> (12), <code>proxy</code> (3), <code>services</code> (7), <code>raw</code> (1)</td>
+<td><strong>84</strong></td>
 </tr>
 <tr>
 <td>Database</td>
@@ -5360,7 +5356,7 @@ classification and blocking rules.</p>
 <tr>
 <td><strong>Total</strong></td>
 <td></td>
-<td><strong>375</strong></td>
+<td><strong>374</strong></td>
 </tr>
 </tbody>
 </table>
